@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '*/15 * * * *'   # GitHub may run scheduled jobs a few minutes late at busy times
   workflow_dispatch: {}      # "Run workflow" button for a manual scan
+  push:                      # also scan right after code changes (the bot's own data commits don't trigger this)
+    branches: [main]
+    paths-ignore: ['docs/data/**', '**.md']
 
 permissions:
   contents: write
