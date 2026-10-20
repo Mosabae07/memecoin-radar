@@ -1,24 +1,28 @@
 name: scan
 
+# Runs in "shifts": each run scans every 15 minutes for about 5.5 hours, then starts the next shift itself.
+# GitHub's own scheduler can be slow or skip runs on new repos, so the shifts keep the radar going 24/7;
+# the hourly schedule below only restarts things if a shift ever dies.
 on:
   schedule:
-    - cron: '*/15 * * * *'   # GitHub may run scheduled jobs a few minutes late at busy times
-  workflow_dispatch: {}      # "Run workflow" button for a manual scan
-  push:                      # also scan right after code changes (the bot's own data commits don't trigger this)
+    - cron: '7 * * * *'      # safety net: restarts the shift chain if it ever stops
+  workflow_dispatch: {}      # "Run workflow" button, and how each shift starts the next
+  push:                      # code changes start a scan straight away (the bot's own data commits don't trigger this)
     branches: [main]
     paths-ignore: ['docs/data/**', '**.md']
 
 permissions:
-  contents: write
+  contents: write            # save scan results
+  actions: write             # start the next shift
 
 concurrency:
-  group: scan
+  group: scan                # only one shift at a time; extra triggers wait their turn
   cancel-in-progress: false
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -29,19 +33,25 @@ jobs:
       - name: Test the rules
         run: node --test tests/*.test.mjs
 
-      - name: Scan
-        run: node radar/scan.mjs
-
-      - name: Save results
+      - name: Scan every 15 minutes for about 5.5 hours
         run: |
           git config user.name  "radar-bot"
           git config user.email "radar-bot@users.noreply.github.com"
-          git add docs/data
-          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
-          git commit -q -m "scan $(date -u +%Y-%m-%dT%H:%MZ)"
-          # the laptop X reader also pushes docs/data/buzz.json, so rebase before pushing
-          for i in 1 2 3; do
-            git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q && exit 0
-            sleep 5
+          end=$((SECONDS + 5*3600 + 30*60))
+          while :; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" || true   # picks up code changes mid-shift
+            node radar/scan.mjs || echo "::warning::scan failed, retrying next round"
+            git add docs/data
+            if ! git diff --cached --quiet; then
+              git commit -q -m "scan $(date -u +%Y-%m-%dT%H:%MZ)"
+              for i in 1 2 3; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q && break; sleep 5; done
+            fi
+            [ "$SECONDS" -ge "$end" ] && break
+            sleep 840
           done
-          exit 1
+
+      - name: Start the next shift
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run scan.yml --ref "${GITHUB_REF_NAME}"

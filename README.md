@@ -66,13 +66,13 @@ tests/                        offline tests on real captured market data (node -
 
 1. **Repo.** Push this folder to a public GitHub repo. Public repos get unlimited free Actions minutes and free Pages hosting.
 2. **Dashboard.** Repo → Settings → Pages → Source: *Deploy from a branch*, Branch: `main`, folder `/docs`. It appears at `https://<you>.github.io/memecoin-radar/`.
-3. **Scanner.** Repo → Actions → enable workflows → *scan* → **Run workflow** once. After that it runs every 15 minutes on its own.
+3. **Scanner.** It starts by itself on the first push. Each run is a ~5.5-hour shift that scans every 15 minutes and then starts the next shift, so it runs 24/7 without relying on GitHub's scheduler (which can be slow to start on new repos). An hourly schedule restarts the chain if a shift ever fails. To restart by hand: Actions → *scan* → **Run workflow**.
 4. **X buzz (optional, laptop).** Create a fine-grained token (GitHub → Settings → Developer settings → Fine-grained tokens; only this repo; *Contents: Read and write*). Copy the `laptop` folder to your laptop, double-click `setup_laptop.bat`, paste the token into the `.env` file it opens, and log in to X in the window that appears.
 
 ## Known limits
 
 - **X rules.** Reading X automatically breaks X's terms. The reader is slow and read-only (10 searches per run, random pauses), but your account could still be limited. Consider a spare account. If X blocks the hidden browser, set `HEADLESS=0` in `laptop/.env`.
 - **Timing.** GitHub can start scheduled runs a few minutes late, and prices are only checked every 15 minutes. Real entries and exits on fast coins would differ from the paper results.
-- **Pause after 60 days.** GitHub pauses schedules on repos with no activity for 60 days. The scan's own commits normally count as activity, but if it stops, re-enable it under Actions.
+- **Pause after 60 days.** GitHub can pause workflows on repos with no activity for 60 days. The scan's own commits count as activity, but if it ever stops, re-enable it under Actions.
 - **Live mode needs the browser to reach DexScreener and RugCheck directly.** Some ad or privacy blockers stop that; the page says so if scans keep failing.
 - **Solana only,** because the free scam checks (RugCheck) cover Solana.
