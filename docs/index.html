@@ -11,11 +11,12 @@
 <style>
 /* Memecoin Radar
    Three moods from the brief: liquid morph (the field behind everything), glassmorphism (every panel),
-   kinetic typography (the ticker and the hero call). Yellow is reserved for things that ask for action. */
+   kinetic typography (the ticker and the hero call). Orchid (the blobs' own highlight) is reserved for things that ask for action. */
 :root{
   --night:#0E0B2A; --night-2:#171340;
   --violet:#9B5CFF; --plasma:#4F7BFF; --rose:#FF4FB4;
-  --signal:#FFDD1F; --signal-ink:#14110A;
+  --signal:#F4B8FF; --signal-ink:#1B1450;
+  --kinetic:linear-gradient(125deg,#F8C9FF 0%,#DCC6FF 52%,#BCD0FF 100%);
   --text:#F3F1FF; --muted:#B4AEDB; --faint:#8C86B8;
   --up:#3DF5A0; --dn:#FF6B8B;
   --glass:rgba(255,255,255,.065); --glass-2:rgba(255,255,255,.11); --edge:rgba(255,255,255,.16); --edge-hi:rgba(255,255,255,.28);
@@ -57,7 +58,7 @@ a{color:var(--accent);text-decoration:none;text-underline-offset:3px} a:hover{te
   box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 18px 50px -24px rgba(5,3,25,.8)}
 
 /* ---------- kinetic ticker ---------- */
-.ticker{position:sticky;top:0;z-index:20;background:var(--signal);color:var(--signal-ink);overflow:hidden;white-space:nowrap;border-bottom:2px solid var(--signal-ink)}
+.ticker{position:sticky;top:0;z-index:20;background:var(--kinetic);color:var(--signal-ink);overflow:hidden;white-space:nowrap;border-bottom:2px solid var(--signal-ink)}
 .ticker .track{display:inline-flex;animation:tick 38s linear infinite;padding:7px 0}
 .ticker span{font:400 1.05rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em;padding-right:2.4em}
 .ticker span::after{content:'✳';margin-left:2.4em;font-family:var(--ui);font-size:.85em}
@@ -77,8 +78,10 @@ a{color:var(--accent);text-decoration:none;text-underline-offset:3px} a:hover{te
 
 /* hero: the radar's current call, in kinetic type */
 .hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;margin-bottom:16px}
-.call{position:relative;border-radius:var(--r-lg);background:var(--signal);color:var(--signal-ink);overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s,color .25s}
-.call.inv{background:var(--signal-ink);color:var(--signal)}
+.call{position:relative;border-radius:var(--r-lg);background:var(--kinetic);color:var(--signal-ink);overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:color .25s;isolation:isolate}
+.call::after{content:'';position:absolute;inset:0;z-index:-1;background:var(--signal-ink);opacity:0;transition:opacity .25s}
+.call.inv::after{opacity:1}
+.call.inv{color:var(--signal)}
 .call .strip{border-bottom:2px solid currentColor;white-space:nowrap;overflow:hidden}
 .call .strip .track{display:inline-flex;animation:tick 22s linear infinite;padding:9px 0}
 .call .strip span{font:400 1.05rem/1 var(--display);text-transform:uppercase;padding-right:1.6em}
@@ -90,7 +93,7 @@ a{color:var(--accent);text-decoration:none;text-underline-offset:3px} a:hover{te
 .call .count{font:400 var(--step-3)/1 var(--display);white-space:nowrap}
 
 .session{border-radius:var(--r-lg);padding:18px;display:flex;flex-direction:column;gap:14px}
-.session.on{border-color:rgba(255,221,31,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 0 0 1px rgba(255,221,31,.25), 0 18px 50px -24px rgba(5,3,25,.8)}
+.session.on{border-color:rgba(244,184,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 0 0 1px rgba(244,184,255,.25), 0 18px 50px -24px rgba(5,3,25,.8)}
 .session h2{margin:0}
 .session .info{font-size:var(--step-0);color:var(--muted)} .session .info b{color:var(--text)}
 .session .ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
@@ -107,7 +110,7 @@ button{font:700 var(--step--1) var(--ui);cursor:pointer;border-radius:999px;bord
 button:hover{background:rgba(255,255,255,.18)} button:active{transform:scale(.97)}
 button:disabled{opacity:.45;cursor:not-allowed}
 button.go{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}
-button.go:hover{background:#FFE75A}
+button.go:hover{background:#F9D4FF}
 button.stop{background:rgba(255,107,139,.18);border-color:rgba(255,107,139,.6);color:#FFD5DE}
 select,input[type=number]{font:600 var(--step--1) var(--ui);background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--edge);border-radius:999px;padding:9px 12px}
 select option{background:var(--night-2)}
@@ -124,7 +127,7 @@ h2 .n{font:400 .95rem/1 var(--display);color:var(--signal-ink);background:var(--
 /* coin cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
 .card{border-radius:var(--r-md);padding:16px 16px 14px;position:relative}
-.card:not(.wait){border-color:rgba(255,221,31,.55)}
+.card:not(.wait){border-color:rgba(244,184,255,.55)}
 .card:not(.wait)::before{content:'';position:absolute;inset:0 auto 0 0;width:4px;border-radius:var(--r-md) 0 0 var(--r-md);background:var(--signal)}
 .card.fresh{animation:fresh 2.6s ease-out}
 @keyframes fresh{0%{box-shadow:0 0 0 3px var(--signal), 0 0 40px var(--signal)}100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}}
@@ -177,7 +180,7 @@ p.note,.lim{color:var(--muted);font-size:var(--step--1)}
 .real .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
 .real .grid label{font-size:.75rem;font-weight:600;color:var(--muted);display:block}
 .real .grid input{width:100%;margin-top:5px}
-.real .ack{margin-top:14px;font-size:var(--step--1);color:#FFE98A;display:flex;gap:9px;align-items:flex-start;font-weight:600}
+.real .ack{margin-top:14px;font-size:var(--step--1);color:#F9D4FF;display:flex;gap:9px;align-items:flex-start;font-weight:600}
 .real .note{margin:10px 0 0}
 #quick-min{width:70px;padding:5px 10px}
 
