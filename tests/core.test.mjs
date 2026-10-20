@@ -177,3 +177,21 @@ test('runner saves outcomes, stats and the second paper ledger', async () => {
   assert.ok(st.tracking_now >= 3 && st.total.n === 0);
   await rm(dir, { recursive: true });
 });
+
+test('pump.fun feed: graduations and dev buys flow into reasons and tracked numbers', async () => {
+  const api = new FakeAPI();
+  const state = { watch: {} }, paper = { open: [], closed: [] };
+  const { latest } = await runScan({ get: api.get, sleep: noSleep, now: NOW, state, paper,
+    extraFound: { WISPpump: { sources: ['pump.fun graduation'], graduated_at: NOW - 6 * 60000 },
+                  LAURApump: { sources: ['pump.fun launch'], dev_buy_pct: 14.2, launched_at: NOW - 20 * 60000 } } });
+  const by = Object.fromEntries(latest.coins.map(c => [c.symbol, c]));
+  assert.ok(by.WiSP.reasons.some(r => r === 'graduated from pump.fun 6 min ago (now in an open pool)'));
+  assert.ok(by.WiSP.sources.includes('pump.fun graduation'));
+  assert.ok(by.Laura.concerns.some(w => w === 'creator bought 14% of supply at launch'));
+  assert.equal(state.tracking.WISPpump.feats.graduated_recently, 1);
+  assert.equal(state.tracking.LAURApump.feats.dev_buy_pct, 14.2);
+  // scores are unchanged by the feed: it informs, the tracking decides later whether it should count
+  const plain = await runScan({ get: new FakeAPI().get, sleep: noSleep, now: NOW, state: { watch: {} }, paper: { open: [], closed: [] } });
+  assert.equal(Object.fromEntries(plain.latest.coins.map(c => [c.symbol, c.score])).WiSP, by.WiSP.score);
+  assert.ok(themeWords({ name: 'Pepémon', symbol: 'PKMN', desc: 'every pokémon' }).includes('pokemon'));
+});

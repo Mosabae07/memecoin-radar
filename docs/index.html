@@ -121,6 +121,9 @@ label.chk{font-size:var(--step--1);color:var(--muted);display:inline-flex;gap:7p
 .themes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 6px;font-size:var(--step--1);color:var(--muted)}
 .chip{font:700 .8rem/1 var(--ui);color:var(--text);background:rgba(255,79,180,.16);border:1px solid rgba(255,79,180,.45);border-radius:999px;padding:6px 11px}
 .chip b{color:var(--signal);margin-left:5px}
+.chip.launch{background:rgba(79,123,255,.18);border-color:rgba(79,123,255,.5)}
+.feedline{font-size:var(--step--1);color:var(--muted);line-height:1.45}
+.feedline b{color:var(--text)}
 h2{font:800 var(--step-1)/1.2 var(--ui);letter-spacing:-.01em;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
 h2 .n{font:400 .95rem/1 var(--display);color:var(--signal-ink);background:var(--signal);border-radius:999px;padding:4px 9px 3px;min-width:26px;text-align:center}
 
@@ -243,7 +246,9 @@ code{font-size:.9em;color:var(--muted)}
           <option value="20">Every 20 s</option><option value="30" selected>Every 30 s</option><option value="60">Every 60 s</option>
         </select>
         <label class="chk"><input type="checkbox" id="sound" checked> Sound</label>
+        <label class="chk" title="Free live feed of every new pump.fun launch and graduation"><input type="checkbox" id="feed-on" checked> pump.fun feed</label>
       </div>
+      <div class="feedline" id="feed-info" hidden></div>
       <div class="err" id="sess-err" hidden></div>
       <div class="kpis" id="kpis"></div>
       <p class="warn"><b>Signals, not predictions.</b> Most new meme coins go to zero and many are rug pulls. A high score means momentum is building with no scam markers found, not that the price will rise. Paper-trade first. Not financial advice.</p>
@@ -251,6 +256,7 @@ code{font-size:.9em;color:var(--muted)}
   </section>
 
   <div class="themes" id="themes"></div>
+  <div class="themes" id="launch-themes" hidden></div>
 
   <details class="real" id="real">
     <summary>Real trading is <span id="real-state">off</span></summary>
@@ -306,7 +312,7 @@ code{font-size:.9em;color:var(--muted)}
 </div>
 
 <script type="module">
-import { runScan } from './radar-core.js';
+import { runScan, pairsFor, measure, themeWords, CFG } from './radar-core.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -476,6 +482,82 @@ async function loadStatic(){
   }
 }
 
+// ------------------------------------------------------------------ pump.fun live feed (free: launches + graduations)
+// Graduations go straight into the next scan. Launches are checked once at ~8 min old and again at ~30 min;
+// the ones that clear the size and activity floor join the watchlist minutes before DexScreener would list them.
+const F = { ws: null, on: false, state: 'off', retry: 0, launches: new Map(), grads: new Map(), nL: 0, nG: 0, passed: 0, since: 0 };
+function feedStart(){ if (!$('feed-on').checked || F.on) return; F.on = true; F.since = Date.now(); feedConnect(); }
+function feedStop(){ F.on = false; try { F.ws?.close(); } catch {} F.ws = null; F.state = 'off'; }
+function feedConnect(){
+  if (!F.on) return;
+  F.state = 'connecting';
+  let ws;
+  try { ws = new WebSocket('wss://pumpportal.fun/api/data'); } catch { return feedRetry(); }
+  F.ws = ws;
+  ws.onopen = () => { F.state = 'live'; F.retry = 0;
+    ws.send(JSON.stringify({ method: 'subscribeNewToken' })); ws.send(JSON.stringify({ method: 'subscribeMigration' })); };
+  ws.onmessage = e => {
+    let m; try { m = JSON.parse(e.data); } catch { return; }
+    const t = Date.now();
+    if (m.txType === 'create' && m.mint) {
+      F.nL++;
+      // pump.fun coins have 1 billion tokens; initialBuy is how many the creator took in the launch transaction
+      F.launches.set(m.mint, { t, name: String(m.name || '').slice(0, 40), symbol: String(m.symbol || '').slice(0, 16),
+                               dev_pct: m.initialBuy ? Math.round(m.initialBuy / 1e9 * 1000) / 10 : 0, checks: 0 });
+      if (F.launches.size > 6000) F.launches.delete(F.launches.keys().next().value);
+    } else if (m.txType === 'migrate' && m.mint) { F.nG++; F.grads.set(m.mint, t); }
+  };
+  ws.onerror = () => {};
+  ws.onclose = () => { F.ws = null; if (F.on) feedRetry(); else F.state = 'off'; };
+}
+function feedRetry(){ F.state = 'reconnecting'; setTimeout(feedConnect, Math.min(60000, 2000 * 2 ** F.retry++)); }
+
+async function feedCandidates(now){
+  const extra = {};
+  if (!F.on) return extra;
+  for (const [a, t] of F.grads) {
+    if (now - t > 2 * 3600e3) { F.grads.delete(a); continue; }
+    extra[a] = { sources: ['pump.fun graduation'], graduated_at: t };
+  }
+  const due = [...F.launches].filter(([, l]) => (l.checks === 0 && now - l.t >= 8 * 60e3) || (l.checks === 1 && now - l.t >= 30 * 60e3)).slice(0, 90);
+  if (due.length) {
+    const pairs = await pairsFor(due.map(([a]) => a), get, sleep);
+    for (const [a, l] of due) {
+      l.checks++;
+      const p = pairs[a];
+      const m = p ? measure(p, now) : null;
+      if (m && m.mcap >= CFG.min_mcap && m.buys_h1 + m.sells_h1 >= CFG.min_txns_h1) {
+        extra[a] = { ...(extra[a] || {}), sources: [...(extra[a]?.sources || []), 'pump.fun launch'], launched_at: l.t };
+        l.checks = 9; F.passed++;
+      } else if (l.checks >= 2 && !S.state?.watch?.[a]) F.launches.delete(a);
+    }
+  }
+  // the creator's launch buy, for any coin we saw launch
+  for (const a of new Set([...Object.keys(extra), ...Object.keys(S.state?.watch || {})])) {
+    const l = F.launches.get(a);
+    if (l) extra[a] = { ...(extra[a] || {}), dev_buy_pct: l.dev_pct, launched_at: l.t };
+  }
+  return extra;
+}
+
+function renderFeed(){
+  const el = $('feed-info');
+  el.hidden = !S.on || !$('feed-on').checked;
+  if (!el.hidden) {
+    const mins = Math.max(1, Math.round((Date.now() - F.since) / 60000));
+    el.innerHTML = F.state === 'live'
+      ? `<span class="dot live"></span>pump.fun feed is live. In ${mins} min: <b>${F.nL}</b> launches, <b>${F.nG}</b> graduations, <b>${F.passed}</b> launches big enough to watch.`
+      : `<span class="dot stale"></span>pump.fun feed is ${F.state === 'connecting' ? 'connecting' : 'reconnecting'}…`;
+  }
+  // what's being launched most in the last hour: narratives forming before they trade
+  const lt = $('launch-themes');
+  const hour = Date.now() - 3600e3, count = new Map();
+  for (const l of F.launches.values()) if (l.t >= hour) for (const w of themeWords(l)) count.set(w, (count.get(w) || 0) + 1);
+  const top = [...count].filter(([, n]) => n >= 4).sort((x, y) => y[1] - x[1]).slice(0, 8);
+  lt.hidden = !S.on || !top.length;
+  lt.innerHTML = 'Launched most in the last hour' + top.map(([w, n]) => `<span class="chip launch">${esc(w)}<b>${n}</b></span>`).join('');
+}
+
 // ------------------------------------------------------------------ live session
 const S = store.get('radar-session', null) || {};
 S.on = !!S.on;
@@ -570,7 +652,9 @@ async function scanOnce(){
   S.alerts ??= [];
   try{
     batch = [];
+    const extraFound = await feedCandidates(Date.now());
     const { latest, closedNow, opened } = await runScan({
+      extraFound,
       get, sleep, now: Date.now(), state: S.state, paper: S.paper, paperB: S.paperB, buzz: S.buzz, rugCache,
       extraAddrs: R.trades.filter(t => t.status === 'holding').map(t => t.address),
       cfg: { max_rugchecks: 4, rug_cache_min: 10, rug_gap_ms: 1100, max_watch: 120, track_outcomes: false },
@@ -630,18 +714,18 @@ async function start(resume = false){
     try { if ('Notification' in window && Notification.permission === 'default') await Notification.requestPermission(); } catch {}
   }
   S.on = true; S.state ??= { watch: {} }; S.paper ??= { open: [], closed: [], ever: [] }; S.paperB ??= { open: [], closed: [], ever: [] };
-  save(); renderSession(); renderAlerts(); keepAwake();
+  save(); renderSession(); renderAlerts(); keepAwake(); feedStart();
   if (realOn()) loadJupiter().catch(() => {});   // ready before the first Buy click
   await seed();
   if (S.latest) render(S.latest, S.paper, true, S.paperB);
   await scanOnce();
   schedule();
   clearInterval(countdown);
-  countdown = setInterval(renderSession, 1000);
+  countdown = setInterval(() => { renderSession(); if (Date.now() % 5000 < 1000) renderFeed(); }, 1000);
 }
 
 function stop(){
-  S.on = false; clearTimeout(timer); clearInterval(countdown);
+  S.on = false; clearTimeout(timer); clearInterval(countdown); feedStop(); renderFeed();
   try { wakeLock?.release(); } catch {}
   save(); renderSession(); renderAlerts(); loadStatic();
 }
@@ -651,6 +735,8 @@ $('every').addEventListener('change', () => { store.set('radar-every', $('every'
 $('every').value = store.get('radar-every', '30');
 $('sound').checked = store.get('radar-sound', true);
 $('sound').addEventListener('change', () => store.set('radar-sound', $('sound').checked));
+$('feed-on').checked = store.get('radar-feed', true);
+$('feed-on').addEventListener('change', () => { store.set('radar-feed', $('feed-on').checked); if (S.on) { $('feed-on').checked ? feedStart() : feedStop(); } renderFeed(); });
 
 // ------------------------------------------------------------------ real trading (Jupiter, your wallet signs)
 const SOL = 'So11111111111111111111111111111111111111112';

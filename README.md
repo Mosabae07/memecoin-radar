@@ -34,6 +34,7 @@ On the dashboard, press **Start live session** when you sit down to trade:
 - Its own **session paper trades**, separate from the 24/7 record.
 - Starts from the 24/7 scanner's memory, so "growth since first seen" works from the first live scan.
 - Keeps the screen awake while on. Survives a page reload. Stops when you press **Stop** or close the tab.
+- **pump.fun live feed (free, on by default):** connects to PumpPortal's free stream of every new pump.fun launch and every graduation (a coin filling its launch curve and moving to an open pool). Graduations go straight into the next scan with a "graduated N min ago" reason. Launches are checked at about 8 and 30 minutes old, and the ones that clear the size and activity floor join the watchlist before DexScreener lists them. The creator's launch buy is shown as a concern at 10%+, and the most-launched themes of the last hour appear as chips. Both are recorded for outcome tracking but don't change scores yet. PumpPortal's per-trade feed is paid, so it isn't used.
 - Polite to the free APIs: 4 RugCheck reports per scan, each reused for 10 minutes. A coin waiting for its check shows "safety check pending" and can't become a pick until it's checked.
 
 ## Real trading (optional, off by default)

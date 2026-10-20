@@ -100,7 +100,7 @@ export function measure(p, now) {
     buys_h24: b('h24'), sells_h24: s('h24'),
     vol_m5: num(vol.m5), vol_h1: num(vol.h1), vol_h24: num(vol.h24),
     chg_m5: num(ch.m5), chg_h1: num(ch.h1), chg_h24: num(ch.h24),
-    age_h: Math.max(0, (now - (p.pairCreatedAt || now)) / HOUR),
+    age_h: Math.max(0, (now - (p.pairCreatedAt || now)) / HOUR), now,
     socials: [...new Set((p.info?.socials || []).map(x => x.type).filter(Boolean))].sort(),
     websites: (p.info?.websites || []).length,
   };
@@ -229,6 +229,10 @@ export function score(m, hist, rc, meta, buzz) {
   }
   if (rc && rc.insider_networks >= 5) worry.push(`${rc.insider_networks} linked insider wallet groups hold ${rc.insider_net_pct.toFixed(0)}%`);
   if (m.liq == null) worry.push('still on the pump.fun bonding curve (no open pool yet)');
+  // from the live pump.fun feed (live mode only)
+  if (meta.graduated_at && m.now - meta.graduated_at < 2 * HOUR)
+    why.push(`graduated from pump.fun ${Math.max(1, Math.round((m.now - meta.graduated_at) / 60000))} min ago (now in an open pool)`);
+  if ((meta.dev_buy_pct ?? 0) >= 10) worry.push(`creator bought ${meta.dev_buy_pct.toFixed(0)}% of supply at launch`);
 
   return [Math.round(clamp(pts, 0, 100)), why, worry];
 }
@@ -304,9 +308,10 @@ const STOP = new Set(('the and for you your with this that are not but its all c
   'official real first new only just one get got will can has have from out who what when how why our was his her they them ' +
   'next big community community-driven ecosystem powered built launch launched ca contract dev team holders world www com xyz app ' +
   'season day time make made more most best everyone everything nothing someone thing things like love going go up forever ' +
-  'paired pair pairs liquidity locked burned burn lp tax holder buy sell trade trading price market cap website twitter telegram join').split(' '));
+  'paired pair pairs liquidity locked burned burn lp tax holder buy sell trade trading price market cap website twitter telegram join ' +
+  'every until turn xitter than into about over also very much many only').split(' '));
 export function themeWords(c) {
-  const text = `${c.name || ''} ${c.symbol || ''} ${(c.desc || '').slice(0, 120)}`.toLowerCase();
+  const text = `${c.name || ''} ${c.symbol || ''} ${(c.desc || '').slice(0, 120)}`.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const words = text.split(/[^a-z0-9]+/).map(w => w.length > 4 && w.endsWith('s') ? w.slice(0, -1) : w)
     .filter(w => w.length >= 3 && !STOP.has(w) && !/^\d+$/.test(w));
   return [...new Set(words)];
@@ -343,6 +348,8 @@ export function features(m, hist, rc, meta, buzz, hot) {
     paid_boosts: meta?.boost || 0,
     x_buzz: buzz?.score ?? null,
     hot_theme: hot ? 1 : 0,
+    graduated_recently: meta?.graduated_at && m.now - meta.graduated_at < 2 * HOUR ? 1 : 0,
+    dev_buy_pct: meta?.dev_buy_pct ?? null,
   };
 }
 
@@ -419,6 +426,13 @@ export async function runScan(ctx) {
   const rugCache = ctx.rugCache;
 
   const found = await discover(get, cfg);
+  // coins found by other routes (live mode: pump.fun launches and graduations)
+  for (const [a, extra] of Object.entries(ctx.extraFound || {})) {
+    const f = found[a] ??= { sources: [], links: [], boost: 0, desc: '' };
+    for (const src of extra.sources || []) if (!f.sources.includes(src)) f.sources.push(src);
+    for (const k of ['graduated_at', 'launched_at', 'dev_buy_pct']) if (extra[k] != null) f[k] = extra[k];
+    if (!f.desc && extra.desc) f.desc = extra.desc;
+  }
   const cutoff = t0 - cfg.watch_hours * HOUR;
   for (const [a, h] of Object.entries(state.watch)) if ((h.first_seen || 0) < cutoff) delete state.watch[a];
   for (const a of Object.keys(found)) state.watch[a] ??= { first_seen: t0 };
@@ -445,7 +459,7 @@ export async function runScan(ctx) {
   for (const a of order) {
     const m = live[a];
     const hist = state.watch[a] ??= { first_seen: t0 };
-    const meta = found[a] || hist.meta || { links: [], boost: 0, desc: '', sources: [] };
+    const meta = found[a] ? { ...(hist.meta || {}), ...found[a] } : hist.meta || { links: [], boost: 0, desc: '', sources: [] };
     const flags = basicFlags(m, cfg);
     let rc = null, pending = false;
     if (!flags.length) {
