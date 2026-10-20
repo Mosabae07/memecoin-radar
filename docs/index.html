@@ -502,7 +502,7 @@ function feedConnect(){
     if (m.txType === 'create' && m.mint) {
       F.nL++;
       // pump.fun coins have 1 billion tokens; initialBuy is how many the creator took in the launch transaction
-      F.launches.set(m.mint, { t, name: String(m.name || '').slice(0, 40), symbol: String(m.symbol || '').slice(0, 16),
+      F.launches.set(m.mint, { t, dev: String(m.traderPublicKey || m.mint), name: String(m.name || '').slice(0, 40), symbol: String(m.symbol || '').slice(0, 16),
                                dev_pct: m.initialBuy ? Math.round(m.initialBuy / 1e9 * 1000) / 10 : 0, checks: 0 });
       if (F.launches.size > 6000) F.launches.delete(F.launches.keys().next().value);
     } else if (m.txType === 'migrate' && m.mint) { F.nG++; F.grads.set(m.mint, t); }
@@ -551,11 +551,12 @@ function renderFeed(){
   }
   // what's being launched most in the last hour: narratives forming before they trade
   const lt = $('launch-themes');
-  const hour = Date.now() - 3600e3, count = new Map();
-  for (const l of F.launches.values()) if (l.t >= hour) for (const w of themeWords(l)) count.set(w, (count.get(w) || 0) + 1);
-  const top = [...count].filter(([, n]) => n >= 4).sort((x, y) => y[1] - x[1]).slice(0, 8);
+  // count different creators per word, so one bot relaunching the same coin can't fake a trend
+  const hour = Date.now() - 3600e3, devs = new Map();
+  for (const l of F.launches.values()) if (l.t >= hour) for (const w of themeWords(l)) { if (!devs.has(w)) devs.set(w, new Set()); devs.get(w).add(l.dev); }
+  const top = [...devs].map(([w, set]) => [w, set.size]).filter(([, n]) => n >= 4).sort((x, y) => y[1] - x[1]).slice(0, 8);
   lt.hidden = !S.on || !top.length;
-  lt.innerHTML = 'Launched most in the last hour' + top.map(([w, n]) => `<span class="chip launch">${esc(w)}<b>${n}</b></span>`).join('');
+  lt.innerHTML = 'Launched by the most creators in the last hour' + top.map(([w, n]) => `<span class="chip launch">${esc(w)}<b>${n}</b></span>`).join('');
 }
 
 // ------------------------------------------------------------------ live session
