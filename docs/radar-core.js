@@ -303,7 +303,8 @@ export function paperUpdate(paper, live, picks, now, cfg = CFG, strategy = 'simp
 const STOP = new Set(('the and for you your with this that are not but its all coin coins token tokens sol solana pump fun meme memes ' +
   'official real first new only just one get got will can has have from out who what when how why our was his her they them ' +
   'next big community community-driven ecosystem powered built launch launched ca contract dev team holders world www com xyz app ' +
-  'season day time make made more most best everyone everything nothing someone thing things like love going go up forever').split(' '));
+  'season day time make made more most best everyone everything nothing someone thing things like love going go up forever ' +
+  'paired pair pairs liquidity locked burned burn lp tax holder buy sell trade trading price market cap website twitter telegram join').split(' '));
 export function themeWords(c) {
   const text = `${c.name || ''} ${c.symbol || ''} ${(c.desc || '').slice(0, 120)}`.toLowerCase();
   const words = text.split(/[^a-z0-9]+/).map(w => w.length > 4 && w.endsWith('s') ? w.slice(0, -1) : w)
