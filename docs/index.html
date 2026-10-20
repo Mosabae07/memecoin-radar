@@ -842,7 +842,7 @@ function buyNow(c, sol, quick = false){
   if (!(sol > 0 && sol <= Math.min(L.mx, L.left) + 1e-9)) return;   // limits re-checked at the last moment
   if (quick) alertUser('info', `Quick buy ${c.symbol}`, `${sol} SOL · approve it in your wallet`, c.url);
   openSwap({ initialInputMint: SOL, initialOutputMint: c.address, fixedMint: c.address,
-             initialAmount: String(sol), fixedAmount: true, swapMode: 'ExactIn' },
+             initialAmount: String(Math.round(sol * 1e9)), fixedAmount: true, swapMode: 'ExactIn' },
     (txid, res) => {
       const spent = res?.inputAmount ? res.inputAmount / 1e9 : sol;
       R.spent[today()] = +((R.spent[today()] || 0) + spent).toFixed(4);
