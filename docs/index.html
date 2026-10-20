@@ -4,149 +4,270 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Memecoin Radar</title>
+<meta name="theme-color" content="#0E0B2A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* Memecoin Radar
+   Three moods from the brief: liquid morph (the field behind everything), glassmorphism (every panel),
+   kinetic typography (the ticker and the hero call). Yellow is reserved for things that ask for action. */
 :root{
-  --bg:#0b0d10; --panel:#12161b; --panel2:#171c22; --line:#232a32; --text:#e6e9ed; --muted:#8b95a1;
-  --watch:#3ddc84; --wait:#f5b942; --skip:#ff5d5d; --accent:#6aa8ff;
-  --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Inter',system-ui,sans-serif;
+  --night:#0E0B2A; --night-2:#171340;
+  --violet:#9B5CFF; --plasma:#4F7BFF; --rose:#FF4FB4;
+  --signal:#FFDD1F; --signal-ink:#14110A;
+  --text:#F3F1FF; --muted:#B4AEDB; --faint:#8C86B8;
+  --up:#3DF5A0; --dn:#FF6B8B;
+  --glass:rgba(255,255,255,.065); --glass-2:rgba(255,255,255,.11); --edge:rgba(255,255,255,.16); --edge-hi:rgba(255,255,255,.28);
+  --blur:18px;
+  --display:'Anton', 'Impact', 'Arial Narrow', sans-serif;
+  --ui:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --r-lg:22px; --r-md:16px; --r-sm:10px;
+  --step--1:.8125rem; --step-0:.9375rem; --step-1:1.125rem; --step-2:1.5rem; --step-3:2.25rem;
+  /* aliases the dashboard script uses */
+  --watch:var(--signal); --wait:#C9C2FF; --skip:var(--dn); --accent:#9FB8FF;
+  --panel:var(--glass); --panel2:var(--glass-2); --line:var(--edge); --mono:var(--ui); --sans:var(--ui);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 var(--sans)}
-a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-button{font:600 14px var(--sans);cursor:pointer;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 14px}
-button:hover{border-color:#3a4450}
-button.go{background:#123d26;border-color:#1f6b41;color:#bff5d5}
-button.stop{background:#3d1414;border-color:#6b1f1f;color:#ffd0d0}
-select{font:13px var(--sans);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 8px}
-label.chk{font-size:13px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
-.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
-header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
-h1{font-size:22px;margin:0;letter-spacing:-.01em}
-h1 small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
-.status{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
-.status b{color:var(--text)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--muted)}
-.dot.live{background:var(--watch);box-shadow:0 0 8px var(--watch)} .dot.stale{background:var(--skip)}
-.dot.pulse{animation:pulse 1.4s infinite}
-@keyframes pulse{50%{opacity:.25}}
-.warn{background:#1c1610;border:1px solid #3a2c16;color:#e9cf9c;border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:16px}
-.session{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-.session.on{border-color:#1f6b41;box-shadow:0 0 0 1px #1f6b41 inset}
-.session .info{font-size:13px;color:var(--muted)} .session .info b{color:var(--text);font-family:var(--mono)}
-.session .ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.err{color:#ffb4b4;font-size:13px;margin-top:6px;width:100%}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
-.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.kpi .l{color:var(--muted);font-size:12px} .kpi .v{font:600 22px var(--mono);margin-top:2px}
-h2{font-size:15px;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
-h2 .n{font:600 12px var(--mono);color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
-.card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--watch);border-radius:10px;padding:14px}
-.card.wait{border-left-color:var(--wait)}
-.card.fresh{animation:fresh 2.5s ease-out}
-@keyframes fresh{0%{box-shadow:0 0 0 2px var(--watch)}100%{box-shadow:0 0 0 0 transparent}}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.sym{font-weight:700;font-size:16px} .nm{color:var(--muted);font-size:12px;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.score{font:700 26px var(--mono);line-height:1} .score small{font-size:11px;color:var(--muted);font-weight:400;display:block;text-align:right}
-.bar{height:4px;background:var(--line);border-radius:3px;margin:10px 0}
-.bar i{display:block;height:100%;border-radius:3px;background:var(--watch)}
-.card.wait .bar i{background:var(--wait)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 10px;font-family:var(--mono);font-size:12px;margin:8px 0}
-.stats > div > span:first-child{color:var(--muted);display:block;font-family:var(--sans);font-size:11px}
-ul.r{margin:8px 0 0;padding:0;list-style:none;font-size:13px}
-ul.r li{padding-left:18px;position:relative;margin:3px 0}
-ul.r li:before{position:absolute;left:0;font-weight:700}
-ul.r li.p:before{content:'+';color:var(--watch)} ul.r li.c:before{content:'!';color:var(--wait)}
-.links{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
-.up{color:var(--watch)} .dn{color:var(--skip)}
-.tbl{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
-.tbl th{font-weight:500;color:var(--muted);text-align:left;font-size:12px;padding:9px 10px;border-bottom:1px solid var(--line);background:var(--panel2)}
-.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-.tbl tr:last-child td{border-bottom:0}
-.tbl td.m{font-family:var(--mono);white-space:nowrap}
-.scroll{overflow-x:auto;border-radius:10px}
-details{margin-top:8px} summary{cursor:pointer;color:var(--muted);font-size:13px}
-.empty{color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center}
-.feed{background:var(--panel);border:1px solid var(--line);border-radius:10px;max-height:260px;overflow:auto}
-.feed div{padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px}
-.feed div:last-child{border-bottom:0}
-.feed time{font-family:var(--mono);color:var(--muted);font-size:12px;margin-right:8px}
-.feed .pick b{color:var(--watch)} .feed .bad b{color:var(--skip)} .feed .info b{color:var(--accent)}
-footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:-8px 0 18px;align-items:center;font-size:12px;color:var(--muted)}
-.chip{font:600 12px var(--mono);color:#ffe9a8;background:#2a2410;border:1px solid #4a3d14;border-radius:14px;padding:2px 9px}
-.cmp td.win{color:var(--watch);font-weight:600}
-.sig{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:13px}
-.sig:last-child{border-bottom:0} .sig .why{color:var(--muted);font-size:12px;grid-column:1/-1}
-.real{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
-.real summary{color:var(--text);font-weight:600}
-.real .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
-.real label{font-size:12px;color:var(--muted);display:block}
-.real input[type=number]{width:100%;margin-top:4px;font:14px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 8px}
-.real .ack{margin-top:12px;font-size:13px;color:#e9cf9c;display:flex;gap:8px;align-items:flex-start}
-.real .note{font-size:12px;color:var(--muted);margin-top:10px}
-button.buy{background:#123d26;border-color:#1f6b41;color:#bff5d5;padding:5px 12px;font-size:12px}
-.links button.buy:first-of-type{margin-left:auto}
-button.buy.quick{background:#3a3110;border-color:#7a6418;color:#ffe9a8}
-button.sell{background:#3d1414;border-color:#6b1f1f;color:#ffd0d0;padding:4px 10px;font-size:12px}
-dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0;max-width:440px;width:calc(100% - 32px)}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-dialog .in{padding:16px 18px}
-dialog h3{margin:0 0 4px;font-size:18px}
-dialog .row{display:flex;gap:10px;align-items:center;margin-top:12px}
-dialog input[type=number]{flex:1;font:16px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px}
-dialog .foot{display:flex;gap:10px;justify-content:flex-end;padding:12px 18px;border-top:1px solid var(--line)}
-dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
+html{color-scheme:dark}
+body{margin:0;min-height:100vh;background:var(--night);color:var(--text);font:400 var(--step-0)/1.5 var(--ui);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none;text-underline-offset:3px} a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px;border-radius:6px}
 [hidden]{display:none!important}
-@media (max-width:560px){ .cards{grid-template-columns:1fr} .status{text-align:left} .hide-sm{display:none} }
+
+/* ---------- liquid morph field ---------- */
+.field{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:
+  radial-gradient(120% 80% at 50% -10%, var(--night-2), var(--night) 60%)}
+.blob{position:absolute;width:58vmax;height:58vmax;opacity:.62;filter:blur(6px) saturate(1.15);
+  border-radius:42% 58% 63% 37% / 41% 44% 56% 59%;animation:morph 26s ease-in-out infinite alternate, drift 48s ease-in-out infinite alternate;will-change:border-radius,transform}
+.blob.a{left:-14vmax;top:-18vmax;background:radial-gradient(circle at 32% 30%, #D8B4FF 0, var(--violet) 32%, var(--plasma) 78%)}
+.blob.b{right:-20vmax;top:22vh;width:52vmax;height:52vmax;background:radial-gradient(circle at 60% 35%, #FFB3DE 0, var(--rose) 36%, var(--violet) 82%);animation-duration:31s,57s;animation-delay:-9s,-20s;opacity:.5}
+.blob.c{left:18vw;bottom:-34vmax;width:50vmax;height:50vmax;background:radial-gradient(circle at 45% 40%, #B9CCFF 0, var(--plasma) 40%, #2A2470 85%);animation-duration:34s,62s;animation-delay:-17s,-31s;opacity:.55}
+@keyframes morph{
+  0%{border-radius:42% 58% 63% 37% / 41% 44% 56% 59%}
+  33%{border-radius:63% 37% 42% 58% / 58% 61% 39% 42%}
+  66%{border-radius:36% 64% 55% 45% / 47% 36% 64% 53%}
+  100%{border-radius:57% 43% 34% 66% / 62% 53% 47% 38%}}
+@keyframes drift{0%{transform:translate3d(0,0,0) rotate(0)}100%{transform:translate3d(6vmax,4vmax,0) rotate(28deg)}}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- glass ---------- */
+.glass,.card,.kpi,.tbl,.feed,.empty,.real,dialog{background:var(--glass);border:1px solid var(--edge);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(1.4);backdrop-filter:blur(var(--blur)) saturate(1.4);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 18px 50px -24px rgba(5,3,25,.8)}
+
+/* ---------- kinetic ticker ---------- */
+.ticker{position:sticky;top:0;z-index:20;background:var(--signal);color:var(--signal-ink);overflow:hidden;white-space:nowrap;border-bottom:2px solid var(--signal-ink)}
+.ticker .track{display:inline-flex;animation:tick 38s linear infinite;padding:7px 0}
+.ticker span{font:400 1.05rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em;padding-right:2.4em}
+.ticker span::after{content:'✳';margin-left:2.4em;font-family:var(--ui);font-size:.85em}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- page ---------- */
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:22px 20px 70px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:34px;height:34px;border-radius:44% 56% 61% 39% / 47% 41% 59% 53%;background:radial-gradient(circle at 35% 30%, #E7D3FF, var(--violet) 45%, var(--plasma));animation:morph 9s ease-in-out infinite alternate;box-shadow:0 0 24px -4px var(--violet)}
+.brand h1{font:400 1.6rem/1 var(--display);letter-spacing:.01em;margin:0;text-transform:uppercase}
+.status{font-size:var(--step--1);color:var(--muted);text-align:right;line-height:1.45}
+.status b{color:var(--text);font-weight:700}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;background:var(--faint)}
+.dot.live{background:var(--up);box-shadow:0 0 10px var(--up)} .dot.stale{background:var(--dn)}
+.dot.pulse{animation:pulse 1.4s infinite} @keyframes pulse{50%{opacity:.25}}
+
+/* hero: the radar's current call, in kinetic type */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;margin-bottom:16px}
+.call{position:relative;border-radius:var(--r-lg);background:var(--signal);color:var(--signal-ink);overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s,color .25s}
+.call.inv{background:var(--signal-ink);color:var(--signal)}
+.call .strip{border-bottom:2px solid currentColor;white-space:nowrap;overflow:hidden}
+.call .strip .track{display:inline-flex;animation:tick 22s linear infinite;padding:9px 0}
+.call .strip span{font:400 1.05rem/1 var(--display);text-transform:uppercase;padding-right:1.6em}
+.call .word{font:400 clamp(4.2rem, 11.5vw, 9.6rem)/.86 var(--display);text-transform:uppercase;letter-spacing:-.01em;padding:0 22px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:clip}
+.call .word.swap{animation:swap .42s cubic-bezier(.2,.9,.2,1)}
+@keyframes swap{0%{transform:translateY(42%);opacity:0;letter-spacing:.08em}100%{transform:none;opacity:1}}
+.call .sub{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;padding:12px 22px 20px;font-weight:700;font-size:var(--step-0);line-height:1.35}
+.call .sub p{margin:0;max-width:44ch}
+.call .count{font:400 var(--step-3)/1 var(--display);white-space:nowrap}
+
+.session{border-radius:var(--r-lg);padding:18px;display:flex;flex-direction:column;gap:14px}
+.session.on{border-color:rgba(255,221,31,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 0 0 1px rgba(255,221,31,.25), 0 18px 50px -24px rgba(5,3,25,.8)}
+.session h2{margin:0}
+.session .info{font-size:var(--step-0);color:var(--muted)} .session .info b{color:var(--text)}
+.session .ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.err{color:#FFC2D0;font-size:var(--step--1)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.kpi{border-radius:var(--r-sm);padding:10px 12px;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.05)}
+.kpi .l{color:var(--muted);font-size:.75rem;font-weight:600}
+.kpi .v{font:400 1.7rem/1.1 var(--display);margin-top:3px;letter-spacing:.01em}
+.warn{font-size:var(--step--1);color:var(--muted);line-height:1.45;margin:0}
+.warn b{color:var(--text)}
+
+/* controls */
+button{font:700 var(--step--1) var(--ui);cursor:pointer;border-radius:999px;border:1px solid var(--edge-hi);background:var(--glass-2);color:var(--text);padding:10px 16px;transition:transform .12s, background .2s}
+button:hover{background:rgba(255,255,255,.18)} button:active{transform:scale(.97)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.go{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}
+button.go:hover{background:#FFE75A}
+button.stop{background:rgba(255,107,139,.18);border-color:rgba(255,107,139,.6);color:#FFD5DE}
+select,input[type=number]{font:600 var(--step--1) var(--ui);background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--edge);border-radius:999px;padding:9px 12px}
+select option{background:var(--night-2)}
+input[type=checkbox]{accent-color:var(--signal);width:16px;height:16px}
+label.chk{font-size:var(--step--1);color:var(--muted);display:inline-flex;gap:7px;align-items:center}
+
+/* sections */
+.themes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 6px;font-size:var(--step--1);color:var(--muted)}
+.chip{font:700 .8rem/1 var(--ui);color:var(--text);background:rgba(255,79,180,.16);border:1px solid rgba(255,79,180,.45);border-radius:999px;padding:6px 11px}
+.chip b{color:var(--signal);margin-left:5px}
+h2{font:800 var(--step-1)/1.2 var(--ui);letter-spacing:-.01em;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+h2 .n{font:400 .95rem/1 var(--display);color:var(--signal-ink);background:var(--signal);border-radius:999px;padding:4px 9px 3px;min-width:26px;text-align:center}
+
+/* coin cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{border-radius:var(--r-md);padding:16px 16px 14px;position:relative}
+.card:not(.wait){border-color:rgba(255,221,31,.55)}
+.card:not(.wait)::before{content:'';position:absolute;inset:0 auto 0 0;width:4px;border-radius:var(--r-md) 0 0 var(--r-md);background:var(--signal)}
+.card.fresh{animation:fresh 2.6s ease-out}
+@keyframes fresh{0%{box-shadow:0 0 0 3px var(--signal), 0 0 40px var(--signal)}100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.sym{font:400 1.7rem/1 var(--display);letter-spacing:.01em;text-transform:uppercase}
+.nm{color:var(--muted);font-size:var(--step--1);margin-top:4px;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.score{font:400 2.3rem/.9 var(--display);text-align:right}
+.card:not(.wait) .score{color:var(--signal)}
+.score small{display:block;font:600 .7rem var(--ui);color:var(--faint);margin-top:4px}
+.bar{height:5px;background:rgba(255,255,255,.1);border-radius:9px;margin:12px 0 10px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--plasma),var(--violet),var(--rose))}
+.card:not(.wait) .bar i{background:linear-gradient(90deg,var(--violet),var(--signal))}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px;font-size:var(--step--1);font-weight:700;margin:6px 0 4px}
+.stats > div > span:first-child{display:block;color:var(--faint);font-weight:600;font-size:.72rem;margin-bottom:1px}
+ul.r{margin:10px 0 0;padding:0;list-style:none;font-size:var(--step--1);line-height:1.4}
+ul.r li{padding-left:20px;position:relative;margin:5px 0;color:#E4E0FF}
+ul.r li:before{position:absolute;left:0;top:-1px;font-weight:800}
+ul.r li.p:before{content:'+';color:var(--up)} ul.r li.c:before{content:'!';color:#FFB86B}
+.links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:var(--step--1);font-weight:600}
+.links button.buy:first-of-type{margin-left:auto}
+button.buy{background:var(--signal);border-color:var(--signal);color:var(--signal-ink);padding:7px 14px}
+button.buy.quick{background:transparent;color:var(--signal);border-color:var(--signal)}
+button.sell{background:rgba(255,107,139,.2);border-color:rgba(255,107,139,.65);color:#FFD5DE;padding:6px 12px}
+.up{color:var(--up)} .dn{color:var(--dn)}
+
+/* tables, feeds */
+.scroll{overflow-x:auto;border-radius:var(--r-md)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--r-md);overflow:hidden;font-size:var(--step--1)}
+.tbl th{font-weight:700;color:var(--muted);text-align:left;font-size:.75rem;padding:11px 12px;border-bottom:1px solid var(--edge);background:rgba(255,255,255,.04)}
+.tbl td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.m{white-space:nowrap;font-weight:700}
+.cmp td.win{color:var(--signal)}
+.feed{border-radius:var(--r-md);max-height:280px;overflow:auto}
+.feed > div{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.07);font-size:var(--step--1)}
+.feed > div:last-child{border-bottom:0}
+.feed time{color:var(--faint);margin-right:8px;font-weight:600}
+.feed .pick b{color:var(--signal)} .feed .bad b{color:var(--dn)} .feed .info b{color:var(--accent)}
+.sig{display:grid;grid-template-columns:1fr auto;gap:3px 12px}
+.sig .why{color:var(--muted);font-size:.78rem;grid-column:1/-1}
+.cards > .empty{grid-column:1/-1}
+.empty{color:var(--muted);border-radius:var(--r-md);padding:20px;text-align:center;border-style:dashed;box-shadow:none}
+details>summary{cursor:pointer;color:var(--muted);font-size:var(--step--1);font-weight:600}
+p.note,.lim{color:var(--muted);font-size:var(--step--1)}
+
+/* real trading drawer */
+.real{border-radius:var(--r-lg);padding:14px 18px;margin:14px 0 0}
+.real summary{color:var(--text);font-weight:800;font-size:var(--step-0)}
+.real[open] summary{margin-bottom:6px}
+.real .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.real .grid label{font-size:.75rem;font-weight:600;color:var(--muted);display:block}
+.real .grid input{width:100%;margin-top:5px}
+.real .ack{margin-top:14px;font-size:var(--step--1);color:#FFE98A;display:flex;gap:9px;align-items:flex-start;font-weight:600}
+.real .note{margin:10px 0 0}
+#quick-min{width:70px;padding:5px 10px}
+
+/* buy dialog */
+dialog{color:var(--text);border-radius:var(--r-lg);padding:0;max-width:460px;width:calc(100% - 32px);background:rgba(28,22,72,.72)}
+dialog::backdrop{background:rgba(8,5,30,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog .in{padding:20px 22px 6px}
+dialog h3{margin:0 0 6px;font:400 2rem/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+dialog .row{display:flex;gap:10px;align-items:center;margin-top:14px}
+dialog .row input{flex:1;font-size:1.1rem;padding:11px 14px}
+dialog .foot{display:flex;gap:10px;justify-content:flex-end;padding:14px 22px 18px}
+dialog .lim{margin-top:8px}
+
+footer{color:var(--faint);font-size:.78rem;margin-top:44px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);max-width:80ch}
+code{font-size:.9em;color:var(--muted)}
+
+@media (max-width:900px){ .hero{grid-template-columns:1fr} .call{min-height:250px} }
+@media (max-width:560px){
+  .wrap{padding:16px 16px 60px}
+  .cards{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .top-bar{flex-direction:column;align-items:flex-start}
+  .status{text-align:left}
+  .hide-sm{display:none}
+  .call .word{font-size:clamp(3.4rem,19vw,5.5rem);padding:0 16px}
+  .call .sub{flex-direction:column;align-items:flex-start;padding:10px 16px 16px}
+  .blob{opacity:.45}
+}
+@media (prefers-reduced-motion: reduce){
+  .blob,.brand-mark,.ticker .track,.call .strip .track,.call .word.swap,.card.fresh,.dot.pulse{animation:none!important}
+}
+.paused .blob,.paused .brand-mark,.paused .ticker .track,.paused .call .strip .track{animation-play-state:paused}
 </style>
 </head>
 <body>
+<div class="field" aria-hidden="true"><div class="blob a"></div><div class="blob b"></div><div class="blob c"></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
+
 <div class="wrap">
-  <header>
-    <h1>Memecoin Radar<small>Early-momentum scanner for new Solana meme coins · free data</small></h1>
-    <div class="status" id="status">loading…</div>
-  </header>
-
-  <div class="warn"><b>Signals, not predictions.</b> Most new meme coins go to zero and many are rug pulls. A high score means momentum is building and no scam markers were found. It does not mean the price will rise. Paper-trade it before risking money. Not financial advice.</div>
-
-  <div class="session" id="session">
-    <div class="info" id="sess-info">Live session is <b>off</b>. The 24/7 scan updates every ~15 min. Turn on live mode to scan every few seconds while you trade.</div>
-    <div class="ctl">
-      <select id="every" title="Scan every">
-        <option value="20">every 20 s</option><option value="30" selected>every 30 s</option><option value="60">every 60 s</option>
-      </select>
-      <label class="chk"><input type="checkbox" id="sound" checked> sound</label>
-      <button id="toggle" class="go">Start live session</button>
-    </div>
-    <div class="err" id="sess-err" hidden></div>
+  <div class="top-bar">
+    <div class="brand"><div class="brand-mark" aria-hidden="true"></div><h1>Memecoin Radar</h1></div>
+    <div class="status" id="status" role="status">Loading the latest scan…</div>
   </div>
 
+  <section class="hero">
+    <div class="call" id="call">
+      <div class="strip" aria-hidden="true"><div class="track" id="call-strip"></div></div>
+      <p class="word" id="call-word" aria-live="polite">Scanning</p>
+      <div class="sub"><p id="call-sub">Reading new Solana coins and throwing out the scams.</p><span class="count" id="call-count"></span></div>
+    </div>
+
+    <div class="session glass" id="session">
+      <h2>Live session</h2>
+      <div class="info" id="sess-info">Off. The 24/7 scan updates every 15 minutes. Start a live session to scan every few seconds while you trade.</div>
+      <div class="ctl">
+        <button id="toggle" class="go">Start live session</button>
+        <select id="every" aria-label="Scan every">
+          <option value="20">Every 20 s</option><option value="30" selected>Every 30 s</option><option value="60">Every 60 s</option>
+        </select>
+        <label class="chk"><input type="checkbox" id="sound" checked> Sound</label>
+      </div>
+      <div class="err" id="sess-err" hidden></div>
+      <div class="kpis" id="kpis"></div>
+      <p class="warn"><b>Signals, not predictions.</b> Most new meme coins go to zero and many are rug pulls. A high score means momentum is building with no scam markers found, not that the price will rise. Paper-trade first. Not financial advice.</p>
+    </div>
+  </section>
+
+  <div class="themes" id="themes"></div>
+
   <details class="real" id="real">
-    <summary>Real trading: <span id="real-state">off</span></summary>
-    <p class="note">Adds a <b>Buy</b> button to picks. Swaps go through Jupiter and you approve every one in your own wallet (Phantom, Solflare, Backpack). This page never sees your keys and can't spend anything on its own. Your limits below are enforced before the swap opens, and the amount is locked in the swap window.</p>
+    <summary>Real trading is <span id="real-state">off</span></summary>
+    <p class="note">Adds a Buy button to picks. Swaps go through Jupiter and you approve every one in your own wallet (Phantom, Solflare, Backpack). This page never sees your keys and can't spend anything on its own. Your limits are checked before the swap opens, and the amount is locked in the swap window.</p>
     <div class="grid">
       <label>Default buy (SOL)<input type="number" id="buy-default" min="0.001" step="any" value="0.05"></label>
       <label>Max per trade (SOL)<input type="number" id="buy-max" min="0.001" step="any" value="0.1"></label>
       <label>Daily limit (SOL)<input type="number" id="buy-daily" min="0.001" step="any" value="0.3"></label>
-      <label>Spent today<input type="number" id="buy-spent" disabled></label>
+      <label>Spent today (SOL)<input type="number" id="buy-spent" disabled></label>
     </div>
-    <label class="chk" style="margin-top:10px"><input type="checkbox" id="buy-wait"> also allow buying coins that are only "Watching" (not picks)</label><br>
-    <label class="chk" style="margin-top:8px"><input type="checkbox" id="quick-on"> Quick buy: one tap buys your default amount on picks scoring at least
-      <input type="number" id="quick-min" min="70" max="100" step="1" value="80" style="width:64px;font:13px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:3px 6px">, skipping the check screen. Limits still apply and you still approve in your wallet.</label>
+    <p style="margin:12px 0 0"><label class="chk"><input type="checkbox" id="buy-wait"> Also allow buying coins that are only on watch, not picks</label></p>
+    <p style="margin:8px 0 0"><label class="chk"><input type="checkbox" id="quick-on"> Quick buy: one tap buys your default amount on picks scoring at least <input type="number" id="quick-min" min="70" max="100" step="1" value="80"> and skips the check screen. Limits still apply and you still approve in your wallet.</label></p>
     <div class="grid">
       <label>Sell alert: take profit at (+%)<input type="number" id="sa-tp" min="1" step="any" value="100"></label>
       <label>Sell alert: stop loss at (−%)<input type="number" id="sa-sl" min="1" step="any" value="35"></label>
-      <label>Sell alert: trailing (−% from peak)<input type="number" id="sa-trail" min="1" step="any" value="30"></label>
+      <label>Sell alert: trailing stop (−% from peak)<input type="number" id="sa-trail" min="1" step="any" value="30"></label>
     </div>
-    <p class="note">Sell alerts watch every coin you hold: take profit, stop loss, trailing stop (once you're up 30%+), sellers taking over, or a new red flag. You get a sound, a notification and a Sell button. They're checked every live scan, or every minute otherwise, while this page is open.</p>
-    <label class="ack"><input type="checkbox" id="buy-ack"> I understand these are real trades with my own money, most new meme coins go to zero, and this tool's signals are not financial advice. Turn on Buy buttons.</label>
+    <p class="note">Sell alerts watch every coin you hold: take profit, stop loss, trailing stop (once you're up 30%+), sellers taking over, or a new red flag. You get a sound, a notification and a Sell button, checked every live scan or every minute while this page is open.</p>
+    <label class="ack"><input type="checkbox" id="buy-ack"> I understand these are real trades with my own money, most new meme coins go to zero, and these signals are not financial advice. Turn on Buy buttons.</label>
   </details>
-
-  <div class="kpis" id="kpis"></div>
-  <div class="chips" id="themes"></div>
 
   <div id="real-wrap" hidden>
     <h2>My real trades <span class="n" id="n-real">0</span></h2>
@@ -166,7 +287,7 @@ dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
   <h2>Picks <span class="n" id="n-watch">0</span></h2>
   <div class="cards" id="watch"></div>
 
-  <h2>Watching <span class="n" id="n-wait">0</span></h2>
+  <h2>On watch <span class="n" id="n-wait">0</span></h2>
   <div class="cards" id="wait"></div>
 
   <h2 id="paper-title">Paper trading</h2>
@@ -176,9 +297,9 @@ dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
   <div id="stats"></div>
 
   <h2>Rejected by the Skeptic <span class="n" id="n-skip">0</span></h2>
-  <details><summary>Show why each coin was thrown out</summary><div class="scroll" style="margin-top:10px"><table class="tbl" id="skip"></table></div></details>
+  <details><summary>Show why each coin was thrown out</summary><div class="scroll" style="margin-top:12px"><table class="tbl" id="skip"></table></div></details>
 
-  <footer>Data: DexScreener (prices, volume, trades), RugCheck (holders, insider wallets, mint and freeze rights), X buzz from the laptop reader when it is running. Live mode runs in this tab only and stops when you press Stop or close it. Rules and thresholds are in <code>docs/radar-core.js</code>.</footer>
+  <footer>Data from DexScreener (prices, volume, trades) and RugCheck (holders, insider wallets, mint and freeze rights), plus X buzz from the laptop reader when it's running. Live mode runs in this tab only and stops when you press Stop or close it. Rules and thresholds are in <code>docs/radar-core.js</code>.</footer>
 </div>
 
 <script type="module">
@@ -227,7 +348,7 @@ function paperHtml(p, live){
   const row = t => `<tr><td><a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.symbol)}</a></td>
     <td class="m">${t.entry_score}</td><td class="m">${usd(t.entry_mcap)}</td>
     <td class="m">${t.closed ? pct(t.return_pct) : pct(100*((t.last_price ?? t.entry_price)/t.entry_price - 1))}</td>
-    <td class="m hide-sm">${t.closed ? esc(t.exit_reason) : 'open · ' + ago(t.opened)}</td></tr>`;
+    <td class="m hide-sm">${t.closed ? esc(t.exit_reason) : 'open, ' + ago(t.opened)}</td></tr>`;
   const rows = [...(p.open||[]).slice().reverse(), ...(p.closed||[]).slice(-30).reverse()];
   return `<div class="kpis">
       <div class="kpi"><div class="l">Closed trades</div><div class="v">${s.trades}</div></div>
@@ -280,9 +401,10 @@ function statsHtml(st){
 function render(L, P, live, PB){
   shownCoins = new Map(L.coins.map(c => [c.address, c]));
   lastRender = [L, P, live, PB];
-  $('themes').innerHTML = (L.themes || []).length ? 'Hot themes: ' + L.themes.slice(0, 8).map(t => `<span class="chip">${esc(t.word)} · ${t.coins}</span>`).join('') : '';
+  $('themes').innerHTML = (L.themes || []).length ? 'Hot themes right now' + L.themes.slice(0, 8).map(t => `<span class="chip">${esc(t.word)}<b>${t.coins}</b></span>`).join('') : '';
+  updateCall(L, live);
   const C = L.counts;
-  $('kpis').innerHTML = [['Coins scanned', C.scanned], ['Picks', C.watch], ['Watching', C.wait], ['Rejected', C.skip]]
+  $('kpis').innerHTML = [['Scanned', C.scanned], ['Picks', C.watch], ['On watch', C.wait], ['Rejected', C.skip]]
     .map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
   const w = L.coins.filter(c => c.verdict === 'WATCH'), t = L.coins.filter(c => c.verdict === 'WAIT'), s = L.coins.filter(c => c.verdict === 'SKIP');
   $('n-watch').textContent = w.length; $('n-wait').textContent = t.length; $('n-skip').textContent = s.length;
@@ -295,6 +417,45 @@ function render(L, P, live, PB){
   $('paper').innerHTML = paperHtml(P, live) + compareHtml(P, PB);
   if (S.on) checkHoldings(shownCoins);
 }
+
+// ------------------------------------------------------------------ kinetic call + ticker
+let callWords = [], callIdx = 0, callTimer = null;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fitWord(el, text){
+  const k = Math.min(1, 7.5 / Math.max(1, text.length));
+  el.style.fontSize = k < 1 ? `calc(clamp(4.2rem, 11.5vw, 9.6rem) * ${k.toFixed(3)})` : '';
+  if (innerWidth <= 560) el.style.fontSize = k < 1 ? `calc(clamp(3.4rem, 19vw, 5.5rem) * ${k.toFixed(3)})` : '';
+}
+function showWord(){
+  if (!callWords.length) return;
+  const w = callWords[callIdx % callWords.length], el = $('call-word');
+  el.textContent = w.word; fitWord(el, w.word);
+  $('call-count').textContent = w.count ?? '';
+  $('call').classList.toggle('inv', callIdx % 2 === 1);
+  if (!reduced) { el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); }
+}
+function updateCall(L, live){
+  const C = L.counts, picks = L.coins.filter(c => c.verdict === 'WATCH');
+  const watch = L.coins.filter(c => c.verdict === 'WAIT');
+  const themes = (L.themes || []).slice(0, 3).map(t => t.word);
+  if (picks.length) {
+    callWords = picks.slice(0, 6).map(c => ({ word: '$' + c.symbol, count: c.score }));
+    const top = picks[0];
+    $('call-sub').textContent = `${picks.length} ${picks.length === 1 ? 'pick' : 'picks'} right now. Strongest is ${top.symbol} at ${top.score}: ${(top.reasons[0] || 'momentum building').replace(/^./, m => m.toLowerCase())}.`;
+  } else {
+    callWords = [{ word: live ? 'Hunting' : 'Scanning', count: '' }, { word: `${C.scanned} coins`, count: '' }, { word: `${C.skip} cut`, count: '' }, { word: `${C.wait} watch`, count: '' }];
+    $('call-sub').textContent = 'No pick yet. A coin needs strong momentum on two scans in a row and no red flags before it gets called.';
+  }
+  const strip = [live ? 'Live session on' : 'Updates every 15 min', 'Picks need two good scans', 'You approve every trade', ...(themes.length ? ['Hot: ' + themes.join(', ')] : [])];
+  $('call-strip').innerHTML = [...strip, ...strip, ...strip, ...strip].map(t => `<span>${esc(t)}</span>`).join('');
+  const movers = [...picks, ...watch].sort((a, b) => b.chg_m5 - a.chg_m5).slice(0, 4).map(c => `${c.symbol} ${c.chg_m5 >= 0 ? '+' : ''}${Math.round(c.chg_m5)}% 5m`);
+  const tick = [`${C.scanned} coins scanned`, `${C.watch} ${C.watch === 1 ? 'pick' : 'picks'}`, `${C.wait} on watch`, `${C.skip} rejected by the Skeptic`, ...movers, ...(themes.length ? [`Hot themes ${themes.join(' + ')}`] : [])];
+  $('ticker').innerHTML = [...tick, ...tick].map(t => `<span>${esc(t)}</span>`).join('');
+  callIdx = 0; showWord();
+  clearInterval(callTimer);
+  if (!reduced && callWords.length > 1) callTimer = setInterval(() => { callIdx++; showWord(); }, 2400);
+}
+document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
 
 // ------------------------------------------------------------------ 24/7 view
 async function loadStatic(){
@@ -391,8 +552,8 @@ function renderSession(){
     $('sess-info').innerHTML = `<span class="dot live pulse"></span>Live since <b>${clock(S.started)}</b> · <b>${S.scans || 0}</b> scans · ${S.busy ? 'scanning…' : 'next in <b>' + secs + 's</b>'}`;
     $('status').innerHTML = `<span class="dot live pulse"></span>live scan <b>${S.lastScan ? ago(S.lastScan) : 'starting'}</b><br>RugCheck checks reused for 10 min`;
   } else {
-    $('sess-info').innerHTML = S.started ? `Live session is <b>off</b>. Last session: ${S.scans || 0} scans, ${(S.alerts||[]).filter(a => a.kind === 'pick').length} pick alerts.` :
-      'Live session is <b>off</b>. The 24/7 scan updates every ~15 min. Turn on live mode to scan every few seconds while you trade.';
+    $('sess-info').innerHTML = S.started ? `Off. Your last session ran <b>${S.scans || 0}</b> scans and raised <b>${(S.alerts||[]).filter(a => a.kind === 'pick').length}</b> pick alerts.` :
+      'Off. The 24/7 scan updates every 15 minutes. Start a live session to scan every few seconds while you trade.';
   }
   const err = $('sess-err');
   err.hidden = !(S.on && failures);
