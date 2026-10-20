@@ -37,6 +37,8 @@ Open **Real trading** on the dashboard and tick the acknowledgement to add a **B
 - **Your limits:** default buy, max per trade and daily limit, in SOL. They're checked before the swap opens, and the amount is locked in the swap window.
 - Buy shows on **picks only** (optionally also "Watching" coins), never on rejected coins. Every buy starts with a check screen: score, reasons, concerns, and links to the chart and RugCheck.
 - **My real trades** lists each buy with the estimated return, a Solscan link and a **Sell** button (Jupiter opens with the coin selected; you choose how much). The list is saved in that browser only; your wallet is the real record.
+- **Quick buy (optional):** one tap buys your default amount on picks scoring at or above a threshold you set (80 by default), skipping the check screen. Your limits still apply, you still approve in your wallet, it won't quick-buy a coin you already hold, and a double tap opens only one swap.
+- Jupiter loads as soon as Real trading is on, so the swap window opens without waiting.
 - Nothing buys automatically.
 
 ## Files

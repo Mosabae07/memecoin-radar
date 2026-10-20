@@ -82,7 +82,9 @@ footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid va
 .real input[type=number]{width:100%;margin-top:4px;font:14px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 8px}
 .real .ack{margin-top:12px;font-size:13px;color:#e9cf9c;display:flex;gap:8px;align-items:flex-start}
 .real .note{font-size:12px;color:var(--muted);margin-top:10px}
-button.buy{background:#123d26;border-color:#1f6b41;color:#bff5d5;padding:5px 12px;font-size:12px;margin-left:auto}
+button.buy{background:#123d26;border-color:#1f6b41;color:#bff5d5;padding:5px 12px;font-size:12px}
+.links button.buy:first-of-type{margin-left:auto}
+button.buy.quick{background:#3a3110;border-color:#7a6418;color:#ffe9a8}
 button.sell{background:#3d1414;border-color:#6b1f1f;color:#ffd0d0;padding:4px 10px;font-size:12px}
 dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0;max-width:440px;width:calc(100% - 32px)}
 dialog::backdrop{background:rgba(0,0,0,.6)}
@@ -126,7 +128,9 @@ dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
       <label>Daily limit (SOL)<input type="number" id="buy-daily" min="0.001" step="any" value="0.3"></label>
       <label>Spent today<input type="number" id="buy-spent" disabled></label>
     </div>
-    <label class="chk" style="margin-top:10px"><input type="checkbox" id="buy-wait"> also allow buying coins that are only "Watching" (not picks)</label>
+    <label class="chk" style="margin-top:10px"><input type="checkbox" id="buy-wait"> also allow buying coins that are only "Watching" (not picks)</label><br>
+    <label class="chk" style="margin-top:8px"><input type="checkbox" id="quick-on"> Quick buy: one tap buys your default amount on picks scoring at least
+      <input type="number" id="quick-min" min="70" max="100" step="1" value="80" style="width:64px;font:13px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:3px 6px">, skipping the check screen. Limits still apply and you still approve in your wallet.</label>
     <label class="ack"><input type="checkbox" id="buy-ack"> I understand these are real trades with my own money, most new meme coins go to zero, and this tool's signals are not financial advice. Turn on Buy buttons.</label>
   </details>
 
@@ -197,6 +201,7 @@ function card(c){
     <div class="links"><a href="${esc(c.url)}" target="_blank" rel="noopener">DexScreener</a>
       <a href="https://rugcheck.xyz/tokens/${esc(c.address)}" target="_blank" rel="noopener">RugCheck</a>
       ${x ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
+      ${canQuick(c) ? `<button class="buy quick" data-qbuy="${esc(c.address)}" title="Skips the check screen">⚡ Quick buy ${quickAmt()} SOL</button>` : ''}
       ${canBuy(c) ? `<button class="buy" data-buy="${esc(c.address)}">Buy</button>` : ''}</div>
   </div>`;
 }
@@ -408,6 +413,7 @@ async function start(resume = false){
   }
   S.on = true; S.state ??= { watch: {} }; S.paper ??= { open: [], closed: [], ever: [] };
   save(); renderSession(); renderAlerts(); keepAwake();
+  if (realOn()) loadJupiter().catch(() => {});   // ready before the first Buy click
   await seed();
   if (S.latest) render(S.latest, S.paper, true);
   await scanOnce();
@@ -439,6 +445,13 @@ function canBuy(c){
   if (!realOn() || c.verdict === 'SKIP') return false;
   return c.verdict === 'WATCH' || (c.verdict === 'WAIT' && $('buy-wait').checked);
 }
+function quickAmt(){ const L = limits(); return +Math.min(L.d, L.mx, L.left).toFixed(4); }
+let quickBusyUntil = 0;   // one quick buy at a time: blocks double taps while your wallet is asking
+const holding = a => R.trades.some(t => t.address === a && t.status === 'holding');
+function canQuick(c){
+  return realOn() && $('quick-on').checked && c.verdict === 'WATCH' && !holding(c.address) &&
+         c.score >= Math.max(70, +$('quick-min').value || 80) && quickAmt() > 0;
+}
 function saveReal(){ store.set('radar-real', R); }
 function limits(){
   const d = Math.max(0, +$('buy-default').value || 0), mx = Math.max(0, +$('buy-max').value || 0), day = Math.max(0, +$('buy-daily').value || 0);
@@ -447,14 +460,14 @@ function limits(){
 function syncRealUi(){
   $('real-state').textContent = realOn() ? 'on' : 'off';
   $('buy-spent').value = spentToday();
-  store.set('radar-real-cfg', { d: $('buy-default').value, mx: $('buy-max').value, day: $('buy-daily').value, wait: $('buy-wait').checked, ack: $('buy-ack').checked });
+  store.set('radar-real-cfg', { d: $('buy-default').value, mx: $('buy-max').value, day: $('buy-daily').value, wait: $('buy-wait').checked, ack: $('buy-ack').checked, quick: $('quick-on').checked, qmin: $('quick-min').value });
   if (realOn()) loadJupiter();
   if (lastRender) render(...lastRender);
   renderReal();
 }
 (() => { const c = store.get('radar-real-cfg', null); if (!c) return;
-  $('buy-default').value = c.d; $('buy-max').value = c.mx; $('buy-daily').value = c.day; $('buy-wait').checked = !!c.wait; $('buy-ack').checked = !!c.ack; })();
-['buy-default', 'buy-max', 'buy-daily', 'buy-wait', 'buy-ack'].forEach(id => $(id).addEventListener('change', syncRealUi));
+  $('buy-default').value = c.d; $('buy-max').value = c.mx; $('buy-daily').value = c.day; $('buy-wait').checked = !!c.wait; $('buy-ack').checked = !!c.ack; $('quick-on').checked = !!c.quick; $('quick-min').value = c.qmin || 80; })();
+['buy-default', 'buy-max', 'buy-daily', 'buy-wait', 'buy-ack', 'quick-on', 'quick-min'].forEach(id => $(id).addEventListener('change', syncRealUi));
 
 let jupLoading = null;
 function loadJupiter(){
@@ -470,13 +483,15 @@ function openSwap(formProps, onDone){
   return loadJupiter().then(() => window.Jupiter.init({
     displayMode: 'modal',
     formProps,
-    onSuccess: ({ txid, swapResult }) => onDone(txid, swapResult),
-    onSwapError: () => {},
+    onSuccess: ({ txid, swapResult }) => { quickBusyUntil = 0; onDone(txid, swapResult); },
+    onSwapError: () => { quickBusyUntil = 0; },
   })).catch(e => alert(e.message + '. Check your connection or ad blocker, then try again.'));
 }
 
 let pending = null;
 document.addEventListener('click', e => {
+  const q = e.target.closest('[data-qbuy]');
+  if (q) { e.preventDefault(); quickBuy(q.dataset.qbuy); return; }
   const b = e.target.closest('[data-buy]');
   if (b) { e.preventDefault(); askBuy(b.dataset.buy); }
   const s = e.target.closest('[data-sell]');
@@ -506,10 +521,21 @@ function askBuy(addr){
 
 $('buy-dlg').addEventListener('close', () => {
   if ($('buy-dlg').returnValue !== 'go' || !pending) return;
-  const c = pending, sol = +(+$('buy-amt').value).toFixed(4);
+  const c = pending; pending = null;
+  buyNow(c, +(+$('buy-amt').value).toFixed(4));
+});
+
+function quickBuy(addr){
+  const c = shownCoins.get(addr);
+  if (!c || !canQuick(c) || Date.now() < quickBusyUntil) return;
+  quickBusyUntil = Date.now() + 60_000;
+  buyNow(c, quickAmt(), true);
+}
+
+function buyNow(c, sol, quick = false){
   const L = limits();
   if (!(sol > 0 && sol <= Math.min(L.mx, L.left) + 1e-9)) return;   // limits re-checked at the last moment
-  pending = null;
+  if (quick) alertUser('info', `Quick buy ${c.symbol}`, `${sol} SOL · approve it in your wallet`, c.url);
   openSwap({ initialInputMint: SOL, initialOutputMint: c.address, fixedMint: c.address,
              initialAmount: String(sol), fixedAmount: true, swapMode: 'ExactIn' },
     (txid, res) => {
@@ -521,7 +547,7 @@ $('buy-dlg').addEventListener('close', () => {
       alertUser('info', `Bought ${c.symbol}`, `${spent.toFixed(3)} SOL · tx ${txid.slice(0, 8)}…`, 'https://solscan.io/tx/' + txid);
       renderAlerts();
     });
-});
+}
 
 function sell(addr){
   const t = R.trades.find(x => x.address === addr && x.status === 'holding');
