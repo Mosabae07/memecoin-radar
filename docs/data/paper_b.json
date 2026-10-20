@@ -1,20 +1,6 @@
 {
  "open": [
   {
-   "address": "Df18xmSEf64DXaKMMfoCrJaEgqBKVc7rXfmKDyagpump",
-   "symbol": "PEPEMON",
-   "url": "https://dexscreener.com/solana/3q3pqqehbsibz5w2wwmh9oqiqeo48pdwxv7xljfqrxjm",
-   "opened": 1792517239628,
-   "entry_price": 0.001376,
-   "entry_mcap": 1376177,
-   "entry_score": 76,
-   "stake": 100,
-   "peak": 1.2049418604651159,
-   "last_price": 0.003034,
-   "half_price": 0.003034,
-   "half_at": 1792526221453
-  },
-  {
    "address": "93iqi7JSBc5jbNWjNZqs7nqFWaEaLzPxmPYLvnVspump",
    "symbol": "VAGINA",
    "url": "https://dexscreener.com/solana/7v4x3ba5xlfp9pmueqj3ykqrz9e6wsl65pademdk9otg",
@@ -24,7 +10,7 @@
    "entry_score": 76,
    "stake": 100,
    "peak": 0.08617747440273038,
-   "last_price": 0.0002007
+   "last_price": 0.0002369
   },
   {
    "address": "FP9HKxKKzBfQrRJHY5DNoMvNgEqCaMJoKejvtvtopump",
@@ -35,8 +21,19 @@
    "entry_mcap": 862211,
    "entry_score": 72,
    "stake": 100,
-   "peak": 0,
-   "last_price": 0.0007624
+   "peak": 0.0525339209091964,
+   "last_price": 0.0009076
+  },
+  {
+   "address": "J2qYrnmRdw8nyx8rFG5D94X2KPGvwzVi594paCkppump",
+   "symbol": "PUNCHDOG",
+   "url": "https://dexscreener.com/solana/5z3xhd6aefi2vjlq9nusbzzld2gxhu3j8r3zgkchjh46",
+   "opened": 1792527085194,
+   "entry_price": 0.0002595,
+   "entry_mcap": 259586,
+   "entry_score": 73,
+   "stake": 100,
+   "peak": 0
   }
  ],
  "closed": [
@@ -73,6 +70,25 @@
    "closed": 1792521056056,
    "return_pct": -103,
    "pnl_usd": -103
+  },
+  {
+   "address": "Df18xmSEf64DXaKMMfoCrJaEgqBKVc7rXfmKDyagpump",
+   "symbol": "PEPEMON",
+   "url": "https://dexscreener.com/solana/3q3pqqehbsibz5w2wwmh9oqiqeo48pdwxv7xljfqrxjm",
+   "opened": 1792517239628,
+   "entry_price": 0.001376,
+   "entry_mcap": 1376177,
+   "entry_score": 76,
+   "stake": 100,
+   "peak": 1.2049418604651159,
+   "last_price": 0.001165,
+   "half_price": 0.003034,
+   "half_at": 1792526221453,
+   "exit_price": 0.001165,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1792527085194,
+   "return_pct": 48.6,
+   "pnl_usd": 48.58
   }
  ],
  "ever": [
@@ -80,15 +96,16 @@
   "BLr7LaB55PLj8DxchLZKRVCtXx7ugzXWiwzpJhVtpump",
   "F7jZrB2aUG9v7rQY348F2EB9UvHLwV5tjEEL6B2ypump",
   "93iqi7JSBc5jbNWjNZqs7nqFWaEaLzPxmPYLvnVspump",
-  "FP9HKxKKzBfQrRJHY5DNoMvNgEqCaMJoKejvtvtopump"
+  "FP9HKxKKzBfQrRJHY5DNoMvNgEqCaMJoKejvtvtopump",
+  "J2qYrnmRdw8nyx8rFG5D94X2KPGvwzVi594paCkppump"
  ],
  "summary": {
-  "trades": 2,
+  "trades": 3,
   "open": 3,
-  "win_rate": 0,
-  "total_pnl_usd": -170.18,
-  "avg_return_pct": -85.1,
-  "best_pct": -67.2,
+  "win_rate": 33.3,
+  "total_pnl_usd": -121.6,
+  "avg_return_pct": -40.5,
+  "best_pct": 48.6,
   "worst_pct": -103,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
  }
