@@ -92,3 +92,88 @@ test('coins over the RugCheck budget wait for a check instead of being rejected 
   assert.ok(pending.length >= 2);
   assert.ok(pending.every(c => c.verdict === 'WAIT'));
 });
+
+// ---------------------------------------------------------------- phase 1: learning, exits, themes
+import { computeStats, findThemes, themeWords, paperUpdate } from '../docs/radar-core.js';
+
+test('outcomes: records numbers at first score, then price 1h / 6h / 24h later', async () => {
+  const api = new FakeAPI();
+  const state = { watch: {} }, paper = { open: [], closed: [] };
+  const at = h => NOW + h * 3_600_000;
+  const r0 = await runScan({ get: api.get, sleep: noSleep, now: at(0), state, paper });
+  assert.deepEqual(r0.finished, []);
+  const tracked = Object.keys(state.tracking);
+  assert.ok(tracked.includes('WISPpump') && !tracked.includes('TROADpump'), 'only coins that pass the Skeptic are tracked');
+  const f = state.tracking.WISPpump.feats;
+  for (const k of ['buy_pressure_5m', 'volume_accel', 'holders', 'top10_pct', 'liquidity_ratio', 'hot_theme']) assert.ok(k in f, k);
+  api.priceMult = 1.5; await runScan({ get: api.get, sleep: noSleep, now: at(1.1), state, paper });
+  api.priceMult = 3.0; await runScan({ get: api.get, sleep: noSleep, now: at(6.2), state, paper });
+  api.priceMult = 0.8; const done = await runScan({ get: api.get, sleep: noSleep, now: at(24.3), state, paper });
+  const w = done.finished.find(o => o.symbol === 'WiSP');
+  assert.ok(w, 'finished after 24h');
+  assert.equal(w.r1h, 50); assert.equal(w.r6h, 200); assert.equal(w.r24h, -20); assert.equal(w.peak, 200); assert.equal(w.trough, -20);
+  assert.ok(!state.tracking.WISPpump, 'removed from tracking once finished');
+});
+
+test('stats: show which score bands and signals actually led to gains', () => {
+  const outs = [];
+  for (let i = 0; i < 60; i++) {
+    const good = i % 2 === 0;
+    outs.push({ score: good ? 82 : 55, peak: good ? 120 : 10, trough: good ? -10 : -85, r24h: good ? 40 : -70,
+                feats: { holders: good ? 1500 + i : 200 + i, paid_boosts: i % 3 } });
+  }
+  const st = computeStats(outs);
+  assert.equal(st.total.n, 60);
+  const b80 = st.bands.find(b => b.label === '80+'), b50 = st.bands.find(b => b.label === '50-59');
+  assert.equal(b80.hit100, 100); assert.equal(b50.hit50, 0); assert.equal(b50.crash, 100);
+  assert.equal(st.signals[0].signal, 'holders', 'the signal that separates winners is ranked first');
+  assert.ok(st.signals[0].lift > 50);
+});
+
+test('exit rule B sells half at take profit and trails the rest', () => {
+  const now = NOW, cfg = { ...CFG };
+  const pick = { address: 'X', symbol: 'X', url: '', price: 1, mcap: 1, score: 80 };
+  const A = { open: [], closed: [] }, B = { open: [], closed: [] };
+  const px = p => ({ X: { price: p } });
+  for (const P of [A]) paperUpdate(P, px(1), [pick], now, cfg);
+  paperUpdate(B, px(1), [pick], now, cfg, 'ladder');
+  // runs to 3x then fades to 2x: A sold everything at 2.2x on the way up; B sold half at 2.2x and the rest at 2.0x after peaking at 3x
+  for (const [i, p] of [2.2, 3.0, 2.0].entries()) {
+    paperUpdate(A, px(p), [], now + (i + 1) * 60_000, cfg);
+    paperUpdate(B, px(p), [], now + (i + 1) * 60_000, cfg, 'ladder');
+  }
+  assert.equal(A.closed[0].exit_reason, 'take profit'); assert.equal(A.closed[0].return_pct, 116);
+  assert.ok(B.closed[0].exit_reason.startsWith('trailing stop')); assert.equal(B.closed[0].return_pct, 106);
+  // runs to 5x and fades to 3.4x: B wins
+  const A2 = { open: [], closed: [] }, B2 = { open: [], closed: [] };
+  paperUpdate(A2, px(1), [pick], now, cfg); paperUpdate(B2, px(1), [pick], now, cfg, 'ladder');
+  for (const [i, p] of [2.1, 5.0, 3.4].entries()) {
+    paperUpdate(A2, px(p), [], now + (i + 1) * 60_000, cfg); paperUpdate(B2, px(p), [], now + (i + 1) * 60_000, cfg, 'ladder');
+  }
+  assert.ok(B2.closed[0].return_pct > A2.closed[0].return_pct);
+  // before take profit, B still has the normal stop loss
+  const B3 = { open: [], closed: [] };
+  paperUpdate(B3, px(1), [pick], now, cfg, 'ladder'); paperUpdate(B3, px(0.6), [], now + 60_000, cfg, 'ladder');
+  assert.equal(B3.closed[0].exit_reason, 'stop loss');
+});
+
+test('themes: words shared by several trading coins, ignoring filler', () => {
+  assert.deepEqual(themeWords({ name: 'Pumpkin Pepe', symbol: 'PUMPE', desc: 'The spookiest frog on Solana' }).sort(), ['frog', 'pepe', 'pumpe', 'pumpkin', 'spookiest']);
+  const coins = [
+    { address: 'a', name: 'Halloween Cat', symbol: 'HCAT' }, { address: 'b', name: 'Pumpkin Dog', symbol: 'PDOG', desc: 'halloween season' },
+    { address: 'c', name: 'Spooky Halloween', symbol: 'SPOOK' }, { address: 'd', name: 'Solana Coin', symbol: 'SOL2' }];
+  const t = findThemes(coins);
+  assert.equal(t[0].word, 'halloween'); assert.equal(t[0].coins, 3);
+  assert.ok(!t.some(x => ['solana', 'coin'].includes(x.word)));
+});
+
+test('runner saves outcomes, stats and the second paper ledger', async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'radar-'));
+  setDataDir(dir);
+  const api = new FakeAPI();
+  await run({ get: api.get, wait: noSleep, now: NOW });
+  for (const f of ['paper_b.json', 'outcomes.json', 'stats.json']) JSON.parse(await readFile(path.join(dir, f), 'utf8'));
+  const st = JSON.parse(await readFile(path.join(dir, 'stats.json'), 'utf8'));
+  assert.ok(st.tracking_now >= 3 && st.total.n === 0);
+  await rm(dir, { recursive: true });
+});

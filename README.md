@@ -18,6 +18,13 @@ A free early-signal scanner for new Solana meme coins. Every 15 minutes it scans
 
 Every threshold is in `CFG` at the top of `docs/radar-core.js`. The 15-minute scanner and live mode both use that one file, so they always apply the same rules.
 
+## Learning what works
+
+- **Outcome tracking:** every coin that passes the Skeptic is followed for 24 hours. Its numbers at first sight are saved with its price 1 h, 6 h and 24 h later and its peak and low (`docs/data/outcomes.json`).
+- **What's working** panel: win rates by score band (reached +50%, +100%, crashed −80%, median after 24 h), and for each signal, how coins high on it did against coins low on it. Use it to re-weight the score once there are 50+ finished coins.
+- **Exit rule test:** every pick is paper-traded twice. A sells everything at +100% / −35% / 24 h. B sells half at +100% and trails the rest with a 30% stop from its peak. The dashboard shows which earns more on the same picks.
+- **Hot themes:** words shared by 3+ coins that are actually trading (for example *halloween*, *pokemon*) are shown at the top and tagged on coins. They're tracked as a signal but don't change the score until the data says they help.
+
 ## Live session mode
 
 On the dashboard, press **Start live session** when you sit down to trade:
@@ -38,6 +45,7 @@ Open **Real trading** on the dashboard and tick the acknowledgement to add a **B
 - Buy shows on **picks only** (optionally also "Watching" coins), never on rejected coins. Every buy starts with a check screen: score, reasons, concerns, and links to the chart and RugCheck.
 - **My real trades** lists each buy with the estimated return, a Solscan link and a **Sell** button (Jupiter opens with the coin selected; you choose how much). The list is saved in that browser only; your wallet is the real record.
 - **Quick buy (optional):** one tap buys your default amount on picks scoring at or above a threshold you set (80 by default), skipping the check screen. Your limits still apply, you still approve in your wallet, it won't quick-buy a coin you already hold, and a double tap opens only one swap.
+- **Sell alerts** on every coin you hold: take profit, stop loss, trailing stop (once up 30%+), sellers taking over (2:1 sells in 5 min with price falling), or a new red flag. Each fires once, with the reason and a Sell button. Your thresholds are in the Real trading panel.
 - Jupiter loads as soon as Real trading is on, so the swap window opens without waiting.
 - Nothing buys automatically.
 
@@ -48,7 +56,7 @@ docs/radar-core.js            the rules: discovery, Skeptic, scoring, paper trad
 radar/scan.mjs                15-minute scanner GitHub runs (Node, no installs)
 .github/workflows/scan.yml    runs it every 15 min and saves results
 docs/index.html               the dashboard + live session mode (GitHub Pages)
-docs/data/                    latest.json, paper.json, state.json, candidates.json, buzz.json
+docs/data/                    latest, paper, paper_b, outcomes, stats, state, candidates, buzz (.json)
 laptop/                       X buzz reader + one-click Windows setup
 tests/                        offline tests on real captured market data (node --test tests/*.test.mjs)
 ```

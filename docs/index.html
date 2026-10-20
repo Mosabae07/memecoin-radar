@@ -75,6 +75,11 @@ details{margin-top:8px} summary{cursor:pointer;color:var(--muted);font-size:13px
 .feed time{font-family:var(--mono);color:var(--muted);font-size:12px;margin-right:8px}
 .feed .pick b{color:var(--watch)} .feed .bad b{color:var(--skip)} .feed .info b{color:var(--accent)}
 footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:-8px 0 18px;align-items:center;font-size:12px;color:var(--muted)}
+.chip{font:600 12px var(--mono);color:#ffe9a8;background:#2a2410;border:1px solid #4a3d14;border-radius:14px;padding:2px 9px}
+.cmp td.win{color:var(--watch);font-weight:600}
+.sig{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:13px}
+.sig:last-child{border-bottom:0} .sig .why{color:var(--muted);font-size:12px;grid-column:1/-1}
 .real{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
 .real summary{color:var(--text);font-weight:600}
 .real .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
@@ -131,10 +136,17 @@ dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
     <label class="chk" style="margin-top:10px"><input type="checkbox" id="buy-wait"> also allow buying coins that are only "Watching" (not picks)</label><br>
     <label class="chk" style="margin-top:8px"><input type="checkbox" id="quick-on"> Quick buy: one tap buys your default amount on picks scoring at least
       <input type="number" id="quick-min" min="70" max="100" step="1" value="80" style="width:64px;font:13px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:3px 6px">, skipping the check screen. Limits still apply and you still approve in your wallet.</label>
+    <div class="grid">
+      <label>Sell alert: take profit at (+%)<input type="number" id="sa-tp" min="1" step="any" value="100"></label>
+      <label>Sell alert: stop loss at (−%)<input type="number" id="sa-sl" min="1" step="any" value="35"></label>
+      <label>Sell alert: trailing (−% from peak)<input type="number" id="sa-trail" min="1" step="any" value="30"></label>
+    </div>
+    <p class="note">Sell alerts watch every coin you hold: take profit, stop loss, trailing stop (once you're up 30%+), sellers taking over, or a new red flag. You get a sound, a notification and a Sell button. They're checked every live scan, or every minute otherwise, while this page is open.</p>
     <label class="ack"><input type="checkbox" id="buy-ack"> I understand these are real trades with my own money, most new meme coins go to zero, and this tool's signals are not financial advice. Turn on Buy buttons.</label>
   </details>
 
   <div class="kpis" id="kpis"></div>
+  <div class="chips" id="themes"></div>
 
   <div id="real-wrap" hidden>
     <h2>My real trades <span class="n" id="n-real">0</span></h2>
@@ -159,6 +171,9 @@ dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
 
   <h2 id="paper-title">Paper trading</h2>
   <div id="paper"></div>
+
+  <h2>What's working <span class="n" id="n-stats">0</span></h2>
+  <div id="stats"></div>
 
   <h2>Rejected by the Skeptic <span class="n" id="n-skip">0</span></h2>
   <details><summary>Show why each coin was thrown out</summary><div class="scroll" style="margin-top:10px"><table class="tbl" id="skip"></table></div></details>
@@ -217,7 +232,7 @@ function paperHtml(p, live){
   return `<div class="kpis">
       <div class="kpi"><div class="l">Closed trades</div><div class="v">${s.trades}</div></div>
       <div class="kpi"><div class="l">Win rate</div><div class="v">${s.win_rate == null ? '–' : s.win_rate + '%'}</div></div>
-      <div class="kpi"><div class="l">Total P&amp;L ($100 each)</div><div class="v ${s.total_pnl_usd >= 0 ? 'up' : 'dn'}">${s.total_pnl_usd >= 0 ? '+' : ''}$${s.total_pnl_usd}</div></div>
+      <div class="kpi"><div class="l">Total P&amp;L ($100 each)</div><div class="v ${s.total_pnl_usd >= 0 ? 'up' : 'dn'}">${s.total_pnl_usd >= 0 ? '+$' : '−$'}${Math.abs(s.total_pnl_usd)}</div></div>
       <div class="kpi"><div class="l">Open now</div><div class="v">${s.open}</div></div>
     </div>
     ${rows.length ? `<div class="scroll"><table class="tbl"><tr><th>Coin</th><th>Score</th><th>Entry mcap</th><th>Return</th><th class="hide-sm">Status</th></tr>${rows.map(row).join('')}</table></div>` : ''}
@@ -225,9 +240,47 @@ function paperHtml(p, live){
 }
 
 let shownCoins = new Map();   // address -> coin row currently on screen (for Buy)
-function render(L, P, live){
+function compareHtml(A, B){
+  const a = A?.summary, b = B?.summary;
+  if (!a || !b || (!a.trades && !b.trades)) return '';
+  const cell = (x, y, f, fmt) => { const win = x != null && y != null && f(x, y); return `<td class="m${win ? ' win' : ''}">${x == null ? '–' : fmt(x)}</td>`; };
+  const money = v => (v >= 0 ? '+$' : '−$') + Math.abs(v);
+  const row = (name, x, y) => `<tr><td>${name}</td>${cell(x.trades, 0, () => false, v => v)}${cell(x.win_rate, y.win_rate, (p, q) => p > q, v => v + '%')}
+    ${cell(x.total_pnl_usd, y.total_pnl_usd, (p, q) => p > q, money)}${cell(x.avg_return_pct, y.avg_return_pct, (p, q) => p > q, v => (v >= 0 ? '+' : '') + v + '%')}</tr>`;
+  const enough = a.trades >= 15 && b.trades >= 15;
+  const lead = a.total_pnl_usd === b.total_pnl_usd ? 'tied' : a.total_pnl_usd > b.total_pnl_usd ? 'A is ahead' : 'B is ahead';
+  return `<h2 style="margin-top:18px">Which exit rule earns more</h2>
+    <div class="scroll"><table class="tbl cmp"><tr><th>Exit rule (same picks)</th><th>Closed</th><th>Win rate</th><th>Total P&amp;L</th><th>Avg return</th></tr>
+    ${row('A · sell all at +100% / −35% / 24 h', a, b)}${row('B · sell half at +100%, trail the rest 30%', b, a)}</table></div>
+    <p style="color:var(--muted);font-size:12px">${enough ? `<b style="color:var(--text)">${lead}</b> after ${Math.min(a.trades, b.trades)}+ trades each.` : `Too early to call: wait for 15+ closed trades on each (${a.trades} and ${b.trades} so far).`} Both use the same picks at the same prices; only the selling differs.</p>`;
+}
+
+const SIG = {
+  buy_pressure_5m: 'Buyers in the last 5 min', buy_pressure_1h: 'Buyers over the hour', volume_accel: 'Volume speeding up',
+  growth_since_seen: 'Growth since first seen', change_1h: '1 h price change', holders: 'Holder count', top10_pct: 'Top 10 wallets share',
+  insider_group_pct: 'Linked insider wallets share', liquidity_ratio: 'Liquidity vs market cap', on_bonding_curve: 'Still on bonding curve',
+  age_hours: 'Coin age', market_cap: 'Market cap', paid_boosts: 'Paid boosts', x_buzz: 'X buzz', hot_theme: 'In a hot theme',
+};
+function statsHtml(st){
+  if (!st) return '<div class="empty">No results yet: the 24/7 scanner fills this in.</div>';
+  const t = st.total || { n: 0 };
+  const intro = `<p style="color:var(--muted);font-size:13px;margin:0 0 10px">Every coin that passes the Skeptic is followed for 24 hours. <b style="color:var(--text)">${t.n}</b> finished, ${st.tracking_now ?? 0} being followed now.
+    ${t.n < 50 ? 'Results start to mean something after about 50 finished coins (roughly 2–4 days of scanning). Until then treat these as early hints.' : ''}</p>`;
+  if (!t.n) return intro + '<div class="empty">Collecting. Check back in a day.</div>';
+  const pc = v => v == null ? '–' : v + '%';
+  const bands = `<div class="scroll"><table class="tbl"><tr><th>Score at first sight</th><th>Coins</th><th>Reached +50%</th><th>Reached +100%</th><th class="hide-sm">Crashed −80%</th><th>Median after 24 h</th></tr>
+    ${st.bands.filter(b => b.n).map(b => `<tr><td>${b.label}</td><td class="m">${b.n}</td><td class="m">${pc(b.hit50)}</td><td class="m">${pc(b.hit100)}</td><td class="m hide-sm">${pc(b.crash)}</td><td class="m">${b.median_24h == null ? '–' : pct(b.median_24h)}</td></tr>`).join('')}
+    </table></div>`;
+  const sigs = (st.signals || []).slice(0, 8).map(x => `<div class="sig"><b>${esc(SIG[x.signal] || x.signal)}</b>
+      <span class="m ${x.lift >= 0 ? 'up' : 'dn'}">${x.lift >= 0 ? '+' : ''}${x.lift} pts</span>
+      <span class="why">When it was high, ${x.high.hit50}% reached +50%; when low, ${x.low.hit50}% (${x.high.n} coins each side). ${x.lift >= 10 ? 'Looks useful.' : x.lift <= -10 ? 'High values did worse: a warning sign.' : 'No clear effect yet.'}</span></div>`).join('');
+  return intro + bands + (sigs ? `<h2 style="margin-top:18px;font-size:14px">Which signals separate winners from losers</h2><div class="feed" style="max-height:none">${sigs}</div>` : '');
+}
+
+function render(L, P, live, PB){
   shownCoins = new Map(L.coins.map(c => [c.address, c]));
-  lastRender = [L, P, live];
+  lastRender = [L, P, live, PB];
+  $('themes').innerHTML = (L.themes || []).length ? 'Hot themes: ' + L.themes.slice(0, 8).map(t => `<span class="chip">${esc(t.word)} · ${t.coins}</span>`).join('') : '';
   const C = L.counts;
   $('kpis').innerHTML = [['Coins scanned', C.scanned], ['Picks', C.watch], ['Watching', C.wait], ['Rejected', C.skip]]
     .map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
@@ -239,7 +292,8 @@ function render(L, P, live){
   $('skip').innerHTML = '<tr><th>Coin</th><th>Mcap</th><th class="hide-sm">24h</th><th>Why it was rejected</th></tr>' +
     s.slice(0, 80).map(c => `<tr><td><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.symbol)}</a></td><td class="m">${usd(c.mcap)}</td><td class="m hide-sm">${pct(c.chg_h24)}</td><td>${c.red_flags.map(esc).join('<br>')}</td></tr>`).join('');
   $('paper-title').textContent = live ? 'Paper trading (this session)' : 'Paper trading';
-  $('paper').innerHTML = paperHtml(P, live);
+  $('paper').innerHTML = paperHtml(P, live) + compareHtml(P, PB);
+  if (S.on) checkHoldings(shownCoins);
 }
 
 // ------------------------------------------------------------------ 24/7 view
@@ -247,13 +301,12 @@ async function loadStatic(){
   if (S.on) return;
   try{
     const bust = '?t=' + Date.now();
-    const [L, P] = await Promise.all([
-      fetch('data/latest.json' + bust).then(r => r.json()),
-      fetch('data/paper.json' + bust).then(r => r.ok ? r.json() : null).catch(() => null)]);
+    const opt = f => fetch('data/' + f + bust).then(r => r.ok ? r.json() : null).catch(() => null);
+    const [L, P, PB] = await Promise.all([fetch('data/latest.json' + bust).then(r => r.json()), opt('paper.json'), opt('paper_b.json')]);
     const stale = Date.now() - L.updated_ms > 45*60000;
     $('status').innerHTML = `<span class="dot ${stale ? 'stale' : 'live'}"></span>24/7 scan updated <b>${ago(L.updated_ms)}</b><br>
       X buzz: ${L.buzz_fresh ? '<b>on</b> (laptop reader)' : 'off (laptop reader not running)'}`;
-    render(L, P, false);
+    render(L, P, false, PB);
   } catch(e){
     $('status').textContent = 'No 24/7 data yet. You can still start a live session.';
   }
@@ -354,8 +407,9 @@ async function scanOnce(){
   try{
     batch = [];
     const { latest, closedNow, opened } = await runScan({
-      get, sleep, now: Date.now(), state: S.state, paper: S.paper, buzz: S.buzz, rugCache,
-      cfg: { max_rugchecks: 4, rug_cache_min: 10, rug_gap_ms: 1100, max_watch: 120 },
+      get, sleep, now: Date.now(), state: S.state, paper: S.paper, paperB: S.paperB, buzz: S.buzz, rugCache,
+      extraAddrs: R.trades.filter(t => t.status === 'holding').map(t => t.address),
+      cfg: { max_rugchecks: 4, rug_cache_min: 10, rug_gap_ms: 1100, max_watch: 120, track_outcomes: false },
     });
     failures = 0; S.lastError = null;
     S.scans = (S.scans || 0) + 1; S.lastScan = Date.now();
@@ -372,7 +426,7 @@ async function scanOnce(){
     S.alerts.unshift(...batch); S.alerts = S.alerts.slice(0, 100); batch = null;
     S.lastPicks = picks.map(c => c.address);
     S.latest = latest;
-    render(latest, S.paper, true);
+    render(latest, S.paper, true, S.paperB);
   } catch(e){
     batch = null;
     failures++;
@@ -408,14 +462,14 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) keep
 async function start(resume = false){
   if (!resume) {
     Object.assign(S, { on: true, started: Date.now(), scans: 0, lastScan: 0, alerts: [], lastPicks: [],
-                       state: { watch: {} }, paper: { open: [], closed: [], ever: [] } });
+                       state: { watch: {} }, paper: { open: [], closed: [], ever: [] }, paperB: { open: [], closed: [], ever: [] } });
     try { if ('Notification' in window && Notification.permission === 'default') await Notification.requestPermission(); } catch {}
   }
-  S.on = true; S.state ??= { watch: {} }; S.paper ??= { open: [], closed: [], ever: [] };
+  S.on = true; S.state ??= { watch: {} }; S.paper ??= { open: [], closed: [], ever: [] }; S.paperB ??= { open: [], closed: [], ever: [] };
   save(); renderSession(); renderAlerts(); keepAwake();
   if (realOn()) loadJupiter().catch(() => {});   // ready before the first Buy click
   await seed();
-  if (S.latest) render(S.latest, S.paper, true);
+  if (S.latest) render(S.latest, S.paper, true, S.paperB);
   await scanOnce();
   schedule();
   clearInterval(countdown);
@@ -460,14 +514,14 @@ function limits(){
 function syncRealUi(){
   $('real-state').textContent = realOn() ? 'on' : 'off';
   $('buy-spent').value = spentToday();
-  store.set('radar-real-cfg', { d: $('buy-default').value, mx: $('buy-max').value, day: $('buy-daily').value, wait: $('buy-wait').checked, ack: $('buy-ack').checked, quick: $('quick-on').checked, qmin: $('quick-min').value });
+  store.set('radar-real-cfg', { d: $('buy-default').value, mx: $('buy-max').value, day: $('buy-daily').value, wait: $('buy-wait').checked, ack: $('buy-ack').checked, quick: $('quick-on').checked, qmin: $('quick-min').value, tp: $('sa-tp').value, sl: $('sa-sl').value, trail: $('sa-trail').value });
   if (realOn()) loadJupiter();
   if (lastRender) render(...lastRender);
   renderReal();
 }
 (() => { const c = store.get('radar-real-cfg', null); if (!c) return;
-  $('buy-default').value = c.d; $('buy-max').value = c.mx; $('buy-daily').value = c.day; $('buy-wait').checked = !!c.wait; $('buy-ack').checked = !!c.ack; $('quick-on').checked = !!c.quick; $('quick-min').value = c.qmin || 80; })();
-['buy-default', 'buy-max', 'buy-daily', 'buy-wait', 'buy-ack', 'quick-on', 'quick-min'].forEach(id => $(id).addEventListener('change', syncRealUi));
+  $('buy-default').value = c.d; $('buy-max').value = c.mx; $('buy-daily').value = c.day; $('buy-wait').checked = !!c.wait; $('buy-ack').checked = !!c.ack; $('quick-on').checked = !!c.quick; $('quick-min').value = c.qmin || 80; $('sa-tp').value = c.tp || 100; $('sa-sl').value = c.sl || 35; $('sa-trail').value = c.trail || 30; })();
+['buy-default', 'buy-max', 'buy-daily', 'buy-wait', 'buy-ack', 'quick-on', 'quick-min', 'sa-tp', 'sa-sl', 'sa-trail'].forEach(id => $(id).addEventListener('change', syncRealUi));
 
 let jupLoading = null;
 function loadJupiter(){
@@ -562,6 +616,34 @@ function sell(addr){
     });
 }
 
+// Sell alerts: each rule fires once per holding, with the reason and a Sell button ready
+function checkHoldings(info){
+  const tp = (+$('sa-tp').value || 100) / 100, sl = -(+$('sa-sl').value || 35) / 100, trail = (+$('sa-trail').value || 30) / 100;
+  let changed = false;
+  for (const t of R.trades) {
+    if (t.status !== 'holding' || !t.entry_price) continue;
+    const c = info.get(t.address);
+    if (!c || !(c.price > 0)) continue;
+    t.alerted ??= {};
+    t.peak_price = Math.max(t.peak_price || t.entry_price, c.price);
+    const ret = c.price / t.entry_price - 1, peakRet = t.peak_price / t.entry_price - 1, fromPeak = c.price / t.peak_price - 1;
+    const fire = (key, title, body) => {
+      if (t.alerted[key]) return;
+      t.alerted[key] = Date.now(); changed = true;
+      alertUser('bad', `Sell alert ${t.symbol}: ${title}`, body, t.url);
+    };
+    const r = x => (x >= 0 ? '+' : '') + Math.round(x * 100) + '%';
+    if (ret >= tp) fire('tp', 'take profit', `${r(ret)} since you bought. Consider selling at least half to lock in your stake.`);
+    if (ret <= sl) fire('sl', 'stop loss', `${r(ret)} since you bought.`);
+    if (peakRet >= 0.3 && fromPeak <= -trail) fire('trail', 'trailing stop', `${r(fromPeak)} from its peak of ${r(peakRet)}; now ${r(ret)} overall.`);
+    const b5 = c.buys_m5 ?? 0, s5 = c.sells_m5 ?? 0;
+    if (s5 >= 10 && s5 >= 2 * Math.max(1, b5) && (c.chg_m5 ?? 0) < 0) fire('flip:' + Math.floor(Date.now() / 1800000), 'sellers taking over', `${s5} sells vs ${b5} buys in 5 min, price ${(c.chg_m5).toFixed(1)}% in 5 min.`);
+    // key on the kind of flag, not its numbers, so "$11,924" then "$11,327" is still one alert
+    if (c.verdict === 'SKIP' && c.red_flags?.length) fire('flag:' + c.red_flags[0].replace(/[\d$,.%]+/g, '#').slice(0, 40), 'new red flag', c.red_flags[0]);
+  }
+  if (changed) { saveReal(); renderAlerts(); renderReal(); }
+}
+
 let realPrices = {}, realPricesAt = 0;
 async function refreshRealPrices(){
   const held = [...new Set(R.trades.filter(t => t.status === 'holding').map(t => t.address))];
@@ -569,7 +651,9 @@ async function refreshRealPrices(){
   realPricesAt = Date.now();
   try {
     const rows = await fetch(`https://api.dexscreener.com/tokens/v1/solana/${held.slice(0, 30).join(',')}`).then(r => r.json());
-    for (const p of rows || []) { const a = p.baseToken?.address; if (a && (!realPrices[a] || (p.liquidity?.usd || 0) > realPrices[a].liq)) realPrices[a] = { price: +p.priceUsd || 0, liq: p.liquidity?.usd || 0 }; }
+    for (const p of rows || []) { const a = p.baseToken?.address; if (a && (!realPrices[a] || (p.liquidity?.usd || 0) > realPrices[a].liq))
+      realPrices[a] = { price: +p.priceUsd || 0, liq: p.liquidity?.usd || 0, buys_m5: p.txns?.m5?.buys, sells_m5: p.txns?.m5?.sells, chg_m5: p.priceChange?.m5 }; }
+    if (!S.on) checkHoldings(new Map(Object.entries(realPrices)));
     renderReal();
   } catch {}
 }
@@ -592,6 +676,15 @@ function renderReal(){
     <p style="color:var(--muted);font-size:12px">Saved in this browser only; your wallet is the real record. Return is estimated from the price move since your buy and ignores fees and slippage. Sell opens Jupiter with the coin selected: pick how much in the swap window.</p>`;
 }
 setInterval(refreshRealPrices, 60000);
+
+async function loadStats(){
+  try {
+    const st = await fetch('data/stats.json?t=' + Date.now()).then(r => r.ok ? r.json() : null);
+    $('n-stats').textContent = st?.total?.n ?? 0;
+    $('stats').innerHTML = statsHtml(st);
+  } catch { $('stats').innerHTML = statsHtml(null); }
+}
+loadStats(); setInterval(loadStats, 5 * 60000);
 
 renderSession(); renderAlerts(); syncRealUi(); refreshRealPrices();
 if (S.on) start(true);           // a reload keeps the session going

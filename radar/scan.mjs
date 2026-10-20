@@ -4,7 +4,7 @@
 import { readFile, writeFile, rename, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { runScan } from '../docs/radar-core.js';
+import { runScan, computeStats } from '../docs/radar-core.js';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 export let DATA = path.join(ROOT, 'docs', 'data');
@@ -42,15 +42,22 @@ async function save(name, obj) {
 export async function run({ get = getJson, wait = sleep, now } = {}) {
   const state = await load('state.json', { watch: {} });
   const paper = await load('paper.json', { open: [], closed: [], ever: [] });
+  const paperB = await load('paper_b.json', { open: [], closed: [], ever: [] });
   const buzz = await load('buzz.json', { updated: 0, coins: {} });
-  const { latest, candidates } = await runScan({ get, sleep: wait, now: now ?? Date.now(), state, paper, buzz });
+  const outcomes = await load('outcomes.json', []);
+  const { latest, candidates, finished } = await runScan({ get, sleep: wait, now: now ?? Date.now(), state, paper, paperB, buzz });
+  outcomes.push(...finished);
+  const kept = outcomes.slice(-5000);
   await save('latest.json', latest);
   await save('paper.json', paper);
+  await save('paper_b.json', paperB);
+  await save('outcomes.json', kept);
+  await save('stats.json', { updated: latest.updated, tracking_now: latest.tracking, ...computeStats(kept) });
   await save('state.json', state);
   await save('candidates.json', candidates);
   const c = latest.counts;
   console.log(`scanned ${c.scanned} | watch ${c.watch} | wait ${c.wait} | skip ${c.skip} | rugchecks ${c.rugchecks} | ` +
-              `paper open ${paper.open.length} closed ${paper.closed.length} | ${latest.took_s}s`);
+              `paper open ${paper.open.length} closed ${paper.closed.length} | outcomes +${finished.length} (${kept.length}) | ${latest.took_s}s`);
   return latest;
 }
 
