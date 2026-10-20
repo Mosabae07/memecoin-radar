@@ -16,17 +16,29 @@ A free early-signal scanner for new Solana meme coins. Every 15 minutes it scans
 | Paper trade | $100 per WATCH pick. Take profit at +100%, stop at -35%, exit after 24 h, 4% fees and slippage charged | |
 | X buzz | Laptop reader searches X for each flagged coin: posts and distinct accounts in the last hour, likes and reposts, growth since the last check. Spam from a few accounts is discounted | Your logged-in X, on your laptop |
 
-Every threshold is in `CFG` at the top of `radar/scan.py`.
+Every threshold is in `CFG` at the top of `docs/radar-core.js`. The 15-minute scanner and live mode both use that one file, so they always apply the same rules.
+
+## Live session mode
+
+On the dashboard, press **Start live session** when you sit down to trade:
+
+- Scans every 20, 30 or 60 seconds (you choose) right in that browser tab, on a laptop or a phone. No GitHub wait.
+- **Alerts** for each new pick, for a pick that turns bad (dumps or fails a safety check), and for each paper trade opening and closing. You get a sound, a desktop notification and a flashing tab title when you're in another tab.
+- Its own **session paper trades**, separate from the 24/7 record.
+- Starts from the 24/7 scanner's memory, so "growth since first seen" works from the first live scan.
+- Keeps the screen awake while on. Survives a page reload. Stops when you press **Stop** or close the tab.
+- Polite to the free APIs: 4 RugCheck reports per scan, each reused for 10 minutes. A coin waiting for its check shows "safety check pending" and can't become a pick until it's checked.
 
 ## Files
 
 ```
-radar/scan.py                 the scanner (Python standard library only)
+docs/radar-core.js            the rules: discovery, Skeptic, scoring, paper trading
+radar/scan.mjs                15-minute scanner GitHub runs (Node, no installs)
 .github/workflows/scan.yml    runs it every 15 min and saves results
-docs/index.html               the dashboard (GitHub Pages)
+docs/index.html               the dashboard + live session mode (GitHub Pages)
 docs/data/                    latest.json, paper.json, state.json, candidates.json, buzz.json
 laptop/                       X buzz reader + one-click Windows setup
-tests/                        offline tests on real captured market data
+tests/                        offline tests on real captured market data (node --test tests/*.test.mjs)
 ```
 
 ## Setup
@@ -41,4 +53,5 @@ tests/                        offline tests on real captured market data
 - **X rules.** Reading X automatically breaks X's terms. The reader is slow and read-only (10 searches per run, random pauses), but your account could still be limited. Consider a spare account. If X blocks the hidden browser, set `HEADLESS=0` in `laptop/.env`.
 - **Timing.** GitHub can start scheduled runs a few minutes late, and prices are only checked every 15 minutes. Real entries and exits on fast coins would differ from the paper results.
 - **Pause after 60 days.** GitHub pauses schedules on repos with no activity for 60 days. The scan's own commits normally count as activity, but if it stops, re-enable it under Actions.
+- **Live mode needs the browser to reach DexScreener and RugCheck directly.** Some ad or privacy blockers stop that; the page says so if scans keep failing.
 - **Solana only,** because the free scam checks (RugCheck) cover Solana.

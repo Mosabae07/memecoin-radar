@@ -15,6 +15,12 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 var(--sans)}
 a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+button{font:600 14px var(--sans);cursor:pointer;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 14px}
+button:hover{border-color:#3a4450}
+button.go{background:#123d26;border-color:#1f6b41;color:#bff5d5}
+button.stop{background:#3d1414;border-color:#6b1f1f;color:#ffd0d0}
+select{font:13px var(--sans);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 8px}
+label.chk{font-size:13px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
 .wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
 header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
 h1{font-size:22px;margin:0;letter-spacing:-.01em}
@@ -23,7 +29,14 @@ h1 small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-
 .status b{color:var(--text)}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--muted)}
 .dot.live{background:var(--watch);box-shadow:0 0 8px var(--watch)} .dot.stale{background:var(--skip)}
-.warn{background:#1c1610;border:1px solid #3a2c16;color:#e9cf9c;border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:18px}
+.dot.pulse{animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.warn{background:#1c1610;border:1px solid #3a2c16;color:#e9cf9c;border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:16px}
+.session{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.session.on{border-color:#1f6b41;box-shadow:0 0 0 1px #1f6b41 inset}
+.session .info{font-size:13px;color:var(--muted)} .session .info b{color:var(--text);font-family:var(--mono)}
+.session .ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.err{color:#ffb4b4;font-size:13px;margin-top:6px;width:100%}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .kpi .l{color:var(--muted);font-size:12px} .kpi .v{font:600 22px var(--mono);margin-top:2px}
@@ -32,6 +45,8 @@ h2 .n{font:600 12px var(--mono);color:var(--muted);background:var(--panel2);bord
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
 .card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--watch);border-radius:10px;padding:14px}
 .card.wait{border-left-color:var(--wait)}
+.card.fresh{animation:fresh 2.5s ease-out}
+@keyframes fresh{0%{box-shadow:0 0 0 2px var(--watch)}100%{box-shadow:0 0 0 0 transparent}}
 .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .sym{font-weight:700;font-size:16px} .nm{color:var(--muted);font-size:12px;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .score{font:700 26px var(--mono);line-height:1} .score small{font-size:11px;color:var(--muted);font-weight:400;display:block;text-align:right}
@@ -43,7 +58,7 @@ h2 .n{font:600 12px var(--mono);color:var(--muted);background:var(--panel2);bord
 ul.r{margin:8px 0 0;padding:0;list-style:none;font-size:13px}
 ul.r li{padding-left:18px;position:relative;margin:3px 0}
 ul.r li:before{position:absolute;left:0;font-weight:700}
-ul.r li.p:before{content:'+';color:var(--watch)} ul.r li.c:before{content:'!';color:var(--wait)} ul.r li.f:before{content:'×';color:var(--skip)}
+ul.r li.p:before{content:'+';color:var(--watch)} ul.r li.c:before{content:'!';color:var(--wait)}
 .links{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
 .up{color:var(--watch)} .dn{color:var(--skip)}
 .tbl{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
@@ -54,22 +69,43 @@ ul.r li.p:before{content:'+';color:var(--watch)} ul.r li.c:before{content:'!';co
 .scroll{overflow-x:auto;border-radius:10px}
 details{margin-top:8px} summary{cursor:pointer;color:var(--muted);font-size:13px}
 .empty{color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center}
-.pill{font:600 11px var(--mono);padding:2px 7px;border-radius:12px;border:1px solid var(--line)}
-.pill.watch{color:var(--watch);border-color:#1f5a3a} .pill.wait{color:var(--wait);border-color:#5a461f}
+.feed{background:var(--panel);border:1px solid var(--line);border-radius:10px;max-height:260px;overflow:auto}
+.feed div{padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px}
+.feed div:last-child{border-bottom:0}
+.feed time{font-family:var(--mono);color:var(--muted);font-size:12px;margin-right:8px}
+.feed .pick b{color:var(--watch)} .feed .bad b{color:var(--skip)} .feed .info b{color:var(--accent)}
 footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+[hidden]{display:none!important}
 @media (max-width:560px){ .cards{grid-template-columns:1fr} .status{text-align:left} .hide-sm{display:none} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>Memecoin Radar<small>Early-momentum scanner for new Solana meme coins · free data · updates every ~15 min</small></h1>
+    <h1>Memecoin Radar<small>Early-momentum scanner for new Solana meme coins · free data</small></h1>
     <div class="status" id="status">loading…</div>
   </header>
 
   <div class="warn"><b>Signals, not predictions.</b> Most new meme coins go to zero and many are rug pulls. A high score means momentum is building and no scam markers were found. It does not mean the price will rise. Paper-trade it before risking money. Not financial advice.</div>
 
+  <div class="session" id="session">
+    <div class="info" id="sess-info">Live session is <b>off</b>. The 24/7 scan updates every ~15 min. Turn on live mode to scan every few seconds while you trade.</div>
+    <div class="ctl">
+      <select id="every" title="Scan every">
+        <option value="20">every 20 s</option><option value="30" selected>every 30 s</option><option value="60">every 60 s</option>
+      </select>
+      <label class="chk"><input type="checkbox" id="sound" checked> sound</label>
+      <button id="toggle" class="go">Start live session</button>
+    </div>
+    <div class="err" id="sess-err" hidden></div>
+  </div>
+
   <div class="kpis" id="kpis"></div>
+
+  <div id="alerts-wrap" hidden>
+    <h2>Session alerts <span class="n" id="n-alerts">0</span></h2>
+    <div class="feed" id="alerts"></div>
+  </div>
 
   <h2>Picks <span class="n" id="n-watch">0</span></h2>
   <div class="cards" id="watch"></div>
@@ -77,30 +113,38 @@ footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid va
   <h2>Watching <span class="n" id="n-wait">0</span></h2>
   <div class="cards" id="wait"></div>
 
-  <h2>Paper trading</h2>
+  <h2 id="paper-title">Paper trading</h2>
   <div id="paper"></div>
 
   <h2>Rejected by the Skeptic <span class="n" id="n-skip">0</span></h2>
   <details><summary>Show why each coin was thrown out</summary><div class="scroll" style="margin-top:10px"><table class="tbl" id="skip"></table></div></details>
 
-  <footer>Data: DexScreener (prices, volume, trades), RugCheck (holders, insider wallets, mint and freeze rights), X buzz from the laptop reader when it is running. Rules and thresholds are in <code>radar/scan.py</code>.</footer>
+  <footer>Data: DexScreener (prices, volume, trades), RugCheck (holders, insider wallets, mint and freeze rights), X buzz from the laptop reader when it is running. Live mode runs in this tab only and stops when you press Stop or close it. Rules and thresholds are in <code>docs/radar-core.js</code>.</footer>
 </div>
 
-<script>
+<script type="module">
+import { runScan } from './radar-core.js';
+
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const usd = v => v == null ? '–' : v >= 1e6 ? '$' + (v/1e6).toFixed(2) + 'M' : v >= 1e3 ? '$' + (v/1e3).toFixed(1) + 'K' : '$' + Math.round(v);
 const pct = v => v == null ? '–' : `<span class="${v >= 0 ? 'up' : 'dn'}">${v >= 0 ? '+' : ''}${(+v).toFixed(v > -10 && v < 10 ? 1 : 0)}%</span>`;
 const age = h => h < 1 ? Math.round(h*60) + 'm' : h < 48 ? h.toFixed(1) + 'h' : (h/24).toFixed(0) + 'd';
 const ago = ms => { const m = Math.round((Date.now() - ms)/60000); return m < 1 ? 'just now' : m < 60 ? m + ' min ago' : (m/60).toFixed(1) + ' h ago'; };
+const clock = ms => new Date(ms).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
 
+// ------------------------------------------------------------------ rendering
+let shownWatch = new Set();
 function card(c){
   const kind = c.verdict === 'WATCH' ? '' : 'wait';
+  const fresh = c.verdict === 'WATCH' && !shownWatch.has(c.address) && S.on ? ' fresh' : '';
   const x = (c.links||[]).find(l => l.type === 'twitter');
-  const items = [
-    ...(c.reasons||[]).map(t => `<li class="p">${esc(t)}</li>`),
-    ...(c.concerns||[]).map(t => `<li class="c">${esc(t)}</li>`)];
-  return `<div class="card ${kind}">
+  const items = [...(c.reasons||[]).map(t => `<li class="p">${esc(t)}</li>`), ...(c.concerns||[]).map(t => `<li class="c">${esc(t)}</li>`)];
+  return `<div class="card ${kind}${fresh}">
     <div class="top"><div><div class="sym">${esc(c.symbol)}</div><div class="nm">${esc(c.name)}</div></div>
       <div class="score">${c.score}<small>/ 100</small></div></div>
     <div class="bar"><i style="width:${c.score}%"></i></div>
@@ -116,8 +160,8 @@ function card(c){
   </div>`;
 }
 
-function paper(p){
-  if (!p || !p.summary) return '<div class="empty">No paper trades yet.</div>';
+function paperHtml(p, live){
+  if (!p || !p.summary) return `<div class="empty">${live ? 'No session trades yet. A paper trade opens on each new pick.' : 'No paper trades yet.'}</div>`;
   const s = p.summary;
   const row = t => `<tr><td><a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.symbol)}</a></td>
     <td class="m">${t.entry_score}</td><td class="m">${usd(t.entry_mcap)}</td>
@@ -134,30 +178,216 @@ function paper(p){
     <p style="color:var(--muted);font-size:12px">${esc(s.note)} Rules: take profit at +100%, stop loss at −35%, exit after 24 h.</p>`;
 }
 
-async function load(){
+function render(L, P, live){
+  const C = L.counts;
+  $('kpis').innerHTML = [['Coins scanned', C.scanned], ['Picks', C.watch], ['Watching', C.wait], ['Rejected', C.skip]]
+    .map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
+  const w = L.coins.filter(c => c.verdict === 'WATCH'), t = L.coins.filter(c => c.verdict === 'WAIT'), s = L.coins.filter(c => c.verdict === 'SKIP');
+  $('n-watch').textContent = w.length; $('n-wait').textContent = t.length; $('n-skip').textContent = s.length;
+  $('watch').innerHTML = w.length ? w.map(card).join('') : '<div class="empty">No coin meets the bar right now. That is normal: a pick needs strong momentum on two scans in a row and no red flags.</div>';
+  shownWatch = new Set(w.map(c => c.address));
+  $('wait').innerHTML = t.length ? t.slice(0, 12).map(card).join('') : '<div class="empty">Nothing on watch.</div>';
+  $('skip').innerHTML = '<tr><th>Coin</th><th>Mcap</th><th class="hide-sm">24h</th><th>Why it was rejected</th></tr>' +
+    s.slice(0, 80).map(c => `<tr><td><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.symbol)}</a></td><td class="m">${usd(c.mcap)}</td><td class="m hide-sm">${pct(c.chg_h24)}</td><td>${c.red_flags.map(esc).join('<br>')}</td></tr>`).join('');
+  $('paper-title').textContent = live ? 'Paper trading (this session)' : 'Paper trading';
+  $('paper').innerHTML = paperHtml(P, live);
+}
+
+// ------------------------------------------------------------------ 24/7 view
+async function loadStatic(){
+  if (S.on) return;
   try{
     const bust = '?t=' + Date.now();
     const [L, P] = await Promise.all([
       fetch('data/latest.json' + bust).then(r => r.json()),
       fetch('data/paper.json' + bust).then(r => r.ok ? r.json() : null).catch(() => null)]);
     const stale = Date.now() - L.updated_ms > 45*60000;
-    $('status').innerHTML = `<span class="dot ${stale ? 'stale' : 'live'}"></span>updated <b>${ago(L.updated_ms)}</b><br>
+    $('status').innerHTML = `<span class="dot ${stale ? 'stale' : 'live'}"></span>24/7 scan updated <b>${ago(L.updated_ms)}</b><br>
       X buzz: ${L.buzz_fresh ? '<b>on</b> (laptop reader)' : 'off (laptop reader not running)'}`;
-    const C = L.counts;
-    $('kpis').innerHTML = [['Coins scanned', C.scanned], ['Picks', C.watch], ['Watching', C.wait], ['Rejected', C.skip]]
-      .map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
-    const w = L.coins.filter(c => c.verdict === 'WATCH'), t = L.coins.filter(c => c.verdict === 'WAIT'), s = L.coins.filter(c => c.verdict === 'SKIP');
-    $('n-watch').textContent = w.length; $('n-wait').textContent = t.length; $('n-skip').textContent = s.length;
-    $('watch').innerHTML = w.length ? w.map(card).join('') : '<div class="empty">No coin meets the bar right now. That is normal: a pick needs strong momentum on two scans in a row and no red flags.</div>';
-    $('wait').innerHTML = t.length ? t.slice(0, 12).map(card).join('') : '<div class="empty">Nothing on watch.</div>';
-    $('skip').innerHTML = '<tr><th>Coin</th><th>Mcap</th><th class="hide-sm">24h</th><th>Why it was rejected</th></tr>' +
-      s.slice(0, 80).map(c => `<tr><td><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.symbol)}</a></td><td class="m">${usd(c.mcap)}</td><td class="m hide-sm">${pct(c.chg_h24)}</td><td>${c.red_flags.map(esc).join('<br>')}</td></tr>`).join('');
-    $('paper').innerHTML = paper(P);
+    render(L, P, false);
   } catch(e){
-    $('status').textContent = 'No data yet: the first scan has not run.';
+    $('status').textContent = 'No 24/7 data yet. You can still start a live session.';
   }
 }
-load(); setInterval(load, 60000);
+
+// ------------------------------------------------------------------ live session
+const S = store.get('radar-session', null) || {};
+S.on = !!S.on;
+const rugCache = new Map(store.get('radar-rugcache', []));
+let timer = null, countdown = null, nextAt = 0, wakeLock = null, failures = 0, titleBase = document.title, flashTimer = null;
+
+async function get(url){
+  try{
+    const r = await fetch(url, { signal: AbortSignal.timeout(20000) });
+    if (r.status === 404 || r.status === 400) return null;
+    if (r.status === 429) { await new Promise(z => setTimeout(z, 4000)); return null; }
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } catch(e){
+    S.lastError = (url.includes('rugcheck') ? 'RugCheck' : 'DexScreener') + ': ' + (e.name === 'TypeError' ? 'blocked or offline' : e.message);
+    if (!url.includes('rugcheck')) throw e;
+    return null;
+  }
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+function save(){
+  store.set('radar-session', S);
+  store.set('radar-rugcache', [...rugCache].slice(-300));
+}
+
+function beep(){
+  if (!$('sound').checked) return;
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, 0.18].forEach((t, i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = i ? 1180 : 880; o.connect(g); g.connect(ctx.destination);
+      g.gain.setValueAtTime(0.0001, ctx.currentTime + t);
+      g.gain.exponentialRampToValueAtTime(0.25, ctx.currentTime + t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + t + 0.16);
+      o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.18);
+    });
+  } catch {}
+}
+
+let batch = null;   // alerts from one scan, shown in the order they happened
+function alertUser(kind, title, body, url){
+  S.alerts ??= [];
+  const a = { t: Date.now(), kind, title, body, url };
+  if (batch) batch.push(a); else S.alerts.unshift(a);
+  S.alerts = S.alerts.slice(0, 100);
+  if (kind === 'pick' || kind === 'bad') {
+    beep();
+    try { if ('Notification' in window && Notification.permission === 'granted') {
+      const n = new Notification(title, { body, tag: title });
+      n.onclick = () => { window.focus(); if (url) window.open(url, '_blank'); };
+    } } catch {}
+    if (document.hidden) {
+      clearInterval(flashTimer);
+      let on = false;
+      flashTimer = setInterval(() => { document.title = (on = !on) ? '● ' + title : titleBase; }, 1000);
+    }
+  }
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) { clearInterval(flashTimer); document.title = titleBase; } });
+
+function renderAlerts(){
+  const a = S.alerts || [];
+  $('alerts-wrap').hidden = !S.on && !a.length;
+  $('n-alerts').textContent = a.length;
+  $('alerts').innerHTML = a.length ? a.map(x => `<div class="${x.kind}"><time>${clock(x.t)}</time><b>${esc(x.title)}</b> ${esc(x.body)}${x.url ? ` · <a href="${esc(x.url)}" target="_blank" rel="noopener">chart</a>` : ''}</div>`).join('')
+    : '<div class="info">Alerts appear here: new picks, picks that turn bad, and paper trades closing.</div>';
+}
+
+function renderSession(){
+  $('session').classList.toggle('on', S.on);
+  $('toggle').textContent = S.on ? 'Stop live session' : 'Start live session';
+  $('toggle').className = S.on ? 'stop' : 'go';
+  if (S.on) {
+    const secs = Math.max(0, Math.round((nextAt - Date.now()) / 1000));
+    $('sess-info').innerHTML = `<span class="dot live pulse"></span>Live since <b>${clock(S.started)}</b> · <b>${S.scans || 0}</b> scans · ${S.busy ? 'scanning…' : 'next in <b>' + secs + 's</b>'}`;
+    $('status').innerHTML = `<span class="dot live pulse"></span>live scan <b>${S.lastScan ? ago(S.lastScan) : 'starting'}</b><br>RugCheck checks reused for 10 min`;
+  } else {
+    $('sess-info').innerHTML = S.started ? `Live session is <b>off</b>. Last session: ${S.scans || 0} scans, ${(S.alerts||[]).filter(a => a.kind === 'pick').length} pick alerts.` :
+      'Live session is <b>off</b>. The 24/7 scan updates every ~15 min. Turn on live mode to scan every few seconds while you trade.';
+  }
+  const err = $('sess-err');
+  err.hidden = !(S.on && failures);
+  if (failures) err.textContent = `Last scan failed (${S.lastError || 'unknown'}). Retrying${failures >= 3 ? ': if this keeps happening, this browser may be blocking DexScreener (try another browser or turn off ad blockers for this page)' : ''}.`;
+}
+
+async function scanOnce(){
+  S.busy = true; renderSession();
+  const before = new Set((S.lastPicks || []));
+  const heldBefore = new Set((S.paper?.open || []).map(p => p.address));
+  S.alerts ??= [];
+  try{
+    batch = [];
+    const { latest, closedNow, opened } = await runScan({
+      get, sleep, now: Date.now(), state: S.state, paper: S.paper, buzz: S.buzz, rugCache,
+      cfg: { max_rugchecks: 4, rug_cache_min: 10, rug_gap_ms: 1100, max_watch: 120 },
+    });
+    failures = 0; S.lastError = null;
+    S.scans = (S.scans || 0) + 1; S.lastScan = Date.now();
+    const picks = latest.coins.filter(c => c.verdict === 'WATCH');
+    for (const c of picks) if (!before.has(c.address))
+      alertUser('pick', `New pick: ${c.symbol} (${c.score})`, `${usd(c.mcap)} mcap · ${(c.reasons||[]).slice(0,2).join('; ')}`, c.url);
+    const nowSkip = new Map(latest.coins.filter(c => c.verdict === 'SKIP').map(c => [c.address, c]));
+    for (const a of before) if (nowSkip.has(a)) {
+      const c = nowSkip.get(a);
+      alertUser('bad', `${c.symbol} turned bad`, c.red_flags[0] || 'failed a safety check', c.url);
+    }
+    for (const p of closedNow) alertUser(p.pnl_usd >= 0 ? 'info' : 'bad', `Paper ${p.symbol}: ${p.exit_reason}`, `${p.return_pct >= 0 ? '+' : ''}${p.return_pct}%`, p.url);
+    for (const p of opened) if (!heldBefore.has(p.address)) alertUser('info', `Paper buy ${p.symbol}`, `$${p.stake} at ${usd(p.entry_mcap)} mcap`, p.url);
+    S.alerts.unshift(...batch); S.alerts = S.alerts.slice(0, 100); batch = null;
+    S.lastPicks = picks.map(c => c.address);
+    S.latest = latest;
+    render(latest, S.paper, true);
+  } catch(e){
+    batch = null;
+    failures++;
+    S.lastError ??= e.message;
+  }
+  S.busy = false;
+  save(); renderAlerts(); renderSession();
+}
+
+function schedule(){
+  clearTimeout(timer);
+  if (!S.on) return;
+  const every = +$('every').value * 1000;
+  const wait = failures ? Math.min(120000, every * (1 + failures)) : every;
+  nextAt = Date.now() + wait;
+  timer = setTimeout(async () => { await scanOnce(); schedule(); }, wait);
+}
+
+async function seed(){
+  // start from the 24/7 scanner's memory so "since first seen" growth works from scan one
+  try {
+    const st = await fetch('data/state.json?t=' + Date.now()).then(r => r.json());
+    for (const [a, h] of Object.entries(st.watch || {})) S.state.watch[a] ??= h;
+  } catch {}
+  try { S.buzz = await fetch('data/buzz.json?t=' + Date.now()).then(r => r.json()); } catch { S.buzz = null; }
+}
+
+async function keepAwake(){
+  try { if ('wakeLock' in navigator && S.on && !wakeLock) { wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => wakeLock = null); } } catch {}
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) keepAwake(); });
+
+async function start(resume = false){
+  if (!resume) {
+    Object.assign(S, { on: true, started: Date.now(), scans: 0, lastScan: 0, alerts: [], lastPicks: [],
+                       state: { watch: {} }, paper: { open: [], closed: [], ever: [] } });
+    try { if ('Notification' in window && Notification.permission === 'default') await Notification.requestPermission(); } catch {}
+  }
+  S.on = true; S.state ??= { watch: {} }; S.paper ??= { open: [], closed: [], ever: [] };
+  save(); renderSession(); renderAlerts(); keepAwake();
+  await seed();
+  if (S.latest) render(S.latest, S.paper, true);
+  await scanOnce();
+  schedule();
+  clearInterval(countdown);
+  countdown = setInterval(renderSession, 1000);
+}
+
+function stop(){
+  S.on = false; clearTimeout(timer); clearInterval(countdown);
+  try { wakeLock?.release(); } catch {}
+  save(); renderSession(); renderAlerts(); loadStatic();
+}
+
+$('toggle').addEventListener('click', () => S.on ? stop() : start(false));
+$('every').addEventListener('change', () => { store.set('radar-every', $('every').value); if (S.on && !S.busy) schedule(); });
+$('every').value = store.get('radar-every', '30');
+$('sound').checked = store.get('radar-sound', true);
+$('sound').addEventListener('change', () => store.set('radar-sound', $('sound').checked));
+
+renderSession(); renderAlerts();
+if (S.on) start(true);           // a reload keeps the session going
+else loadStatic();
+setInterval(loadStatic, 60000);
 </script>
 </body>
 </html>
