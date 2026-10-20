@@ -29,6 +29,16 @@ On the dashboard, press **Start live session** when you sit down to trade:
 - Keeps the screen awake while on. Survives a page reload. Stops when you press **Stop** or close the tab.
 - Polite to the free APIs: 4 RugCheck reports per scan, each reused for 10 minutes. A coin waiting for its check shows "safety check pending" and can't become a pick until it's checked.
 
+## Real trading (optional, off by default)
+
+Open **Real trading** on the dashboard and tick the acknowledgement to add a **Buy** button to picks:
+
+- Swaps run through **Jupiter's free swap widget**. You connect your own wallet (Phantom, Solflare, Backpack) inside it and approve every trade there. The dashboard never sees your keys and can't spend on its own.
+- **Your limits:** default buy, max per trade and daily limit, in SOL. They're checked before the swap opens, and the amount is locked in the swap window.
+- Buy shows on **picks only** (optionally also "Watching" coins), never on rejected coins. Every buy starts with a check screen: score, reasons, concerns, and links to the chart and RugCheck.
+- **My real trades** lists each buy with the estimated return, a Solscan link and a **Sell** button (Jupiter opens with the coin selected; you choose how much). The list is saved in that browser only; your wallet is the real record.
+- Nothing buys automatically.
+
 ## Files
 
 ```

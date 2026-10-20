@@ -75,6 +75,23 @@ details{margin-top:8px} summary{cursor:pointer;color:var(--muted);font-size:13px
 .feed time{font-family:var(--mono);color:var(--muted);font-size:12px;margin-right:8px}
 .feed .pick b{color:var(--watch)} .feed .bad b{color:var(--skip)} .feed .info b{color:var(--accent)}
 footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+.real{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
+.real summary{color:var(--text);font-weight:600}
+.real .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+.real label{font-size:12px;color:var(--muted);display:block}
+.real input[type=number]{width:100%;margin-top:4px;font:14px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 8px}
+.real .ack{margin-top:12px;font-size:13px;color:#e9cf9c;display:flex;gap:8px;align-items:flex-start}
+.real .note{font-size:12px;color:var(--muted);margin-top:10px}
+button.buy{background:#123d26;border-color:#1f6b41;color:#bff5d5;padding:5px 12px;font-size:12px;margin-left:auto}
+button.sell{background:#3d1414;border-color:#6b1f1f;color:#ffd0d0;padding:4px 10px;font-size:12px}
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0;max-width:440px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog .in{padding:16px 18px}
+dialog h3{margin:0 0 4px;font-size:18px}
+dialog .row{display:flex;gap:10px;align-items:center;margin-top:12px}
+dialog input[type=number]{flex:1;font:16px var(--mono);background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px}
+dialog .foot{display:flex;gap:10px;justify-content:flex-end;padding:12px 18px;border-top:1px solid var(--line)}
+dialog .lim{font-size:12px;color:var(--muted);margin-top:6px}
 [hidden]{display:none!important}
 @media (max-width:560px){ .cards{grid-template-columns:1fr} .status{text-align:left} .hide-sm{display:none} }
 </style>
@@ -100,7 +117,30 @@ footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid va
     <div class="err" id="sess-err" hidden></div>
   </div>
 
+  <details class="real" id="real">
+    <summary>Real trading: <span id="real-state">off</span></summary>
+    <p class="note">Adds a <b>Buy</b> button to picks. Swaps go through Jupiter and you approve every one in your own wallet (Phantom, Solflare, Backpack). This page never sees your keys and can't spend anything on its own. Your limits below are enforced before the swap opens, and the amount is locked in the swap window.</p>
+    <div class="grid">
+      <label>Default buy (SOL)<input type="number" id="buy-default" min="0.001" step="any" value="0.05"></label>
+      <label>Max per trade (SOL)<input type="number" id="buy-max" min="0.001" step="any" value="0.1"></label>
+      <label>Daily limit (SOL)<input type="number" id="buy-daily" min="0.001" step="any" value="0.3"></label>
+      <label>Spent today<input type="number" id="buy-spent" disabled></label>
+    </div>
+    <label class="chk" style="margin-top:10px"><input type="checkbox" id="buy-wait"> also allow buying coins that are only "Watching" (not picks)</label>
+    <label class="ack"><input type="checkbox" id="buy-ack"> I understand these are real trades with my own money, most new meme coins go to zero, and this tool's signals are not financial advice. Turn on Buy buttons.</label>
+  </details>
+
   <div class="kpis" id="kpis"></div>
+
+  <div id="real-wrap" hidden>
+    <h2>My real trades <span class="n" id="n-real">0</span></h2>
+    <div id="real-trades"></div>
+  </div>
+
+  <dialog id="buy-dlg"><form method="dialog">
+    <div class="in" id="buy-body"></div>
+    <div class="foot"><button value="cancel">Cancel</button><button value="go" class="go" id="buy-go">Open swap in Jupiter</button></div>
+  </form></dialog>
 
   <div id="alerts-wrap" hidden>
     <h2>Session alerts <span class="n" id="n-alerts">0</span></h2>
@@ -156,7 +196,8 @@ function card(c){
     ${items.length ? `<ul class="r">${items.join('')}</ul>` : ''}
     <div class="links"><a href="${esc(c.url)}" target="_blank" rel="noopener">DexScreener</a>
       <a href="https://rugcheck.xyz/tokens/${esc(c.address)}" target="_blank" rel="noopener">RugCheck</a>
-      ${x ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">X</a>` : ''}</div>
+      ${x ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
+      ${canBuy(c) ? `<button class="buy" data-buy="${esc(c.address)}">Buy</button>` : ''}</div>
   </div>`;
 }
 
@@ -178,7 +219,10 @@ function paperHtml(p, live){
     <p style="color:var(--muted);font-size:12px">${esc(s.note)} Rules: take profit at +100%, stop loss at −35%, exit after 24 h.</p>`;
 }
 
+let shownCoins = new Map();   // address -> coin row currently on screen (for Buy)
 function render(L, P, live){
+  shownCoins = new Map(L.coins.map(c => [c.address, c]));
+  lastRender = [L, P, live];
   const C = L.counts;
   $('kpis').innerHTML = [['Coins scanned', C.scanned], ['Picks', C.watch], ['Watching', C.wait], ['Rejected', C.skip]]
     .map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
@@ -255,7 +299,7 @@ let batch = null;   // alerts from one scan, shown in the order they happened
 function alertUser(kind, title, body, url){
   S.alerts ??= [];
   const a = { t: Date.now(), kind, title, body, url };
-  if (batch) batch.push(a); else S.alerts.unshift(a);
+  if (batch) batch.push(a); else { S.alerts.unshift(a); save(); }
   S.alerts = S.alerts.slice(0, 100);
   if (kind === 'pick' || kind === 'bad') {
     beep();
@@ -384,7 +428,146 @@ $('every').value = store.get('radar-every', '30');
 $('sound').checked = store.get('radar-sound', true);
 $('sound').addEventListener('change', () => store.set('radar-sound', $('sound').checked));
 
-renderSession(); renderAlerts();
+// ------------------------------------------------------------------ real trading (Jupiter, your wallet signs)
+const SOL = 'So11111111111111111111111111111111111111112';
+let lastRender = null;
+const R = store.get('radar-real', { trades: [], spent: {} });
+const today = () => new Date().toLocaleDateString('en-CA');
+const realOn = () => $('buy-ack').checked;
+const spentToday = () => +(R.spent[today()] || 0).toFixed(4);
+function canBuy(c){
+  if (!realOn() || c.verdict === 'SKIP') return false;
+  return c.verdict === 'WATCH' || (c.verdict === 'WAIT' && $('buy-wait').checked);
+}
+function saveReal(){ store.set('radar-real', R); }
+function limits(){
+  const d = Math.max(0, +$('buy-default').value || 0), mx = Math.max(0, +$('buy-max').value || 0), day = Math.max(0, +$('buy-daily').value || 0);
+  return { d, mx, day, left: Math.max(0, +(day - spentToday()).toFixed(4)) };
+}
+function syncRealUi(){
+  $('real-state').textContent = realOn() ? 'on' : 'off';
+  $('buy-spent').value = spentToday();
+  store.set('radar-real-cfg', { d: $('buy-default').value, mx: $('buy-max').value, day: $('buy-daily').value, wait: $('buy-wait').checked, ack: $('buy-ack').checked });
+  if (realOn()) loadJupiter();
+  if (lastRender) render(...lastRender);
+  renderReal();
+}
+(() => { const c = store.get('radar-real-cfg', null); if (!c) return;
+  $('buy-default').value = c.d; $('buy-max').value = c.mx; $('buy-daily').value = c.day; $('buy-wait').checked = !!c.wait; $('buy-ack').checked = !!c.ack; })();
+['buy-default', 'buy-max', 'buy-daily', 'buy-wait', 'buy-ack'].forEach(id => $(id).addEventListener('change', syncRealUi));
+
+let jupLoading = null;
+function loadJupiter(){
+  if (window.Jupiter?.init) return Promise.resolve();
+  return jupLoading ??= new Promise((ok, bad) => {
+    const s = document.createElement('script');
+    s.src = 'https://plugin.jup.ag/plugin-v1.js'; s.onload = ok; s.onerror = () => { jupLoading = null; bad(new Error('Could not load Jupiter')); };
+    document.head.appendChild(s);
+  });
+}
+
+function openSwap(formProps, onDone){
+  return loadJupiter().then(() => window.Jupiter.init({
+    displayMode: 'modal',
+    formProps,
+    onSuccess: ({ txid, swapResult }) => onDone(txid, swapResult),
+    onSwapError: () => {},
+  })).catch(e => alert(e.message + '. Check your connection or ad blocker, then try again.'));
+}
+
+let pending = null;
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-buy]');
+  if (b) { e.preventDefault(); askBuy(b.dataset.buy); }
+  const s = e.target.closest('[data-sell]');
+  if (s) { e.preventDefault(); sell(s.dataset.sell); }
+});
+
+function askBuy(addr){
+  const c = shownCoins.get(addr);
+  if (!c || !canBuy(c)) return;
+  const L = limits();
+  const max = Math.min(L.mx, L.left);
+  pending = c;
+  const warn = c.verdict !== 'WATCH' ? '<li class="c">Not a pick: only on watch</li>' : '';
+  $('buy-body').innerHTML = `<h3>Buy ${esc(c.symbol)}</h3>
+    <div style="color:var(--muted);font-size:13px">${esc(c.name)} · score <b style="color:var(--text)">${c.score}</b> · ${usd(c.mcap)} mcap · ${c.liq == null ? 'bonding curve' : usd(c.liq) + ' liquidity'}</div>
+    <ul class="r">${warn}${(c.reasons||[]).map(t => `<li class="p">${esc(t)}</li>`).join('')}${(c.concerns||[]).map(t => `<li class="c">${esc(t)}</li>`).join('')}</ul>
+    <div class="links" style="margin-top:10px"><a href="${esc(c.url)}" target="_blank" rel="noopener">Check the chart</a><a href="https://rugcheck.xyz/tokens/${esc(c.address)}" target="_blank" rel="noopener">Check RugCheck</a></div>
+    <div class="row"><input type="number" id="buy-amt" min="0.001" step="any" max="${max}" value="${Math.min(L.d, max)}"> <b>SOL</b></div>
+    <div class="lim" id="buy-lim">Max this trade: ${max} SOL (per-trade ${L.mx} · ${L.left} left of today's ${L.day})</div>`;
+  const amt = $('buy-amt'), go = $('buy-go');
+  const check = () => { const v = +amt.value; go.disabled = !(v > 0 && v <= max + 1e-9); };
+  amt.addEventListener('input', check); check();
+  if (max <= 0) { go.disabled = true; $('buy-lim').textContent = "Daily limit reached. Raise it in Real trading settings if you're sure."; }
+  $('buy-dlg').returnValue = '';   // never carry "go" over from a previous buy (Esc must mean cancel)
+  $('buy-dlg').showModal();
+}
+
+$('buy-dlg').addEventListener('close', () => {
+  if ($('buy-dlg').returnValue !== 'go' || !pending) return;
+  const c = pending, sol = +(+$('buy-amt').value).toFixed(4);
+  const L = limits();
+  if (!(sol > 0 && sol <= Math.min(L.mx, L.left) + 1e-9)) return;   // limits re-checked at the last moment
+  pending = null;
+  openSwap({ initialInputMint: SOL, initialOutputMint: c.address, fixedMint: c.address,
+             initialAmount: String(sol), fixedAmount: true, swapMode: 'ExactIn' },
+    (txid, res) => {
+      const spent = res?.inputAmount ? res.inputAmount / 1e9 : sol;
+      R.spent[today()] = +((R.spent[today()] || 0) + spent).toFixed(4);
+      R.trades.unshift({ t: Date.now(), txid, address: c.address, symbol: c.symbol, url: c.url, sol: +spent.toFixed(4),
+                         tokens_raw: res?.outputAmount ?? null, entry_price: c.price, entry_mcap: c.mcap, score: c.score, status: 'holding' });
+      saveReal(); syncRealUi();
+      alertUser('info', `Bought ${c.symbol}`, `${spent.toFixed(3)} SOL · tx ${txid.slice(0, 8)}…`, 'https://solscan.io/tx/' + txid);
+      renderAlerts();
+    });
+});
+
+function sell(addr){
+  const t = R.trades.find(x => x.address === addr && x.status === 'holding');
+  if (!t) return;
+  openSwap({ initialInputMint: addr, initialOutputMint: SOL, fixedMint: addr, swapMode: 'ExactIn' },
+    (txid, res) => {
+      t.status = 'sold'; t.sold_t = Date.now(); t.sell_txid = txid;
+      t.sol_back = res?.outputAmount ? +(res.outputAmount / 1e9).toFixed(4) : null;
+      saveReal(); renderReal();
+      alertUser('info', `Sold ${t.symbol}`, t.sol_back != null ? `${t.sol_back} SOL back` : '', 'https://solscan.io/tx/' + txid);
+      renderAlerts();
+    });
+}
+
+let realPrices = {}, realPricesAt = 0;
+async function refreshRealPrices(){
+  const held = [...new Set(R.trades.filter(t => t.status === 'holding').map(t => t.address))];
+  if (!held.length || Date.now() - realPricesAt < 50000) return;
+  realPricesAt = Date.now();
+  try {
+    const rows = await fetch(`https://api.dexscreener.com/tokens/v1/solana/${held.slice(0, 30).join(',')}`).then(r => r.json());
+    for (const p of rows || []) { const a = p.baseToken?.address; if (a && (!realPrices[a] || (p.liquidity?.usd || 0) > realPrices[a].liq)) realPrices[a] = { price: +p.priceUsd || 0, liq: p.liquidity?.usd || 0 }; }
+    renderReal();
+  } catch {}
+}
+
+function renderReal(){
+  const tr = R.trades;
+  $('real-wrap').hidden = !tr.length && !realOn();
+  $('n-real').textContent = tr.length;
+  if (!tr.length) { $('real-trades').innerHTML = '<div class="empty">No real trades yet. Buy buttons appear on picks while Real trading is on.</div>'; return; }
+  const row = t => {
+    const p = shownCoins.get(t.address)?.price || realPrices[t.address]?.price;
+    const est = t.status === 'holding' ? (p && t.entry_price ? pct(100 * (p / t.entry_price - 1)) : '–')
+              : (t.sol_back != null ? pct(100 * (t.sol_back / t.sol - 1)) : 'sold');
+    return `<tr><td><a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.symbol)}</a></td>
+      <td class="m">${t.sol}</td><td class="m hide-sm">${usd(t.entry_mcap)}</td><td class="m">${est}</td>
+      <td class="m hide-sm"><a href="https://solscan.io/tx/${esc(t.txid)}" target="_blank" rel="noopener">${clock(t.t)}</a></td>
+      <td>${t.status === 'holding' ? `<button class="sell" data-sell="${esc(t.address)}">Sell</button>` : 'sold'}</td></tr>`;
+  };
+  $('real-trades').innerHTML = `<div class="scroll"><table class="tbl"><tr><th>Coin</th><th>SOL in</th><th class="hide-sm">Entry mcap</th><th>Return (est.)</th><th class="hide-sm">Bought</th><th></th></tr>${tr.slice(0, 50).map(row).join('')}</table></div>
+    <p style="color:var(--muted);font-size:12px">Saved in this browser only; your wallet is the real record. Return is estimated from the price move since your buy and ignores fees and slippage. Sell opens Jupiter with the coin selected: pick how much in the swap window.</p>`;
+}
+setInterval(refreshRealPrices, 60000);
+
+renderSession(); renderAlerts(); syncRealUi(); refreshRealPrices();
 if (S.on) start(true);           // a reload keeps the session going
 else loadStatic();
 setInterval(loadStatic, 60000);
