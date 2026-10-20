@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memecoin Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d10; --panel:#12161b; --panel2:#171c22; --line:#232a32; --text:#e6e9ed; --muted:#8b95a1;
+  --watch:#3ddc84; --wait:#f5b942; --skip:#ff5d5d; --accent:#6aa8ff;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 var(--sans)}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+h1{font-size:22px;margin:0;letter-spacing:-.01em}
+h1 small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+.status{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.status b{color:var(--text)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--muted)}
+.dot.live{background:var(--watch);box-shadow:0 0 8px var(--watch)} .dot.stale{background:var(--skip)}
+.warn{background:#1c1610;border:1px solid #3a2c16;color:#e9cf9c;border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:18px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi .l{color:var(--muted);font-size:12px} .kpi .v{font:600 22px var(--mono);margin-top:2px}
+h2{font-size:15px;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+h2 .n{font:600 12px var(--mono);color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--watch);border-radius:10px;padding:14px}
+.card.wait{border-left-color:var(--wait)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.sym{font-weight:700;font-size:16px} .nm{color:var(--muted);font-size:12px;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.score{font:700 26px var(--mono);line-height:1} .score small{font-size:11px;color:var(--muted);font-weight:400;display:block;text-align:right}
+.bar{height:4px;background:var(--line);border-radius:3px;margin:10px 0}
+.bar i{display:block;height:100%;border-radius:3px;background:var(--watch)}
+.card.wait .bar i{background:var(--wait)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 10px;font-family:var(--mono);font-size:12px;margin:8px 0}
+.stats > div > span:first-child{color:var(--muted);display:block;font-family:var(--sans);font-size:11px}
+ul.r{margin:8px 0 0;padding:0;list-style:none;font-size:13px}
+ul.r li{padding-left:18px;position:relative;margin:3px 0}
+ul.r li:before{position:absolute;left:0;font-weight:700}
+ul.r li.p:before{content:'+';color:var(--watch)} ul.r li.c:before{content:'!';color:var(--wait)} ul.r li.f:before{content:'×';color:var(--skip)}
+.links{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.up{color:var(--watch)} .dn{color:var(--skip)}
+.tbl{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
+.tbl th{font-weight:500;color:var(--muted);text-align:left;font-size:12px;padding:9px 10px;border-bottom:1px solid var(--line);background:var(--panel2)}
+.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.m{font-family:var(--mono);white-space:nowrap}
+.scroll{overflow-x:auto;border-radius:10px}
+details{margin-top:8px} summary{cursor:pointer;color:var(--muted);font-size:13px}
+.empty{color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center}
+.pill{font:600 11px var(--mono);padding:2px 7px;border-radius:12px;border:1px solid var(--line)}
+.pill.watch{color:var(--watch);border-color:#1f5a3a} .pill.wait{color:var(--wait);border-color:#5a461f}
+footer{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:560px){ .cards{grid-template-columns:1fr} .status{text-align:left} .hide-sm{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Memecoin Radar<small>Early-momentum scanner for new Solana meme coins · free data · updates every ~15 min</small></h1>
+    <div class="status" id="status">loading…</div>
+  </header>
+
+  <div class="warn"><b>Signals, not predictions.</b> Most new meme coins go to zero and many are rug pulls. A high score means momentum is building and no scam markers were found. It does not mean the price will rise. Paper-trade it before risking money. Not financial advice.</div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <h2>Picks <span class="n" id="n-watch">0</span></h2>
+  <div class="cards" id="watch"></div>
+
+  <h2>Watching <span class="n" id="n-wait">0</span></h2>
+  <div class="cards" id="wait"></div>
+
+  <h2>Paper trading</h2>
+  <div id="paper"></div>
+
+  <h2>Rejected by the Skeptic <span class="n" id="n-skip">0</span></h2>
+  <details><summary>Show why each coin was thrown out</summary><div class="scroll" style="margin-top:10px"><table class="tbl" id="skip"></table></div></details>
+
+  <footer>Data: DexScreener (prices, volume, trades), RugCheck (holders, insider wallets, mint and freeze rights), X buzz from the laptop reader when it is running. Rules and thresholds are in <code>radar/scan.py</code>.</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const usd = v => v == null ? '–' : v >= 1e6 ? '$' + (v/1e6).toFixed(2) + 'M' : v >= 1e3 ? '$' + (v/1e3).toFixed(1) + 'K' : '$' + Math.round(v);
+const pct = v => v == null ? '–' : `<span class="${v >= 0 ? 'up' : 'dn'}">${v >= 0 ? '+' : ''}${(+v).toFixed(v > -10 && v < 10 ? 1 : 0)}%</span>`;
+const age = h => h < 1 ? Math.round(h*60) + 'm' : h < 48 ? h.toFixed(1) + 'h' : (h/24).toFixed(0) + 'd';
+const ago = ms => { const m = Math.round((Date.now() - ms)/60000); return m < 1 ? 'just now' : m < 60 ? m + ' min ago' : (m/60).toFixed(1) + ' h ago'; };
+
+function card(c){
+  const kind = c.verdict === 'WATCH' ? '' : 'wait';
+  const x = (c.links||[]).find(l => l.type === 'twitter');
+  const items = [
+    ...(c.reasons||[]).map(t => `<li class="p">${esc(t)}</li>`),
+    ...(c.concerns||[]).map(t => `<li class="c">${esc(t)}</li>`)];
+  return `<div class="card ${kind}">
+    <div class="top"><div><div class="sym">${esc(c.symbol)}</div><div class="nm">${esc(c.name)}</div></div>
+      <div class="score">${c.score}<small>/ 100</small></div></div>
+    <div class="bar"><i style="width:${c.score}%"></i></div>
+    <div class="stats">
+      <div><span>Market cap</span>${usd(c.mcap)}</div><div><span>Liquidity</span>${c.liq == null ? 'curve' : usd(c.liq)}</div><div><span>Age</span>${age(c.age_h)}</div>
+      <div><span>5m</span>${pct(c.chg_m5)}</div><div><span>1h</span>${pct(c.chg_h1)}</div><div><span>Holders</span>${c.holders ?? '–'}</div>
+      <div><span>Vol 1h</span>${usd(c.vol_h1)}</div><div><span>Buys/sells 1h</span>${c.buys_h1}/${c.sells_h1}</div><div><span>Top 10</span>${c.top10_pct == null ? '–' : c.top10_pct + '%'}</div>
+    </div>
+    ${items.length ? `<ul class="r">${items.join('')}</ul>` : ''}
+    <div class="links"><a href="${esc(c.url)}" target="_blank" rel="noopener">DexScreener</a>
+      <a href="https://rugcheck.xyz/tokens/${esc(c.address)}" target="_blank" rel="noopener">RugCheck</a>
+      ${x ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">X</a>` : ''}</div>
+  </div>`;
+}
+
+function paper(p){
+  if (!p || !p.summary) return '<div class="empty">No paper trades yet.</div>';
+  const s = p.summary;
+  const row = t => `<tr><td><a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.symbol)}</a></td>
+    <td class="m">${t.entry_score}</td><td class="m">${usd(t.entry_mcap)}</td>
+    <td class="m">${t.closed ? pct(t.return_pct) : pct(100*((t.last_price ?? t.entry_price)/t.entry_price - 1))}</td>
+    <td class="m hide-sm">${t.closed ? esc(t.exit_reason) : 'open · ' + ago(t.opened)}</td></tr>`;
+  const rows = [...(p.open||[]).slice().reverse(), ...(p.closed||[]).slice(-30).reverse()];
+  return `<div class="kpis">
+      <div class="kpi"><div class="l">Closed trades</div><div class="v">${s.trades}</div></div>
+      <div class="kpi"><div class="l">Win rate</div><div class="v">${s.win_rate == null ? '–' : s.win_rate + '%'}</div></div>
+      <div class="kpi"><div class="l">Total P&amp;L ($100 each)</div><div class="v ${s.total_pnl_usd >= 0 ? 'up' : 'dn'}">${s.total_pnl_usd >= 0 ? '+' : ''}$${s.total_pnl_usd}</div></div>
+      <div class="kpi"><div class="l">Open now</div><div class="v">${s.open}</div></div>
+    </div>
+    ${rows.length ? `<div class="scroll"><table class="tbl"><tr><th>Coin</th><th>Score</th><th>Entry mcap</th><th>Return</th><th class="hide-sm">Status</th></tr>${rows.map(row).join('')}</table></div>` : ''}
+    <p style="color:var(--muted);font-size:12px">${esc(s.note)} Rules: take profit at +100%, stop loss at −35%, exit after 24 h.</p>`;
+}
+
+async function load(){
+  try{
+    const bust = '?t=' + Date.now();
+    const [L, P] = await Promise.all([
+      fetch('data/latest.json' + bust).then(r => r.json()),
+      fetch('data/paper.json' + bust).then(r => r.ok ? r.json() : null).catch(() => null)]);
+    const stale = Date.now() - L.updated_ms > 45*60000;
+    $('status').innerHTML = `<span class="dot ${stale ? 'stale' : 'live'}"></span>updated <b>${ago(L.updated_ms)}</b><br>
+      X buzz: ${L.buzz_fresh ? '<b>on</b> (laptop reader)' : 'off (laptop reader not running)'}`;
+    const C = L.counts;
+    $('kpis').innerHTML = [['Coins scanned', C.scanned], ['Picks', C.watch], ['Watching', C.wait], ['Rejected', C.skip]]
+      .map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
+    const w = L.coins.filter(c => c.verdict === 'WATCH'), t = L.coins.filter(c => c.verdict === 'WAIT'), s = L.coins.filter(c => c.verdict === 'SKIP');
+    $('n-watch').textContent = w.length; $('n-wait').textContent = t.length; $('n-skip').textContent = s.length;
+    $('watch').innerHTML = w.length ? w.map(card).join('') : '<div class="empty">No coin meets the bar right now. That is normal: a pick needs strong momentum on two scans in a row and no red flags.</div>';
+    $('wait').innerHTML = t.length ? t.slice(0, 12).map(card).join('') : '<div class="empty">Nothing on watch.</div>';
+    $('skip').innerHTML = '<tr><th>Coin</th><th>Mcap</th><th class="hide-sm">24h</th><th>Why it was rejected</th></tr>' +
+      s.slice(0, 80).map(c => `<tr><td><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.symbol)}</a></td><td class="m">${usd(c.mcap)}</td><td class="m hide-sm">${pct(c.chg_h24)}</td><td>${c.red_flags.map(esc).join('<br>')}</td></tr>`).join('');
+    $('paper').innerHTML = paper(P);
+  } catch(e){
+    $('status').textContent = 'No data yet: the first scan has not run.';
+  }
+}
+load(); setInterval(load, 60000);
+</script>
+</body>
+</html>

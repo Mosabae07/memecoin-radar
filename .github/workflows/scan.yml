@@ -1,0 +1,44 @@
+name: scan
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # GitHub may run scheduled jobs a few minutes late at busy times
+  workflow_dispatch: {}      # "Run workflow" button for a manual scan
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Test the rules
+        run: python tests/test_scan.py
+
+      - name: Scan
+        run: python radar/scan.py
+
+      - name: Save results
+        run: |
+          git config user.name  "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git commit -q -m "scan $(date -u +%Y-%m-%dT%H:%MZ)"
+          # the laptop X reader also pushes docs/data/buzz.json, so rebase before pushing
+          for i in 1 2 3; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q && exit 0
+            sleep 5
+          done
+          exit 1
