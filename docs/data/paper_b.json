@@ -10,33 +10,7 @@
    "entry_score": 71,
    "stake": 100,
    "peak": 0.33518005540166196,
-   "last_price": 0.00008477
-  },
-  {
-   "address": "PairUottr9sWf6REag62Y8xeFfrWSpL1F9zikNyqWLV",
-   "symbol": "PAIR",
-   "url": "https://dexscreener.com/solana/9i7szrzcdm1waqnvatydufg5hd7g31jhswbg7d2j2p2n",
-   "opened": 1792764059757,
-   "entry_price": 0.00007956,
-   "entry_mcap": 79565,
-   "entry_score": 80,
-   "stake": 100,
-   "peak": 1.1229260935143288,
-   "last_price": 0.0001689,
-   "half_price": 0.0001689,
-   "half_at": 1792770954052
-  },
-  {
-   "address": "HYLhzvLHmC4gqckEyACvy2jDMoCizE2hS1qcJ1Q7pump",
-   "symbol": "McSauce",
-   "url": "https://dexscreener.com/solana/frupwrlrnrdcftbrtlbq6kg3g5vrpgdkkenwm6yuv1fy",
-   "opened": 1792768376427,
-   "entry_price": 0.0006686,
-   "entry_mcap": 668663,
-   "entry_score": 72,
-   "stake": 100,
-   "peak": 0.5569847442416991,
-   "last_price": 0.0005468
+   "last_price": 0.00008193
   }
  ],
  "closed": [
@@ -958,6 +932,42 @@
    "closed": 1792769235327,
    "return_pct": -103.1,
    "pnl_usd": -103.08
+  },
+  {
+   "address": "PairUottr9sWf6REag62Y8xeFfrWSpL1F9zikNyqWLV",
+   "symbol": "PAIR",
+   "url": "https://dexscreener.com/solana/9i7szrzcdm1waqnvatydufg5hd7g31jhswbg7d2j2p2n",
+   "opened": 1792764059757,
+   "entry_price": 0.00007956,
+   "entry_mcap": 79565,
+   "entry_score": 80,
+   "stake": 100,
+   "peak": 1.1229260935143288,
+   "last_price": 0.0001088,
+   "half_price": 0.0001689,
+   "half_at": 1792770954052,
+   "exit_price": 0.0001088,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1792771815166,
+   "return_pct": 70.5,
+   "pnl_usd": 70.52
+  },
+  {
+   "address": "HYLhzvLHmC4gqckEyACvy2jDMoCizE2hS1qcJ1Q7pump",
+   "symbol": "McSauce",
+   "url": "https://dexscreener.com/solana/frupwrlrnrdcftbrtlbq6kg3g5vrpgdkkenwm6yuv1fy",
+   "opened": 1792768376427,
+   "entry_price": 0.0006686,
+   "entry_mcap": 668663,
+   "entry_score": 72,
+   "stake": 100,
+   "peak": 0.5569847442416991,
+   "last_price": 0.0004256,
+   "exit_price": 0.0004256,
+   "exit_reason": "stop loss",
+   "closed": 1792771815166,
+   "return_pct": -40.3,
+   "pnl_usd": -40.34
   }
  ],
  "ever": [
@@ -1019,11 +1029,11 @@
   "HYLhzvLHmC4gqckEyACvy2jDMoCizE2hS1qcJ1Q7pump"
  ],
  "summary": {
-  "trades": 53,
-  "open": 3,
-  "win_rate": 17,
-  "total_pnl_usd": -2542.55,
-  "avg_return_pct": -48,
+  "trades": 55,
+  "open": 1,
+  "win_rate": 18.2,
+  "total_pnl_usd": -2512.37,
+  "avg_return_pct": -45.7,
   "best_pct": 166.8,
   "worst_pct": -103.7,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
