@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { runScan, CFG } from '../docs/radar-core.js';
+import { runScan, CFG, oddsBase, timeMachine, planExits } from '../docs/radar-core.js';
 import { run, setDataDir } from '../radar/scan.mjs';
 import { NOW, FakeAPI } from './fixture.mjs';
 
@@ -112,6 +112,8 @@ test('outcomes: records numbers at first score, then price 1h / 6h / 24h later',
   const w = done.finished.find(o => o.symbol === 'WiSP');
   assert.ok(w, 'finished after 24h');
   assert.equal(w.r1h, 50); assert.equal(w.r6h, 200); assert.equal(w.r24h, -20); assert.equal(w.peak, 200); assert.equal(w.trough, -20);
+  assert.equal(w.up['0.3'], 1.1, '+30% first seen at the 1.1 h scan'); assert.equal(w.up['2'], 6.2); assert.equal(w.dn['-0.35'], undefined, 'never fell 35%');
+  assert.equal(w.up['3'], undefined, 'never reached +300%');
   assert.ok(!state.tracking.WISPpump, 'removed from tracking once finished');
 });
 
@@ -194,4 +196,42 @@ test('pump.fun feed: graduations and dev buys flow into reasons and tracked numb
   const plain = await runScan({ get: new FakeAPI().get, sleep: noSleep, now: NOW, state: { watch: {} }, paper: { open: [], closed: [] } });
   assert.equal(Object.fromEntries(plain.latest.coins.map(c => [c.symbol, c.score])).WiSP, by.WiSP.score);
   assert.ok(themeWords({ name: 'Pepémon', symbol: 'PKMN', desc: 'every pokémon' }).includes('pokemon'));
+});
+
+// a past coin for the Time Machine: same look every time, different outcome
+const past = (pk, tr, r24, up = {}, dn = {}) => ({ score: 72, verdict: 'WAIT', feats: { buy_pressure_5m: 0.7, volume_accel: 1.5, market_cap: 80000, liquidity_ratio: 0.1 },
+  peak: pk, trough: tr, r24h: r24, up, dn });
+
+test('time machine: stays quiet until there is enough history', () => {
+  const r = timeMachine(75, {}, oddsBase([past(10, -10, 0)]), { tp: 1, sl: -0.35 });
+  assert.deepEqual(r, { ready: false, have: 1, need: 50 });
+});
+
+test('time machine: replays similar coins, knows which level came first, same coin same answer', () => {
+  const hist = [
+    ...Array.from({ length: 30 }, () => past(150, -50, -40, { 1: 2 }, { '-0.35': 5 })),    // +100% at 2 h, stop later
+    ...Array.from({ length: 30 }, () => past(20, -60, -60, {}, { '-0.35': 1 })),           // stop only
+  ];
+  const base = oddsBase(hist);
+  const a = timeMachine(72, hist[0].feats, base, { tp: 1, sl: -0.35 }, CFG, 42);
+  const b = timeMachine(72, hist[0].feats, base, { tp: 1, sl: -0.35 }, CFG, 42);
+  assert.deepEqual(a, b, 'seeded: the same coin always gets the same replays');
+  assert.equal(a.runs, 10_000); assert.equal(a.similar, 60);
+  assert.ok(Math.abs(a.p_tp - 50) < 3 && Math.abs(a.p_sl - 50) < 3, `about half each: ${a.p_tp} / ${a.p_sl}`);
+  assert.equal(a.p_both, 0, 'order known from first-touch times');
+  // +100% less 4% costs, or -35% with 10% slippage less 4% costs
+  assert.ok(Math.abs(a.ev_pct - (0.5 * 96 + 0.5 * -49)) < 3, `ev ${a.ev_pct}`);
+});
+
+test('time machine: unknown order counts as the stop, and the planner finds the plan that held up', () => {
+  const hist = Array.from({ length: 60 }, () => past(60, -90, -88));   // pumped +60% then died, timing unknown
+  const base = oddsBase(hist);
+  const d = timeMachine(72, hist[0].feats, base, { tp: 1, sl: -0.35 });
+  assert.equal(d.p_sl, 100, 'never reached +100%, so the stop');
+  const both = timeMachine(72, hist[0].feats, base, { tp: 0.5, sl: -0.35 });
+  assert.equal(both.p_both, 100, 'hit +50% and -35% between scans: order unknown');
+  assert.ok(both.ev_pct < 0, 'and counted as a loss');
+  const plan = planExits(72, hist[0].feats, base);
+  assert.equal(plan.all_negative, true, 'no plan survives coins that all die');
+  assert.ok(plan.default.ev_pct <= plan.ev_pct, 'the suggested plan is never worse than the default');
 });

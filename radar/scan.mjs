@@ -4,7 +4,7 @@
 import { readFile, writeFile, rename, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { runScan, computeStats } from '../docs/radar-core.js';
+import { runScan, computeStats, oddsBase } from '../docs/radar-core.js';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 export let DATA = path.join(ROOT, 'docs', 'data');
@@ -45,13 +45,15 @@ export async function run({ get = getJson, wait = sleep, now } = {}) {
   const paperB = await load('paper_b.json', { open: [], closed: [], ever: [] });
   const buzz = await load('buzz.json', { updated: 0, coins: {} });
   const outcomes = await load('outcomes.json', []);
-  const { latest, candidates, finished } = await runScan({ get, sleep: wait, now: now ?? Date.now(), state, paper, paperB, buzz });
+  const base = oddsBase(outcomes);
+  const { latest, candidates, finished } = await runScan({ get, sleep: wait, now: now ?? Date.now(), state, paper, paperB, buzz, oddsBase: base });
   outcomes.push(...finished);
   const kept = outcomes.slice(-5000);
   await save('latest.json', latest);
   await save('paper.json', paper);
   await save('paper_b.json', paperB);
   await save('outcomes.json', kept);
+  await save('odds_base.json', oddsBase(kept));   // the dashboard's live mode replays these
   await save('stats.json', { updated: latest.updated, tracking_now: latest.tracking, ...computeStats(kept) });
   await save('state.json', state);
   await save('candidates.json', candidates);

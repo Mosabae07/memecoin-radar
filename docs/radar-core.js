@@ -40,6 +40,13 @@ export const CFG = {
   track_outcomes: true,       // record each coin's numbers and its price 1h/6h/24h later
   max_tracked: 250,
   theme_min_coins: 3,         // a word shared by this many active coins is a "hot theme"
+  // Time Machine: replay similar coins from the outcome history to get odds for a trade
+  odds_min_outcomes: 50,      // finished coins needed before any odds are shown
+  odds_neighbours: 60,        // most similar past coins used for each new coin
+  odds_runs: 10_000,          // replays per estimate
+  stop_slip: 0.10,            // stops fill this much worse: prices are only seen every scan
+  plan_tps: [0.3, 0.5, 1.0, 2.0],      // exit plans the planner tries
+  plan_sls: [-0.2, -0.35, -0.5],
 };
 
 const HOUR = 3_600_000;
@@ -353,6 +360,9 @@ export function features(m, hist, rc, meta, buzz, hot) {
   };
 }
 
+export const UP_LEVELS = [0.3, 0.5, 1, 2, 3];
+export const DN_LEVELS = [-0.2, -0.35, -0.5, -0.8];
+
 export function trackOutcomes(state, rows, live, now, cfg = CFG) {
   state.tracking ??= {};
   const finished = [];
@@ -370,6 +380,10 @@ export function trackOutcomes(state, rows, live, now, cfg = CFG) {
       const ret = m.price / o.price - 1;
       o.peak = Math.max(o.peak, ret); o.trough = Math.min(o.trough, ret);
       for (const [k, hrs] of [['r1h', 1], ['r6h', 6], ['r24h', 24]]) if (o[k] == null && h >= hrs) o[k] = ret;
+      // first time each level was reached, so later replays know which came first
+      o.up ??= {}; o.dn ??= {};
+      for (const lv of UP_LEVELS) if (ret >= lv && o.up[lv] == null) o.up[lv] = Math.round(h * 100) / 100;
+      for (const lv of DN_LEVELS) if (ret <= lv && o.dn[lv] == null) o.dn[lv] = Math.round(h * 100) / 100;
       o.last = ret; o.last_t = now;
     }
     const dead = !m && h >= 24 + 6;
@@ -377,7 +391,8 @@ export function trackOutcomes(state, rows, live, now, cfg = CFG) {
       if (o.r24h == null) o.r24h = o.last != null ? Math.min(o.last, o.trough) : -1;
       const pc = x => x == null ? null : Math.round(x * 1000) / 10;
       finished.push({ address: a, symbol: o.symbol, t: o.t, score: o.score, verdict: o.verdict, mcap: o.mcap,
-        themes: o.themes, feats: o.feats, r1h: pc(o.r1h), r6h: pc(o.r6h), r24h: pc(o.r24h), peak: pc(o.peak), trough: pc(o.trough) });
+        themes: o.themes, feats: o.feats, r1h: pc(o.r1h), r6h: pc(o.r6h), r24h: pc(o.r24h), peak: pc(o.peak), trough: pc(o.trough),
+        up: o.up || {}, dn: o.dn || {} });
       delete state.tracking[a];
     }
   }
@@ -409,6 +424,85 @@ export function computeStats(outcomes) {
   }
   signals.sort((a, b) => Math.abs(b.lift) - Math.abs(a.lift));
   return { total: summarise(outcomes), bands: bands.map(([label, f]) => ({ label, ...summarise(outcomes.filter(f)) })), signals };
+}
+
+// ------------------------------------------------------------- Time Machine
+// Replays the coins that looked most like this one (from the 24 h outcome history) to estimate
+// how a trade with a given take-profit and stop would have gone. History, not a prediction.
+const ODDS_KEYS = ['buy_pressure_5m', 'buy_pressure_1h', 'volume_accel', 'liquidity_ratio', 'top10_pct',
+                   'on_bonding_curve', 'age_hours', 'market_cap', 'change_1h'];
+// compact copy of the outcome history: everything the replays need, nothing else
+export function oddsBase(outcomes, max = 3000) {
+  return outcomes.filter(o => o.feats && o.peak != null && o.trough != null).slice(-max).map(o => ({
+    s: o.score, f: Object.fromEntries(ODDS_KEYS.map(k => [k, o.feats[k] ?? null])),
+    pk: o.peak, tr: o.trough, r24: o.r24h ?? o.trough, up: o.up || {}, dn: o.dn || {} }));
+}
+function vec(score, f) {
+  const n = (x, d) => x == null || !Number.isFinite(+x) ? d : +x;
+  return [n(score, 50) / 100, n(f.buy_pressure_5m, 0.5), n(f.buy_pressure_1h, 0.5), clamp(n(f.volume_accel, 1) / 3),
+          clamp(Math.log10(Math.max(1, n(f.market_cap, 1e5))) / 7), clamp(n(f.liquidity_ratio, 0.05) * 4),
+          clamp(n(f.top10_pct, 20) / 60), n(f.on_bonding_curve, 0), clamp(n(f.age_hours, 6) / 48), clamp((n(f.change_1h, 0) + 1) / 4)];
+}
+// how one past coin would have finished under a plan (tp > 0, sl < 0, as fractions)
+function settle(o, tp, sl, cfg) {
+  const hitTp = o.pk >= tp * 100, hitSl = o.tr <= sl * 100;
+  let kind;
+  if (hitTp && hitSl) {
+    const a = o.up?.[tp], b = o.dn?.[sl];
+    kind = a != null && b != null ? (a < b ? 'tp' : a > b ? 'sl' : 'both') : 'both';
+  } else kind = hitTp ? 'tp' : hitSl ? 'sl' : 'neither';
+  // order unknown: count it as the stop, the cautious reading
+  const ret = kind === 'tp' ? tp : kind === 'neither' ? Math.max(-1, o.r24 / 100) : Math.max(-1, sl - cfg.stop_slip);
+  return { kind, ret: ret - cfg.round_trip_cost };
+}
+function rng(seed) {   // small seeded generator so the same coin gets the same replays
+  let a = seed >>> 0;
+  return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+const hash = s => { let h = 2166136261; for (const ch of String(s)) h = Math.imul(h ^ ch.charCodeAt(0), 16777619); return h >>> 0; };
+export function similarCoins(score, feats, base, cfg = CFG) {
+  const v = vec(score, feats || {});
+  const scored = base.map(o => { const w = vec(o.s, o.f); let d = 0; for (let i = 0; i < v.length; i++) d += (v[i] - w[i]) ** 2; return { o, d: Math.sqrt(d) }; });
+  scored.sort((a, b) => a.d - b.d);
+  return scored.slice(0, Math.min(cfg.odds_neighbours, scored.length));
+}
+export function timeMachine(score, feats, base, plan, cfg = CFG, seed = 1) {
+  if (!base || base.length < cfg.odds_min_outcomes) return { ready: false, have: base?.length || 0, need: cfg.odds_min_outcomes };
+  const near = similarCoins(score, feats, base, cfg);
+  const settled = near.map(({ o, d }) => ({ ...settle(o, plan.tp, plan.sl, cfg), w: 1 / (d + 0.05) }));
+  const total = settled.reduce((a, x) => a + x.w, 0);
+  const cum = []; let acc = 0; for (const x of settled) cum.push(acc += x.w / total);
+  const rand = rng(seed);
+  const tally = { tp: 0, sl: 0, both: 0, neither: 0 }; let sum = 0;
+  const runs = cfg.odds_runs, batch = 200, batchTp = []; let bt = 0;
+  for (let i = 0; i < runs; i++) {
+    const r = rand(); let lo = 0, hi = cum.length - 1;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (cum[mid] < r) lo = mid + 1; else hi = mid; }
+    const x = settled[lo]; tally[x.kind]++; sum += x.ret; if (x.kind === 'tp') bt++;
+    if ((i + 1) % batch === 0) { batchTp.push(bt / batch); bt = 0; }
+  }
+  batchTp.sort((a, b) => a - b);
+  const pc = k => Math.round(1000 * tally[k] / runs) / 10;
+  return { ready: true, runs, similar: near.length, plan, p_tp: pc('tp'), p_sl: pc('sl'), p_both: pc('both'), p_neither: pc('neither'),
+           ev_pct: Math.round(1000 * sum / runs) / 10,
+           tp_range: [Math.round(100 * batchTp[Math.floor(batchTp.length * 0.1)]), Math.round(100 * batchTp[Math.floor(batchTp.length * 0.9)])],
+           median_24h: Math.round(10 * median(near.map(x => x.o.r24))) / 10 };
+}
+// tries each exit plan on the similar coins and keeps the one with the best average result
+export function planExits(score, feats, base, cfg = CFG, seed = 1) {
+  if (!base || base.length < cfg.odds_min_outcomes) return { ready: false, have: base?.length || 0, need: cfg.odds_min_outcomes };
+  const near = similarCoins(score, feats, base, cfg);
+  let best = null;
+  for (const tp of cfg.plan_tps) for (const sl of cfg.plan_sls) {
+    let s = 0, w = 0;
+    for (const { o, d } of near) { const k = 1 / (d + 0.05); s += k * settle(o, tp, sl, cfg).ret; w += k; }
+    const ev = s / w;
+    if (!best || ev > best.ev) best = { tp, sl, ev };
+  }
+  const plan = { tp: best.tp, sl: best.sl };
+  const odds = timeMachine(score, feats, base, plan, cfg, seed);
+  const yours = timeMachine(score, feats, base, { tp: cfg.take_profit, sl: cfg.stop_loss }, cfg, seed);
+  return { ...odds, all_negative: odds.ev_pct < 0, default: yours };
 }
 
 // ------------------------------------------------------------- one full scan
@@ -506,6 +600,8 @@ export async function runScan(ctx) {
   const { closedNow, opened } = paperUpdate(paper, live, picks, t0, cfg);
   if (ctx.paperB) { ctx.paperB.open ??= []; ctx.paperB.closed ??= []; paperUpdate(ctx.paperB, live, picks, t0, cfg, 'ladder'); }
   const finished = cfg.track_outcomes ? trackOutcomes(state, rows, live, t0, cfg) : [];
+  // Time Machine odds and a suggested exit plan for every coin still in the running
+  if (ctx.oddsBase) for (const r of rows) if (r.verdict !== 'SKIP' && r._feats) r.odds = planExits(r.score, r._feats, ctx.oddsBase, cfg, hash(r.address));
   for (const r of rows) delete r._feats;
 
   const latest = {

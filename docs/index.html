@@ -149,6 +149,14 @@ ul.r{margin:10px 0 0;padding:0;list-style:none;font-size:var(--step--1);line-hei
 ul.r li{padding-left:20px;position:relative;margin:5px 0;color:#E4E0FF}
 ul.r li:before{position:absolute;left:0;top:-1px;font-weight:800}
 ul.r li.p:before{content:'+';color:var(--up)} ul.r li.c:before{content:'!';color:#FFB86B}
+.tm{margin-top:12px;padding:10px 12px;border-radius:var(--r-sm);background:rgba(14,11,42,.45);border:1px solid var(--edge);font-size:var(--step--1);line-height:1.45;color:#E4E0FF}
+.tm b.h{display:block;font-family:var(--display);font-weight:400;letter-spacing:.02em;font-size:var(--step-1);color:var(--signal);margin-bottom:4px}
+.tm .odds{display:flex;height:8px;border-radius:99px;overflow:hidden;margin:6px 0 6px;background:rgba(255,255,255,.08)}
+.tm .odds i{display:block;height:100%} .tm .odds .t{background:var(--up)} .tm .odds .s{background:var(--dn)} .tm .odds .b{background:#FFB86B} .tm .odds .n{background:#8C86B8}
+.tm .leg{display:flex;flex-wrap:wrap;gap:4px 12px;color:var(--muted)} .tm .leg span:before{content:'';display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:0}
+.tm .leg .t:before{background:var(--up)} .tm .leg .s:before{background:var(--dn)} .tm .leg .b:before{background:#FFB86B} .tm .leg .n:before{background:#8C86B8}
+.tm .ev{margin-top:6px} .tm .warn{color:#FFB86B;font-weight:700}
+.tm.wait{opacity:.8}
 .links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:var(--step--1);font-weight:600}
 .links button.buy:first-of-type{margin-left:auto}
 button.buy{background:var(--signal);border-color:var(--signal);color:var(--signal-ink);padding:7px 14px}
@@ -313,6 +321,7 @@ code{font-size:.9em;color:var(--muted)}
 
 <script type="module">
 import { runScan, pairsFor, measure, themeWords, CFG } from './radar-core.js';
+let oddsBaseData = null;   // outcome history the Time Machine replays (refreshed every few minutes)
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -327,6 +336,22 @@ const store = {
 };
 
 // ------------------------------------------------------------------ rendering
+
+const pl = p => `+${Math.round(p.tp * 100)}% / −${Math.round(-p.sl * 100)}%`;
+const sgn = v => (v >= 0 ? '+' : '−') + Math.abs(v) + '%';
+function oddsHtml(o, full = false){
+  if (!o) return '';
+  if (!o.ready) return `<div class="tm wait"><b class="h">Time Machine</b>Collecting history: ${o.have} of ${o.need} finished coins needed before it shows odds.</div>`;
+  const d = o.default, bar = x => `<div class="odds"><i class="t" style="width:${x.p_tp}%"></i><i class="s" style="width:${x.p_sl}%"></i><i class="b" style="width:${x.p_both}%"></i><i class="n" style="width:${x.p_neither}%"></i></div>`;
+  const leg = (x, p) => `<div class="leg"><span class="t">+${Math.round(p.tp*100)}% first ${x.p_tp}%</span><span class="s">stop first ${x.p_sl}%</span>${x.p_both ? `<span class="b">both, order unknown ${x.p_both}%</span>` : ''}${x.p_neither ? `<span class="n">neither in 24 h ${x.p_neither}%</span>` : ''}</div>`;
+  const same = d && d.plan.tp === o.plan.tp && d.plan.sl === o.plan.sl;
+  return `<div class="tm"><b class="h">Time Machine</b>
+    ${o.runs.toLocaleString('en-US')} replays of the ${o.similar} most similar past coins.${full ? ` Median after 24 h: ${sgn(o.median_24h)}.` : ''}
+    ${d ? `<div style="margin-top:6px">Default plan ${pl(d.plan)}:</div>${bar(d)}${leg(d, d.plan)}<div class="ev">Average per trade: <b class="${d.ev_pct >= 0 ? 'up' : 'dn'}">${sgn(d.ev_pct)}</b></div>` : ''}
+    ${same ? '' : `<div style="margin-top:8px">Best plan for coins like this: <b style="color:var(--text)">${pl(o.plan)}</b></div>${full ? bar(o) + leg(o, o.plan) : ''}<div class="ev">Average per trade: <b class="${o.ev_pct >= 0 ? 'up' : 'dn'}">${sgn(o.ev_pct)}</b></div>`}
+    ${o.all_negative ? '<div class="ev warn">Every exit plan tested lost money on coins like this.</div>' : ''}
+    ${full ? `<div class="ev" style="color:var(--muted)">History, not a prediction. Fees, slippage and stops that fill late are included. "Both" means it hit both levels between two scans, so the order isn't known; it's counted as the stop.</div>` : ''}</div>`;
+}
 let shownWatch = new Set();
 function card(c){
   const kind = c.verdict === 'WATCH' ? '' : 'wait';
@@ -343,6 +368,7 @@ function card(c){
       <div><span>Vol 1h</span>${usd(c.vol_h1)}</div><div><span>Buys/sells 1h</span>${c.buys_h1}/${c.sells_h1}</div><div><span>Top 10</span>${c.top10_pct == null ? '–' : c.top10_pct + '%'}</div>
     </div>
     ${items.length ? `<ul class="r">${items.join('')}</ul>` : ''}
+    ${oddsHtml(c.odds)}
     <div class="links"><a href="${esc(c.url)}" target="_blank" rel="noopener">DexScreener</a>
       <a href="https://rugcheck.xyz/tokens/${esc(c.address)}" target="_blank" rel="noopener">RugCheck</a>
       ${x ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
@@ -656,7 +682,7 @@ async function scanOnce(){
     const extraFound = await feedCandidates(Date.now());
     const { latest, closedNow, opened } = await runScan({
       extraFound,
-      get, sleep, now: Date.now(), state: S.state, paper: S.paper, paperB: S.paperB, buzz: S.buzz, rugCache,
+      get, sleep, now: Date.now(), state: S.state, paper: S.paper, paperB: S.paperB, buzz: S.buzz, rugCache, oddsBase: oddsBaseData,
       extraAddrs: R.trades.filter(t => t.status === 'holding').map(t => t.address),
       cfg: { max_rugchecks: 4, rug_cache_min: 10, rug_gap_ms: 1100, max_watch: 120, track_outcomes: false },
     });
@@ -694,6 +720,11 @@ function schedule(){
   timer = setTimeout(async () => { await scanOnce(); schedule(); }, wait);
 }
 
+async function loadOddsBase(){
+  try { const b = await fetch('data/odds_base.json?t=' + Date.now()).then(r => r.ok ? r.json() : null); if (Array.isArray(b)) oddsBaseData = b; } catch {}
+}
+setInterval(() => { if (S.on) loadOddsBase(); }, 10 * 60000);
+
 async function seed(){
   // start from the 24/7 scanner's memory so "since first seen" growth works from scan one
   try {
@@ -701,6 +732,7 @@ async function seed(){
     for (const [a, h] of Object.entries(st.watch || {})) S.state.watch[a] ??= h;
   } catch {}
   try { S.buzz = await fetch('data/buzz.json?t=' + Date.now()).then(r => r.json()); } catch { S.buzz = null; }
+  await loadOddsBase();
 }
 
 async function keepAwake(){
@@ -814,6 +846,8 @@ function askBuy(addr){
     <div style="color:var(--muted);font-size:13px">${esc(c.name)} · score <b style="color:var(--text)">${c.score}</b> · ${usd(c.mcap)} mcap · ${c.liq == null ? 'bonding curve' : usd(c.liq) + ' liquidity'}</div>
     <ul class="r">${warn}${(c.reasons||[]).map(t => `<li class="p">${esc(t)}</li>`).join('')}${(c.concerns||[]).map(t => `<li class="c">${esc(t)}</li>`).join('')}</ul>
     <div class="links" style="margin-top:10px"><a href="${esc(c.url)}" target="_blank" rel="noopener">Check the chart</a><a href="https://rugcheck.xyz/tokens/${esc(c.address)}" target="_blank" rel="noopener">Check RugCheck</a></div>
+    ${oddsHtml(c.odds, true)}
+    ${c.odds?.ready ? `<label class="lim" style="display:flex;gap:8px;align-items:flex-start;margin-top:10px"><input type="checkbox" id="buy-plan" ${c.odds.all_negative ? '' : 'checked'}> <span>Use ${pl(c.odds.plan)} for this coin's sell alerts instead of my usual settings</span></label>` : ''}
     <div class="row"><input type="number" id="buy-amt" min="0.001" step="any" max="${max}" value="${Math.min(L.d, max)}"> <b>SOL</b></div>
     <div class="lim" id="buy-lim">Max this trade: ${max} SOL (per-trade ${L.mx} · ${L.left} left of today's ${L.day})</div>`;
   const amt = $('buy-amt'), go = $('buy-go');
@@ -827,7 +861,8 @@ function askBuy(addr){
 $('buy-dlg').addEventListener('close', () => {
   if ($('buy-dlg').returnValue !== 'go' || !pending) return;
   const c = pending; pending = null;
-  buyNow(c, +(+$('buy-amt').value).toFixed(4));
+  const plan = $('buy-plan')?.checked && c.odds?.ready ? c.odds.plan : null;
+  buyNow(c, +(+$('buy-amt').value).toFixed(4), false, plan);
 });
 
 function quickBuy(addr){
@@ -837,7 +872,7 @@ function quickBuy(addr){
   buyNow(c, quickAmt(), true);
 }
 
-function buyNow(c, sol, quick = false){
+function buyNow(c, sol, quick = false, plan = null){
   const L = limits();
   if (!(sol > 0 && sol <= Math.min(L.mx, L.left) + 1e-9)) return;   // limits re-checked at the last moment
   if (quick) alertUser('info', `Quick buy ${c.symbol}`, `${sol} SOL · approve it in your wallet`, c.url);
@@ -847,7 +882,7 @@ function buyNow(c, sol, quick = false){
       const spent = res?.inputAmount ? res.inputAmount / 1e9 : sol;
       R.spent[today()] = +((R.spent[today()] || 0) + spent).toFixed(4);
       R.trades.unshift({ t: Date.now(), txid, address: c.address, symbol: c.symbol, url: c.url, sol: +spent.toFixed(4),
-                         tokens_raw: res?.outputAmount ?? null, entry_price: c.price, entry_mcap: c.mcap, score: c.score, status: 'holding' });
+                         tokens_raw: res?.outputAmount ?? null, entry_price: c.price, entry_mcap: c.mcap, score: c.score, status: 'holding', plan });
       saveReal(); syncRealUi();
       alertUser('info', `Bought ${c.symbol}`, `${spent.toFixed(3)} SOL · tx ${txid.slice(0, 8)}…`, 'https://solscan.io/tx/' + txid);
       renderAlerts();
@@ -884,8 +919,9 @@ function checkHoldings(info){
       alertUser('bad', `Sell alert ${t.symbol}: ${title}`, body, t.url);
     };
     const r = x => (x >= 0 ? '+' : '') + Math.round(x * 100) + '%';
-    if (ret >= tp) fire('tp', 'take profit', `${r(ret)} since you bought. Consider selling at least half to lock in your stake.`);
-    if (ret <= sl) fire('sl', 'stop loss', `${r(ret)} since you bought.`);
+    const myTp = t.plan?.tp ?? tp, mySl = t.plan?.sl ?? sl;
+    if (ret >= myTp) fire('tp', 'take profit', `${r(ret)} since you bought. Consider selling at least half to lock in your stake.`);
+    if (ret <= mySl) fire('sl', 'stop loss', `${r(ret)} since you bought.`);
     if (peakRet >= 0.3 && fromPeak <= -trail) fire('trail', 'trailing stop', `${r(fromPeak)} from its peak of ${r(peakRet)}; now ${r(ret)} overall.`);
     const b5 = c.buys_m5 ?? 0, s5 = c.sells_m5 ?? 0;
     if (s5 >= 10 && s5 >= 2 * Math.max(1, b5) && (c.chg_m5 ?? 0) < 0) fire('flip:' + Math.floor(Date.now() / 1800000), 'sellers taking over', `${s5} sells vs ${b5} buys in 5 min, price ${(c.chg_m5).toFixed(1)}% in 5 min.`);

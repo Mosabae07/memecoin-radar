@@ -23,6 +23,8 @@ Every threshold is in `CFG` at the top of `docs/radar-core.js`. The 15-minute sc
 - **Outcome tracking:** every coin that passes the Skeptic is followed for 24 hours. Its numbers at first sight are saved with its price 1 h, 6 h and 24 h later and its peak and low (`docs/data/outcomes.json`).
 - **What's working** panel: win rates by score band (reached +50%, +100%, crashed −80%, median after 24 h), and for each signal, how coins high on it did against coins low on it. Use it to re-weight the score once there are 50+ finished coins.
 - **Exit rule test:** every pick is paper-traded twice. A sells everything at +100% / −35% / 24 h. B sells half at +100% and trails the rest with a 30% stop from its peak. The dashboard shows which earns more on the same picks.
+- **Time Machine:** every pick and watched coin shows what happened to the 60 most similar coins in the history, replayed 10,000 times. You see how often they hit +100% before the −35% stop, how often they hit the stop first, and the average result per trade after fees, slippage and stops that fill late. It switches on once 50 coins have finished tracking. Since 23 Oct 2026 each tracked coin also records when it first reached +30/50/100/200/300% and −20/35/50/80%, so the replays know which came first. Older coins without that timing count as "both, order unknown" and are scored as the stop.
+- **Exit planner:** the Time Machine also tries 12 exit plans (take profit +30% to +200%, stop −20% to −50%) on those similar coins and suggests the one that held up best. It warns you plainly when every plan lost money. On the buy screen you can tick a box to use that plan for the coin's sell alerts instead of your usual settings.
 - **Hot themes:** words shared by 3+ coins that are actually trading (for example *halloween*, *pokemon*) are shown at the top and tagged on coins. They're tracked as a signal but don't change the score until the data says they help.
 
 ## Live session mode
@@ -57,7 +59,7 @@ docs/radar-core.js            the rules: discovery, Skeptic, scoring, paper trad
 radar/scan.mjs                15-minute scanner GitHub runs (Node, no installs)
 .github/workflows/scan.yml    runs it every 15 min and saves results
 docs/index.html               the dashboard + live session mode (GitHub Pages)
-docs/data/                    latest, paper, paper_b, outcomes, stats, state, candidates, buzz (.json)
+docs/data/                    latest, paper, paper_b, outcomes, odds_base, stats, state, candidates, buzz (.json)
 laptop/                       X buzz reader + one-click Windows setup
 tests/                        offline tests on real captured market data (node --test tests/*.test.mjs)
 ```
