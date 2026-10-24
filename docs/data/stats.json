@@ -1,12 +1,12 @@
 {
- "updated": "2026-10-24T17:48:24Z",
+ "updated": "2026-10-24T18:02:44Z",
  "tracking_now": 121,
  "total": {
-  "n": 480,
-  "hit50": 28.5,
-  "hit100": 19.2,
-  "crash": 81.9,
-  "median_24h": -90.1
+  "n": 482,
+  "hit50": 28.4,
+  "hit100": 19.1,
+  "crash": 82,
+  "median_24h": -90.3
  },
  "bands": [
   {
@@ -19,9 +19,9 @@
   },
   {
    "label": "70-79",
-   "n": 26,
-   "hit50": 26.9,
-   "hit100": 19.2,
+   "n": 27,
+   "hit50": 25.9,
+   "hit100": 18.5,
    "crash": 100,
    "median_24h": -98.8
   },
@@ -35,11 +35,11 @@
   },
   {
    "label": "50-59",
-   "n": 161,
-   "hit50": 28.6,
-   "hit100": 23,
-   "crash": 82,
-   "median_24h": -88.7
+   "n": 162,
+   "hit50": 28.4,
+   "hit100": 22.8,
+   "crash": 82.1,
+   "median_24h": -89.1
   },
   {
    "label": "under 50",
@@ -55,10 +55,10 @@
    "signal": "liquidity_ratio",
    "high": {
     "n": 107,
-    "hit50": 18.7,
-    "hit100": 12.1,
-    "crash": 85,
-    "median_24h": -89.7
+    "hit50": 17.8,
+    "hit100": 11.2,
+    "crash": 86,
+    "median_24h": -89.8
    },
    "low": {
     "n": 107,
@@ -67,7 +67,7 @@
     "crash": 87.9,
     "median_24h": -99
    },
-   "lift": -18.7
+   "lift": -19.6
   },
   {
    "signal": "age_hours",
@@ -88,31 +88,13 @@
    "lift": 17.5
   },
   {
-   "signal": "market_cap",
-   "high": {
-    "n": 160,
-    "hit50": 36.9,
-    "hit100": 28.1,
-    "crash": 86.3,
-    "median_24h": -98.8
-   },
-   "low": {
-    "n": 160,
-    "hit50": 22.5,
-    "hit100": 12.5,
-    "crash": 77.5,
-    "median_24h": -84
-   },
-   "lift": 14.4
-  },
-  {
    "signal": "hot_theme",
    "high": {
     "n": 160,
     "hit50": 35.6,
     "hit100": 24.4,
-    "crash": 83.8,
-    "median_24h": -91.4
+    "crash": 84.4,
+    "median_24h": -91.5
    },
    "low": {
     "n": 160,
@@ -124,13 +106,49 @@
    "lift": 14.3
   },
   {
+   "signal": "market_cap",
+   "high": {
+    "n": 160,
+    "hit50": 36.3,
+    "hit100": 27.5,
+    "crash": 86.9,
+    "median_24h": -98.8
+   },
+   "low": {
+    "n": 160,
+    "hit50": 22.5,
+    "hit100": 12.5,
+    "crash": 77.5,
+    "median_24h": -84
+   },
+   "lift": 13.8
+  },
+  {
+   "signal": "buy_pressure_5m",
+   "high": {
+    "n": 160,
+    "hit50": 36.3,
+    "hit100": 26.3,
+    "crash": 81.9,
+    "median_24h": -93
+   },
+   "low": {
+    "n": 160,
+    "hit50": 24.4,
+    "hit100": 15,
+    "crash": 80.6,
+    "median_24h": -90.3
+   },
+   "lift": 11.9
+  },
+  {
    "signal": "buy_pressure_1h",
    "high": {
     "n": 160,
-    "hit50": 35.6,
-    "hit100": 23.8,
-    "crash": 85.6,
-    "median_24h": -98.3
+    "hit50": 35,
+    "hit100": 23.1,
+    "crash": 86.3,
+    "median_24h": -98.4
    },
    "low": {
     "n": 160,
@@ -138,24 +156,6 @@
     "hit100": 16.3,
     "crash": 83.1,
     "median_24h": -90.7
-   },
-   "lift": 12.5
-  },
-  {
-   "signal": "buy_pressure_5m",
-   "high": {
-    "n": 160,
-    "hit50": 36.9,
-    "hit100": 26.9,
-    "crash": 81.9,
-    "median_24h": -92.8
-   },
-   "low": {
-    "n": 160,
-    "hit50": 25,
-    "hit100": 15,
-    "crash": 80,
-    "median_24h": -90.3
    },
    "lift": 11.9
   },
@@ -201,8 +201,8 @@
     "n": 160,
     "hit50": 32.5,
     "hit100": 21.9,
-    "crash": 75.6,
-    "median_24h": -90.9
+    "crash": 76.3,
+    "median_24h": -91
    },
    "low": {
     "n": 160,
@@ -220,7 +220,7 @@
     "hit50": 32.5,
     "hit100": 21.3,
     "crash": 78.1,
-    "median_24h": -87.7
+    "median_24h": -87.9
    },
    "low": {
     "n": 160,
@@ -271,10 +271,10 @@
    "signal": "holders",
    "high": {
     "n": 160,
-    "hit50": 28.1,
-    "hit100": 20.6,
-    "crash": 86.9,
-    "median_24h": -96.9
+    "hit50": 26.9,
+    "hit100": 19.4,
+    "crash": 87.5,
+    "median_24h": -97.2
    },
    "low": {
     "n": 160,
@@ -283,16 +283,16 @@
     "crash": 76.3,
     "median_24h": -84.2
    },
-   "lift": 0
+   "lift": -1.2
   },
   {
    "signal": "top10_pct",
    "high": {
     "n": 160,
-    "hit50": 30,
-    "hit100": 17.5,
-    "crash": 72.5,
-    "median_24h": -84.4
+    "hit50": 29.4,
+    "hit100": 16.9,
+    "crash": 73.1,
+    "median_24h": -84.6
    },
    "low": {
     "n": 160,
@@ -301,7 +301,7 @@
     "crash": 95,
     "median_24h": -98.7
    },
-   "lift": 0
+   "lift": -0.6
   }
  ]
 }
