@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-25T21:06:08Z",
- "tracking_now": 127,
+ "updated": "2026-10-25T21:20:29Z",
+ "tracking_now": 130,
  "total": {
-  "n": 621,
-  "hit50": 30.9,
-  "hit100": 20.8,
+  "n": 622,
+  "hit50": 31,
+  "hit100": 20.7,
   "crash": 81.2,
   "median_24h": -89.9
  },
@@ -43,11 +43,11 @@
   },
   {
    "label": "under 50",
-   "n": 284,
-   "hit50": 33.5,
+   "n": 285,
+   "hit50": 33.7,
    "hit100": 20.4,
    "crash": 75.4,
-   "median_24h": -86.9
+   "median_24h": -87
   }
  ],
  "signals": [
@@ -57,8 +57,8 @@
     "n": 207,
     "hit50": 39.6,
     "hit100": 26.1,
-    "crash": 67.1,
-    "median_24h": -86.1
+    "crash": 67.6,
+    "median_24h": -86.3
    },
    "low": {
     "n": 207,
@@ -80,18 +80,18 @@
    },
    "low": {
     "n": 207,
-    "hit50": 39.1,
+    "hit50": 39.6,
     "hit100": 26.1,
     "crash": 71,
     "median_24h": -87.9
    },
-   "lift": -15.9
+   "lift": -16.4
   },
   {
    "signal": "market_cap",
    "high": {
     "n": 207,
-    "hit50": 38.2,
+    "hit50": 38.6,
     "hit100": 28,
     "crash": 86.5,
     "median_24h": -98.8
@@ -103,15 +103,15 @@
     "crash": 77.8,
     "median_24h": -83.8
    },
-   "lift": 15
+   "lift": 15.4
   },
   {
    "signal": "hot_theme",
    "high": {
     "n": 207,
     "hit50": 36.7,
-    "hit100": 25.6,
-    "crash": 83.6,
+    "hit100": 25.1,
+    "crash": 84.1,
     "median_24h": -92.2
    },
    "low": {
@@ -122,6 +122,24 @@
     "median_24h": -89.3
    },
    "lift": 14.5
+  },
+  {
+   "signal": "paid_boosts",
+   "high": {
+    "n": 207,
+    "hit50": 41.1,
+    "hit100": 28,
+    "crash": 77.3,
+    "median_24h": -90.7
+   },
+   "low": {
+    "n": 207,
+    "hit50": 27.1,
+    "hit100": 18.4,
+    "crash": 85,
+    "median_24h": -89.8
+   },
+   "lift": 14
   },
   {
    "signal": "liquidity_ratio",
@@ -135,35 +153,17 @@
    "low": {
     "n": 140,
     "hit50": 38.6,
-    "hit100": 30.7,
+    "hit100": 30,
     "crash": 86.4,
     "median_24h": -99.1
    },
    "lift": -13.6
   },
   {
-   "signal": "paid_boosts",
-   "high": {
-    "n": 207,
-    "hit50": 40.6,
-    "hit100": 28,
-    "crash": 77.3,
-    "median_24h": -90.7
-   },
-   "low": {
-    "n": 207,
-    "hit50": 27.1,
-    "hit100": 18.4,
-    "crash": 85,
-    "median_24h": -89.8
-   },
-   "lift": 13.5
-  },
-  {
    "signal": "buy_pressure_1h",
    "high": {
     "n": 207,
-    "hit50": 36.2,
+    "hit50": 36.7,
     "hit100": 24.6,
     "crash": 87.4,
     "median_24h": -98.5
@@ -175,14 +175,14 @@
     "crash": 82.6,
     "median_24h": -90.6
    },
-   "lift": 11.1
+   "lift": 11.6
   },
   {
    "signal": "growth_since_seen",
    "high": {
     "n": 207,
     "hit50": 36.7,
-    "hit100": 25.6,
+    "hit100": 25.1,
     "crash": 75.4,
     "median_24h": -86.8
    },
@@ -199,10 +199,10 @@
    "signal": "buy_pressure_5m",
    "high": {
     "n": 207,
-    "hit50": 37.7,
+    "hit50": 38.2,
     "hit100": 28,
-    "crash": 81.6,
-    "median_24h": -96.2
+    "crash": 82.1,
+    "median_24h": -96.3
    },
    "low": {
     "n": 207,
@@ -211,7 +211,7 @@
     "crash": 78.3,
     "median_24h": -90
    },
-   "lift": 9.2
+   "lift": 9.7
   },
   {
    "signal": "on_bonding_curve",
@@ -250,28 +250,10 @@
    "lift": 3.4
   },
   {
-   "signal": "top10_pct",
-   "high": {
-    "n": 207,
-    "hit50": 33.3,
-    "hit100": 21.3,
-    "crash": 71,
-    "median_24h": -84.1
-   },
-   "low": {
-    "n": 207,
-    "hit50": 32.4,
-    "hit100": 22.2,
-    "crash": 94.2,
-    "median_24h": -98.7
-   },
-   "lift": 0.9
-  },
-  {
    "signal": "change_1h",
    "high": {
     "n": 207,
-    "hit50": 30,
+    "hit50": 30.4,
     "hit100": 19.8,
     "crash": 89.4,
     "median_24h": -90.3
@@ -283,7 +265,25 @@
     "crash": 74.4,
     "median_24h": -88.4
    },
-   "lift": 0.5
+   "lift": 0.9
+  },
+  {
+   "signal": "top10_pct",
+   "high": {
+    "n": 207,
+    "hit50": 33.3,
+    "hit100": 21.3,
+    "crash": 71,
+    "median_24h": -84.1
+   },
+   "low": {
+    "n": 207,
+    "hit50": 32.4,
+    "hit100": 21.7,
+    "crash": 94.7,
+    "median_24h": -98.7
+   },
+   "lift": 0.9
   },
   {
    "signal": "holders",
