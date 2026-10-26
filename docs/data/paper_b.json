@@ -1,31 +1,5 @@
 {
- "open": [
-  {
-   "address": "7JEfFdwmXfQf89ty1sF3aspN9oku9fHikA7XZTTXpump",
-   "symbol": "GTA",
-   "url": "https://dexscreener.com/solana/hfoj3dgn1c7ew68mjj7tywrgpa3o79v7r6rjdxu52zka",
-   "opened": 1792970126243,
-   "entry_price": 0.000181,
-   "entry_mcap": 181057,
-   "entry_score": 73,
-   "stake": 100,
-   "peak": 3.729834254143647,
-   "last_price": 0.0006842,
-   "half_price": 0.0004324,
-   "half_at": 1792971847356
-  },
-  {
-   "address": "82FEcWhKWAhm4QdqV5oCr7NDgXRQuXbACAstBqrJhook",
-   "symbol": "HOOKER",
-   "url": "https://dexscreener.com/solana/9lgnrw3z9aj9ahpk4v7sctycnuqfbmgrl2sygkh1azsz",
-   "opened": 1792975293136,
-   "entry_price": 0.00008416,
-   "entry_mcap": 84161,
-   "entry_score": 71,
-   "stake": 100,
-   "peak": 0
-  }
- ],
+ "open": [],
  "closed": [
   {
    "address": "BLr7LaB55PLj8DxchLZKRVCtXx7ugzXWiwzpJhVtpump",
@@ -1794,6 +1768,42 @@
    "closed": 1792973569107,
    "return_pct": 173.9,
    "pnl_usd": 173.91
+  },
+  {
+   "address": "7JEfFdwmXfQf89ty1sF3aspN9oku9fHikA7XZTTXpump",
+   "symbol": "GTA",
+   "url": "https://dexscreener.com/solana/hfoj3dgn1c7ew68mjj7tywrgpa3o79v7r6rjdxu52zka",
+   "opened": 1792970126243,
+   "entry_price": 0.000181,
+   "entry_mcap": 181057,
+   "entry_score": 73,
+   "stake": 100,
+   "peak": 3.729834254143647,
+   "last_price": 0.0005833,
+   "half_price": 0.0004324,
+   "half_at": 1792971847356,
+   "exit_price": 0.0005833,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1792976155634,
+   "return_pct": 176.6,
+   "pnl_usd": 176.58
+  },
+  {
+   "address": "82FEcWhKWAhm4QdqV5oCr7NDgXRQuXbACAstBqrJhook",
+   "symbol": "HOOKER",
+   "url": "https://dexscreener.com/solana/9lgnrw3z9aj9ahpk4v7sctycnuqfbmgrl2sygkh1azsz",
+   "opened": 1792975293136,
+   "entry_price": 0.00008416,
+   "entry_mcap": 84161,
+   "entry_score": 71,
+   "stake": 100,
+   "peak": 0,
+   "last_price": 0.00005082,
+   "exit_price": 0.00005082,
+   "exit_reason": "stop loss",
+   "closed": 1792976155634,
+   "return_pct": -43.6,
+   "pnl_usd": -43.62
   }
  ],
  "ever": [
@@ -1903,11 +1913,11 @@
   "82FEcWhKWAhm4QdqV5oCr7NDgXRQuXbACAstBqrJhook"
  ],
  "summary": {
-  "trades": 102,
-  "open": 2,
-  "win_rate": 16.7,
-  "total_pnl_usd": -4151.44,
-  "avg_return_pct": -40.7,
+  "trades": 104,
+  "open": 0,
+  "win_rate": 17.3,
+  "total_pnl_usd": -4018.48,
+  "avg_return_pct": -38.6,
   "best_pct": 641.8,
   "worst_pct": -103.7,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
