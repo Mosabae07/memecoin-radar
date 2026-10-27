@@ -1,12 +1,12 @@
 {
- "updated": "2026-10-27T11:39:36Z",
- "tracking_now": 146,
+ "updated": "2026-10-27T11:53:56Z",
+ "tracking_now": 144,
  "total": {
-  "n": 807,
-  "hit50": 31.2,
-  "hit100": 20.9,
-  "crash": 80.8,
-  "median_24h": -90.3
+  "n": 809,
+  "hit50": 31.3,
+  "hit100": 21,
+  "crash": 80.6,
+  "median_24h": -90.2
  },
  "bands": [
   {
@@ -35,18 +35,18 @@
   },
   {
    "label": "50-59",
-   "n": 268,
-   "hit50": 26.5,
-   "hit100": 20.1,
-   "crash": 82.1,
-   "median_24h": -89.1
+   "n": 269,
+   "hit50": 26.8,
+   "hit100": 20.4,
+   "crash": 81.8,
+   "median_24h": -88.8
   },
   {
    "label": "under 50",
-   "n": 350,
-   "hit50": 34.9,
-   "hit100": 20.6,
-   "crash": 74.3,
+   "n": 351,
+   "hit50": 34.8,
+   "hit100": 20.5,
+   "crash": 74.1,
    "median_24h": -86.8
   }
  ],
@@ -64,7 +64,7 @@
     "n": 269,
     "hit50": 23.4,
     "hit100": 15.2,
-    "crash": 86.2,
+    "crash": 85.9,
     "median_24h": -89.8
    },
    "lift": 16
@@ -82,7 +82,7 @@
     "n": 269,
     "hit50": 23.4,
     "hit100": 13.4,
-    "crash": 77,
+    "crash": 76.6,
     "median_24h": -83.8
    },
    "lift": 15.3
@@ -109,8 +109,8 @@
    "signal": "hot_theme",
    "high": {
     "n": 269,
-    "hit50": 37.2,
-    "hit100": 25.3,
+    "hit50": 36.8,
+    "hit100": 24.9,
     "crash": 84,
     "median_24h": -92.7
    },
@@ -121,7 +121,7 @@
     "crash": 80.7,
     "median_24h": -89.7
    },
-   "lift": 14.5
+   "lift": 14.1
   },
   {
    "signal": "volume_accel",
@@ -136,7 +136,7 @@
     "n": 269,
     "hit50": 37.9,
     "hit100": 24.9,
-    "crash": 73.2,
+    "crash": 72.9,
     "median_24h": -88.1
    },
    "lift": -12.6
@@ -160,12 +160,30 @@
    "lift": 8.5
   },
   {
-   "signal": "buy_pressure_1h",
+   "signal": "paid_boosts",
    "high": {
     "n": 269,
     "hit50": 35.3,
     "hit100": 25.3,
-    "crash": 88.8,
+    "crash": 77.3,
+    "median_24h": -91.1
+   },
+   "low": {
+    "n": 269,
+    "hit50": 27.5,
+    "hit100": 18.2,
+    "crash": 84.4,
+    "median_24h": -89.7
+   },
+   "lift": 7.8
+  },
+  {
+   "signal": "buy_pressure_1h",
+   "high": {
+    "n": 269,
+    "hit50": 34.9,
+    "hit100": 25.7,
+    "crash": 88.5,
     "median_24h": -98.5
    },
    "low": {
@@ -175,52 +193,34 @@
     "crash": 79.6,
     "median_24h": -89.8
    },
-   "lift": 7.8
-  },
-  {
-   "signal": "paid_boosts",
-   "high": {
-    "n": 269,
-    "hit50": 34.9,
-    "hit100": 24.9,
-    "crash": 78.1,
-    "median_24h": -91.3
-   },
-   "low": {
-    "n": 269,
-    "hit50": 27.5,
-    "hit100": 18.2,
-    "crash": 84.4,
-    "median_24h": -89.7
-   },
    "lift": 7.4
   },
   {
    "signal": "growth_since_seen",
    "high": {
     "n": 269,
-    "hit50": 33.8,
-    "hit100": 23.4,
-    "crash": 77,
+    "hit50": 34.2,
+    "hit100": 23.8,
+    "crash": 76.6,
     "median_24h": -87.6
    },
    "low": {
     "n": 269,
-    "hit50": 27.5,
-    "hit100": 18.6,
+    "hit50": 27.1,
+    "hit100": 18.2,
     "crash": 80.7,
     "median_24h": -89.9
    },
-   "lift": 6.3
+   "lift": 7.1
   },
   {
    "signal": "insider_group_pct",
    "high": {
     "n": 269,
-    "hit50": 32,
-    "hit100": 20.1,
-    "crash": 74,
-    "median_24h": -86.9
+    "hit50": 32.3,
+    "hit100": 20.4,
+    "crash": 73.6,
+    "median_24h": -86.8
    },
    "low": {
     "n": 269,
@@ -229,16 +229,16 @@
     "crash": 85.5,
     "median_24h": -92.2
    },
-   "lift": 3.7
+   "lift": 4
   },
   {
    "signal": "on_bonding_curve",
    "high": {
     "n": 269,
-    "hit50": 26.8,
-    "hit100": 16,
-    "crash": 75.5,
-    "median_24h": -84
+    "hit50": 26.4,
+    "hit100": 15.6,
+    "crash": 75.1,
+    "median_24h": -83.9
    },
    "low": {
     "n": 269,
@@ -247,7 +247,25 @@
     "crash": 84,
     "median_24h": -94.3
    },
-   "lift": -3.3
+   "lift": -3.7
+  },
+  {
+   "signal": "holders",
+   "high": {
+    "n": 269,
+    "hit50": 31.2,
+    "hit100": 20.8,
+    "crash": 85.5,
+    "median_24h": -97.6
+   },
+   "low": {
+    "n": 269,
+    "hit50": 29.7,
+    "hit100": 18.2,
+    "crash": 72.5,
+    "median_24h": -83.9
+   },
+   "lift": 1.5
   },
   {
    "signal": "change_1h",
@@ -260,28 +278,10 @@
    },
    "low": {
     "n": 269,
-    "hit50": 29.4,
-    "hit100": 19,
+    "hit50": 29.7,
+    "hit100": 19.3,
     "crash": 74.7,
     "median_24h": -88.4
-   },
-   "lift": 1.5
-  },
-  {
-   "signal": "holders",
-   "high": {
-    "n": 269,
-    "hit50": 30.9,
-    "hit100": 20.4,
-    "crash": 85.9,
-    "median_24h": -97.6
-   },
-   "low": {
-    "n": 269,
-    "hit50": 29.7,
-    "hit100": 18.2,
-    "crash": 72.9,
-    "median_24h": -83.9
    },
    "lift": 1.2
   },
@@ -289,8 +289,8 @@
    "signal": "top10_pct",
    "high": {
     "n": 269,
-    "hit50": 31.2,
-    "hit100": 20.1,
+    "hit50": 30.9,
+    "hit100": 19.7,
     "crash": 73.2,
     "median_24h": -84.3
    },
@@ -301,7 +301,7 @@
     "crash": 93.7,
     "median_24h": -98.7
    },
-   "lift": -0.8
+   "lift": -1.1
   }
  ]
 }
