@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-29T08:29:09Z",
- "tracking_now": 115,
+ "updated": "2026-10-29T08:43:29Z",
+ "tracking_now": 114,
  "total": {
-  "n": 1066,
-  "hit50": 32.2,
+  "n": 1067,
+  "hit50": 32.1,
   "hit100": 20.7,
   "crash": 79.4,
   "median_24h": -90.4
@@ -35,11 +35,11 @@
   },
   {
    "label": "50-59",
-   "n": 348,
-   "hit50": 27.3,
+   "n": 349,
+   "hit50": 27.2,
    "hit100": 19.8,
-   "crash": 83.6,
-   "median_24h": -90.6
+   "crash": 83.7,
+   "median_24h": -90.7
   },
   {
    "label": "under 50",
@@ -51,6 +51,24 @@
   }
  ],
  "signals": [
+  {
+   "signal": "age_hours",
+   "high": {
+    "n": 355,
+    "hit50": 40.6,
+    "hit100": 25.6,
+    "crash": 64.8,
+    "median_24h": -85.9
+   },
+   "low": {
+    "n": 355,
+    "hit50": 23.7,
+    "hit100": 14.6,
+    "crash": 87,
+    "median_24h": -90.7
+   },
+   "lift": 16.9
+  },
   {
    "signal": "market_cap",
    "high": {
@@ -64,28 +82,10 @@
     "n": 355,
     "hit50": 23.4,
     "hit100": 13.5,
-    "crash": 76.3,
+    "crash": 76.6,
     "median_24h": -84.1
    },
    "lift": 16.9
-  },
-  {
-   "signal": "age_hours",
-   "high": {
-    "n": 355,
-    "hit50": 40.6,
-    "hit100": 25.6,
-    "crash": 64.8,
-    "median_24h": -85.9
-   },
-   "low": {
-    "n": 355,
-    "hit50": 23.9,
-    "hit100": 14.6,
-    "crash": 87,
-    "median_24h": -90.7
-   },
-   "lift": 16.7
   },
   {
    "signal": "liquidity_ratio",
@@ -111,7 +111,7 @@
     "n": 355,
     "hit50": 38.6,
     "hit100": 24.2,
-    "crash": 82.8,
+    "crash": 83.1,
     "median_24h": -93.3
    },
    "low": {
@@ -148,7 +148,7 @@
     "hit50": 38,
     "hit100": 24.5,
     "crash": 75.5,
-    "median_24h": -92.1
+    "median_24h": -91.8
    },
    "low": {
     "n": 355,
@@ -199,7 +199,7 @@
    "signal": "on_bonding_curve",
    "high": {
     "n": 355,
-    "hit50": 28.2,
+    "hit50": 27.9,
     "hit100": 17.2,
     "crash": 75.2,
     "median_24h": -84.3
@@ -211,7 +211,7 @@
     "crash": 83.7,
     "median_24h": -94.5
    },
-   "lift": -4.8
+   "lift": -5.1
   },
   {
    "signal": "buy_pressure_1h",
@@ -227,7 +227,7 @@
     "hit50": 30.7,
     "hit100": 19.7,
     "crash": 75.8,
-    "median_24h": -89.7
+    "median_24h": -89.8
    },
    "lift": 4.5
   },
@@ -291,8 +291,8 @@
     "n": 355,
     "hit50": 30.7,
     "hit100": 20.3,
-    "crash": 86.8,
-    "median_24h": -90.2
+    "crash": 87,
+    "median_24h": -90.3
    },
    "low": {
     "n": 355,
