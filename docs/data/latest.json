@@ -1,12 +1,12 @@
 {
- "updated": "2026-10-31T20:37:19Z",
- "updated_ms": 1793479039046,
- "took_s": 16.6,
+ "updated": "2026-10-31T20:37:47Z",
+ "updated_ms": 1793479067698,
+ "took_s": 17,
  "counts": {
   "scanned": 206,
   "watch": 0,
-  "wait": 32,
-  "skip": 174,
+  "wait": 33,
+  "skip": 173,
   "rugchecks": 12
  },
  "buzz_fresh": false,
@@ -63,25 +63,25 @@
    "url": "https://dexscreener.com/solana/7ad1vhzly1n87v5a7ymjfzw7xugzzf3fxsyw1fsepkmm",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0003258,
-   "mcap": 314498,
-   "liq": 46451,
+   "price": 0.0003295,
+   "mcap": 318038,
+   "liq": 46725,
    "age_h": 2.2,
-   "chg_m5": -10.87,
-   "chg_h1": -2.98,
-   "chg_h24": 723,
-   "vol_h1": 151865,
-   "buys_h1": 4711,
-   "sells_h1": 1023,
-   "buys_m5": 326,
-   "sells_m5": 73,
+   "chg_m5": -9.87,
+   "chg_h1": -1.89,
+   "chg_h24": 732,
+   "vol_h1": 152874,
+   "buys_h1": 4743,
+   "sells_h1": 1029,
+   "buys_m5": 358,
+   "sells_m5": 79,
    "holders": 817,
    "top10_pct": 11.7,
-   "score": 53,
+   "score": 54,
    "verdict": "WAIT",
    "reasons": [
     "82% of trades in the last 5 min are buys",
-    "market cap up +515% since the radar first saw it",
+    "market cap up +522% since the radar first saw it",
     "part of a hot theme right now: agent"
    ],
    "concerns": [],
@@ -113,16 +113,16 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 13.2,
-    "p_sl": 82.9,
+    "p_tp": 11.8,
+    "p_sl": 84.6,
     "p_both": 0,
-    "p_neither": 3.9,
-    "ev_pct": -0.4,
+    "p_neither": 3.6,
+    "ev_pct": -3.5,
     "tp_range": [
      10,
-     17
+     15
     ],
-    "median_24h": -94.3,
+    "median_24h": -94.6,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -132,16 +132,105 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 20.1,
-     "p_sl": 72.5,
-     "p_both": 3.9,
-     "p_neither": 3.6,
-     "ev_pct": -18.2,
+     "p_tp": 18.9,
+     "p_sl": 73.8,
+     "p_both": 4.1,
+     "p_neither": 3.3,
+     "ev_pct": -20,
      "tp_range": [
-      17,
+      16,
       24
      ],
-     "median_24h": -94.3
+     "median_24h": -94.6
+    }
+   }
+  },
+  {
+   "address": "6zAg9L5bdeR17YwBNkjCQRHUc75MAvKQcjHZi5grpump",
+   "symbol": "Anakin",
+   "name": "Anakin Skywalker",
+   "url": "https://dexscreener.com/solana/byqwcy3rqvfkzed7duoiyyu18kblrvgxlr4vzgnayjbh",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.00001508,
+   "mcap": 15087,
+   "liq": null,
+   "age_h": 50.4,
+   "chg_m5": 85.18,
+   "chg_h1": 40.58,
+   "chg_h24": 420,
+   "vol_h1": 15055,
+   "buys_h1": 161,
+   "sells_h1": 129,
+   "buys_m5": 24,
+   "sells_m5": 4,
+   "holders": null,
+   "top10_pct": null,
+   "score": 53,
+   "verdict": "WAIT",
+   "reasons": [
+    "86% of trades in the last 5 min are buys",
+    "volume is speeding up (1.6x the hourly pace)"
+   ],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "still on the pump.fun bonding curve (no open pool yet)"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://x.com/search?q=anakin&src=recent_search_click"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/onzhainmozart_4/status/2116606540589244569"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1793473885005,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 1,
+     "sl": -0.2
+    },
+    "p_tp": 7,
+    "p_sl": 82.8,
+    "p_both": 8.5,
+    "p_neither": 1.7,
+    "ev_pct": -23.8,
+    "tp_range": [
+     5,
+     10
+    ],
+    "median_24h": -81.6,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 10.6,
+     "p_sl": 79.3,
+     "p_both": 8.5,
+     "p_neither": 1.7,
+     "ev_pct": -32.3,
+     "tp_range": [
+      7,
+      14
+     ],
+     "median_24h": -81.6
     }
    }
   },
@@ -152,25 +241,25 @@
    "url": "https://dexscreener.com/solana/6bnptaekgetqfgqgdwidhfqagamhusyqxqjnllw74exw",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0004577,
-   "mcap": 453766,
-   "liq": 55662,
+   "price": 0.0004406,
+   "mcap": 436812,
+   "liq": 54582,
    "age_h": 1.9,
-   "chg_m5": 4.23,
-   "chg_h1": -7.11,
-   "chg_h24": 959,
-   "vol_h1": 138710,
-   "buys_h1": 11461,
-   "sells_h1": 4945,
-   "buys_m5": 809,
-   "sells_m5": 319,
-   "holders": 5550,
+   "chg_m5": 0.34,
+   "chg_h1": -10.58,
+   "chg_h24": 919,
+   "vol_h1": 139506,
+   "buys_h1": 11520,
+   "sells_h1": 4981,
+   "buys_m5": 868,
+   "sells_m5": 355,
+   "holders": 5538,
    "top10_pct": 1.9,
-   "score": 50,
+   "score": 48,
    "verdict": "WAIT",
    "reasons": [
-    "72% of trades in the last 5 min are buys",
-    "market cap up +258% since the radar first saw it",
+    "71% of trades in the last 5 min are buys",
+    "market cap up +245% since the radar first saw it",
     "part of a hot theme right now: cat"
    ],
    "concerns": [],
@@ -206,16 +295,16 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 12.4,
-    "p_sl": 76.1,
+    "p_tp": 12.7,
+    "p_sl": 75.7,
     "p_both": 0,
-    "p_neither": 11.5,
-    "ev_pct": 4.6,
+    "p_neither": 11.6,
+    "ev_pct": 5,
     "tp_range": [
-     10,
+     11,
      16
     ],
-    "median_24h": -89.7,
+    "median_24h": -90.3,
     "all_negative": false,
     "default": {
      "ready": true,
@@ -226,15 +315,15 @@
       "sl": -0.35
      },
      "p_tp": 18.4,
-     "p_sl": 67.1,
+     "p_sl": 66.8,
      "p_both": 5.2,
-     "p_neither": 9.3,
-     "ev_pct": -16.1,
+     "p_neither": 9.7,
+     "ev_pct": -16,
      "tp_range": [
-      14,
-      23
+      15,
+      22
      ],
-     "median_24h": -89.7
+     "median_24h": -90.3
     }
    }
   },
@@ -245,21 +334,21 @@
    "url": "https://dexscreener.com/solana/eej4zypgintcwrq4cvbdubqq7s45krm7xaefcu3uugb",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0003835,
-   "mcap": 381321,
-   "liq": 50794,
+   "price": 0.0003914,
+   "mcap": 389189,
+   "liq": 51336,
    "age_h": 0.7,
-   "chg_m5": -0.6,
-   "chg_h1": 697,
-   "chg_h24": 697,
-   "vol_h1": 760433,
-   "buys_h1": 14500,
-   "sells_h1": 3342,
-   "buys_m5": 1045,
-   "sells_m5": 321,
-   "holders": 4355,
+   "chg_m5": 1.45,
+   "chg_h1": 714,
+   "chg_h24": 714,
+   "vol_h1": 760797,
+   "buys_h1": 14605,
+   "sells_h1": 3364,
+   "buys_m5": 1150,
+   "sells_m5": 343,
+   "holders": 4352,
    "top10_pct": 1.8,
-   "score": 45,
+   "score": 43,
    "verdict": "WAIT",
    "reasons": [
     "77% of trades in the last 5 min are buys",
@@ -298,13 +387,13 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 13.1,
-    "p_sl": 79.3,
+    "p_tp": 12.4,
+    "p_sl": 79.7,
     "p_both": 6.5,
-    "p_neither": 1.2,
-    "ev_pct": -3.3,
+    "p_neither": 1.3,
+    "ev_pct": -4.7,
     "tp_range": [
-     11,
+     10,
      16
     ],
     "median_24h": -99.2,
@@ -317,60 +406,54 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 24.6,
-     "p_sl": 58.7,
-     "p_both": 15.6,
-     "p_neither": 1.2,
-     "ev_pct": -12.5,
+     "p_tp": 24.2,
+     "p_sl": 59.4,
+     "p_both": 15.1,
+     "p_neither": 1.3,
+     "ev_pct": -13.1,
      "tp_range": [
-      21,
-      29
+      22,
+      28
      ],
      "median_24h": -99.2
     }
    }
   },
   {
-   "address": "CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump",
-   "symbol": "ANSEM",
-   "name": "The Black Bear",
-   "url": "https://dexscreener.com/solana/8q2jacsxrbd98bbc9m8tswy8eukcjuhk7hdv7yqjv174",
+   "address": "3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump",
+   "symbol": "HI",
+   "name": "HYPER INU",
+   "url": "https://dexscreener.com/solana/2yyp1cexm4vzehsgpqnwgxcz3kssvak7m3j5nskmfahe",
    "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0002363,
-   "mcap": 229487,
-   "liq": 40487,
-   "age_h": 4.6,
-   "chg_m5": 27.75,
-   "chg_h1": 303,
-   "chg_h24": 493,
-   "vol_h1": 155136,
-   "buys_h1": 1552,
-   "sells_h1": 981,
-   "buys_m5": 150,
-   "sells_m5": 68,
-   "holders": 2803,
-   "top10_pct": 24.6,
-   "score": 45,
+   "quote": "HYPE",
+   "price": 0.0003679,
+   "mcap": 356971,
+   "liq": 59586,
+   "age_h": 52,
+   "chg_m5": -5.54,
+   "chg_h1": -12.81,
+   "chg_h24": -59.49,
+   "vol_h1": 21469,
+   "buys_h1": 215,
+   "sells_h1": 129,
+   "buys_m5": 15,
+   "sells_m5": 8,
+   "holders": null,
+   "top10_pct": null,
+   "score": 42,
    "verdict": "WAIT",
    "reasons": [
-    "69% of trades in the last 5 min are buys",
-    "market cap up +125% since the radar first saw it"
+    "65% of trades in the last 5 min are buys",
+    "volume is speeding up (1.5x the hourly pace)"
    ],
-   "concerns": [],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked"
+   ],
    "red_flags": [],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/slingoorio/status/2116577783971504317"
-    }
-   ],
-   "boost": 30,
-   "sources": [
-    "new profile",
-    "paid boost"
-   ],
-   "first_seen": 1793473025230,
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1793467013578,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -378,19 +461,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 2,
+     "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 6.7,
-    "p_sl": 89.6,
-    "p_both": 1.5,
-    "p_neither": 2.2,
-    "ev_pct": -16.5,
+    "p_tp": 37.6,
+    "p_sl": 53.8,
+    "p_both": 6.9,
+    "p_neither": 1.7,
+    "ev_pct": -10.9,
     "tp_range": [
-     5,
-     9
+     35,
+     41
     ],
-    "median_24h": -98.8,
+    "median_24h": -17,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -400,16 +483,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 14.9,
-     "p_sl": 78.9,
-     "p_both": 6.2,
-     "p_neither": 0,
-     "ev_pct": -27.4,
+     "p_tp": 11.7,
+     "p_sl": 63.7,
+     "p_both": 1.7,
+     "p_neither": 23,
+     "ev_pct": -16.9,
      "tp_range": [
-      11,
-      19
+      9,
+      15
      ],
-     "median_24h": -98.8
+     "median_24h": -17
     }
    }
   },
@@ -420,25 +503,25 @@
    "url": "https://dexscreener.com/solana/6d3ujezdb2wdbvvryfycvgxsih9fw6ml6hscia5qvhwp",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.001227,
-   "mcap": 1214290,
-   "liq": 94224,
+   "price": 0.001222,
+   "mcap": 1209251,
+   "liq": 94026,
    "age_h": 20.9,
-   "chg_m5": 7.5,
-   "chg_h1": 16.66,
-   "chg_h24": 2659,
-   "vol_h1": 79832,
-   "buys_h1": 1275,
-   "sells_h1": 507,
-   "buys_m5": 80,
-   "sells_m5": 42,
+   "chg_m5": 7.05,
+   "chg_h1": 16.18,
+   "chg_h24": 2647,
+   "vol_h1": 80289,
+   "buys_h1": 1282,
+   "sells_h1": 512,
+   "buys_m5": 87,
+   "sells_m5": 47,
    "holders": 6900,
    "top10_pct": 4.6,
-   "score": 42,
+   "score": 41,
    "verdict": "WAIT",
    "reasons": [
-    "66% of trades in the last 5 min are buys",
-    "market cap up +305% since the radar first saw it"
+    "65% of trades in the last 5 min are buys",
+    "market cap up +303% since the radar first saw it"
    ],
    "concerns": [
     "heavily paid-promoted (100 boosts): often comes before a dump"
@@ -469,16 +552,16 @@
      "tp": 2,
      "sl": -0.5
     },
-    "p_tp": 9.4,
-    "p_sl": 46,
+    "p_tp": 8.9,
+    "p_sl": 47.8,
     "p_both": 0,
-    "p_neither": 44.6,
-    "ev_pct": -1.6,
+    "p_neither": 43.3,
+    "ev_pct": -3.6,
     "tp_range": [
      7,
-     14
+     12
     ],
-    "median_24h": -36.2,
+    "median_24h": -38,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -488,106 +571,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 14.8,
-     "p_sl": 58.2,
-     "p_both": 2.9,
-     "p_neither": 24.2,
-     "ev_pct": -10.8,
+     "p_tp": 14.2,
+     "p_sl": 58.6,
+     "p_both": 2.8,
+     "p_neither": 24.4,
+     "ev_pct": -11.6,
      "tp_range": [
       12,
-      18
+      17
      ],
-     "median_24h": -36.2
-    }
-   }
-  },
-  {
-   "address": "FEFEVFRRU3RzSaRhmgv9txwspMWpxvnx4QKhVxQLpump",
-   "symbol": "CF",
-   "name": "Coinly Fans",
-   "url": "https://dexscreener.com/solana/6tb8h1uwuqzuc2jdb8vuzkn9n1esfxzzknscbhnzjeht",
-   "dex": "pumpswap",
-   "quote": "BTC",
-   "price": 0.00008739,
-   "mcap": 82949,
-   "liq": 28299,
-   "age_h": 92.1,
-   "chg_m5": 5.58,
-   "chg_h1": 16.86,
-   "chg_h24": 152,
-   "vol_h1": 1708,
-   "buys_h1": 44,
-   "sells_h1": 22,
-   "buys_m5": 3,
-   "sells_m5": 4,
-   "holders": null,
-   "top10_pct": null,
-   "score": 42,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (43% buys in 5 min)"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://coinlyfans.fun/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/CoinlyFanss"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/coinlyfans"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1793475604386,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.3,
-     "sl": -0.2
-    },
-    "p_tp": 34.1,
-    "p_sl": 54.9,
-    "p_both": 9.6,
-    "p_neither": 1.4,
-    "ev_pct": -13.1,
-    "tp_range": [
-     31,
-     38
-    ],
-    "median_24h": -27.2,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 10.1,
-     "p_sl": 66.8,
-     "p_both": 2.7,
-     "p_neither": 20.5,
-     "ev_pct": -20.9,
-     "tp_range": [
-      9,
-      13
-     ],
-     "median_24h": -27.2
+     "median_24h": -38
     }
    }
   },
@@ -598,28 +591,26 @@
    "url": "https://dexscreener.com/solana/e2vajmtfgsudo36kclfeg1sp7rmaidy11i2jzvs3dtwj",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00002075,
-   "mcap": 19903,
-   "liq": 10677,
+   "price": 0.00002069,
+   "mcap": 19840,
+   "liq": 10658,
    "age_h": 2,
-   "chg_m5": -44.94,
-   "chg_h1": -13.45,
-   "chg_h24": -50.3,
-   "vol_h1": 45028,
-   "buys_h1": 791,
-   "sells_h1": 635,
-   "buys_m5": 98,
-   "sells_m5": 78,
-   "holders": 3613,
+   "chg_m5": -45.11,
+   "chg_h1": -13.72,
+   "chg_h24": -50.45,
+   "vol_h1": 45191,
+   "buys_h1": 795,
+   "sells_h1": 639,
+   "buys_m5": 102,
+   "sells_m5": 82,
+   "holders": 3610,
    "top10_pct": 18.8,
    "score": 41,
    "verdict": "WAIT",
    "reasons": [
     "volume is speeding up (2.1x the hourly pace)"
    ],
-   "concerns": [
-    "down -53% since the last scan"
-   ],
+   "concerns": [],
    "red_flags": [],
    "links": [
     {
@@ -646,13 +637,13 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 8.6,
-    "p_sl": 89.2,
-    "p_both": 2.2,
+    "p_tp": 8.7,
+    "p_sl": 88.1,
+    "p_both": 3.3,
     "p_neither": 0,
-    "ev_pct": -14.3,
+    "ev_pct": -14.1,
     "tp_range": [
-     6,
+     7,
      11
     ],
     "median_24h": -90.1,
@@ -666,8 +657,8 @@
       "sl": -0.35
      },
      "p_tp": 12.7,
-     "p_sl": 82.7,
-     "p_both": 4.6,
+     "p_sl": 82.8,
+     "p_both": 4.5,
      "p_neither": 0,
      "ev_pct": -30.5,
      "tp_range": [
@@ -679,40 +670,46 @@
    }
   },
   {
-   "address": "3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump",
-   "symbol": "HI",
-   "name": "HYPER INU",
-   "url": "https://dexscreener.com/solana/2yyp1cexm4vzehsgpqnwgxcz3kssvak7m3j5nskmfahe",
+   "address": "CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump",
+   "symbol": "ANSEM",
+   "name": "The Black Bear",
+   "url": "https://dexscreener.com/solana/8q2jacsxrbd98bbc9m8tswy8eukcjuhk7hdv7yqjv174",
    "dex": "pumpswap",
-   "quote": "HYPE",
-   "price": 0.0003643,
-   "mcap": 353483,
-   "liq": 59285,
-   "age_h": 52,
-   "chg_m5": -6.47,
-   "chg_h1": -13.66,
-   "chg_h24": -59.88,
-   "vol_h1": 21464,
-   "buys_h1": 213,
-   "sells_h1": 128,
-   "buys_m5": 13,
-   "sells_m5": 7,
-   "holders": null,
-   "top10_pct": null,
-   "score": 41,
+   "quote": "SOL",
+   "price": 0.0002296,
+   "mcap": 222944,
+   "liq": 39896,
+   "age_h": 4.6,
+   "chg_m5": 24.11,
+   "chg_h1": 291,
+   "chg_h24": 476,
+   "vol_h1": 156562,
+   "buys_h1": 1573,
+   "sells_h1": 995,
+   "buys_m5": 171,
+   "sells_m5": 82,
+   "holders": 2813,
+   "top10_pct": 24.6,
+   "score": 40,
    "verdict": "WAIT",
    "reasons": [
-    "65% of trades in the last 5 min are buys",
-    "volume is speeding up (1.5x the hourly pace)"
+    "68% of trades in the last 5 min are buys",
+    "market cap up +118% since the radar first saw it"
    ],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
-   ],
+   "concerns": [],
    "red_flags": [],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1793467013578,
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/slingoorio/status/2116577783971504317"
+    }
+   ],
+   "boost": 30,
+   "sources": [
+    "new profile",
+    "paid boost"
+   ],
+   "first_seen": 1793473025230,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -720,19 +717,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 0.3,
+     "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 38.1,
-    "p_sl": 53.3,
-    "p_both": 6.8,
-    "p_neither": 1.7,
-    "ev_pct": -10.6,
+    "p_tp": 6.7,
+    "p_sl": 89.3,
+    "p_both": 1.5,
+    "p_neither": 2.5,
+    "ev_pct": -16.2,
     "tp_range": [
-     36,
-     42
+     5,
+     9
     ],
-    "median_24h": -17,
+    "median_24h": -98.8,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -742,16 +739,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 11.9,
-     "p_sl": 63.5,
-     "p_both": 1.7,
-     "p_neither": 22.9,
-     "ev_pct": -16.7,
+     "p_tp": 12.1,
+     "p_sl": 81.6,
+     "p_both": 6.4,
+     "p_neither": 0,
+     "ev_pct": -31.5,
      "tp_range": [
-      10,
-      14
+      9,
+      16
      ],
-     "median_24h": -17
+     "median_24h": -98.8
     }
    }
   },
@@ -814,12 +811,12 @@
     "p_sl": 71.4,
     "p_both": 1.7,
     "p_neither": 0,
-    "ev_pct": -17.9,
+    "ev_pct": -17.8,
     "tp_range": [
      24,
      31
     ],
-    "median_24h": -87.8,
+    "median_24h": -87.9,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -838,7 +835,97 @@
       8,
       14
      ],
-     "median_24h": -87.8
+     "median_24h": -87.9
+    }
+   }
+  },
+  {
+   "address": "FEFEVFRRU3RzSaRhmgv9txwspMWpxvnx4QKhVxQLpump",
+   "symbol": "CF",
+   "name": "Coinly Fans",
+   "url": "https://dexscreener.com/solana/6tb8h1uwuqzuc2jdb8vuzkn9n1esfxzzknscbhnzjeht",
+   "dex": "pumpswap",
+   "quote": "BTC",
+   "price": 0.00008739,
+   "mcap": 82949,
+   "liq": 28299,
+   "age_h": 92.1,
+   "chg_m5": 5.58,
+   "chg_h1": 16.86,
+   "chg_h24": 152,
+   "vol_h1": 1708,
+   "buys_h1": 44,
+   "sells_h1": 22,
+   "buys_m5": 3,
+   "sells_m5": 4,
+   "holders": null,
+   "top10_pct": null,
+   "score": 38,
+   "verdict": "WAIT",
+   "reasons": [],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "sellers outnumber buyers right now (43% buys in 5 min)"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://coinlyfans.fun/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/CoinlyFanss"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/coinlyfans"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1793475604386,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 0.3,
+     "sl": -0.2
+    },
+    "p_tp": 34.9,
+    "p_sl": 54.5,
+    "p_both": 9.2,
+    "p_neither": 1.5,
+    "ev_pct": -12.6,
+    "tp_range": [
+     31,
+     39
+    ],
+    "median_24h": -27.2,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 10.7,
+     "p_sl": 65.9,
+     "p_both": 2.7,
+     "p_neither": 20.8,
+     "ev_pct": -19.9,
+     "tp_range": [
+      8,
+      14
+     ],
+     "median_24h": -27.2
     }
    }
   },
@@ -849,16 +936,16 @@
    "url": "https://dexscreener.com/solana/8acpeh9inuimejymvpvebomioen5atc1z4jjgmbww3zb",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00003374,
-   "mcap": 33740,
+   "price": 0.0000337,
+   "mcap": 33709,
    "liq": null,
    "age_h": 2.8,
-   "chg_m5": -5.66,
-   "chg_h1": 26.71,
-   "chg_h24": 1090,
-   "vol_h1": 21091,
+   "chg_m5": -5.37,
+   "chg_h1": 26.6,
+   "chg_h24": 1088,
+   "vol_h1": 21096,
    "buys_h1": 287,
-   "sells_h1": 206,
+   "sells_h1": 207,
    "buys_m5": 10,
    "sells_m5": 13,
    "holders": null,
@@ -866,7 +953,7 @@
    "score": 37,
    "verdict": "WAIT",
    "reasons": [
-    "market cap up +207% since the radar first saw it"
+    "market cap up +206% since the radar first saw it"
    ],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked",
@@ -905,14 +992,14 @@
     },
     "p_tp": 9.3,
     "p_sl": 82.6,
-    "p_both": 8.1,
+    "p_both": 8.2,
     "p_neither": 0,
     "ev_pct": -21.9,
     "tp_range": [
      7,
      12
     ],
-    "median_24h": -81.4,
+    "median_24h": -81.1,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -922,70 +1009,64 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 11.7,
-     "p_sl": 80.2,
-     "p_both": 8.1,
+     "p_tp": 12.7,
+     "p_sl": 79.1,
+     "p_both": 8.2,
      "p_neither": 0,
-     "ev_pct": -32.1,
+     "ev_pct": -30.6,
      "tp_range": [
-      9,
-      14
+      10,
+      16
      ],
-     "median_24h": -81.4
+     "median_24h": -81.1
     }
    }
   },
   {
-   "address": "Ek8EEmJ4UQ4VnwQsTjTxEpCreAMu6djsGhjiaVR5pump",
-   "symbol": "Vamp",
-   "name": "Vamp Alert",
-   "url": "https://dexscreener.com/solana/euyasbtz3zucnefp9vs5jlthac6yhhhxstvd6yiz2pnq",
-   "dex": "pumpfun",
+   "address": "EYqygbhZjP7EbM4fSn8devctnksAvPAD1Bt57XBFpump",
+   "symbol": "BNB",
+   "name": "Broke Nigga Baddie",
+   "url": "https://dexscreener.com/solana/81jgrptmsqwc1rgwxutyyww27ruiatehuzwlydchhwdb",
+   "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00001672,
-   "mcap": 16728,
-   "liq": null,
-   "age_h": 3.2,
-   "chg_m5": -2.62,
-   "chg_h1": 17.51,
-   "chg_h24": 485,
-   "vol_h1": 3941,
-   "buys_h1": 68,
-   "sells_h1": 31,
-   "buys_m5": 6,
-   "sells_m5": 3,
-   "holders": null,
-   "top10_pct": null,
-   "score": 36,
+   "price": 0.0003317,
+   "mcap": 330116,
+   "liq": 54782,
+   "age_h": 23.8,
+   "chg_m5": -12.58,
+   "chg_h1": 66.47,
+   "chg_h24": 514,
+   "vol_h1": 271566,
+   "buys_h1": 4615,
+   "sells_h1": 1494,
+   "buys_m5": 355,
+   "sells_m5": 134,
+   "holders": 7559,
+   "top10_pct": 1.7,
+   "score": 35,
    "verdict": "WAIT",
    "reasons": [
-    "67% of trades in the last 5 min are buys"
+    "73% of trades in the last 5 min are buys"
    ],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "volume is fading",
-    "still on the pump.fun bonding curve (no open pool yet)"
+    "heavily paid-promoted (600 boosts): often comes before a dump"
    ],
    "red_flags": [],
    "links": [
     {
-     "type": "Website",
-     "url": "https://vampalert.com/"
+     "type": "website",
+     "url": "https://brokeniggabaddie.vip/"
     },
     {
      "type": "twitter",
-     "url": "https://x.com/vamp_alert"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/VampAlertBot"
+     "url": "https://x.com/BrokeNiggaBadd"
     }
    ],
-   "boost": 0,
+   "boost": 600,
    "sources": [
-    "new profile"
+    "paid boost"
    ],
-   "first_seen": 1793473025230,
+   "first_seen": 1793398785967,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -993,19 +1074,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 1,
+     "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 9.6,
-    "p_sl": 80.7,
-    "p_both": 9.7,
-    "p_neither": 0,
-    "ev_pct": -21.5,
+    "p_tp": 6.4,
+    "p_sl": 77.8,
+    "p_both": 0,
+    "p_neither": 15.8,
+    "ev_pct": -7.9,
     "tp_range": [
-     8,
-     11
+     4,
+     9
     ],
-    "median_24h": -80.6,
+    "median_24h": -67.9,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1015,16 +1096,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 14.4,
-     "p_sl": 75.9,
-     "p_both": 9.7,
-     "p_neither": 0,
-     "ev_pct": -28.2,
+     "p_tp": 16.2,
+     "p_sl": 64.9,
+     "p_both": 3.1,
+     "p_neither": 15.8,
+     "ev_pct": -14.6,
      "tp_range": [
-      12,
-      17
+      14,
+      19
      ],
-     "median_24h": -80.6
+     "median_24h": -67.9
     }
    }
   },
@@ -1055,8 +1136,7 @@
     "volume is speeding up (3.8x the hourly pace)"
    ],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "down -22% since the last scan"
+    "safety check pending (next scan): cannot be a pick until checked"
    ],
    "red_flags": [],
    "links": [
@@ -1117,198 +1197,27 @@
    }
   },
   {
-   "address": "EYqygbhZjP7EbM4fSn8devctnksAvPAD1Bt57XBFpump",
-   "symbol": "BNB",
-   "name": "Broke Nigga Baddie",
-   "url": "https://dexscreener.com/solana/81jgrptmsqwc1rgwxutyyww27ruiatehuzwlydchhwdb",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0003218,
-   "mcap": 320314,
-   "liq": 53934,
-   "age_h": 23.8,
-   "chg_m5": -15.17,
-   "chg_h1": 61.53,
-   "chg_h24": 496,
-   "vol_h1": 270314,
-   "buys_h1": 4585,
-   "sells_h1": 1490,
-   "buys_m5": 325,
-   "sells_m5": 130,
-   "holders": 7558,
-   "top10_pct": 1.7,
-   "score": 34,
-   "verdict": "WAIT",
-   "reasons": [
-    "71% of trades in the last 5 min are buys"
-   ],
-   "concerns": [
-    "heavily paid-promoted (600 boosts): often comes before a dump"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://brokeniggabaddie.vip/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/BrokeNiggaBadd"
-    }
-   ],
-   "boost": 600,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1793398785967,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 2,
-     "sl": -0.2
-    },
-    "p_tp": 6,
-    "p_sl": 78.5,
-    "p_both": 0,
-    "p_neither": 15.4,
-    "ev_pct": -8.9,
-    "tp_range": [
-     4,
-     8
-    ],
-    "median_24h": -64.1,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 15.7,
-     "p_sl": 66.3,
-     "p_both": 2.7,
-     "p_neither": 15.4,
-     "ev_pct": -15.8,
-     "tp_range": [
-      13,
-      19
-     ],
-     "median_24h": -64.1
-    }
-   }
-  },
-  {
-   "address": "2MXhpKgHBREgYYj3bSdorqbuJjkPAve1LTNHtk8Lpump",
-   "symbol": "Pikmin",
-   "name": "Pikmin",
-   "url": "https://dexscreener.com/solana/eyi8qwe7tflhwrgajd88kuzpxuxetf9b5hn9zbyvkxi6",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0001667,
-   "mcap": 159475,
-   "liq": 34737,
-   "age_h": 6.3,
-   "chg_m5": -1.08,
-   "chg_h1": 86,
-   "chg_h24": 337,
-   "vol_h1": 89233,
-   "buys_h1": 818,
-   "sells_h1": 650,
-   "buys_m5": 21,
-   "sells_m5": 27,
-   "holders": 4185,
-   "top10_pct": 23.5,
-   "score": 33,
-   "verdict": "WAIT",
-   "reasons": [
-    "market cap up +390% since the radar first saw it"
-   ],
-   "concerns": [
-    "sellers outnumber buyers right now (44% buys in 5 min)",
-    "volume is fading"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/PikminHQ"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "community takeover"
-   ],
-   "first_seen": 1793456642779,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 1,
-     "sl": -0.2
-    },
-    "p_tp": 10.2,
-    "p_sl": 84.8,
-    "p_both": 3,
-    "p_neither": 2,
-    "ev_pct": -19.7,
-    "tp_range": [
-     7,
-     13
-    ],
-    "median_24h": -88.8,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 10.2,
-     "p_sl": 81.1,
-     "p_both": 3,
-     "p_neither": 5.6,
-     "ev_pct": -31,
-     "tp_range": [
-      7,
-      13
-     ],
-     "median_24h": -88.8
-    }
-   }
-  },
-  {
    "address": "2fnGKgfwYjqv99ppnKCq5nCLLhRSJAPAhSMVkqjipump",
    "symbol": "PODCAT",
    "name": "PODCAT",
    "url": "https://dexscreener.com/solana/4zygg3nz4td2dxspoey2rqfiu5mdbfeesvevr2kr1pwp",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0001904,
-   "mcap": 183030,
-   "liq": 39920,
+   "price": 0.0001921,
+   "mcap": 184594,
+   "liq": 40097,
    "age_h": 66.2,
-   "chg_m5": 2.63,
-   "chg_h1": 0.78,
-   "chg_h24": -36.48,
-   "vol_h1": 22404,
-   "buys_h1": 159,
-   "sells_h1": 161,
-   "buys_m5": 25,
-   "sells_m5": 13,
+   "chg_m5": 3.51,
+   "chg_h1": 1.64,
+   "chg_h24": -35.94,
+   "vol_h1": 22501,
+   "buys_h1": 161,
+   "sells_h1": 162,
+   "buys_m5": 27,
+   "sells_m5": 14,
    "holders": null,
    "top10_pct": null,
-   "score": 33,
+   "score": 34,
    "verdict": "WAIT",
    "reasons": [
     "66% of trades in the last 5 min are buys"
@@ -1340,16 +1249,16 @@
     "similar": 60,
     "plan": {
      "tp": 0.3,
-     "sl": -0.5
+     "sl": -0.2
     },
-    "p_tp": 49.7,
-    "p_sl": 31.9,
-    "p_both": 6,
-    "p_neither": 12.4,
-    "ev_pct": -11.4,
+    "p_tp": 36.2,
+    "p_sl": 54.5,
+    "p_both": 7.8,
+    "p_neither": 1.5,
+    "ev_pct": -11.8,
     "tp_range": [
-     47,
-     54
+     33,
+     41
     ],
     "median_24h": -17,
     "all_negative": true,
@@ -1361,14 +1270,14 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 12,
-     "p_sl": 62.1,
-     "p_both": 1.8,
-     "p_neither": 24,
-     "ev_pct": -16,
+     "p_tp": 11.1,
+     "p_sl": 62.7,
+     "p_both": 2.1,
+     "p_neither": 24.1,
+     "ev_pct": -17.2,
      "tp_range": [
-      10,
-      16
+      8,
+      14
      ],
      "median_24h": -17
     }
@@ -1429,11 +1338,11 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 30.1,
+    "p_tp": 30,
     "p_sl": 58.9,
     "p_both": 11,
     "p_neither": 0,
-    "ev_pct": -15.9,
+    "ev_pct": -16,
     "tp_range": [
      27,
      34
@@ -1451,8 +1360,8 @@
      "p_tp": 12.6,
      "p_sl": 81.6,
      "p_both": 1.5,
-     "p_neither": 4.4,
-     "ev_pct": -28.4,
+     "p_neither": 4.3,
+     "ev_pct": -28.5,
      "tp_range": [
       11,
       16
@@ -1462,47 +1371,47 @@
    }
   },
   {
-   "address": "4eq4JfnpdgqZTzeyR3GnRGHJQ3QhQT6Lp7nKnQ2nS7Rv",
-   "symbol": "UNSAFU",
-   "name": "Democratic Republic of Binance",
-   "url": "https://dexscreener.com/solana/arytlaprghtspxsjgs8q9mw7om8mf5xdh8qfzlqkuhli",
-   "dex": "raydium",
-   "quote": "WBNB",
-   "price": 0.0001833,
-   "mcap": 183394,
-   "liq": 35271,
-   "age_h": 7.6,
-   "chg_m5": -1.1,
-   "chg_h1": -7.49,
-   "chg_h24": 333,
-   "vol_h1": 12389,
-   "buys_h1": 106,
-   "sells_h1": 91,
-   "buys_m5": 5,
-   "sells_m5": 2,
-   "holders": null,
-   "top10_pct": null,
-   "score": 32,
+   "address": "2MXhpKgHBREgYYj3bSdorqbuJjkPAve1LTNHtk8Lpump",
+   "symbol": "Pikmin",
+   "name": "Pikmin",
+   "url": "https://dexscreener.com/solana/eyi8qwe7tflhwrgajd88kuzpxuxetf9b5hn9zbyvkxi6",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0001695,
+   "mcap": 162162,
+   "liq": 35042,
+   "age_h": 6.3,
+   "chg_m5": 0.59,
+   "chg_h1": 89.13,
+   "chg_h24": 344,
+   "vol_h1": 89235,
+   "buys_h1": 819,
+   "sells_h1": 650,
+   "buys_m5": 22,
+   "sells_m5": 27,
+   "holders": 4185,
+   "top10_pct": 23.5,
+   "score": 30,
    "verdict": "WAIT",
    "reasons": [
-    "71% of trades in the last 5 min are buys"
+    "market cap up +398% since the radar first saw it"
    ],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
+    "sellers outnumber buyers right now (45% buys in 5 min)",
     "volume is fading"
    ],
    "red_flags": [],
    "links": [
     {
      "type": "twitter",
-     "url": "https://x.com/UNSAFUbinance"
+     "url": "https://x.com/PikminHQ"
     }
    ],
    "boost": 0,
    "sources": [
-    "new profile"
+    "community takeover"
    ],
-   "first_seen": 1793454923827,
+   "first_seen": 1793456642779,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -1510,19 +1419,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 0.5,
+     "tp": 1,
      "sl": -0.2
     },
-    "p_tp": 20.7,
-    "p_sl": 71.2,
-    "p_both": 8.1,
-    "p_neither": 0,
-    "ev_pct": -17.4,
+    "p_tp": 10.1,
+    "p_sl": 84.3,
+    "p_both": 3.6,
+    "p_neither": 2,
+    "ev_pct": -19.8,
     "tp_range": [
-     17,
-     26
+     8,
+     13
     ],
-    "median_24h": -86.8,
+    "median_24h": -88.8,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1532,16 +1441,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 11.4,
-     "p_sl": 82.9,
-     "p_both": 3.4,
-     "p_neither": 2.3,
+     "p_tp": 10.1,
+     "p_sl": 80.9,
+     "p_both": 3.6,
+     "p_neither": 5.5,
      "ev_pct": -31.2,
      "tp_range": [
-      9,
-      14
+      8,
+      13
      ],
-     "median_24h": -86.8
+     "median_24h": -88.8
     }
    }
   },
@@ -1552,21 +1461,21 @@
    "url": "https://dexscreener.com/solana/ht4gxw1pl2sfamcfc3qczecjdhpe55ttjujnkvs2nhxr",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0004138,
-   "mcap": 411228,
-   "liq": 53905,
+   "price": 0.0004113,
+   "mcap": 408701,
+   "liq": 53736,
    "age_h": 2.7,
-   "chg_m5": -0.51,
-   "chg_h1": -4.23,
-   "chg_h24": 844,
-   "vol_h1": 280620,
-   "buys_h1": 9485,
-   "sells_h1": 3664,
-   "buys_m5": 581,
-   "sells_m5": 219,
-   "holders": 3550,
+   "chg_m5": -1.12,
+   "chg_h1": -4.82,
+   "chg_h24": 838,
+   "vol_h1": 281812,
+   "buys_h1": 9553,
+   "sells_h1": 3688,
+   "buys_m5": 649,
+   "sells_m5": 243,
+   "holders": 3552,
    "top10_pct": 3.6,
-   "score": 30,
+   "score": 29,
    "verdict": "WAIT",
    "reasons": [
     "73% of trades in the last 5 min are buys",
@@ -1605,16 +1514,16 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 11.6,
-    "p_sl": 78.1,
+    "p_tp": 11.5,
+    "p_sl": 77.8,
     "p_both": 0,
-    "p_neither": 10.4,
-    "ev_pct": 1.4,
+    "p_neither": 10.7,
+    "ev_pct": 1.7,
     "tp_range": [
      9,
-     15
+     14
     ],
-    "median_24h": -89.1,
+    "median_24h": -89.6,
     "all_negative": false,
     "default": {
      "ready": true,
@@ -1624,51 +1533,68 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 18.4,
+     "p_tp": 18.7,
      "p_sl": 67.9,
-     "p_both": 5.2,
+     "p_both": 5,
      "p_neither": 8.5,
-     "ev_pct": -17.2,
+     "ev_pct": -16.7,
      "tp_range": [
-      15,
-      22
+      16,
+      23
      ],
-     "median_24h": -89.1
+     "median_24h": -89.6
     }
    }
   },
   {
-   "address": "HytpiyuR3sVXGB5UqoqrnThCPH2X1tWVm5neep3Dpump",
-   "symbol": "Bitcoin",
-   "name": "F7931A",
-   "url": "https://dexscreener.com/solana/4ajaw6ugdpmdke12f1cr9a7uerqjfnepvztswenc5wm6",
-   "dex": "pumpswap",
-   "quote": "WBTC",
-   "price": 0.0002059,
-   "mcap": 193387,
-   "liq": 41483,
-   "age_h": 90.7,
-   "chg_m5": -0.93,
-   "chg_h1": 2.25,
-   "chg_h24": -1.84,
-   "vol_h1": 5586,
-   "buys_h1": 67,
-   "sells_h1": 48,
-   "buys_m5": 7,
-   "sells_m5": 5,
+   "address": "Ek8EEmJ4UQ4VnwQsTjTxEpCreAMu6djsGhjiaVR5pump",
+   "symbol": "Vamp",
+   "name": "Vamp Alert",
+   "url": "https://dexscreener.com/solana/euyasbtz3zucnefp9vs5jlthac6yhhhxstvd6yiz2pnq",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.00001672,
+   "mcap": 16728,
+   "liq": null,
+   "age_h": 3.2,
+   "chg_m5": -2.7,
+   "chg_h1": 17.51,
+   "chg_h24": 485,
+   "vol_h1": 3941,
+   "buys_h1": 68,
+   "sells_h1": 31,
+   "buys_m5": 3,
+   "sells_m5": 3,
    "holders": null,
    "top10_pct": null,
-   "score": 28,
+   "score": 29,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
+    "safety check pending (next scan): cannot be a pick until checked",
+    "volume is fading",
+    "still on the pump.fun bonding curve (no open pool yet)"
    ],
    "red_flags": [],
-   "links": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://vampalert.com/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/vamp_alert"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/VampAlertBot"
+    }
+   ],
    "boost": 0,
-   "sources": [],
-   "first_seen": 1793412588013,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1793473025230,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -1677,18 +1603,18 @@
     "similar": 60,
     "plan": {
      "tp": 1,
-     "sl": -0.5
+     "sl": -0.2
     },
-    "p_tp": 18.6,
-    "p_sl": 47.1,
-    "p_both": 1.9,
-    "p_neither": 32.4,
-    "ev_pct": -11.9,
+    "p_tp": 8.6,
+    "p_sl": 83.1,
+    "p_both": 8.3,
+    "p_neither": 0,
+    "ev_pct": -22.9,
     "tp_range": [
-     16,
-     23
+     6,
+     12
     ],
-    "median_24h": -27.2,
+    "median_24h": -80.9,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1698,16 +1624,99 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 11.2,
-     "p_sl": 63.3,
-     "p_both": 1.9,
-     "p_neither": 23.6,
-     "ev_pct": -17.9,
+     "p_tp": 12.1,
+     "p_sl": 79.6,
+     "p_both": 8.3,
+     "p_neither": 0,
+     "ev_pct": -31.4,
      "tp_range": [
       9,
+      16
+     ],
+     "median_24h": -80.9
+    }
+   }
+  },
+  {
+   "address": "4eq4JfnpdgqZTzeyR3GnRGHJQ3QhQT6Lp7nKnQ2nS7Rv",
+   "symbol": "UNSAFU",
+   "name": "Democratic Republic of Binance",
+   "url": "https://dexscreener.com/solana/arytlaprghtspxsjgs8q9mw7om8mf5xdh8qfzlqkuhli",
+   "dex": "raydium",
+   "quote": "WBNB",
+   "price": 0.0001841,
+   "mcap": 184152,
+   "liq": 35345,
+   "age_h": 7.6,
+   "chg_m5": -0.69,
+   "chg_h1": -7.11,
+   "chg_h24": 335,
+   "vol_h1": 12426,
+   "buys_h1": 107,
+   "sells_h1": 91,
+   "buys_m5": 6,
+   "sells_m5": 2,
+   "holders": null,
+   "top10_pct": null,
+   "score": 28,
+   "verdict": "WAIT",
+   "reasons": [
+    "75% of trades in the last 5 min are buys"
+   ],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/UNSAFUbinance"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1793454923827,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 6.3,
+    "p_sl": 92,
+    "p_both": 0,
+    "p_neither": 1.7,
+    "ev_pct": -18,
+    "tp_range": [
+     5,
+     9
+    ],
+    "median_24h": -85.9,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 9.7,
+     "p_sl": 84.3,
+     "p_both": 3.7,
+     "p_neither": 2.2,
+     "ev_pct": -33.7,
+     "tp_range": [
+      7,
       14
      ],
-     "median_24h": -27.2
+     "median_24h": -85.9
     }
    }
   },
@@ -1726,9 +1735,9 @@
    "chg_h1": -0.38,
    "chg_h24": 194,
    "vol_h1": 8,
-   "buys_h1": 395,
+   "buys_h1": 398,
    "sells_h1": 5,
-   "buys_m5": 28,
+   "buys_m5": 31,
    "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
@@ -1804,50 +1813,37 @@
    }
   },
   {
-   "address": "57YQJbgdE32ZMCQzBivhjcXmnMLY5iw2MwrtcPYWpump",
-   "symbol": "NNN",
-   "name": "No Nut November",
-   "url": "https://dexscreener.com/solana/cwbjtnheu2rx8k49pau5zqfei7fvsuu2lg8l8ctncgwy",
+   "address": "HytpiyuR3sVXGB5UqoqrnThCPH2X1tWVm5neep3Dpump",
+   "symbol": "Bitcoin",
+   "name": "F7931A",
+   "url": "https://dexscreener.com/solana/4ajaw6ugdpmdke12f1cr9a7uerqjfnepvztswenc5wm6",
    "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00006197,
-   "mcap": 61885,
-   "liq": 19264,
-   "age_h": 0.5,
-   "chg_m5": -4.23,
-   "chg_h1": 52.35,
-   "chg_h24": 52.35,
-   "vol_h1": 229700,
-   "buys_h1": 1117,
-   "sells_h1": 3179,
-   "buys_m5": 77,
-   "sells_m5": 494,
-   "holders": 710,
-   "top10_pct": 16.4,
-   "score": 26,
+   "quote": "WBTC",
+   "price": 0.0002059,
+   "mcap": 193387,
+   "liq": 41483,
+   "age_h": 90.7,
+   "chg_m5": -0.93,
+   "chg_h1": 2.25,
+   "chg_h24": -1.84,
+   "vol_h1": 5586,
+   "buys_h1": 67,
+   "sells_h1": 48,
+   "buys_m5": 7,
+   "sells_m5": 5,
+   "holders": null,
+   "top10_pct": null,
+   "score": 27,
    "verdict": "WAIT",
-   "reasons": [
-    "holders up +27% (560 to 710)"
-   ],
+   "reasons": [],
    "concerns": [
-    "sellers outnumber buyers right now (13% buys in 5 min)"
+    "safety check pending (next scan): cannot be a pick until checked"
    ],
    "red_flags": [],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://nnncoin.meme/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/i/communities/2015231718714708027"
-    }
-   ],
+   "links": [],
    "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1793478180184,
+   "sources": [],
+   "first_seen": 1793412588013,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -1855,19 +1851,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 0.3,
-     "sl": -0.2
+     "tp": 1,
+     "sl": -0.5
     },
-    "p_tp": 26.2,
-    "p_sl": 66.8,
-    "p_both": 7,
-    "p_neither": 0,
-    "ev_pct": -18.3,
+    "p_tp": 18.5,
+    "p_sl": 47.4,
+    "p_both": 1.9,
+    "p_neither": 32.3,
+    "ev_pct": -12.3,
     "tp_range": [
-     23,
-     32
+     16,
+     22
     ],
-    "median_24h": -88.5,
+    "median_24h": -27.2,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1877,16 +1873,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 8.5,
-     "p_sl": 88.8,
-     "p_both": 0,
-     "p_neither": 2.6,
-     "ev_pct": -35.1,
+     "p_tp": 11.2,
+     "p_sl": 63.5,
+     "p_both": 1.9,
+     "p_neither": 23.5,
+     "ev_pct": -18.1,
      "tp_range": [
-      7,
-      11
+      9,
+      14
      ],
-     "median_24h": -88.5
+     "median_24h": -27.2
     }
    }
   },
@@ -1987,18 +1983,18 @@
    "url": "https://dexscreener.com/solana/dycszami4myucoddz15xpohbqmwtjxgcxmgcgnhzniry",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0001177,
-   "mcap": 116182,
-   "liq": 27212,
+   "price": 0.0001195,
+   "mcap": 117946,
+   "liq": 27431,
    "age_h": 4.5,
-   "chg_m5": 1.44,
-   "chg_h1": 26.71,
-   "chg_h24": 181,
-   "vol_h1": 27931,
-   "buys_h1": 1230,
-   "sells_h1": 1009,
-   "buys_m5": 83,
-   "sells_m5": 74,
+   "chg_m5": 2.98,
+   "chg_h1": 28.63,
+   "chg_h24": 185,
+   "vol_h1": 28053,
+   "buys_h1": 1239,
+   "sells_h1": 1015,
+   "buys_m5": 92,
+   "sells_m5": 80,
    "holders": null,
    "top10_pct": null,
    "score": 25,
@@ -2037,14 +2033,14 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 24.2,
-    "p_sl": 66.2,
-    "p_both": 9.6,
+    "p_tp": 27.9,
+    "p_sl": 62.1,
+    "p_both": 10.1,
     "p_neither": 0,
-    "ev_pct": -19.5,
+    "ev_pct": -17.3,
     "tp_range": [
-     20,
-     28
+     25,
+     33
     ],
     "median_24h": -88.6,
     "all_negative": true,
@@ -2056,11 +2052,11 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 8,
-     "p_sl": 87.6,
-     "p_both": 4.4,
-     "p_neither": 0,
-     "ev_pct": -37.3,
+     "p_tp": 8.1,
+     "p_sl": 85.3,
+     "p_both": 5,
+     "p_neither": 1.6,
+     "ev_pct": -35.9,
      "tp_range": [
       6,
       11
@@ -2077,17 +2073,17 @@
    "dex": "meteora",
    "quote": "SOL",
    "price": 0.0001109,
-   "mcap": 110421,
+   "mcap": 110423,
    "liq": 18247,
    "age_h": 48.5,
    "chg_m5": -0.07,
    "chg_h1": -10.78,
-   "chg_h24": 13.73,
+   "chg_h24": 13.74,
    "vol_h1": 1146,
-   "buys_h1": 640,
-   "sells_h1": 642,
-   "buys_m5": 51,
-   "sells_m5": 51,
+   "buys_h1": 645,
+   "sells_h1": 645,
+   "buys_m5": 56,
+   "sells_m5": 54,
    "holders": null,
    "top10_pct": null,
    "score": 24,
@@ -2135,14 +2131,14 @@
      "tp": 1,
      "sl": -0.5
     },
-    "p_tp": 20.8,
-    "p_sl": 47.7,
+    "p_tp": 20.3,
+    "p_sl": 48,
     "p_both": 1.6,
-    "p_neither": 29.9,
-    "ev_pct": -10.2,
+    "p_neither": 30.1,
+    "ev_pct": -10.8,
     "tp_range": [
-     18,
-     25
+     17,
+     24
     ],
     "median_24h": -16.7,
     "all_negative": true,
@@ -2154,11 +2150,11 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 12.7,
-     "p_sl": 64.2,
+     "p_tp": 12.5,
+     "p_sl": 64.3,
      "p_both": 1.6,
-     "p_neither": 21.5,
-     "ev_pct": -17,
+     "p_neither": 21.7,
+     "ev_pct": -17.3,
      "tp_range": [
       10,
       16
@@ -2174,16 +2170,16 @@
    "url": "https://dexscreener.com/solana/8tnpsq1h82ths3g7tttfu9ggvxnvmumwfj6a5zsstg4h",
    "dex": "meteoradbc",
    "quote": "SOL",
-   "price": 0.00001625,
-   "mcap": 16257,
+   "price": 0.0000158,
+   "mcap": 15810,
    "liq": null,
    "age_h": 1.7,
-   "chg_m5": 2.36,
-   "chg_h1": 72.07,
-   "chg_h24": 450,
-   "vol_h1": 40335,
-   "buys_h1": 443,
-   "sells_h1": 277,
+   "chg_m5": -2.39,
+   "chg_h1": 67.77,
+   "chg_h24": 435,
+   "vol_h1": 40543,
+   "buys_h1": 444,
+   "sells_h1": 276,
    "buys_m5": 12,
    "sells_m5": 12,
    "holders": null,
@@ -2222,16 +2218,16 @@
      "tp": 1,
      "sl": -0.2
     },
-    "p_tp": 9.8,
-    "p_sl": 81.8,
-    "p_both": 8.4,
+    "p_tp": 9.3,
+    "p_sl": 82.2,
+    "p_both": 8.5,
     "p_neither": 0,
-    "ev_pct": -21.3,
+    "ev_pct": -21.9,
     "tp_range": [
      7,
-     14
+     12
     ],
-    "median_24h": -80.5,
+    "median_24h": -80.9,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -2241,16 +2237,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 10.9,
-     "p_sl": 80.7,
-     "p_both": 8.4,
+     "p_tp": 10.5,
+     "p_sl": 81,
+     "p_both": 8.5,
      "p_neither": 0,
-     "ev_pct": -33.2,
+     "ev_pct": -33.8,
      "tp_range": [
       8,
       14
      ],
-     "median_24h": -80.5
+     "median_24h": -80.9
     }
    }
   },
@@ -2261,21 +2257,21 @@
    "url": "https://dexscreener.com/solana/8jfaalgewz3mg86gofe3cph6efgd3dq5h4m1z7shtdnx",
    "dex": "pumpswap",
    "quote": "AAPLx",
-   "price": 0.000128,
-   "mcap": 123784,
-   "liq": 35130,
+   "price": 0.0001294,
+   "mcap": 125115,
+   "liq": 35330,
    "age_h": 22.6,
-   "chg_m5": 0,
-   "chg_h1": -6.07,
-   "chg_h24": 188,
-   "vol_h1": 27301,
-   "buys_h1": 354,
-   "sells_h1": 313,
-   "buys_m5": 18,
-   "sells_m5": 13,
+   "chg_m5": 1.07,
+   "chg_h1": -5.06,
+   "chg_h24": 191,
+   "vol_h1": 27535,
+   "buys_h1": 356,
+   "sells_h1": 316,
+   "buys_m5": 20,
+   "sells_m5": 16,
    "holders": null,
    "top10_pct": null,
-   "score": 22,
+   "score": 21,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
@@ -2304,14 +2300,14 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 24.7,
-    "p_sl": 62.8,
-    "p_both": 12.5,
+    "p_tp": 24.4,
+    "p_sl": 61,
+    "p_both": 14.7,
     "p_neither": 0,
-    "ev_pct": -19.2,
+    "ev_pct": -19.4,
     "tp_range": [
-     20,
-     30
+     21,
+     28
     ],
     "median_24h": -81.2,
     "all_negative": true,
@@ -2324,13 +2320,13 @@
       "sl": -0.35
      },
      "p_tp": 9.6,
-     "p_sl": 84.5,
+     "p_sl": 84.8,
      "p_both": 1.4,
-     "p_neither": 4.5,
-     "ev_pct": -32.8,
+     "p_neither": 4.3,
+     "ev_pct": -33,
      "tp_range": [
-      7,
-      13
+      8,
+      12
      ],
      "median_24h": -81.2
     }
@@ -2343,28 +2339,28 @@
    "url": "https://dexscreener.com/solana/db4jzrhqtfkeeamvvtiylrnpqt2w1xeofrj9kxxps3z7",
    "dex": "pumpswap",
    "quote": "DJT",
-   "price": 0.0001578,
-   "mcap": 154851,
-   "liq": 39792,
+   "price": 0.0001532,
+   "mcap": 150309,
+   "liq": 39176,
    "age_h": 19.6,
-   "chg_m5": -1.2,
-   "chg_h1": 19.05,
-   "chg_h24": 256,
+   "chg_m5": -4.1,
+   "chg_h1": 15.56,
+   "chg_h24": 245,
    "vol_h1": 25806,
    "buys_h1": 293,
-   "sells_h1": 226,
+   "sells_h1": 227,
    "buys_m5": 9,
-   "sells_m5": 12,
+   "sells_m5": 13,
    "holders": null,
    "top10_pct": null,
-   "score": 22,
+   "score": 21,
    "verdict": "WAIT",
    "reasons": [
     "part of a hot theme right now: lumi"
    ],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (43% buys in 5 min)",
+    "sellers outnumber buyers right now (41% buys in 5 min)",
     "volume is fading"
    ],
    "red_flags": [],
@@ -2395,14 +2391,14 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 26.5,
-    "p_sl": 60.5,
-    "p_both": 13,
+    "p_tp": 25.9,
+    "p_sl": 61,
+    "p_both": 13.1,
     "p_neither": 0,
-    "ev_pct": -18.1,
+    "ev_pct": -18.5,
     "tp_range": [
-     23,
-     31
+     22,
+     30
     ],
     "median_24h": -82.5,
     "all_negative": true,
@@ -2414,13 +2410,13 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 8.2,
-     "p_sl": 84.6,
+     "p_tp": 8,
+     "p_sl": 84.9,
      "p_both": 1.5,
-     "p_neither": 5.8,
-     "ev_pct": -34.4,
+     "p_neither": 5.6,
+     "ev_pct": -34.8,
      "tp_range": [
-      5,
+      6,
       11
      ],
      "median_24h": -82.5
@@ -2435,24 +2431,25 @@
    "dex": "pumpswap",
    "quote": "SOL",
    "price": 0.0002648,
-   "mcap": 251679,
-   "liq": 43444,
+   "mcap": 251633,
+   "liq": 43440,
    "age_h": 166.8,
-   "chg_m5": -0.26,
-   "chg_h1": 2.8,
-   "chg_h24": 3.64,
-   "vol_h1": 7180,
-   "buys_h1": 259,
-   "sells_h1": 256,
-   "buys_m5": 12,
-   "sells_m5": 14,
+   "chg_m5": -0.28,
+   "chg_h1": 2.78,
+   "chg_h24": 3.62,
+   "vol_h1": 7240,
+   "buys_h1": 260,
+   "sells_h1": 258,
+   "buys_m5": 13,
+   "sells_m5": 16,
    "holders": null,
    "top10_pct": null,
-   "score": 22,
+   "score": 21,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
+    "safety check pending (next scan): cannot be a pick until checked",
+    "sellers outnumber buyers right now (45% buys in 5 min)"
    ],
    "red_flags": [],
    "links": [
@@ -2480,16 +2477,16 @@
      "tp": 1,
      "sl": -0.5
     },
-    "p_tp": 20.6,
-    "p_sl": 45.6,
-    "p_both": 1.6,
-    "p_neither": 32.2,
-    "ev_pct": -8.3,
+    "p_tp": 20.3,
+    "p_sl": 46.2,
+    "p_both": 1.7,
+    "p_neither": 31.8,
+    "ev_pct": -9.2,
     "tp_range": [
-     18,
-     24
+     17,
+     25
     ],
-    "median_24h": -14.6,
+    "median_24h": -17,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -2499,16 +2496,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 12.1,
-     "p_sl": 62.6,
-     "p_both": 1.6,
-     "p_neither": 23.7,
-     "ev_pct": -16.1,
+     "p_tp": 12,
+     "p_sl": 63,
+     "p_both": 1.7,
+     "p_neither": 23.4,
+     "ev_pct": -16.5,
      "tp_range": [
       10,
       15
      ],
-     "median_24h": -14.6
+     "median_24h": -17
     }
    }
   },
@@ -2519,26 +2516,25 @@
    "url": "https://dexscreener.com/solana/fxm54nefs2mbdutnnwtixdb4afjujgbjusts5cc5k7fx",
    "dex": "pumpswap",
    "quote": "PUMP",
-   "price": 0.00005303,
-   "mcap": 50933,
-   "liq": 20053,
+   "price": 0.00005133,
+   "mcap": 49303,
+   "liq": 19698,
    "age_h": 24.8,
-   "chg_m5": -1.89,
-   "chg_h1": -19.84,
-   "chg_h24": 2.28,
-   "vol_h1": 4867,
-   "buys_h1": 63,
-   "sells_h1": 63,
-   "buys_m5": 4,
-   "sells_m5": 4,
+   "chg_m5": -5.03,
+   "chg_h1": -22.41,
+   "chg_h24": -1,
+   "vol_h1": 5071,
+   "buys_h1": 64,
+   "sells_h1": 65,
+   "buys_m5": 5,
+   "sells_m5": 6,
    "holders": null,
    "top10_pct": null,
-   "score": 21,
+   "score": 19,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "volume is fading"
+    "safety check pending (next scan): cannot be a pick until checked"
    ],
    "red_flags": [],
    "links": [],
@@ -2555,16 +2551,16 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 29,
-    "p_sl": 58.2,
-    "p_both": 12.8,
+    "p_tp": 26.6,
+    "p_sl": 63.6,
+    "p_both": 9.8,
     "p_neither": 0,
-    "ev_pct": -16.6,
+    "ev_pct": -18,
     "tp_range": [
-     25,
-     34
+     22,
+     32
     ],
-    "median_24h": -81.6,
+    "median_24h": -83.8,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -2574,16 +2570,101 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 11,
-     "p_sl": 82.4,
-     "p_both": 1.4,
-     "p_neither": 5.2,
-     "ev_pct": -30.5,
+     "p_tp": 9.3,
+     "p_sl": 84.7,
+     "p_both": 0,
+     "p_neither": 6,
+     "ev_pct": -32.3,
      "tp_range": [
-      9,
-      14
+      7,
+      13
      ],
-     "median_24h": -81.6
+     "median_24h": -83.8
+    }
+   }
+  },
+  {
+   "address": "57YQJbgdE32ZMCQzBivhjcXmnMLY5iw2MwrtcPYWpump",
+   "symbol": "NNN",
+   "name": "No Nut November",
+   "url": "https://dexscreener.com/solana/cwbjtnheu2rx8k49pau5zqfei7fvsuu2lg8l8ctncgwy",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00006098,
+   "mcap": 60898,
+   "liq": 19110,
+   "age_h": 0.5,
+   "chg_m5": -5.76,
+   "chg_h1": 49.92,
+   "chg_h24": 49.92,
+   "vol_h1": 230945,
+   "buys_h1": 1126,
+   "sells_h1": 3234,
+   "buys_m5": 86,
+   "sells_m5": 549,
+   "holders": 712,
+   "top10_pct": 16.4,
+   "score": 17,
+   "verdict": "WAIT",
+   "reasons": [],
+   "concerns": [
+    "sellers outnumber buyers right now (14% buys in 5 min)"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://nnncoin.meme/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/i/communities/2015231718714708027"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1793478180184,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 0.3,
+     "sl": -0.2
+    },
+    "p_tp": 28.4,
+    "p_sl": 64.2,
+    "p_both": 7.5,
+    "p_neither": 0,
+    "ev_pct": -17,
+    "tp_range": [
+     25,
+     33
+    ],
+    "median_24h": -88.5,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 10.3,
+     "p_sl": 88,
+     "p_both": 0,
+     "p_neither": 1.8,
+     "ev_pct": -33.2,
+     "tp_range": [
+      8,
+      13
+     ],
+     "median_24h": -88.5
     }
    }
   },
@@ -2608,7 +2689,7 @@
    "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
-   "score": 18,
+   "score": 17,
    "verdict": "WAIT",
    "reasons": [
     "part of a hot theme right now: lumi"
@@ -2641,14 +2722,14 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 24.7,
-    "p_sl": 62.8,
-    "p_both": 12.5,
+    "p_tp": 24.1,
+    "p_sl": 63.3,
+    "p_both": 12.6,
     "p_neither": 0,
-    "ev_pct": -19.2,
+    "ev_pct": -19.5,
     "tp_range": [
-     22,
-     29
+     21,
+     27
     ],
     "median_24h": -84.4,
     "all_negative": true,
@@ -2660,13 +2741,13 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 8.9,
-     "p_sl": 84.8,
+     "p_tp": 8.8,
+     "p_sl": 84.9,
      "p_both": 1.4,
      "p_neither": 4.9,
-     "ev_pct": -33.7,
+     "ev_pct": -33.8,
      "tp_range": [
-      6,
+      7,
       12
      ],
      "median_24h": -84.4
@@ -2767,18 +2848,18 @@
    "url": "https://dexscreener.com/solana/hauvbmnthcfmg9srxmvz1gaxnpu955hkpdsasc2cx4c8",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.003196,
-   "mcap": 3113914,
-   "liq": 157667,
+   "price": 0.00315,
+   "mcap": 3068551,
+   "liq": 156503,
    "age_h": 97.4,
-   "chg_m5": 1.83,
-   "chg_h1": 1.54,
-   "chg_h24": -8.28,
-   "vol_h1": 15991,
+   "chg_m5": 0.34,
+   "chg_h1": 0.06,
+   "chg_h24": -9.62,
+   "vol_h1": 16013,
    "buys_h1": 168,
-   "sells_h1": 348,
+   "sells_h1": 350,
    "buys_m5": 9,
-   "sells_m5": 27,
+   "sells_m5": 29,
    "holders": null,
    "top10_pct": null,
    "score": 8,
@@ -2786,7 +2867,7 @@
    "reasons": [],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (25% buys in 5 min)",
+    "sellers outnumber buyers right now (24% buys in 5 min)",
     "heavily paid-promoted (100 boosts): often comes before a dump"
    ],
    "red_flags": [],
@@ -2819,11 +2900,11 @@
      "tp": 1,
      "sl": -0.5
     },
-    "p_tp": 16.5,
-    "p_sl": 45.1,
-    "p_both": 1.3,
-    "p_neither": 37.1,
-    "ev_pct": -10.9,
+    "p_tp": 16.7,
+    "p_sl": 44.8,
+    "p_both": 1.4,
+    "p_neither": 37.2,
+    "ev_pct": -10.7,
     "tp_range": [
      14,
      20
@@ -2838,11 +2919,11 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 9.5,
-     "p_sl": 60.1,
-     "p_both": 1.3,
-     "p_neither": 29.2,
-     "ev_pct": -16.2,
+     "p_tp": 9.6,
+     "p_sl": 60,
+     "p_both": 1.4,
+     "p_neither": 29.1,
+     "ev_pct": -16.1,
      "tp_range": [
       7,
       13
@@ -2910,19 +2991,19 @@
    "url": "https://dexscreener.com/solana/as7yzegi8f8yr17vu9jhvbyu3ut4cf6x4fjugpl8hykc",
    "dex": "pumpswap",
    "quote": "AAPLx",
-   "price": 0.0001211,
-   "mcap": 115974,
-   "liq": 31404,
+   "price": 0.0001207,
+   "mcap": 115555,
+   "liq": 31344,
    "age_h": 22,
-   "chg_m5": -21.69,
-   "chg_h1": 34.29,
-   "chg_h24": 160,
-   "vol_h1": 139899,
+   "chg_m5": -21.97,
+   "chg_h1": 33.8,
+   "chg_h24": 159,
+   "vol_h1": 139931,
    "buys_h1": 824,
-   "sells_h1": 625,
+   "sells_h1": 628,
    "buys_m5": 13,
-   "sells_m5": 35,
-   "holders": 3556,
+   "sells_m5": 38,
+   "holders": 3553,
    "top10_pct": 35.8,
    "score": 0,
    "verdict": "SKIP",
@@ -2952,17 +3033,17 @@
    "url": "https://dexscreener.com/solana/ddowg4g7qd5qpzacmbxwjxcnsqai4g1chhexvq3aocfp",
    "dex": "pumpswap",
    "quote": "BTC",
-   "price": 0.000007987,
-   "mcap": 7987,
-   "liq": 5645,
-   "age_h": 0.5,
-   "chg_m5": -63.48,
-   "chg_h1": -84.68,
-   "chg_h24": -84.68,
-   "vol_h1": 65989,
-   "buys_h1": 754,
+   "price": 0.000009462,
+   "mcap": 9463,
+   "liq": 6284,
+   "age_h": 0.6,
+   "chg_m5": -56.73,
+   "chg_h1": -81.85,
+   "chg_h24": -81.85,
+   "vol_h1": 66199,
+   "buys_h1": 759,
    "sells_h1": 570,
-   "buys_m5": 22,
+   "buys_m5": 27,
    "sells_m5": 30,
    "holders": null,
    "top10_pct": null,
@@ -2971,9 +3052,9 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $7,987 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 85% in 24h",
-    "liquidity $5,645 is too thin to exit"
+    "market cap $9,463 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 82% in 24h",
+    "liquidity $6,284 is too thin to exit"
    ],
    "links": [
     {
@@ -2996,18 +3077,18 @@
    "url": "https://dexscreener.com/solana/e5d6qelxjwbhvt3dbkgozfma3dw8hc9yswdw7w5qbnvx",
    "dex": "pumpswap",
    "quote": "HYPE",
-   "price": 0.001026,
-   "mcap": 1016765,
-   "liq": 86641,
+   "price": 0.0009676,
+   "mcap": 958441,
+   "liq": 84114,
    "age_h": 35.5,
-   "chg_m5": 43.2,
-   "chg_h1": 280,
-   "chg_h24": 409,
-   "vol_h1": 65720,
-   "buys_h1": 371,
-   "sells_h1": 596,
-   "buys_m5": 119,
-   "sells_m5": 165,
+   "chg_m5": 34.99,
+   "chg_h1": 258,
+   "chg_h24": 380,
+   "vol_h1": 66173,
+   "buys_h1": 375,
+   "sells_h1": 605,
+   "buys_m5": 123,
+   "sells_m5": 174,
    "holders": 366,
    "top10_pct": 69.3,
    "score": 0,
@@ -3045,18 +3126,18 @@
    "url": "https://dexscreener.com/solana/5e3dxlxgwmtdcoka51wyyakttjfzbwqcoyuhbui5gt2m",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.006541,
-   "mcap": 6456176,
-   "liq": 254618,
+   "price": 0.006545,
+   "mcap": 6459705,
+   "liq": 254688,
    "age_h": 1616.2,
-   "chg_m5": -1.04,
-   "chg_h1": -2.53,
-   "chg_h24": 46.87,
-   "vol_h1": 47059,
-   "buys_h1": 3806,
-   "sells_h1": 2495,
-   "buys_m5": 16,
-   "sells_m5": 21,
+   "chg_m5": -0.99,
+   "chg_h1": -2.48,
+   "chg_h24": 46.95,
+   "vol_h1": 47154,
+   "buys_h1": 3811,
+   "sells_h1": 2497,
+   "buys_m5": 21,
+   "sells_m5": 23,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3064,7 +3145,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $6,456,176: no longer early",
+    "market cap $6,459,705: no longer early",
     "67 days old: not early",
     "liquidity is only 3.9% of market cap: price is easy to crash"
    ],
@@ -3095,17 +3176,17 @@
    "url": "https://dexscreener.com/solana/9bvjtg7rapew7ji8ehv6u9mdtwq9kw1qpnrc7qs8dt55",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000002749,
-   "mcap": 2750,
+   "price": 0.000002727,
+   "mcap": 2727,
    "liq": null,
    "age_h": 0.6,
-   "chg_m5": -1.78,
-   "chg_h1": -24.19,
-   "chg_h24": -24.19,
-   "vol_h1": 46662,
+   "chg_m5": -2.58,
+   "chg_h1": -24.81,
+   "chg_h24": -24.81,
+   "vol_h1": 46671,
    "buys_h1": 582,
-   "sells_h1": 472,
-   "buys_m5": 1,
+   "sells_h1": 473,
+   "buys_m5": 0,
    "sells_m5": 3,
    "holders": null,
    "top10_pct": null,
@@ -3114,7 +3195,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,750 is below $15,000: too early to tell a launch from a dud"
+    "market cap $2,727 is below $15,000: too early to tell a launch from a dud"
    ],
    "links": [
     {
@@ -3142,11 +3223,11 @@
    "liq": null,
    "age_h": 1.1,
    "chg_m5": -0.29,
-   "chg_h1": -65.09,
+   "chg_h1": -66.57,
    "chg_h24": -4.41,
-   "vol_h1": 39061,
-   "buys_h1": 651,
-   "sells_h1": 521,
+   "vol_h1": 38001,
+   "buys_h1": 624,
+   "sells_h1": 505,
    "buys_m5": 0,
    "sells_m5": 1,
    "holders": null,
@@ -3183,17 +3264,17 @@
    "url": "https://dexscreener.com/solana/dextcer4k9dwbxtmu8znvvwgevvmvhmb183pf2xxzwvh",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0243,
-   "mcap": 23797502,
-   "liq": 449197,
+   "price": 0.02442,
+   "mcap": 23913066,
+   "liq": 450291,
    "age_h": 127.5,
-   "chg_m5": 0.01,
-   "chg_h1": -2.18,
-   "chg_h24": 152,
-   "vol_h1": 34585,
-   "buys_h1": 149,
+   "chg_m5": 0.5,
+   "chg_h1": -1.71,
+   "chg_h24": 153,
+   "vol_h1": 34675,
+   "buys_h1": 150,
    "sells_h1": 141,
-   "buys_m5": 8,
+   "buys_m5": 9,
    "sells_m5": 6,
    "holders": null,
    "top10_pct": null,
@@ -3202,7 +3283,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $23,797,502: no longer early",
+    "market cap $23,913,066: no longer early",
     "liquidity is only 1.9% of market cap: price is easy to crash"
    ],
    "links": [
@@ -3235,11 +3316,11 @@
    "liq": null,
    "age_h": 1.1,
    "chg_m5": -1.13,
-   "chg_h1": -68.42,
+   "chg_h1": -59.62,
    "chg_h24": 15.51,
-   "vol_h1": 34254,
-   "buys_h1": 481,
-   "sells_h1": 365,
+   "vol_h1": 33354,
+   "buys_h1": 474,
+   "sells_h1": 354,
    "buys_m5": 0,
    "sells_m5": 2,
    "holders": null,
@@ -3316,52 +3397,6 @@
    "themes": [
     "agent"
    ]
-  },
-  {
-   "address": "6zAg9L5bdeR17YwBNkjCQRHUc75MAvKQcjHZi5grpump",
-   "symbol": "Anakin",
-   "name": "Anakin Skywalker",
-   "url": "https://dexscreener.com/solana/byqwcy3rqvfkzed7duoiyyu18kblrvgxlr4vzgnayjbh",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000007964,
-   "mcap": 7965,
-   "liq": null,
-   "age_h": 50.4,
-   "chg_m5": -2.15,
-   "chg_h1": -28.49,
-   "chg_h24": 175,
-   "vol_h1": 13262,
-   "buys_h1": 138,
-   "sells_h1": 129,
-   "buys_m5": 3,
-   "sells_m5": 4,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $7,965 is below $15,000: too early to tell a launch from a dud"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://x.com/search?q=anakin&src=recent_search_click"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/onzhainmozart_4/status/2116606540589244569"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1793473885005,
-   "buzz": null,
-   "themes": []
   },
   {
    "address": "8Xg89xT8Ve34sKiYqYuMs46mycREsCA2F362UscRpump",
@@ -3676,18 +3711,18 @@
    "url": "https://dexscreener.com/solana/ewsyhiuznynqh5f65ypfsoqblq2kyetuvhm5un7wsfdg",
    "dex": "pumpswap",
    "quote": "AMD",
-   "price": 0.003087,
-   "mcap": 2944735,
-   "liq": 149405,
+   "price": 0.002834,
+   "mcap": 2703503,
+   "liq": 143088,
    "age_h": 439.6,
-   "chg_m5": 7.29,
-   "chg_h1": 11.94,
-   "chg_h24": 22.6,
-   "vol_h1": 3406,
-   "buys_h1": 884,
-   "sells_h1": 868,
-   "buys_m5": 61,
-   "sells_m5": 62,
+   "chg_m5": -1.5,
+   "chg_h1": 2.77,
+   "chg_h24": 12.56,
+   "vol_h1": 3407,
+   "buys_h1": 891,
+   "sells_h1": 874,
+   "buys_m5": 68,
+   "sells_m5": 68,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3726,18 +3761,18 @@
    "url": "https://dexscreener.com/solana/tt7dks9yjjzj1fwmgopmkbmdrezzymamrhodcgdfwqn",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0001264,
-   "mcap": 124065,
-   "liq": 31062,
+   "price": 0.0001234,
+   "mcap": 121131,
+   "liq": 30672,
    "age_h": 26.5,
-   "chg_m5": 0.4,
-   "chg_h1": 0.41,
-   "chg_h24": -82.26,
-   "vol_h1": 3224,
+   "chg_m5": -1.97,
+   "chg_h1": -1.96,
+   "chg_h24": -82.68,
+   "vol_h1": 3228,
    "buys_h1": 41,
-   "sells_h1": 46,
+   "sells_h1": 47,
    "buys_m5": 4,
-   "sells_m5": 3,
+   "sells_m5": 4,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3745,7 +3780,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "already dumped: down 82% in 24h"
+    "already dumped: down 83% in 24h"
    ],
    "links": [
     {
@@ -3772,18 +3807,18 @@
    "url": "https://dexscreener.com/solana/fjk9sajdc2q4herppu3ylzkmf2zbyzkpihqlv9e2bn5a",
    "dex": "raydium",
    "quote": "SOL",
-   "price": 0.0006626,
-   "mcap": 662042,
-   "liq": 162644,
+   "price": 0.0006609,
+   "mcap": 660332,
+   "liq": 162281,
    "age_h": 70.4,
-   "chg_m5": 0,
-   "chg_h1": 5.63,
-   "chg_h24": -13.55,
-   "vol_h1": 2681,
+   "chg_m5": -0.26,
+   "chg_h1": 5.36,
+   "chg_h24": -13.78,
+   "vol_h1": 2709,
    "buys_h1": 33,
-   "sells_h1": 17,
+   "sells_h1": 18,
    "buys_m5": 0,
-   "sells_m5": 0,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3791,7 +3826,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 50 trades in the last hour: no real activity"
+    "only 51 trades in the last hour: no real activity"
    ],
    "links": [],
    "boost": 0,
@@ -3810,7 +3845,7 @@
    "price": 0.000008292,
    "mcap": 7922,
    "liq": 6418,
-   "age_h": 19.6,
+   "age_h": 19.7,
    "chg_m5": 0,
    "chg_h1": 16.24,
    "chg_h24": -83.04,
@@ -3893,18 +3928,18 @@
    "url": "https://dexscreener.com/solana/8qjayi7qwbmxemkyunf2p4rdpqrw2oqqkkekebqznwgy",
    "dex": "pumpswap",
    "quote": "WBTC",
-   "price": 0.000005835,
-   "mcap": 5546,
-   "liq": 5063,
+   "price": 0.000005805,
+   "mcap": 5518,
+   "liq": 5045,
    "age_h": 2.2,
-   "chg_m5": -0.3,
-   "chg_h1": -22.59,
-   "chg_h24": -87.19,
-   "vol_h1": 2115,
+   "chg_m5": -0.81,
+   "chg_h1": -22.99,
+   "chg_h24": -87.25,
+   "vol_h1": 2127,
    "buys_h1": 70,
-   "sells_h1": 101,
+   "sells_h1": 102,
    "buys_m5": 0,
-   "sells_m5": 1,
+   "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3912,9 +3947,9 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $5,546 is below $15,000: too early to tell a launch from a dud",
+    "market cap $5,518 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 87% in 24h",
-    "liquidity $5,063 is too thin to exit"
+    "liquidity $5,045 is too thin to exit"
    ],
    "links": [
     {
@@ -3941,17 +3976,17 @@
    "url": "https://dexscreener.com/solana/hr5edlqukfo9w7hwff1hcr31vsxp8koklppk3hdvnvhe",
    "dex": "pumpswap",
    "quote": "METAx",
-   "price": 0.000008292,
-   "mcap": 7958,
-   "liq": 6430,
+   "price": 0.00000847,
+   "mcap": 8129,
+   "liq": 6520,
    "age_h": 4.5,
-   "chg_m5": 10.58,
-   "chg_h1": 13.25,
-   "chg_h24": -81.22,
-   "vol_h1": 1966,
-   "buys_h1": 59,
+   "chg_m5": 12.96,
+   "chg_h1": 15.68,
+   "chg_h24": -80.81,
+   "vol_h1": 2014,
+   "buys_h1": 60,
    "sells_h1": 34,
-   "buys_m5": 10,
+   "buys_m5": 11,
    "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
@@ -3960,9 +3995,9 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $7,958 is below $15,000: too early to tell a launch from a dud",
+    "market cap $8,129 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 81% in 24h",
-    "liquidity $6,430 is too thin to exit"
+    "liquidity $6,520 is too thin to exit"
    ],
    "links": [
     {
@@ -3989,18 +4024,18 @@
    "url": "https://dexscreener.com/solana/12jc1dzjpzbcdakum4brakh9jcfry2tlg1ffgsl4ftcg",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0005151,
-   "mcap": 495906,
-   "liq": 72418,
+   "price": 0.000509,
+   "mcap": 489967,
+   "liq": 71974,
    "age_h": 601.2,
-   "chg_m5": 1.02,
-   "chg_h1": -0.18,
-   "chg_h24": 25.87,
-   "vol_h1": 1758,
-   "buys_h1": 719,
-   "sells_h1": 286,
-   "buys_m5": 74,
-   "sells_m5": 28,
+   "chg_m5": -0.19,
+   "chg_h1": -1.37,
+   "chg_h24": 24.36,
+   "vol_h1": 1759,
+   "buys_h1": 726,
+   "sells_h1": 288,
+   "buys_m5": 81,
+   "sells_m5": 30,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4097,14 +4132,14 @@
    "mcap": 3274,
    "liq": null,
    "age_h": 2.6,
-   "chg_m5": -14.11,
-   "chg_h1": -21.93,
+   "chg_m5": -4.71,
+   "chg_h1": -23.73,
    "chg_h24": 15.9,
-   "vol_h1": 1257,
-   "buys_h1": 17,
+   "vol_h1": 1215,
+   "buys_h1": 16,
    "sells_h1": 17,
    "buys_m5": 1,
-   "sells_m5": 3,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4113,7 +4148,7 @@
    "concerns": [],
    "red_flags": [
     "market cap $3,274 is below $15,000: too early to tell a launch from a dud",
-    "only 34 trades in the last hour: no real activity"
+    "only 33 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -4141,17 +4176,17 @@
    "url": "https://dexscreener.com/solana/6dnbjj4ysesw3crzxvmfbhya1f2yxkmhxunroysduwxf",
    "dex": "pumpswap",
    "quote": "PUMP",
-   "price": 0.000007102,
-   "mcap": 6787,
-   "liq": 5770,
+   "price": 0.000007149,
+   "mcap": 6832,
+   "liq": 5796,
    "age_h": 24,
-   "chg_m5": -1.38,
-   "chg_h1": 24.5,
-   "chg_h24": -86.84,
-   "vol_h1": 1183,
-   "buys_h1": 21,
+   "chg_m5": -0.72,
+   "chg_h1": 25.33,
+   "chg_h24": -86.75,
+   "vol_h1": 1189,
+   "buys_h1": 22,
    "sells_h1": 5,
-   "buys_m5": 1,
+   "buys_m5": 2,
    "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
@@ -4160,10 +4195,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $6,787 is below $15,000: too early to tell a launch from a dud",
+    "market cap $6,832 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 87% in 24h",
-    "only 26 trades in the last hour: no real activity",
-    "liquidity $5,770 is too thin to exit"
+    "only 27 trades in the last hour: no real activity",
+    "liquidity $5,796 is too thin to exit"
    ],
    "links": [
     {
@@ -4268,44 +4303,6 @@
    "themes": []
   },
   {
-   "address": "13Fr7NAVWSCAjjd1fDsZC1MfJpPvpRoLwrhaWXWoaLLo",
-   "symbol": "allo",
-   "name": "allo",
-   "url": "https://dexscreener.com/solana/88ixatgjmqxjusn1w9nkdc9ifyuiyb4auqsuzhadvcss",
-   "dex": "meteora",
-   "quote": "SOL",
-   "price": 0.000006306,
-   "mcap": 6303,
-   "liq": 6607,
-   "age_h": 24.5,
-   "chg_m5": -3.18,
-   "chg_h1": -27.34,
-   "chg_h24": -88.14,
-   "vol_h1": 927,
-   "buys_h1": 7,
-   "sells_h1": 29,
-   "buys_m5": 0,
-   "sells_m5": 6,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $6,303 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 88% in 24h",
-    "only 36 trades in the last hour: no real activity",
-    "liquidity $6,607 is too thin to exit"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1793478180184,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "FHp5D7DNw3GUDt525AMCDgxKLkx9oSUhijVwpAfLpump",
    "symbol": "WEENIE",
    "name": "HALLOWEENIE ",
@@ -4315,7 +4312,7 @@
    "price": 0.000004688,
    "mcap": 4689,
    "liq": null,
-   "age_h": 4.1,
+   "age_h": 4.2,
    "chg_m5": -2.65,
    "chg_h1": -3.86,
    "chg_h24": 44.92,
@@ -4395,10 +4392,10 @@
    "liq": null,
    "age_h": 2,
    "chg_m5": -0.14,
-   "chg_h1": -23.17,
+   "chg_h1": -23.36,
    "chg_h24": 5.2,
-   "vol_h1": 693,
-   "buys_h1": 22,
+   "vol_h1": 688,
+   "buys_h1": 21,
    "sells_h1": 47,
    "buys_m5": 3,
    "sells_m5": 6,
@@ -4523,24 +4520,24 @@
    "themes": []
   },
   {
-   "address": "4poKLzPuwjKJgXM6eF3EqBbMzWgkapi96vbNSkZipump",
-   "symbol": "George",
-   "name": "The Englishman",
-   "url": "https://dexscreener.com/solana/9dd8whxak7x4epffzvzhpqzpa92lvfxyywc3p1qmcdbg",
+   "address": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+   "symbol": "QI",
+   "name": "Quantum Inu",
+   "url": "https://dexscreener.com/solana/cb4gfrgeitfu5qtxfrmiqzsavpwgbd3heor4cs2jfpn",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00002617,
-   "mcap": 25020,
-   "liq": 11823,
-   "age_h": 20.9,
-   "chg_m5": 0.15,
-   "chg_h1": 4.51,
-   "chg_h24": -36.85,
-   "vol_h1": 574,
-   "buys_h1": 8,
-   "sells_h1": 8,
-   "buys_m5": 1,
-   "sells_m5": 0,
+   "price": 0.0001856,
+   "mcap": 176853,
+   "liq": 47964,
+   "age_h": 543.8,
+   "chg_m5": -0.96,
+   "chg_h1": -0.46,
+   "chg_h24": -23.92,
+   "vol_h1": 580,
+   "buys_h1": 7,
+   "sells_h1": 24,
+   "buys_m5": 0,
+   "sells_m5": 3,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4548,7 +4545,66 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 16 trades in the last hour: no real activity"
+    "only 31 trades in the last hour: no real activity",
+    "23 days old: not early"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://quantuminuofficial.com/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/qiparodycto?s=11"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/QuantumInuOfficial"
+    },
+    {
+     "type": "discord",
+     "url": "https://discord.gg/4JegP895A"
+    },
+    {
+     "type": "tiktok",
+     "url": "https://www.tiktok.com/@quantuminuofficial?_r=1&_t=ZP-9AgvNLich9L"
+    }
+   ],
+   "boost": 30,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1793444579409,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "4poKLzPuwjKJgXM6eF3EqBbMzWgkapi96vbNSkZipump",
+   "symbol": "George",
+   "name": "The Englishman",
+   "url": "https://dexscreener.com/solana/9dd8whxak7x4epffzvzhpqzpa92lvfxyywc3p1qmcdbg",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00002559,
+   "mcap": 24475,
+   "liq": 11666,
+   "age_h": 20.9,
+   "chg_m5": -2.03,
+   "chg_h1": 2.23,
+   "chg_h24": -38.23,
+   "vol_h1": 577,
+   "buys_h1": 8,
+   "sells_h1": 9,
+   "buys_m5": 1,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 17 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -4575,17 +4631,17 @@
    "url": "https://dexscreener.com/solana/gwnlzr7uvyuue7faajbavgmqj6d9kxo7jnywzqzxrkpg",
    "dex": "pumpswap",
    "quote": "PUMP",
-   "price": 0.000004008,
-   "mcap": 3904,
-   "liq": 3942,
+   "price": 0.000004024,
+   "mcap": 3919,
+   "liq": 3954,
    "age_h": 5.2,
-   "chg_m5": 0.17,
-   "chg_h1": 32.78,
-   "chg_h24": -91.04,
-   "vol_h1": 544,
-   "buys_h1": 9,
+   "chg_m5": 0.56,
+   "chg_h1": 33.31,
+   "chg_h24": -91.01,
+   "vol_h1": 550,
+   "buys_h1": 10,
    "sells_h1": 8,
-   "buys_m5": 2,
+   "buys_m5": 3,
    "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
@@ -4594,10 +4650,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $3,904 is below $15,000: too early to tell a launch from a dud",
+    "market cap $3,919 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 91% in 24h",
-    "only 17 trades in the last hour: no real activity",
-    "liquidity $3,942 is too thin to exit"
+    "only 18 trades in the last hour: no real activity",
+    "liquidity $3,954 is too thin to exit"
    ],
    "links": [
     {
@@ -4627,9 +4683,9 @@
    "chg_m5": 0,
    "chg_h1": 4.93,
    "chg_h24": 113,
-   "vol_h1": 541,
+   "vol_h1": 507,
    "buys_h1": 11,
-   "sells_h1": 5,
+   "sells_h1": 4,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -4640,7 +4696,7 @@
    "concerns": [],
    "red_flags": [
     "market cap $13,250 is below $15,000: too early to tell a launch from a dud",
-    "only 16 trades in the last hour: no real activity"
+    "only 15 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -4702,65 +4758,6 @@
     "paid boost"
    ],
    "first_seen": 1793412588013,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
-   "symbol": "QI",
-   "name": "Quantum Inu",
-   "url": "https://dexscreener.com/solana/cb4gfrgeitfu5qtxfrmiqzsavpwgbd3heor4cs2jfpn",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0001866,
-   "mcap": 177855,
-   "liq": 48147,
-   "age_h": 543.8,
-   "chg_m5": -0.4,
-   "chg_h1": 0.11,
-   "chg_h24": -23.49,
-   "vol_h1": 496,
-   "buys_h1": 7,
-   "sells_h1": 23,
-   "buys_m5": 0,
-   "sells_m5": 2,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 30 trades in the last hour: no real activity",
-    "23 days old: not early"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://quantuminuofficial.com/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/qiparodycto?s=11"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/QuantumInuOfficial"
-    },
-    {
-     "type": "discord",
-     "url": "https://discord.gg/4JegP895A"
-    },
-    {
-     "type": "tiktok",
-     "url": "https://www.tiktok.com/@quantuminuofficial?_r=1&_t=ZP-9AgvNLich9L"
-    }
-   ],
-   "boost": 30,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1793444579409,
    "buzz": null,
    "themes": []
   },
@@ -5080,49 +5077,6 @@
    "themes": []
   },
   {
-   "address": "2i8uH6B7emwAypye6XNXQ4v6PTf3N7KPseatCkLWpump",
-   "symbol": "goat",
-   "name": "pumpfun app user",
-   "url": "https://dexscreener.com/solana/edkbdzduiygtnlee6gzv6laeea7pqm5d5js51vvvn3p5",
-   "dex": "pumpfun",
-   "quote": "PUMP",
-   "price": 0.00000313,
-   "mcap": 3130,
-   "liq": null,
-   "age_h": 1.4,
-   "chg_m5": 0,
-   "chg_h1": -14.42,
-   "chg_h24": -11.66,
-   "vol_h1": 304,
-   "buys_h1": 3,
-   "sells_h1": 13,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $3,130 is below $15,000: too early to tell a launch from a dud",
-    "only 16 trades in the last hour: no real activity"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/pumpfun/status/2116609694102130697"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1793474745202,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "833wX8PxxtxhXym68HTBv5QtaJJVnVTEL5fte3L4GNUT",
    "symbol": "NUTCAT",
    "name": "NutCat",
@@ -5166,6 +5120,49 @@
     "new profile"
    ],
    "first_seen": 1793411727143,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "2i8uH6B7emwAypye6XNXQ4v6PTf3N7KPseatCkLWpump",
+   "symbol": "goat",
+   "name": "pumpfun app user",
+   "url": "https://dexscreener.com/solana/edkbdzduiygtnlee6gzv6laeea7pqm5d5js51vvvn3p5",
+   "dex": "pumpfun",
+   "quote": "PUMP",
+   "price": 0.00000313,
+   "mcap": 3130,
+   "liq": null,
+   "age_h": 1.4,
+   "chg_m5": 0,
+   "chg_h1": -13.08,
+   "chg_h24": -11.66,
+   "vol_h1": 276,
+   "buys_h1": 3,
+   "sells_h1": 11,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $3,130 is below $15,000: too early to tell a launch from a dud",
+    "only 14 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/pumpfun/status/2116609694102130697"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1793474745202,
    "buzz": null,
    "themes": []
   },
@@ -5673,18 +5670,18 @@
    "url": "https://dexscreener.com/solana/es9tcjx15fmbkt3yce8glfmlms9hprnkfba1ehzwjmax",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00001836,
-   "mcap": 18363,
+   "price": 0.00001832,
+   "mcap": 18328,
    "liq": null,
-   "age_h": 10.1,
-   "chg_m5": -0.72,
-   "chg_h1": -1.24,
+   "age_h": 10.2,
+   "chg_m5": -0.9,
+   "chg_h1": -1.43,
    "chg_h24": 289,
-   "vol_h1": 84,
-   "buys_h1": 18,
-   "sells_h1": 17,
-   "buys_m5": 2,
-   "sells_m5": 5,
+   "vol_h1": 86,
+   "buys_h1": 19,
+   "sells_h1": 18,
+   "buys_m5": 3,
+   "sells_m5": 4,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -5692,7 +5689,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 35 trades in the last hour: no real activity"
+    "only 37 trades in the last hour: no real activity"
    ],
    "links": [],
    "boost": 10,
@@ -6712,18 +6709,18 @@
    "url": "https://dexscreener.com/solana/ftsfrt4pnypkcd3t9kenw7wruvsjyvgo9msv8zqsrfnr",
    "dex": "pumpswap",
    "quote": "HYPE",
-   "price": 0.000003662,
-   "mcap": 3522,
-   "liq": 3764,
+   "price": 0.000003655,
+   "mcap": 3515,
+   "liq": 3758,
    "age_h": 46,
-   "chg_m5": -0.41,
-   "chg_h1": -0.5,
-   "chg_h24": -24.22,
+   "chg_m5": -0.6,
+   "chg_h1": -0.69,
+   "chg_h24": -24.36,
    "vol_h1": 6,
    "buys_h1": 0,
-   "sells_h1": 4,
+   "sells_h1": 5,
    "buys_m5": 0,
-   "sells_m5": 1,
+   "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -6731,9 +6728,9 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $3,522 is below $15,000: too early to tell a launch from a dud",
-    "only 4 trades in the last hour: no real activity",
-    "liquidity $3,764 is too thin to exit"
+    "market cap $3,515 is below $15,000: too early to tell a launch from a dud",
+    "only 5 trades in the last hour: no real activity",
+    "liquidity $3,758 is too thin to exit"
    ],
    "links": [],
    "boost": 0,
@@ -6755,7 +6752,7 @@
    "age_h": 24.3,
    "chg_m5": 0,
    "chg_h1": -0.05,
-   "chg_h24": -80.83,
+   "chg_h24": -81.03,
    "vol_h1": 5,
    "buys_h1": 0,
    "sells_h1": 2,
@@ -6904,6 +6901,44 @@
    "first_seen": 1793403979204,
    "buzz": null,
    "themes": []
+  },
+  {
+   "address": "BXSXnUDCVtMkjHyUqeJP94MWYf81N7F1FzTDLqsspump",
+   "symbol": "GOBLIN",
+   "name": "Goblin Mode",
+   "url": "https://dexscreener.com/solana/5bknr1xmufquwn4kkapz5wvffxwrvuhonnukt39vgiq6",
+   "dex": "pumpfun",
+   "quote": "USDC",
+   "price": 0.000004465,
+   "mcap": 4466,
+   "liq": null,
+   "age_h": 6.3,
+   "chg_m5": 0,
+   "chg_h1": -0.2,
+   "chg_h24": 10.42,
+   "vol_h1": 4,
+   "buys_h1": 0,
+   "sells_h1": 1,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $4,466 is below $15,000: too early to tell a launch from a dud",
+    "only 1 trades in the last hour: no real activity"
+   ],
+   "links": [],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1793458365474,
+   "buzz": null,
+   "themes": []
   }
  ],
  "closed_this_run": [],
@@ -6921,7 +6956,7 @@
    "coins": 3
   },
   {
-   "word": "lumi",
+   "word": "intelligence",
    "coins": 3
   },
   {
@@ -6929,7 +6964,7 @@
    "coins": 3
   },
   {
-   "word": "intelligence",
+   "word": "lumi",
    "coins": 3
   }
  ],
