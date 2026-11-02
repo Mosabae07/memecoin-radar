@@ -1,20 +1,6 @@
 {
  "open": [
   {
-   "address": "DBPTU2oKLDHXQjAEJ3rZi8bUGmt2uxUbipgg6xmXoMqr",
-   "symbol": "CAPY",
-   "url": "https://dexscreener.com/solana/4wutfjfujupwjm5uuidxoumgupauxg4saejvayqjrmbw",
-   "opened": 1793649896061,
-   "entry_price": 0.0003012,
-   "entry_mcap": 301212,
-   "entry_score": 76,
-   "stake": 100,
-   "peak": 1.4103585657370519,
-   "last_price": 0.0005255,
-   "half_price": 0.0006439,
-   "half_at": 1793656776653
-  },
-  {
    "address": "FmFqGGrst9vmzbiRq7sW1iNkdz4QccUCjfpm3trjpump",
    "symbol": "tok",
    "url": "https://dexscreener.com/solana/9gbccnkxnhbgy9w3yazntjrfjz7smpbczhutgb75jqaw",
@@ -23,7 +9,8 @@
    "entry_mcap": 270085,
    "entry_score": 76,
    "stake": 100,
-   "peak": 0
+   "peak": 0,
+   "last_price": 0.0001876
   },
   {
    "address": "7kYXsF59Cc3HBjL1mW5y9eutEWYh3dTUuvBvnNV7pump",
@@ -34,7 +21,8 @@
    "entry_mcap": 233920,
    "entry_score": 74,
    "stake": 100,
-   "peak": 0
+   "peak": 0,
+   "last_price": 0.0001852
   }
  ],
  "closed": [
@@ -3867,6 +3855,25 @@
    "closed": 1793659354890,
    "return_pct": 108.7,
    "pnl_usd": 108.65
+  },
+  {
+   "address": "DBPTU2oKLDHXQjAEJ3rZi8bUGmt2uxUbipgg6xmXoMqr",
+   "symbol": "CAPY",
+   "url": "https://dexscreener.com/solana/4wutfjfujupwjm5uuidxoumgupauxg4saejvayqjrmbw",
+   "opened": 1793649896061,
+   "entry_price": 0.0003012,
+   "entry_mcap": 301212,
+   "entry_score": 76,
+   "stake": 100,
+   "peak": 1.4103585657370519,
+   "last_price": 0.000471,
+   "half_price": 0.0006439,
+   "half_at": 1793656776653,
+   "exit_price": 0.000471,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1793660214691,
+   "return_pct": 81.1,
+   "pnl_usd": 81.08
   }
  ],
  "ever": [
@@ -4095,11 +4102,11 @@
   "7kYXsF59Cc3HBjL1mW5y9eutEWYh3dTUuvBvnNV7pump"
  ],
  "summary": {
-  "trades": 220,
-  "open": 3,
-  "win_rate": 20.5,
-  "total_pnl_usd": -6415.71,
-  "avg_return_pct": -29.2,
+  "trades": 221,
+  "open": 2,
+  "win_rate": 20.8,
+  "total_pnl_usd": -6334.63,
+  "avg_return_pct": -28.7,
   "best_pct": 641.8,
   "worst_pct": -103.7,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
