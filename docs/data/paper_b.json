@@ -1,20 +1,6 @@
 {
  "open": [
   {
-   "address": "4VyS1DWXDEbu8jVyJUjqNJN3SXGgZYf2uo3YZ6QLpump",
-   "symbol": "pip",
-   "url": "https://dexscreener.com/solana/jdpaonzczkdeahxoxshtnsepza6hqripafvnuqc3gyjk",
-   "opened": 1793999917456,
-   "entry_price": 0.0002083,
-   "entry_mcap": 201099,
-   "entry_score": 79,
-   "stake": 100,
-   "peak": 1.1041766682669225,
-   "last_price": 0.0004383,
-   "half_price": 0.0004383,
-   "half_at": 1794000778965
-  },
-  {
    "address": "AbSkPVL67xyiM9TgjkAKSFiYcrzyXpXoYJArnNTwpump",
    "symbol": "HODL",
    "url": "https://dexscreener.com/solana/5w3oyqmtk5v3ja39tjqw4uxxyf4t2khh9er1vcrsv1m1",
@@ -23,7 +9,8 @@
    "entry_mcap": 313349,
    "entry_score": 76,
    "stake": 100,
-   "peak": 0
+   "peak": 0,
+   "last_price": 0.0003045
   }
  ],
  "closed": [
@@ -4796,6 +4783,25 @@
    "closed": 1793999917456,
    "return_pct": 78.1,
    "pnl_usd": 78.07
+  },
+  {
+   "address": "4VyS1DWXDEbu8jVyJUjqNJN3SXGgZYf2uo3YZ6QLpump",
+   "symbol": "pip",
+   "url": "https://dexscreener.com/solana/jdpaonzczkdeahxoxshtnsepza6hqripafvnuqc3gyjk",
+   "opened": 1793999917456,
+   "entry_price": 0.0002083,
+   "entry_mcap": 201099,
+   "entry_score": 79,
+   "stake": 100,
+   "peak": 1.1041766682669225,
+   "last_price": 0.000002644,
+   "half_price": 0.0004383,
+   "half_at": 1794000778965,
+   "exit_price": 0.000002644,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1794001641359,
+   "return_pct": 1.8,
+   "pnl_usd": 1.84
   }
  ],
  "ever": [
@@ -5077,11 +5083,11 @@
   "AbSkPVL67xyiM9TgjkAKSFiYcrzyXpXoYJArnNTwpump"
  ],
  "summary": {
-  "trades": 274,
-  "open": 2,
-  "win_rate": 20.4,
-  "total_pnl_usd": -8401.51,
-  "avg_return_pct": -30.7,
+  "trades": 275,
+  "open": 1,
+  "win_rate": 20.7,
+  "total_pnl_usd": -8399.67,
+  "avg_return_pct": -30.5,
   "best_pct": 641.8,
   "worst_pct": -103.7,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
