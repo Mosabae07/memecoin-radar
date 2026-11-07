@@ -1,20 +1,6 @@
 {
  "open": [
   {
-   "address": "BLYdKSwcRnEmtesj5aP6NzV9EyRA9Dr83sL5yhW8pump",
-   "symbol": "POKEHOOD",
-   "url": "https://dexscreener.com/solana/act7kfscjqhf4bndf7tbdnaypvgwabrpuz4xboreeeo4",
-   "opened": 1794014555288,
-   "entry_price": 0.0000711,
-   "entry_mcap": 67988,
-   "entry_score": 75,
-   "stake": 100,
-   "peak": 1.0028129395218004,
-   "last_price": 0.0001205,
-   "half_price": 0.0001424,
-   "half_at": 1794020615292
-  },
-  {
    "address": "C89aVBvoZjSGuXQzhsLvNzekDuJrhezzR58rEN9RMk4u",
    "symbol": "STM",
    "url": "https://dexscreener.com/solana/2drzi4ucfh39fbqeg4tmdmbrhbmrkoygjp9cru5zolms",
@@ -23,7 +9,8 @@
    "entry_mcap": 82003,
    "entry_score": 78,
    "stake": 100,
-   "peak": 0
+   "peak": 0,
+   "last_price": 0.00006959
   },
   {
    "address": "H4Yco8GenmbchjBhNRinG96cXBgNJhFRPFyJYPwKpump",
@@ -34,7 +21,8 @@
    "entry_mcap": 261579,
    "entry_score": 72,
    "stake": 100,
-   "peak": 0
+   "peak": 0,
+   "last_price": 0.0002387
   }
  ],
  "closed": [
@@ -4843,6 +4831,25 @@
    "closed": 1794002503517,
    "return_pct": -103.5,
    "pnl_usd": -103.47
+  },
+  {
+   "address": "BLYdKSwcRnEmtesj5aP6NzV9EyRA9Dr83sL5yhW8pump",
+   "symbol": "POKEHOOD",
+   "url": "https://dexscreener.com/solana/act7kfscjqhf4bndf7tbdnaypvgwabrpuz4xboreeeo4",
+   "opened": 1794014555288,
+   "entry_price": 0.0000711,
+   "entry_mcap": 67988,
+   "entry_score": 75,
+   "stake": 100,
+   "peak": 1.0028129395218004,
+   "last_price": 0.0000684,
+   "half_price": 0.0001424,
+   "half_at": 1794020615292,
+   "exit_price": 0.0000684,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1794022336856,
+   "return_pct": 44.2,
+   "pnl_usd": 44.24
   }
  ],
  "ever": [
@@ -5127,11 +5134,11 @@
   "H4Yco8GenmbchjBhNRinG96cXBgNJhFRPFyJYPwKpump"
  ],
  "summary": {
-  "trades": 276,
-  "open": 3,
-  "win_rate": 20.7,
-  "total_pnl_usd": -8503.14,
-  "avg_return_pct": -30.8,
+  "trades": 277,
+  "open": 2,
+  "win_rate": 20.9,
+  "total_pnl_usd": -8458.9,
+  "avg_return_pct": -30.5,
   "best_pct": 641.8,
   "worst_pct": -103.7,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
