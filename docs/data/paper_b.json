@@ -1,20 +1,6 @@
 {
  "open": [
   {
-   "address": "7XSYaJygcuNe6Q3kPvwsJpg4ZrFL1AEUFb8kCuzppump",
-   "symbol": "Kibo",
-   "url": "https://dexscreener.com/solana/hj4afisw1oo8hvmyxl2qjjnav4y25nthse2lcpcreqtu",
-   "opened": 1795763288053,
-   "entry_price": 0.0001057,
-   "entry_mcap": 105749,
-   "entry_score": 71,
-   "stake": 100,
-   "peak": 1.8240302743614003,
-   "last_price": 0.0002433,
-   "half_price": 0.0002791,
-   "half_at": 1795779701720
-  },
-  {
    "address": "FK7bc3fR8UL8uogN2u8J9yEpEbQJKR7yKsp3G8rvpump",
    "symbol": "hacked",
    "url": "https://dexscreener.com/solana/bznokmzvg8n6ra3ja22zbhytau6sjavc6tbvqkhq4gs8",
@@ -24,18 +10,7 @@
    "entry_score": 77,
    "stake": 100,
    "peak": 0.31310792033348744,
-   "last_price": 0.00007428
-  },
-  {
-   "address": "3AYshf6BKsM9HVxbPk6vZ3QyWC5H4zTetAANynLrDmmZ",
-   "symbol": "DIH",
-   "url": "https://dexscreener.com/solana/brdr72t3cickt4k6tta7hfrkaq7dskm2wm5tgvn53gkh",
-   "opened": 1795784862322,
-   "entry_price": 0.00005346,
-   "entry_mcap": 53470,
-   "entry_score": 74,
-   "stake": 100,
-   "peak": 0
+   "last_price": 0.00007063
   }
  ],
  "closed": [
@@ -9232,6 +9207,42 @@
    "closed": 1795782283547,
    "return_pct": 112.1,
    "pnl_usd": 112.13
+  },
+  {
+   "address": "7XSYaJygcuNe6Q3kPvwsJpg4ZrFL1AEUFb8kCuzppump",
+   "symbol": "Kibo",
+   "url": "https://dexscreener.com/solana/hj4afisw1oo8hvmyxl2qjjnav4y25nthse2lcpcreqtu",
+   "opened": 1795763288053,
+   "entry_price": 0.0001057,
+   "entry_mcap": 105749,
+   "entry_score": 71,
+   "stake": 100,
+   "peak": 1.8240302743614003,
+   "last_price": 0.0001979,
+   "half_price": 0.0002791,
+   "half_at": 1795779701720,
+   "exit_price": 0.0001979,
+   "exit_reason": "trailing stop (half sold at take profit)",
+   "closed": 1795785721572,
+   "return_pct": 121.6,
+   "pnl_usd": 121.64
+  },
+  {
+   "address": "3AYshf6BKsM9HVxbPk6vZ3QyWC5H4zTetAANynLrDmmZ",
+   "symbol": "DIH",
+   "url": "https://dexscreener.com/solana/brdr72t3cickt4k6tta7hfrkaq7dskm2wm5tgvn53gkh",
+   "opened": 1795784862322,
+   "entry_price": 0.00005346,
+   "entry_mcap": 53470,
+   "entry_score": 74,
+   "stake": 100,
+   "peak": 0,
+   "last_price": 0.00001827,
+   "exit_price": 0.00001827,
+   "exit_reason": "stop loss",
+   "closed": 1795785721572,
+   "return_pct": -69.8,
+   "pnl_usd": -69.82
   }
  ],
  "ever": [
@@ -9768,11 +9779,11 @@
   "3AYshf6BKsM9HVxbPk6vZ3QyWC5H4zTetAANynLrDmmZ"
  ],
  "summary": {
-  "trades": 528,
-  "open": 3,
-  "win_rate": 20.8,
-  "total_pnl_usd": -15538.86,
-  "avg_return_pct": -29.4,
+  "trades": 530,
+  "open": 1,
+  "win_rate": 20.9,
+  "total_pnl_usd": -15487.04,
+  "avg_return_pct": -29.2,
   "best_pct": 641.8,
   "worst_pct": -103.7,
   "note": "Prices are sampled between scans, so real exits would differ; 4% fees and slippage charged per trade."
