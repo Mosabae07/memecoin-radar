@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-28T10:55:28Z",
- "updated_ms": 1795863328718,
- "took_s": 65.9,
+ "updated": "2026-11-28T11:10:36Z",
+ "updated_ms": 1795864236784,
+ "took_s": 34.5,
  "counts": {
-  "scanned": 208,
+  "scanned": 210,
   "watch": 0,
-  "wait": 24,
-  "skip": 184,
+  "wait": 23,
+  "skip": 187,
   "rugchecks": 12
  },
  "buzz_fresh": false,
@@ -57,31 +57,195 @@
  },
  "coins": [
   {
+   "address": "viCEWiReoWxwmRRfGmWmpP1FFdB8Jm8PzZChVJ9dvg6",
+   "symbol": "Vicewire",
+   "name": "Vicewire",
+   "url": "https://dexscreener.com/solana/88t4nhveeiemq4lfxa2juew2vcnbkzyduefgsfrr2vlg",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0001456,
+   "mcap": 145656,
+   "liq": 28311,
+   "age_h": 10.4,
+   "chg_m5": 9.91,
+   "chg_h1": 49.78,
+   "chg_h24": 365,
+   "vol_h1": 28541,
+   "buys_h1": 528,
+   "sells_h1": 527,
+   "buys_m5": 65,
+   "sells_m5": 88,
+   "holders": 2845,
+   "top10_pct": 18.4,
+   "score": 56,
+   "verdict": "WAIT",
+   "reasons": [
+    "volume is speeding up (2.7x the hourly pace)",
+    "market cap up +1502% since the radar first saw it"
+   ],
+   "concerns": [
+    "sellers outnumber buyers right now (42% buys in 5 min)"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://github.com/VicewireLabs/vicewire"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/playvicewire"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795826237839,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 12.8,
+    "p_sl": 87.2,
+    "p_both": 0,
+    "p_neither": 0,
+    "ev_pct": -4.5,
+    "tp_range": [
+     11,
+     16
+    ],
+    "median_24h": -91.8,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 18.4,
+     "p_sl": 81.6,
+     "p_both": 0,
+     "p_neither": 0,
+     "ev_pct": -22.3,
+     "tp_range": [
+      15,
+      22
+     ],
+     "median_24h": -91.8
+    }
+   }
+  },
+  {
+   "address": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
+   "symbol": "BASKET",
+   "name": "Basket",
+   "url": "https://dexscreener.com/solana/cixcofspwhnywjsodxxxvld6um5fh7w8mfpl9mpqpqtx",
+   "dex": "raydium",
+   "quote": "SOL",
+   "price": 0.0002161,
+   "mcap": 216116,
+   "liq": 66674,
+   "age_h": 78.5,
+   "chg_m5": 4.98,
+   "chg_h1": -12.77,
+   "chg_h24": -56.19,
+   "vol_h1": 12586,
+   "buys_h1": 80,
+   "sells_h1": 42,
+   "buys_m5": 27,
+   "sells_m5": 11,
+   "holders": null,
+   "top10_pct": null,
+   "score": 53,
+   "verdict": "WAIT",
+   "reasons": [
+    "71% of trades in the last 5 min are buys",
+    "volume is speeding up (1.9x the hourly pace)"
+   ],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked"
+   ],
+   "red_flags": [],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795842679583,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 10.3,
+    "p_sl": 74,
+    "p_both": 0,
+    "p_neither": 15.7,
+    "ev_pct": 1.4,
+    "tp_range": [
+     7,
+     14
+    ],
+    "median_24h": -19,
+    "all_negative": false,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 21.2,
+     "p_sl": 60.2,
+     "p_both": 0,
+     "p_neither": 18.6,
+     "ev_pct": -6.2,
+     "tp_range": [
+      18,
+      25
+     ],
+     "median_24h": -19
+    }
+   }
+  },
+  {
    "address": "4HdH4EKBKCVaPD9f4TxdGhcWyhm259qKa7JHSGhMpump",
    "symbol": "MANDY",
    "name": "Project Mandy",
    "url": "https://dexscreener.com/solana/aaj4haudp5nvrvvdbfabpt36ej3cjmtwzcivzsd34pbd",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0000378,
-   "mcap": 37737,
-   "liq": 13168,
-   "age_h": 9.4,
-   "chg_m5": 12.79,
-   "chg_h1": 35.16,
-   "chg_h24": 14.47,
-   "vol_h1": 3278,
-   "buys_h1": 80,
-   "sells_h1": 71,
-   "buys_m5": 11,
-   "sells_m5": 6,
+   "price": 0.00004112,
+   "mcap": 41054,
+   "liq": 13794,
+   "age_h": 9.7,
+   "chg_m5": 16.02,
+   "chg_h1": 18.78,
+   "chg_h24": 24.53,
+   "vol_h1": 3408,
+   "buys_h1": 87,
+   "sells_h1": 58,
+   "buys_m5": 12,
+   "sells_m5": 10,
    "holders": null,
    "top10_pct": null,
-   "score": 49,
+   "score": 52,
    "verdict": "WAIT",
    "reasons": [
-    "65% of trades in the last 5 min are buys",
-    "volume is speeding up (1.7x the hourly pace)"
+    "volume is speeding up (2.4x the hourly pace)"
    ],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked"
@@ -117,103 +281,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 1,
+     "tp": 0.5,
      "sl": -0.2
     },
-    "p_tp": 16.6,
-    "p_sl": 83.4,
+    "p_tp": 28,
+    "p_sl": 72,
     "p_both": 0,
     "p_neither": 0,
-    "ev_pct": -12.4,
+    "ev_pct": -11.6,
     "tp_range": [
-     14,
-     21
+     23,
+     32
     ],
-    "median_24h": -90.9,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 18.5,
-     "p_sl": 81.5,
-     "p_both": 0,
-     "p_neither": 0,
-     "ev_pct": -22.2,
-     "tp_range": [
-      16,
-      23
-     ],
-     "median_24h": -90.9
-    }
-   }
-  },
-  {
-   "address": "2YAfPhCrGSW82Ra33sWgurXt4dQ29SwXusvUXdJGpump",
-   "symbol": "Zhaki",
-   "name": "Baboon Smirk",
-   "url": "https://dexscreener.com/solana/3vrhjgeag6ixpt58r3g1rim7zcguvszijlhktnrcz1kv",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0002451,
-   "mcap": 245141,
-   "liq": 38035,
-   "age_h": 22,
-   "chg_m5": 3.21,
-   "chg_h1": -2.08,
-   "chg_h24": 709,
-   "vol_h1": 16525,
-   "buys_h1": 226,
-   "sells_h1": 210,
-   "buys_m5": 11,
-   "sells_m5": 5,
-   "holders": 3397,
-   "top10_pct": 22.9,
-   "score": 43,
-   "verdict": "WAIT",
-   "reasons": [
-    "69% of trades in the last 5 min are buys",
-    "market cap up +192% since the radar first saw it"
-   ],
-   "concerns": [
-    "volume is fading"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/zhakipf?s=11"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795785721572,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.3,
-     "sl": -0.2
-    },
-    "p_tp": 21.2,
-    "p_sl": 78.8,
-    "p_both": 0,
-    "p_neither": 0,
-    "ev_pct": -21.3,
-    "tp_range": [
-     17,
-     26
-    ],
-    "median_24h": -50.2,
+    "median_24h": -87.8,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -224,15 +304,15 @@
       "sl": -0.35
      },
      "p_tp": 14.4,
-     "p_sl": 80.6,
+     "p_sl": 85.6,
      "p_both": 0,
-     "p_neither": 5.1,
-     "ev_pct": -25.9,
+     "p_neither": 0,
+     "ev_pct": -28.1,
      "tp_range": [
-      12,
-      17
+      11,
+      19
      ],
-     "median_24h": -50.2
+     "median_24h": -87.8
     }
    }
   },
@@ -243,23 +323,25 @@
    "url": "https://dexscreener.com/solana/dknjboh2kngpnumx5bdeakmpx2fypnu57xzfn6c2dre1",
    "dex": "pumpswap",
    "quote": "SPCX",
-   "price": 0.0007658,
-   "mcap": 764471,
-   "liq": 86385,
-   "age_h": 14.3,
-   "chg_m5": 9.23,
-   "chg_h1": 36.36,
-   "chg_h24": 1619,
-   "vol_h1": 93441,
-   "buys_h1": 839,
-   "sells_h1": 549,
-   "buys_m5": 71,
-   "sells_m5": 57,
-   "holders": 9789,
-   "top10_pct": 10.9,
-   "score": 41,
+   "price": 0.0008614,
+   "mcap": 859859,
+   "liq": 91932,
+   "age_h": 14.5,
+   "chg_m5": 9.6,
+   "chg_h1": 52.98,
+   "chg_h24": 1833,
+   "vol_h1": 133909,
+   "buys_h1": 1013,
+   "sells_h1": 742,
+   "buys_m5": 173,
+   "sells_m5": 179,
+   "holders": 9929,
+   "top10_pct": 11,
+   "score": 49,
    "verdict": "WAIT",
-   "reasons": [],
+   "reasons": [
+    "volume is speeding up (3.5x the hourly pace)"
+   ],
    "concerns": [
     "6 linked insider wallet groups hold 4%"
    ],
@@ -290,277 +372,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 1,
-     "sl": -0.2
-    },
-    "p_tp": 17.7,
-    "p_sl": 77.4,
-    "p_both": 0,
-    "p_neither": 4.9,
-    "ev_pct": -8.4,
-    "tp_range": [
-     14,
-     21
-    ],
-    "median_24h": -60.1,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 22.3,
-     "p_sl": 66.1,
-     "p_both": 0,
-     "p_neither": 11.6,
-     "ev_pct": -9.2,
-     "tp_range": [
-      19,
-      26
-     ],
-     "median_24h": -60.1
-    }
-   }
-  },
-  {
-   "address": "5zhdK5tA8Fz4L74YgYeSAVjjZ2NGTfSmWNYAiWN2pump",
-   "symbol": "cheng",
-   "name": "厨神",
-   "url": "https://dexscreener.com/solana/75ldooptxrd9cg7sn189svkoqsn37dryfdpyymsacvi",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.0000165,
-   "mcap": 16509,
-   "liq": null,
-   "age_h": 1.1,
-   "chg_m5": 11.12,
-   "chg_h1": 358,
-   "chg_h24": 585,
-   "vol_h1": 49466,
-   "buys_h1": 965,
-   "sells_h1": 624,
-   "buys_m5": 27,
-   "sells_m5": 12,
-   "holders": 267,
-   "top10_pct": 18.4,
-   "score": 41,
-   "verdict": "WAIT",
-   "reasons": [
-    "69% of trades in the last 5 min are buys"
-   ],
-   "concerns": [
-    "volume is fading",
-    "still on the pump.fun bonding curve (no open pool yet)"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://www.chengchef.xyz/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/chengpenguin"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795862470041,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.5,
-     "sl": -0.2
-    },
-    "p_tp": 31.5,
-    "p_sl": 68.5,
-    "p_both": 0,
-    "p_neither": 0,
-    "ev_pct": -8.8,
-    "tp_range": [
-     28,
-     35
-    ],
-    "median_24h": -84.7,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 18.9,
-     "p_sl": 78.5,
-     "p_both": 0,
-     "p_neither": 2.6,
-     "ev_pct": -21.1,
-     "tp_range": [
-      16,
-      23
-     ],
-     "median_24h": -84.7
-    }
-   }
-  },
-  {
-   "address": "HmGQsYJyeiWrV6jABUY2Cb3bEmVxwk6LzVxCchsCpump",
-   "symbol": "WLFI",
-   "name": "We Literally Fuck Investors",
-   "url": "https://dexscreener.com/solana/46973pyxhltcjizytmzaqtyqji6yaxhthqhqoc74vwcb",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0003039,
-   "mcap": 303469,
-   "liq": 42265,
-   "age_h": 6.2,
-   "chg_m5": -10.89,
-   "chg_h1": 17.58,
-   "chg_h24": 952,
-   "vol_h1": 61941,
-   "buys_h1": 879,
-   "sells_h1": 746,
-   "buys_m5": 115,
-   "sells_m5": 69,
-   "holders": 5137,
-   "top10_pct": 17,
-   "score": 40,
-   "verdict": "WAIT",
-   "reasons": [
-    "63% of trades in the last 5 min are buys",
-    "volume is speeding up (1.6x the hourly pace)",
-    "part of a hot theme right now: literally"
-   ],
-   "concerns": [],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/LuckiWeb3/status/2126536570404475079?a=XJhKwHwnLU68e1EMNl0&s=20"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795850413635,
-   "buzz": null,
-   "themes": [
-    "literally"
-   ],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.5,
-     "sl": -0.2
-    },
-    "p_tp": 26.9,
-    "p_sl": 71.4,
-    "p_both": 0,
-    "p_neither": 1.7,
-    "ev_pct": -12,
-    "tp_range": [
-     24,
-     30
-    ],
-    "median_24h": -85.3,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 19.6,
-     "p_sl": 76.7,
-     "p_both": 0,
-     "p_neither": 3.6,
-     "ev_pct": -18.6,
-     "tp_range": [
-      17,
-      23
-     ],
-     "median_24h": -85.3
-    }
-   }
-  },
-  {
-   "address": "viCEWiReoWxwmRRfGmWmpP1FFdB8Jm8PzZChVJ9dvg6",
-   "symbol": "Vicewire",
-   "name": "Vicewire",
-   "url": "https://dexscreener.com/solana/88t4nhveeiemq4lfxa2juew2vcnbkzyduefgsfrr2vlg",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00012,
-   "mcap": 120028,
-   "liq": 25540,
-   "age_h": 10.2,
-   "chg_m5": -2.79,
-   "chg_h1": 30.77,
-   "chg_h24": 283,
-   "vol_h1": 25350,
-   "buys_h1": 523,
-   "sells_h1": 457,
-   "buys_m5": 44,
-   "sells_m5": 47,
-   "holders": 2825,
-   "top10_pct": 18.6,
-   "score": 40,
-   "verdict": "WAIT",
-   "reasons": [
-    "market cap up +1220% since the radar first saw it"
-   ],
-   "concerns": [],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://github.com/VicewireLabs/vicewire"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/playvicewire"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795826237839,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 6.9,
-    "p_sl": 91.4,
+    "p_tp": 12.3,
+    "p_sl": 81.7,
     "p_both": 0,
-    "p_neither": 1.8,
-    "ev_pct": -15.3,
+    "p_neither": 5.9,
+    "ev_pct": -0.1,
     "tp_range": [
-     5,
-     10
+     9,
+     16
     ],
-    "median_24h": -82.6,
+    "median_24h": -81.8,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -570,16 +394,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 15.5,
-     "p_sl": 84.5,
+     "p_tp": 27.6,
+     "p_sl": 67,
      "p_both": 0,
-     "p_neither": 0,
-     "ev_pct": -26.5,
+     "p_neither": 5.4,
+     "ev_pct": -6.8,
      "tp_range": [
-      13,
-      19
+      23,
+      33
      ],
-     "median_24h": -82.6
+     "median_24h": -81.8
     }
    }
   },
@@ -590,28 +414,27 @@
    "url": "https://dexscreener.com/solana/3ghvo2yad9iacqvepmaekws3c74aauhdjwsasg5nzdqh",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00005344,
-   "mcap": 53374,
-   "liq": 15614,
-   "age_h": 9.5,
-   "chg_m5": -6.32,
-   "chg_h1": 41.05,
-   "chg_h24": 87.59,
-   "vol_h1": 11863,
-   "buys_h1": 231,
-   "sells_h1": 222,
-   "buys_m5": 13,
-   "sells_m5": 20,
+   "price": 0.00005377,
+   "mcap": 53710,
+   "liq": 15676,
+   "age_h": 9.8,
+   "chg_m5": 7.22,
+   "chg_h1": 44.44,
+   "chg_h24": 88.77,
+   "vol_h1": 11136,
+   "buys_h1": 212,
+   "sells_h1": 219,
+   "buys_m5": 10,
+   "sells_m5": 7,
    "holders": null,
    "top10_pct": null,
-   "score": 40,
+   "score": 39,
    "verdict": "WAIT",
    "reasons": [
-    "market cap up +372% since the radar first saw it"
+    "market cap up +375% since the radar first saw it"
    ],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (39% buys in 5 min)"
+    "safety check pending (next scan): cannot be a pick until checked"
    ],
    "red_flags": [],
    "links": [
@@ -640,19 +463,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 1,
+     "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 16.1,
-    "p_sl": 83.9,
+    "p_tp": 9.9,
+    "p_sl": 90.1,
     "p_both": 0,
     "p_neither": 0,
-    "ev_pct": -13.1,
+    "ev_pct": -11.2,
     "tp_range": [
-     13,
-     20
+     7,
+     13
     ],
-    "median_24h": -83.3,
+    "median_24h": -84.7,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -662,323 +485,52 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 17.8,
-     "p_sl": 82.2,
+     "p_tp": 13.3,
+     "p_sl": 85,
      "p_both": 0,
-     "p_neither": 0,
-     "ev_pct": -23.2,
+     "p_neither": 1.7,
+     "ev_pct": -28.5,
      "tp_range": [
-      15,
-      21
+      10,
+      17
      ],
-     "median_24h": -83.3
+     "median_24h": -84.7
     }
    }
   },
   {
-   "address": "Eyevsagqp6qyUxz5Dj2jWawww5csjDFLtrPPmRwYpump",
-   "symbol": "tato",
-   "name": "tato",
-   "url": "https://dexscreener.com/solana/7hphr1pcpxqpg4p4kybneegfd2cguzw2j82rdhvshpgf",
+   "address": "38M2z4UCfZEkUHFzD48vhKQhFhNyRGto8pZbLjNipump",
+   "symbol": "JIMMY",
+   "name": "Jimmy Rustles",
+   "url": "https://dexscreener.com/solana/fnhwfv49ywctgcdtyf34avn8bixxcgxukqlctkrkp1gq",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00004213,
-   "mcap": 42092,
-   "liq": 13516,
-   "age_h": 39.8,
-   "chg_m5": 3.59,
-   "chg_h1": 10.26,
-   "chg_h24": 91.18,
-   "vol_h1": 1758,
-   "buys_h1": 30,
-   "sells_h1": 45,
-   "buys_m5": 7,
-   "sells_m5": 15,
-   "holders": null,
-   "top10_pct": null,
-   "score": 40,
+   "price": 0.0009263,
+   "mcap": 865043,
+   "liq": 89714,
+   "age_h": 110,
+   "chg_m5": 4.33,
+   "chg_h1": 10.49,
+   "chg_h24": 67.43,
+   "vol_h1": 28463,
+   "buys_h1": 223,
+   "sells_h1": 327,
+   "buys_m5": 29,
+   "sells_m5": 86,
+   "holders": 13904,
+   "top10_pct": 17.9,
+   "score": 38,
    "verdict": "WAIT",
    "reasons": [
-    "volume is speeding up (2.5x the hourly pace)"
+    "volume is speeding up (3.7x the hourly pace)"
    ],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (32% buys in 5 min)"
+    "sellers outnumber buyers right now (25% buys in 5 min)"
    ],
    "red_flags": [],
    "links": [],
    "boost": 0,
    "sources": [],
-   "first_seen": 1795808139187,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 2,
-     "sl": -0.2
-    },
-    "p_tp": 9.3,
-    "p_sl": 81,
-    "p_both": 0,
-    "p_neither": 9.8,
-    "ev_pct": -6.2,
-    "tp_range": [
-     7,
-     13
-    ],
-    "median_24h": -28.2,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 19.9,
-     "p_sl": 64.1,
-     "p_both": 0,
-     "p_neither": 16,
-     "ev_pct": -10.1,
-     "tp_range": [
-      16,
-      24
-     ],
-     "median_24h": -28.2
-    }
-   }
-  },
-  {
-   "address": "6NZANPwagg8qLrfi2mk9HyCXWWAVnhsv4CiqWuHPpump",
-   "symbol": "DAW",
-   "name": "Dawkoins",
-   "url": "https://dexscreener.com/solana/chqleevjaj14l7vkesqjxveldpyilfk3tynfotbhdye7",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00002319,
-   "mcap": 23200,
-   "liq": 9796,
-   "age_h": 8.8,
-   "chg_m5": -4.86,
-   "chg_h1": -13.68,
-   "chg_h24": -23.47,
-   "vol_h1": 2364,
-   "buys_h1": 95,
-   "sells_h1": 58,
-   "buys_m5": 8,
-   "sells_m5": 6,
-   "holders": null,
-   "top10_pct": null,
-   "score": 39,
-   "verdict": "WAIT",
-   "reasons": [
-    "volume is speeding up (1.7x the hourly pace)",
-    "part of a hot theme right now: creator"
-   ],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://finance.yahoo.com/news/richard-dawkins-responds-dawkoins-sol-092108873.html#:~:text=The%20meme%20coin%20Dawkoins%20(CRYPTO%3A%20DAW)%2C%20named%20after%20renowned%20evolutionary%20biologist%20Richard%20Dawkins"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/ddddddd8a/status/2126497863060328495"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795832284408,
-   "buzz": null,
-   "themes": [
-    "creator"
-   ],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 1,
-     "sl": -0.2
-    },
-    "p_tp": 23.9,
-    "p_sl": 76.1,
-    "p_both": 0,
-    "p_neither": 0,
-    "ev_pct": -3,
-    "tp_range": [
-     21,
-     28
-    ],
-    "median_24h": -85.6,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 23.9,
-     "p_sl": 76.1,
-     "p_both": 0,
-     "p_neither": 0,
-     "ev_pct": -14.4,
-     "tp_range": [
-      21,
-      28
-     ],
-     "median_24h": -85.6
-    }
-   }
-  },
-  {
-   "address": "6C9r2gzu8Pr54hTevHo3x5gSj9JqtpApj7obJnrtpump",
-   "symbol": "ROCKET",
-   "name": "Rocket Raccoon",
-   "url": "https://dexscreener.com/solana/9nlfujwrhgqyxkw2jukka1gjvtibxaty2ad4qrysckke",
-   "dex": "pumpswap",
-   "quote": "AMC",
-   "price": 0.0007592,
-   "mcap": 734713,
-   "liq": 82980,
-   "age_h": 167.2,
-   "chg_m5": -0.34,
-   "chg_h1": 2.44,
-   "chg_h24": -10.75,
-   "vol_h1": 765,
-   "buys_h1": 2014,
-   "sells_h1": 1941,
-   "buys_m5": 138,
-   "sells_m5": 137,
-   "holders": null,
-   "top10_pct": null,
-   "score": 39,
-   "verdict": "WAIT",
-   "reasons": [
-    "volume is speeding up (1.9x the hourly pace)"
-   ],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://rocketraccoon.xyz/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/rocketavengers"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/rocketavengers"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795799523048,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 2,
-     "sl": -0.2
-    },
-    "p_tp": 3.9,
-    "p_sl": 78.4,
-    "p_both": 0,
-    "p_neither": 17.8,
-    "ev_pct": -11.3,
-    "tp_range": [
-     3,
-     6
-    ],
-    "median_24h": -36.8,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 10.4,
-     "p_sl": 59.1,
-     "p_both": 0,
-     "p_neither": 30.5,
-     "ev_pct": -16.9,
-     "tp_range": [
-      8,
-      14
-     ],
-     "median_24h": -36.8
-    }
-   }
-  },
-  {
-   "address": "659ziXQiNko5cdGzPaBKVu81ahHzZMTFKBcNxe5ALXkG",
-   "symbol": "Maebashi",
-   "name": "前橋ママ",
-   "url": "https://dexscreener.com/solana/dhw8xtcc6tffmdr6ucvg4fmgtxk6emrnmj1soq7dntqh",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00002131,
-   "mcap": 21291,
-   "liq": 9182,
-   "age_h": 11.8,
-   "chg_m5": 2.7,
-   "chg_h1": -17.72,
-   "chg_h24": -26.39,
-   "vol_h1": 4111,
-   "buys_h1": 84,
-   "sells_h1": 54,
-   "buys_m5": 2,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 38,
-   "verdict": "WAIT",
-   "reasons": [
-    "100% of trades in the last 5 min are buys",
-    "market cap up +60% since the radar first saw it"
-   ],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "volume is fading"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://pump.fun"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/Polinkaii/status/2126447097931325697"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
    "first_seen": 1795821078142,
    "buzz": null,
    "themes": [],
@@ -987,19 +539,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 1,
+     "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 19.8,
-    "p_sl": 80.2,
+    "p_tp": 9.6,
+    "p_sl": 75.1,
     "p_both": 0,
-    "p_neither": 0,
-    "ev_pct": -8.3,
+    "p_neither": 15.3,
+    "ev_pct": -0.6,
     "tp_range": [
-     17,
-     23
+     7,
+     13
     ],
-    "median_24h": -71.6,
+    "median_24h": -24.1,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1009,154 +561,59 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 25.9,
-     "p_sl": 72.6,
+     "p_tp": 18.9,
+     "p_sl": 58.8,
      "p_both": 0,
-     "p_neither": 1.5,
-     "ev_pct": -10.7,
+     "p_neither": 22.3,
+     "ev_pct": -9.6,
      "tp_range": [
-      23,
-      30
+      16,
+      24
      ],
-     "median_24h": -71.6
+     "median_24h": -24.1
     }
    }
   },
   {
-   "address": "HAP9FcXubD88SjRHMY1kr5iukpRZgeMAgCBam3Vtpump",
-   "symbol": "Split",
-   "name": "Split",
-   "url": "https://dexscreener.com/solana/7zzftawgkssbpy3fbhakcipjelf7hwl3ol6fctzemmzd",
+   "address": "2YAfPhCrGSW82Ra33sWgurXt4dQ29SwXusvUXdJGpump",
+   "symbol": "Zhaki",
+   "name": "Baboon Smirk",
+   "url": "https://dexscreener.com/solana/3vrhjgeag6ixpt58r3g1rim7zcguvszijlhktnrcz1kv",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0001169,
-   "mcap": 116857,
-   "liq": 29022,
-   "age_h": 17.8,
-   "chg_m5": 1.52,
-   "chg_h1": -4.32,
-   "chg_h24": 282,
-   "vol_h1": 14961,
-   "buys_h1": 317,
-   "sells_h1": 325,
-   "buys_m5": 15,
-   "sells_m5": 6,
-   "holders": null,
-   "top10_pct": null,
-   "score": 37,
+   "price": 0.0002075,
+   "mcap": 207541,
+   "liq": 34926,
+   "age_h": 22.3,
+   "chg_m5": -0.54,
+   "chg_h1": -18.32,
+   "chg_h24": 585,
+   "vol_h1": 20113,
+   "buys_h1": 260,
+   "sells_h1": 234,
+   "buys_m5": 23,
+   "sells_m5": 14,
+   "holders": 3400,
+   "top10_pct": 22.5,
+   "score": 38,
    "verdict": "WAIT",
    "reasons": [
-    "71% of trades in the last 5 min are buys",
-    "market cap up +107% since the radar first saw it",
-    "part of a hot theme right now: creator"
+    "62% of trades in the last 5 min are buys",
+    "market cap up +147% since the radar first saw it"
    ],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "volume is fading"
-   ],
+   "concerns": [],
    "red_flags": [],
    "links": [
     {
-     "type": "Website",
-     "url": "https://splitball.fun/"
-    },
-    {
      "type": "twitter",
-     "url": "https://x.com/usesplitball"
+     "url": "https://x.com/zhakipf?s=11"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795799523048,
-   "buzz": null,
-   "themes": [
-    "creator"
-   ],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 2,
-     "sl": -0.2
-    },
-    "p_tp": 9.2,
-    "p_sl": 86.4,
-    "p_both": 0,
-    "p_neither": 4.4,
-    "ev_pct": -10.6,
-    "tp_range": [
-     7,
-     12
-    ],
-    "median_24h": -50.3,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 23.6,
-     "p_sl": 72.8,
-     "p_both": 0,
-     "p_neither": 3.6,
-     "ev_pct": -13.6,
-     "tp_range": [
-      20,
-      28
-     ],
-     "median_24h": -50.3
-    }
-   }
-  },
-  {
-   "address": "FK7bc3fR8UL8uogN2u8J9yEpEbQJKR7yKsp3G8rvpump",
-   "symbol": "hacked",
-   "name": "hacked",
-   "url": "https://dexscreener.com/solana/bznokmzvg8n6ra3ja22zbhytau6sjavc6tbvqkhq4gs8",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00004543,
-   "mcap": 44942,
-   "liq": 14775,
-   "age_h": 68.9,
-   "chg_m5": -2.87,
-   "chg_h1": -4.19,
-   "chg_h24": 60.45,
-   "vol_h1": 963,
-   "buys_h1": 35,
-   "sells_h1": 27,
-   "buys_m5": 2,
-   "sells_m5": 2,
-   "holders": null,
-   "top10_pct": null,
-   "score": 35,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://hackedsol.com/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/urgettinghacked"
-    }
-   ],
-   "boost": 20,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795787440525,
+   "first_seen": 1795785721572,
    "buzz": null,
    "themes": [],
    "odds": {
@@ -1164,19 +621,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 1,
-     "sl": -0.5
+     "tp": 0.3,
+     "sl": -0.2
     },
-    "p_tp": 19.2,
-    "p_sl": 31.4,
+    "p_tp": 21.4,
+    "p_sl": 78.6,
     "p_both": 0,
-    "p_neither": 49.4,
-    "ev_pct": -2.6,
+    "p_neither": 0,
+    "ev_pct": -21.2,
     "tp_range": [
-     16,
-     24
+     18,
+     25
     ],
-    "median_24h": -19.3,
+    "median_24h": -48.4,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1186,16 +643,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 15.7,
-     "p_sl": 56.7,
+     "p_tp": 11.9,
+     "p_sl": 82,
      "p_both": 0,
-     "p_neither": 27.6,
-     "ev_pct": -7.7,
+     "p_neither": 6.1,
+     "ev_pct": -29.4,
      "tp_range": [
-      13,
-      20
+      10,
+      14
      ],
-     "median_24h": -19.3
+     "median_24h": -48.4
     }
    }
   },
@@ -1206,24 +663,24 @@
    "url": "https://dexscreener.com/solana/3bgwenzrwq4wchwxjenuvxe2cdkptj6qrqgdxzylugdq",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0000709,
-   "mcap": 70907,
-   "liq": 18574,
-   "age_h": 14.6,
-   "chg_m5": -0.58,
-   "chg_h1": -4.52,
-   "chg_h24": 132,
-   "vol_h1": 14271,
-   "buys_h1": 257,
-   "sells_h1": 135,
-   "buys_m5": 17,
-   "sells_m5": 9,
+   "price": 0.00006561,
+   "mcap": 65616,
+   "liq": 17833,
+   "age_h": 14.9,
+   "chg_m5": -3.82,
+   "chg_h1": -9.42,
+   "chg_h24": 114,
+   "vol_h1": 13196,
+   "buys_h1": 256,
+   "sells_h1": 134,
+   "buys_m5": 30,
+   "sells_m5": 10,
    "holders": null,
    "top10_pct": null,
-   "score": 33,
+   "score": 37,
    "verdict": "WAIT",
    "reasons": [
-    "65% of trades in the last 5 min are buys",
+    "75% of trades in the last 5 min are buys",
     "part of a hot theme right now: while"
    ],
    "concerns": [
@@ -1257,16 +714,16 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 9.7,
-    "p_sl": 85.7,
+    "p_tp": 11.5,
+    "p_sl": 88.5,
     "p_both": 0,
-    "p_neither": 4.6,
-    "ev_pct": -9,
+    "p_neither": 0,
+    "ev_pct": -7.6,
     "tp_range": [
-     7,
-     13
+     9,
+     14
     ],
-    "median_24h": -55.8,
+    "median_24h": -55.9,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1276,16 +733,806 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 25.1,
-     "p_sl": 71.7,
+     "p_tp": 25.4,
+     "p_sl": 73,
      "p_both": 0,
-     "p_neither": 3.2,
+     "p_neither": 1.6,
      "ev_pct": -11.6,
      "tp_range": [
-      21,
+      22,
+      29
+     ],
+     "median_24h": -55.9
+    }
+   }
+  },
+  {
+   "address": "Eyevsagqp6qyUxz5Dj2jWawww5csjDFLtrPPmRwYpump",
+   "symbol": "tato",
+   "name": "tato",
+   "url": "https://dexscreener.com/solana/7hphr1pcpxqpg4p4kybneegfd2cguzw2j82rdhvshpgf",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00004123,
+   "mcap": 41196,
+   "liq": 13359,
+   "age_h": 40.1,
+   "chg_m5": -0.07,
+   "chg_h1": -1.55,
+   "chg_h24": 78.63,
+   "vol_h1": 1453,
+   "buys_h1": 27,
+   "sells_h1": 40,
+   "buys_m5": 1,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 34,
+   "verdict": "WAIT",
+   "reasons": [
+    "100% of trades in the last 5 min are buys"
+   ],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "volume is fading"
+   ],
+   "red_flags": [],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795808139187,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 8.9,
+    "p_sl": 84.9,
+    "p_both": 0,
+    "p_neither": 6.2,
+    "ev_pct": -10.4,
+    "tp_range": [
+     7,
+     11
+    ],
+    "median_24h": -36.8,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 17.2,
+     "p_sl": 69.9,
+     "p_both": 0,
+     "p_neither": 12.9,
+     "ev_pct": -18.3,
+     "tp_range": [
+      14,
+      20
+     ],
+     "median_24h": -36.8
+    }
+   }
+  },
+  {
+   "address": "9G9Ssh55SZEoniFjMrMefug9fBy67bUvHzWAxb5Ypump",
+   "symbol": "Memeball",
+   "name": "Memeball",
+   "url": "https://dexscreener.com/solana/br6x4ccmyij3sfi5p66arx5p1eupqrg9wgt7rknjlq83",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0009888,
+   "mcap": 988839,
+   "liq": 71494,
+   "age_h": 10.7,
+   "chg_m5": -4.64,
+   "chg_h1": -3.78,
+   "chg_h24": 2918,
+   "vol_h1": 29879,
+   "buys_h1": 685,
+   "sells_h1": 654,
+   "buys_m5": 39,
+   "sells_m5": 53,
+   "holders": 8493,
+   "top10_pct": 4.1,
+   "score": 31,
+   "verdict": "WAIT",
+   "reasons": [
+    "market cap up +217% since the radar first saw it"
+   ],
+   "concerns": [
+    "sellers outnumber buyers right now (42% buys in 5 min)"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://www.memeball.fun/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/Memeballfun"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/memeballfun"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795826237839,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 11.9,
+    "p_sl": 77.2,
+    "p_both": 0,
+    "p_neither": 10.9,
+    "ev_pct": 0.9,
+    "tp_range": [
+     10,
+     15
+    ],
+    "median_24h": -49.7,
+    "all_negative": false,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 25.9,
+     "p_sl": 65.7,
+     "p_both": 0,
+     "p_neither": 8.5,
+     "ev_pct": -5.7,
+     "tp_range": [
+      23,
       30
      ],
-     "median_24h": -55.8
+     "median_24h": -49.7
+    }
+   }
+  },
+  {
+   "address": "HAP9FcXubD88SjRHMY1kr5iukpRZgeMAgCBam3Vtpump",
+   "symbol": "Split",
+   "name": "Split",
+   "url": "https://dexscreener.com/solana/7zzftawgkssbpy3fbhakcipjelf7hwl3ol6fctzemmzd",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0001209,
+   "mcap": 120899,
+   "liq": 29577,
+   "age_h": 18.1,
+   "chg_m5": 2.86,
+   "chg_h1": -17.59,
+   "chg_h24": 295,
+   "vol_h1": 15098,
+   "buys_h1": 315,
+   "sells_h1": 283,
+   "buys_m5": 14,
+   "sells_m5": 18,
+   "holders": 15757,
+   "top10_pct": 17.6,
+   "score": 30,
+   "verdict": "WAIT",
+   "reasons": [
+    "market cap up +114% since the radar first saw it",
+    "part of a hot theme right now: creator"
+   ],
+   "concerns": [
+    "sellers outnumber buyers right now (44% buys in 5 min)"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://splitball.fun/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/usesplitball"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795799523048,
+   "buzz": null,
+   "themes": [
+    "creator"
+   ],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 7.5,
+    "p_sl": 85,
+    "p_both": 0,
+    "p_neither": 7.5,
+    "ev_pct": -13.6,
+    "tp_range": [
+     6,
+     10
+    ],
+    "median_24h": -45.7,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 19,
+     "p_sl": 74.8,
+     "p_both": 0,
+     "p_neither": 6.2,
+     "ev_pct": -19.5,
+     "tp_range": [
+      16,
+      22
+     ],
+     "median_24h": -45.7
+    }
+   }
+  },
+  {
+   "address": "3rVr2RBzEXXKf1cVvZ6HBvFg2XmBK4iMgZv9q9q4pump",
+   "symbol": "RICE",
+   "name": "Ricecoin",
+   "url": "https://dexscreener.com/solana/382jzmn7ijo5csjmlz8cvk3dwfqqhctiylp6ulaivgh8",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00001998,
+   "mcap": 19968,
+   "liq": 9756,
+   "age_h": 7.1,
+   "chg_m5": 12.85,
+   "chg_h1": -0.25,
+   "chg_h24": -46.01,
+   "vol_h1": 8502,
+   "buys_h1": 214,
+   "sells_h1": 176,
+   "buys_m5": 20,
+   "sells_m5": 4,
+   "holders": null,
+   "top10_pct": null,
+   "score": 30,
+   "verdict": "WAIT",
+   "reasons": [
+    "83% of trades in the last 5 min are buys",
+    "part of a hot theme right now: while"
+   ],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "volume is fading"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/wallstreetbets/status/2126526500484653443"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795840959794,
+   "buzz": null,
+   "themes": [
+    "while"
+   ],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 15.2,
+    "p_sl": 84.8,
+    "p_both": 0,
+    "p_neither": 0,
+    "ev_pct": 0.9,
+    "tp_range": [
+     12,
+     19
+    ],
+    "median_24h": -74.3,
+    "all_negative": false,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 27.1,
+     "p_sl": 71.5,
+     "p_both": 0,
+     "p_neither": 1.4,
+     "ev_pct": -9.2,
+     "tp_range": [
+      24,
+      31
+     ],
+     "median_24h": -74.3
+    }
+   }
+  },
+  {
+   "address": "6NZANPwagg8qLrfi2mk9HyCXWWAVnhsv4CiqWuHPpump",
+   "symbol": "DAW",
+   "name": "Dawkoins",
+   "url": "https://dexscreener.com/solana/chqleevjaj14l7vkesqjxveldpyilfk3tynfotbhdye7",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00002702,
+   "mcap": 27021,
+   "liq": 10675,
+   "age_h": 9,
+   "chg_m5": 1.45,
+   "chg_h1": 5.96,
+   "chg_h24": -10.86,
+   "vol_h1": 2585,
+   "buys_h1": 77,
+   "sells_h1": 70,
+   "buys_m5": 4,
+   "sells_m5": 2,
+   "holders": null,
+   "top10_pct": null,
+   "score": 28,
+   "verdict": "WAIT",
+   "reasons": [
+    "67% of trades in the last 5 min are buys",
+    "part of a hot theme right now: creator"
+   ],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "volume is fading"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://finance.yahoo.com/news/richard-dawkins-responds-dawkoins-sol-092108873.html#:~:text=The%20meme%20coin%20Dawkoins%20(CRYPTO%3A%20DAW)%2C%20named%20after%20renowned%20evolutionary%20biologist%20Richard%20Dawkins"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/ddddddd8a/status/2126497863060328495"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795832284408,
+   "buzz": null,
+   "themes": [
+    "creator"
+   ],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 17,
+    "p_sl": 81.4,
+    "p_both": 0,
+    "p_neither": 1.6,
+    "ev_pct": 6.8,
+    "tp_range": [
+     14,
+     21
+    ],
+    "median_24h": -78.6,
+    "all_negative": false,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 28.4,
+     "p_sl": 70.1,
+     "p_both": 0,
+     "p_neither": 1.5,
+     "ev_pct": -6.7,
+     "tp_range": [
+      24,
+      34
+     ],
+     "median_24h": -78.6
+    }
+   }
+  },
+  {
+   "address": "HmGQsYJyeiWrV6jABUY2Cb3bEmVxwk6LzVxCchsCpump",
+   "symbol": "WLFI",
+   "name": "We Literally Fuck Investors",
+   "url": "https://dexscreener.com/solana/46973pyxhltcjizytmzaqtyqji6yaxhthqhqoc74vwcb",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0002837,
+   "mcap": 283245,
+   "liq": 40827,
+   "age_h": 6.4,
+   "chg_m5": -8.75,
+   "chg_h1": 12.8,
+   "chg_h24": 882,
+   "vol_h1": 64236,
+   "buys_h1": 1006,
+   "sells_h1": 770,
+   "buys_m5": 60,
+   "sells_m5": 49,
+   "holders": 5199,
+   "top10_pct": 17,
+   "score": 24,
+   "verdict": "WAIT",
+   "reasons": [
+    "part of a hot theme right now: literally"
+   ],
+   "concerns": [],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/LuckiWeb3/status/2126536570404475079?a=XJhKwHwnLU68e1EMNl0&s=20"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795850413635,
+   "buzz": null,
+   "themes": [
+    "literally"
+   ],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 10.6,
+    "p_sl": 85.3,
+    "p_both": 0,
+    "p_neither": 4.1,
+    "ev_pct": -5.5,
+    "tp_range": [
+     8,
+     13
+    ],
+    "median_24h": -78,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 20.9,
+     "p_sl": 74.8,
+     "p_both": 0,
+     "p_neither": 4.3,
+     "ev_pct": -15.6,
+     "tp_range": [
+      18,
+      24
+     ],
+     "median_24h": -78
+    }
+   }
+  },
+  {
+   "address": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
+   "symbol": "Fireball",
+   "name": "Fireball",
+   "url": "https://dexscreener.com/solana/dnxt5j7r1atknh23rsbwyuuc9neixsxbgfrlbmbnmks2",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0005403,
+   "mcap": 540364,
+   "liq": 54476,
+   "age_h": 21,
+   "chg_m5": 12.72,
+   "chg_h1": 13.03,
+   "chg_h24": 1479,
+   "vol_h1": 63382,
+   "buys_h1": 1167,
+   "sells_h1": 1051,
+   "buys_m5": 230,
+   "sells_m5": 139,
+   "holders": 6684,
+   "top10_pct": 8.6,
+   "score": 24,
+   "verdict": "WAIT",
+   "reasons": [
+    "62% of trades in the last 5 min are buys"
+   ],
+   "concerns": [
+    "heavily paid-promoted (100 boosts): often comes before a dump"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://www.fireballpad.online/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/FireballXPad"
+    }
+   ],
+   "boost": 100,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795796075650,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 0.3,
+     "sl": -0.2
+    },
+    "p_tp": 34.4,
+    "p_sl": 63.7,
+    "p_both": 0,
+    "p_neither": 1.9,
+    "ev_pct": -12.9,
+    "tp_range": [
+     29,
+     39
+    ],
+    "median_24h": -49.7,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 14.1,
+     "p_sl": 73.8,
+     "p_both": 0,
+     "p_neither": 12.2,
+     "ev_pct": -20.4,
+     "tp_range": [
+      11,
+      17
+     ],
+     "median_24h": -49.7
+    }
+   }
+  },
+  {
+   "address": "6C9r2gzu8Pr54hTevHo3x5gSj9JqtpApj7obJnrtpump",
+   "symbol": "ROCKET",
+   "name": "Rocket Raccoon",
+   "url": "https://dexscreener.com/solana/9nlfujwrhgqyxkw2jukka1gjvtibxaty2ad4qrysckke",
+   "dex": "pumpswap",
+   "quote": "AMC",
+   "price": 0.0007615,
+   "mcap": 736915,
+   "liq": 83109,
+   "age_h": 167.5,
+   "chg_m5": 0.25,
+   "chg_h1": 2.7,
+   "chg_h24": -12.74,
+   "vol_h1": 942,
+   "buys_h1": 2028,
+   "sells_h1": 1946,
+   "buys_m5": 145,
+   "sells_m5": 134,
+   "holders": null,
+   "top10_pct": null,
+   "score": 22,
+   "verdict": "WAIT",
+   "reasons": [],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://rocketraccoon.xyz/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/rocketavengers"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/rocketavengers"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795799523048,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 2,
+     "sl": -0.2
+    },
+    "p_tp": 1.3,
+    "p_sl": 81.9,
+    "p_both": 0,
+    "p_neither": 16.8,
+    "ev_pct": -17.6,
+    "tp_range": [
+     1,
+     3
+    ],
+    "median_24h": -30.4,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 5,
+     "p_sl": 58.9,
+     "p_both": 0,
+     "p_neither": 36.1,
+     "ev_pct": -23,
+     "tp_range": [
+      3,
+      7
+     ],
+     "median_24h": -30.4
+    }
+   }
+  },
+  {
+   "address": "6W3H5nEzuLUpTbcMrhRfMiDPCZ4QuBmZPBkeAMzypump",
+   "symbol": "wizardcat",
+   "name": "Wizard Cat",
+   "url": "https://dexscreener.com/solana/3nndu4sniu59zopc1jebz2spdxcxzea5ffg5nwkzdach",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00005346,
+   "mcap": 50696,
+   "liq": 15911,
+   "age_h": 87.3,
+   "chg_m5": -0.25,
+   "chg_h1": -6.67,
+   "chg_h24": -16.53,
+   "vol_h1": 941,
+   "buys_h1": 31,
+   "sells_h1": 41,
+   "buys_m5": 0,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 21,
+   "verdict": "WAIT",
+   "reasons": [],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "sellers outnumber buyers right now (0% buys in 5 min)",
+    "volume is fading"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://wizardcatsol.netlify.app/"
+    },
+    {
+     "type": "website",
+     "url": "https://x.com/i/communities/2036152507894763942"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/wizardcatsolcto?s=11"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/WizardcatSolCto"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795847838762,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 0.3,
+     "sl": -0.2
+    },
+    "p_tp": 28.2,
+    "p_sl": 70.4,
+    "p_both": 0,
+    "p_neither": 1.4,
+    "ev_pct": -16.5,
+    "tp_range": [
+     24,
+     33
+    ],
+    "median_24h": -32.8,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 5.6,
+     "p_sl": 66.6,
+     "p_both": 0,
+     "p_neither": 27.8,
+     "ev_pct": -26.5,
+     "tp_range": [
+      4,
+      9
+     ],
+     "median_24h": -32.8
     }
    }
   },
@@ -1296,26 +1543,27 @@
    "url": "https://dexscreener.com/solana/fa2wage4wktwygtpmkaxsegnyze7anje4byzzlhymtka",
    "dex": "raydium",
    "quote": "SOL",
-   "price": 0.00008366,
-   "mcap": 83378,
-   "liq": 40621,
-   "age_h": 10.8,
-   "chg_m5": -5.77,
-   "chg_h1": 31.29,
-   "chg_h24": 308,
-   "vol_h1": 15328,
-   "buys_h1": 150,
-   "sells_h1": 133,
-   "buys_m5": 4,
-   "sells_m5": 9,
+   "price": 0.00008244,
+   "mcap": 82159,
+   "liq": 40341,
+   "age_h": 11.1,
+   "chg_m5": -0.41,
+   "chg_h1": 42.61,
+   "chg_h24": 302,
+   "vol_h1": 13088,
+   "buys_h1": 130,
+   "sells_h1": 124,
+   "buys_m5": 3,
+   "sells_m5": 5,
    "holders": null,
    "top10_pct": null,
-   "score": 24,
+   "score": 17,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (31% buys in 5 min)"
+    "sellers outnumber buyers right now (38% buys in 5 min)",
+    "volume is fading"
    ],
    "red_flags": [],
    "links": [
@@ -1343,16 +1591,16 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 30.2,
-    "p_sl": 68.3,
+    "p_tp": 29.5,
+    "p_sl": 68.4,
     "p_both": 0,
-    "p_neither": 1.6,
-    "ev_pct": -15.2,
+    "p_neither": 2,
+    "ev_pct": -15.4,
     "tp_range": [
-     27,
+     26,
      34
     ],
-    "median_24h": -83.4,
+    "median_24h": -75.9,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1362,16 +1610,190 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 13.3,
-     "p_sl": 85.1,
+     "p_tp": 14.8,
+     "p_sl": 83.2,
      "p_both": 0,
-     "p_neither": 1.6,
-     "ev_pct": -28.8,
+     "p_neither": 2,
+     "ev_pct": -26.4,
      "tp_range": [
-      10,
-      16
+      11,
+      19
      ],
-     "median_24h": -83.4
+     "median_24h": -75.9
+    }
+   }
+  },
+  {
+   "address": "GdDpHWwrRLDHR2soP75sEtqzDzY1rkATuVszAHv5pump",
+   "symbol": "Fullball",
+   "name": "Fullball",
+   "url": "https://dexscreener.com/solana/8rut8onctoubsjz3zqcnnsm5n9mwn99lf3zkgpzkqmv7",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00003477,
+   "mcap": 34706,
+   "liq": 14635,
+   "age_h": 15.3,
+   "chg_m5": -3.39,
+   "chg_h1": -14.84,
+   "chg_h24": 16.42,
+   "vol_h1": 5264,
+   "buys_h1": 171,
+   "sells_h1": 166,
+   "buys_m5": 3,
+   "sells_m5": 8,
+   "holders": null,
+   "top10_pct": null,
+   "score": 17,
+   "verdict": "WAIT",
+   "reasons": [],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "sellers outnumber buyers right now (27% buys in 5 min)",
+    "volume is fading"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://fullball.fun/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/Fullballpad/"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795810724909,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 0.3,
+     "sl": -0.2
+    },
+    "p_tp": 21.8,
+    "p_sl": 78.2,
+    "p_both": 0,
+    "p_neither": 0,
+    "ev_pct": -20.9,
+    "tp_range": [
+     19,
+     27
+    ],
+    "median_24h": -71.1,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 7.9,
+     "p_sl": 86.8,
+     "p_both": 0,
+     "p_neither": 5.3,
+     "ev_pct": -36,
+     "tp_range": [
+      6,
+      11
+     ],
+     "median_24h": -71.1
+    }
+   }
+  },
+  {
+   "address": "659ziXQiNko5cdGzPaBKVu81ahHzZMTFKBcNxe5ALXkG",
+   "symbol": "Maebashi",
+   "name": "前橋ママ",
+   "url": "https://dexscreener.com/solana/dhw8xtcc6tffmdr6ucvg4fmgtxk6emrnmj1soq7dntqh",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00001994,
+   "mcap": 19928,
+   "liq": 8845,
+   "age_h": 12.1,
+   "chg_m5": -1.07,
+   "chg_h1": -11.03,
+   "chg_h24": -31.1,
+   "vol_h1": 3792,
+   "buys_h1": 80,
+   "sells_h1": 44,
+   "buys_m5": 0,
+   "sells_m5": 3,
+   "holders": null,
+   "top10_pct": null,
+   "score": 17,
+   "verdict": "WAIT",
+   "reasons": [],
+   "concerns": [
+    "safety check pending (next scan): cannot be a pick until checked",
+    "sellers outnumber buyers right now (0% buys in 5 min)",
+    "volume is fading"
+   ],
+   "red_flags": [],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://pump.fun"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/Polinkaii/status/2126447097931325697"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795821078142,
+   "buzz": null,
+   "themes": [],
+   "odds": {
+    "ready": true,
+    "runs": 10000,
+    "similar": 60,
+    "plan": {
+     "tp": 0.3,
+     "sl": -0.2
+    },
+    "p_tp": 19.7,
+    "p_sl": 78.9,
+    "p_both": 0,
+    "p_neither": 1.5,
+    "ev_pct": -21.6,
+    "tp_range": [
+     15,
+     25
+    ],
+    "median_24h": -73.8,
+    "all_negative": true,
+    "default": {
+     "ready": true,
+     "runs": 10000,
+     "similar": 60,
+     "plan": {
+      "tp": 1,
+      "sl": -0.35
+     },
+     "p_tp": 4.5,
+     "p_sl": 90.8,
+     "p_both": 0,
+     "p_neither": 4.7,
+     "ev_pct": -40.4,
+     "tp_range": [
+      3,
+      7
+     ],
+     "median_24h": -73.8
     }
    }
   },
@@ -1382,28 +1804,26 @@
    "url": "https://dexscreener.com/solana/54dbdazoabhzwn4ma5rjnpidh2fchu8flvkyrl5ciwtf",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00002301,
-   "mcap": 23019,
+   "price": 0.00002448,
+   "mcap": 24485,
    "liq": null,
-   "age_h": 42,
-   "chg_m5": -0.17,
-   "chg_h1": -3.15,
-   "chg_h24": 19.74,
-   "vol_h1": 2165,
-   "buys_h1": 47,
-   "sells_h1": 44,
-   "buys_m5": 2,
-   "sells_m5": 1,
+   "age_h": 42.2,
+   "chg_m5": 0.73,
+   "chg_h1": 3.92,
+   "chg_h24": 29.93,
+   "vol_h1": 2648,
+   "buys_h1": 53,
+   "sells_h1": 52,
+   "buys_m5": 1,
+   "sells_m5": 3,
    "holders": null,
    "top10_pct": null,
-   "score": 24,
+   "score": 16,
    "verdict": "WAIT",
-   "reasons": [
-    "67% of trades in the last 5 min are buys"
-   ],
+   "reasons": [],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked",
-    "volume is fading",
+    "sellers outnumber buyers right now (25% buys in 5 min)",
     "still on the pump.fun bonding curve (no open pool yet)"
    ],
    "red_flags": [],
@@ -1432,16 +1852,16 @@
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 5.9,
-    "p_sl": 94.1,
+    "p_tp": 6.6,
+    "p_sl": 90.6,
     "p_both": 0,
-    "p_neither": 0,
-    "ev_pct": -20.4,
+    "p_neither": 2.8,
+    "ev_pct": -17.4,
     "tp_range": [
-     4,
+     5,
      9
     ],
-    "median_24h": -75.1,
+    "median_24h": -74.3,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1451,16 +1871,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 14.2,
-     "p_sl": 85.8,
+     "p_tp": 13.7,
+     "p_sl": 82,
      "p_both": 0,
-     "p_neither": 0,
-     "ev_pct": -28.5,
+     "p_neither": 4.3,
+     "ev_pct": -26.2,
      "tp_range": [
       12,
       17
      ],
-     "median_24h": -75.1
+     "median_24h": -74.3
     }
    }
   },
@@ -1471,26 +1891,25 @@
    "url": "https://dexscreener.com/solana/46dzgx6enexfdj5yuxtlrzkreus1fkeuepmazfqzeavc",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00001752,
-   "mcap": 17528,
-   "liq": 8493,
-   "age_h": 8.2,
-   "chg_m5": 7.17,
-   "chg_h1": 10.23,
-   "chg_h24": -39.55,
-   "vol_h1": 1646,
-   "buys_h1": 39,
-   "sells_h1": 56,
-   "buys_m5": 5,
-   "sells_m5": 10,
+   "price": 0.00001855,
+   "mcap": 18550,
+   "liq": 8776,
+   "age_h": 8.5,
+   "chg_m5": 1.05,
+   "chg_h1": 17.48,
+   "chg_h24": -36.02,
+   "vol_h1": 2006,
+   "buys_h1": 61,
+   "sells_h1": 85,
+   "buys_m5": 6,
+   "sells_m5": 5,
    "holders": null,
    "top10_pct": null,
-   "score": 21,
+   "score": 13,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (33% buys in 5 min)"
+    "safety check pending (next scan): cannot be a pick until checked"
    ],
    "red_flags": [],
    "links": [
@@ -1511,415 +1930,19 @@
     "runs": 10000,
     "similar": 60,
     "plan": {
-     "tp": 0.3,
-     "sl": -0.2
-    },
-    "p_tp": 31.5,
-    "p_sl": 68.5,
-    "p_both": 0,
-    "p_neither": 0,
-    "ev_pct": -15.1,
-    "tp_range": [
-     28,
-     35
-    ],
-    "median_24h": -89.4,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 10.3,
-     "p_sl": 86.5,
-     "p_both": 0,
-     "p_neither": 3.3,
-     "ev_pct": -31.8,
-     "tp_range": [
-      8,
-      13
-     ],
-     "median_24h": -89.4
-    }
-   }
-  },
-  {
-   "address": "3Tg6YnNrfPdFfsY14MaNsDMWLseAyrUDS3myJtbaJN6f",
-   "symbol": "BASKET",
-   "name": "Basket",
-   "url": "https://dexscreener.com/solana/cixcofspwhnywjsodxxxvld6um5fh7w8mfpl9mpqpqtx",
-   "dex": "raydium",
-   "quote": "SOL",
-   "price": 0.0002382,
-   "mcap": 238281,
-   "liq": 69971,
-   "age_h": 78.2,
-   "chg_m5": -0.46,
-   "chg_h1": -7.27,
-   "chg_h24": -52.83,
-   "vol_h1": 3835,
-   "buys_h1": 31,
-   "sells_h1": 33,
-   "buys_m5": 1,
-   "sells_m5": 1,
-   "holders": null,
-   "top10_pct": null,
-   "score": 20,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "volume is fading"
-   ],
-   "red_flags": [],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795842679583,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.3,
-     "sl": -0.2
-    },
-    "p_tp": 34,
-    "p_sl": 64.6,
-    "p_both": 0,
-    "p_neither": 1.4,
-    "ev_pct": -13.1,
-    "tp_range": [
-     30,
-     38
-    ],
-    "median_24h": -34.5,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 12.1,
-     "p_sl": 62.3,
-     "p_both": 0,
-     "p_neither": 25.7,
-     "ev_pct": -17.5,
-     "tp_range": [
-      9,
-      16
-     ],
-     "median_24h": -34.5
-    }
-   }
-  },
-  {
-   "address": "38M2z4UCfZEkUHFzD48vhKQhFhNyRGto8pZbLjNipump",
-   "symbol": "JIMMY",
-   "name": "Jimmy Rustles",
-   "url": "https://dexscreener.com/solana/fnhwfv49ywctgcdtyf34avn8bixxcgxukqlctkrkp1gq",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0008325,
-   "mcap": 777402,
-   "liq": 84898,
-   "age_h": 109.7,
-   "chg_m5": 1.32,
-   "chg_h1": -3.98,
-   "chg_h24": 44.1,
-   "vol_h1": 21914,
-   "buys_h1": 246,
-   "sells_h1": 210,
-   "buys_m5": 9,
-   "sells_m5": 20,
-   "holders": 13900,
-   "top10_pct": 17.9,
-   "score": 18,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "sellers outnumber buyers right now (31% buys in 5 min)"
-   ],
-   "red_flags": [],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795821078142,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
      "tp": 2,
      "sl": -0.2
     },
-    "p_tp": 1.1,
-    "p_sl": 80.9,
-    "p_both": 0,
-    "p_neither": 18,
-    "ev_pct": -17.2,
-    "tp_range": [
-     1,
-     2
-    ],
-    "median_24h": -33.8,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 4.9,
-     "p_sl": 59.4,
-     "p_both": 0,
-     "p_neither": 35.7,
-     "ev_pct": -21.3,
-     "tp_range": [
-      3,
-      8
-     ],
-     "median_24h": -33.8
-    }
-   }
-  },
-  {
-   "address": "GdDpHWwrRLDHR2soP75sEtqzDzY1rkATuVszAHv5pump",
-   "symbol": "Fullball",
-   "name": "Fullball",
-   "url": "https://dexscreener.com/solana/8rut8onctoubsjz3zqcnnsm5n9mwn99lf3zkgpzkqmv7",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00003951,
-   "mcap": 39441,
-   "liq": 15686,
-   "age_h": 15,
-   "chg_m5": -0.45,
-   "chg_h1": 8.5,
-   "chg_h24": 32.3,
-   "vol_h1": 6406,
-   "buys_h1": 194,
-   "sells_h1": 208,
-   "buys_m5": 3,
-   "sells_m5": 7,
-   "holders": null,
-   "top10_pct": null,
-   "score": 18,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (30% buys in 5 min)"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://fullball.fun/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/Fullballpad/"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795810724909,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.3,
-     "sl": -0.2
-    },
-    "p_tp": 18.4,
-    "p_sl": 79.9,
-    "p_both": 0,
-    "p_neither": 1.7,
-    "ev_pct": -22.2,
-    "tp_range": [
-     16,
-     22
-    ],
-    "median_24h": -74.2,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 6.5,
-     "p_sl": 88.3,
-     "p_both": 0,
-     "p_neither": 5.3,
-     "ev_pct": -37.5,
-     "tp_range": [
-      5,
-      9
-     ],
-     "median_24h": -74.2
-    }
-   }
-  },
-  {
-   "address": "AGazYig7A8Co6ZapAPterBRLitdiP6AAaWiPH8jWLend",
-   "symbol": "LENDR",
-   "name": "Lendr",
-   "url": "https://dexscreener.com/solana/gkn3nwwf8prnkes7rqknqsmozhdfcadkvxgn2a63jrwc",
-   "dex": "raydium",
-   "quote": "SOL",
-   "price": 0.0003935,
-   "mcap": 393537,
-   "liq": 47839,
-   "age_h": 65.5,
-   "chg_m5": -0.51,
-   "chg_h1": -0.82,
-   "chg_h24": -41.27,
-   "vol_h1": 6786,
-   "buys_h1": 28,
-   "sells_h1": 39,
-   "buys_m5": 0,
-   "sells_m5": 1,
-   "holders": null,
-   "top10_pct": null,
-   "score": 17,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (0% buys in 5 min)",
-    "volume is fading"
-   ],
-   "red_flags": [],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795802109374,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.3,
-     "sl": -0.35
-    },
-    "p_tp": 38,
-    "p_sl": 48.6,
-    "p_both": 0,
-    "p_neither": 13.4,
-    "ev_pct": -15.8,
-    "tp_range": [
-     33,
-     44
-    ],
-    "median_24h": -25.2,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 4.4,
-     "p_sl": 59.7,
-     "p_both": 0,
-     "p_neither": 35.9,
-     "ev_pct": -24.2,
-     "tp_range": [
-      3,
-      7
-     ],
-     "median_24h": -25.2
-    }
-   }
-  },
-  {
-   "address": "3rVr2RBzEXXKf1cVvZ6HBvFg2XmBK4iMgZv9q9q4pump",
-   "symbol": "RICE",
-   "name": "Ricecoin",
-   "url": "https://dexscreener.com/solana/382jzmn7ijo5csjmlz8cvk3dwfqqhctiylp6ulaivgh8",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00001797,
-   "mcap": 17965,
-   "liq": 9186,
-   "age_h": 6.8,
-   "chg_m5": 3.23,
-   "chg_h1": -11.41,
-   "chg_h24": -51.42,
-   "vol_h1": 10435,
-   "buys_h1": 250,
-   "sells_h1": 222,
-   "buys_m5": 11,
-   "sells_m5": 11,
-   "holders": null,
-   "top10_pct": null,
-   "score": 15,
-   "verdict": "WAIT",
-   "reasons": [
-    "part of a hot theme right now: while"
-   ],
-   "concerns": [
-    "safety check pending (next scan): cannot be a pick until checked"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/wallstreetbets/status/2126526500484653443"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795840959794,
-   "buzz": null,
-   "themes": [
-    "while"
-   ],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 2,
-     "sl": -0.2
-    },
-    "p_tp": 6.2,
-    "p_sl": 92.2,
+    "p_tp": 9.2,
+    "p_sl": 89.1,
     "p_both": 0,
     "p_neither": 1.6,
-    "ev_pct": -18,
+    "ev_pct": -11.1,
     "tp_range": [
-     5,
-     9
+     7,
+     13
     ],
-    "median_24h": -87.4,
+    "median_24h": -86.5,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -1929,102 +1952,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 12.9,
-     "p_sl": 85.1,
+     "p_tp": 15.5,
+     "p_sl": 80.5,
      "p_both": 0,
-     "p_neither": 2,
-     "ev_pct": -29,
+     "p_neither": 4,
+     "ev_pct": -23.8,
      "tp_range": [
-      11,
-      16
+      13,
+      19
      ],
-     "median_24h": -87.4
-    }
-   }
-  },
-  {
-   "address": "B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump",
-   "symbol": "Fireball",
-   "name": "Fireball",
-   "url": "https://dexscreener.com/solana/dnxt5j7r1atknh23rsbwyuuc9neixsxbgfrlbmbnmks2",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0005343,
-   "mcap": 534375,
-   "liq": 54102,
-   "age_h": 20.8,
-   "chg_m5": 0.46,
-   "chg_h1": 16.65,
-   "chg_h24": 1461,
-   "vol_h1": 56148,
-   "buys_h1": 989,
-   "sells_h1": 973,
-   "buys_m5": 55,
-   "sells_m5": 68,
-   "holders": 6563,
-   "top10_pct": 8.9,
-   "score": 12,
-   "verdict": "WAIT",
-   "reasons": [],
-   "concerns": [
-    "sellers outnumber buyers right now (45% buys in 5 min)",
-    "heavily paid-promoted (100 boosts): often comes before a dump"
-   ],
-   "red_flags": [],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://www.fireballpad.online/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/FireballXPad"
-    }
-   ],
-   "boost": 100,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795796075650,
-   "buzz": null,
-   "themes": [],
-   "odds": {
-    "ready": true,
-    "runs": 10000,
-    "similar": 60,
-    "plan": {
-     "tp": 0.5,
-     "sl": -0.2
-    },
-    "p_tp": 23.1,
-    "p_sl": 74.4,
-    "p_both": 0,
-    "p_neither": 2.6,
-    "ev_pct": -14.9,
-    "tp_range": [
-     19,
-     28
-    ],
-    "median_24h": -46.5,
-    "all_negative": true,
-    "default": {
-     "ready": true,
-     "runs": 10000,
-     "similar": 60,
-     "plan": {
-      "tp": 1,
-      "sl": -0.35
-     },
-     "p_tp": 12.2,
-     "p_sl": 77.1,
-     "p_both": 0,
-     "p_neither": 10.7,
-     "ev_pct": -24.9,
-     "tp_range": [
-      10,
-      15
-     ],
-     "median_24h": -46.5
+     "median_24h": -86.5
     }
    }
   },
@@ -2035,26 +1972,26 @@
    "url": "https://dexscreener.com/solana/dapza6cwatldus4dthdx6hrkwfwdxxti7v6jhukcfe19",
    "dex": "raydium",
    "quote": "SOL",
-   "price": 0.00001609,
-   "mcap": 16099,
-   "liq": 10559,
-   "age_h": 17.7,
-   "chg_m5": -0.42,
-   "chg_h1": -8.76,
-   "chg_h24": -45.47,
-   "vol_h1": 2140,
-   "buys_h1": 54,
-   "sells_h1": 48,
-   "buys_m5": 0,
-   "sells_m5": 1,
+   "price": 0.00001682,
+   "mcap": 16829,
+   "liq": 10797,
+   "age_h": 18,
+   "chg_m5": 0.22,
+   "chg_h1": -6.66,
+   "chg_h24": -43,
+   "vol_h1": 1567,
+   "buys_h1": 50,
+   "sells_h1": 43,
+   "buys_m5": 2,
+   "sells_m5": 4,
    "holders": null,
    "top10_pct": null,
-   "score": 9,
+   "score": 11,
    "verdict": "WAIT",
    "reasons": [],
    "concerns": [
     "safety check pending (next scan): cannot be a pick until checked",
-    "sellers outnumber buyers right now (0% buys in 5 min)",
+    "sellers outnumber buyers right now (33% buys in 5 min)",
     "volume is fading"
    ],
    "red_flags": [],
@@ -2079,16 +2016,16 @@
      "tp": 0.3,
      "sl": -0.2
     },
-    "p_tp": 23.1,
-    "p_sl": 75.5,
+    "p_tp": 21.3,
+    "p_sl": 78.7,
     "p_both": 0,
-    "p_neither": 1.4,
-    "ev_pct": -19.6,
+    "p_neither": 0,
+    "ev_pct": -21.2,
     "tp_range": [
-     20,
-     27
+     18,
+     26
     ],
-    "median_24h": -70.2,
+    "median_24h": -62.7,
     "all_negative": true,
     "default": {
      "ready": true,
@@ -2098,16 +2035,16 @@
       "tp": 1,
       "sl": -0.35
      },
-     "p_tp": 7.6,
-     "p_sl": 83.9,
+     "p_tp": 10.7,
+     "p_sl": 82.3,
      "p_both": 0,
-     "p_neither": 8.6,
-     "ev_pct": -34.8,
+     "p_neither": 7.1,
+     "ev_pct": -31.1,
      "tp_range": [
-      5,
-      11
+      9,
+      13
      ],
-     "median_24h": -70.2
+     "median_24h": -62.7
     }
    }
   },
@@ -2118,18 +2055,18 @@
    "url": "https://dexscreener.com/solana/armqz5kmqecjv18c8jcjvmwvkbtrrpnliuachkwaarih",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00003322,
-   "mcap": 33171,
-   "liq": 11732,
-   "age_h": 0.8,
-   "chg_m5": 11.61,
-   "chg_h1": 15.32,
-   "chg_h24": 15.32,
-   "vol_h1": 128715,
-   "buys_h1": 2816,
-   "sells_h1": 1803,
-   "buys_m5": 59,
-   "sells_m5": 31,
+   "price": 0.00002183,
+   "mcap": 21798,
+   "liq": 9296,
+   "age_h": 1,
+   "chg_m5": -2.53,
+   "chg_h1": -33.33,
+   "chg_h24": -24.22,
+   "vol_h1": 121681,
+   "buys_h1": 2822,
+   "sells_h1": 1796,
+   "buys_m5": 132,
+   "sells_m5": 81,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2164,18 +2101,18 @@
    "url": "https://dexscreener.com/solana/g57cfxedfwpusmyurzzsjyckzykxrmu6csxfzaojgot7",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.001162,
-   "mcap": 1162269,
-   "liq": 78020,
-   "age_h": 6.1,
-   "chg_m5": 1.7,
-   "chg_h1": -7.97,
-   "chg_h24": 3140,
-   "vol_h1": 79106,
-   "buys_h1": 9955,
-   "sells_h1": 6290,
-   "buys_m5": 683,
-   "sells_m5": 308,
+   "price": 0.001178,
+   "mcap": 1177971,
+   "liq": 78619,
+   "age_h": 6.4,
+   "chg_m5": -6.38,
+   "chg_h1": -7.4,
+   "chg_h24": 3184,
+   "vol_h1": 64732,
+   "buys_h1": 9927,
+   "sells_h1": 5756,
+   "buys_m5": 659,
+   "sells_m5": 362,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2204,73 +2141,24 @@
    "themes": []
   },
   {
-   "address": "2n5tTb5UXKABFXYRxDEjtDpWFh5ZFk7oRcNLDML5pump",
-   "symbol": "SMOOTH",
-   "name": "Smoothie",
-   "url": "https://dexscreener.com/solana/uu9w42ydrvmpsaqonmnha8opdoaj8x3vpjglhjzarkc",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00001308,
-   "mcap": 13068,
-   "liq": 6851,
-   "age_h": 0.9,
-   "chg_m5": 23.74,
-   "chg_h1": -54.38,
-   "chg_h24": -54.38,
-   "vol_h1": 68063,
-   "buys_h1": 1606,
-   "sells_h1": 1286,
-   "buys_m5": 31,
-   "sells_m5": 24,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $13,068 is below $15,000: too early to tell a launch from a dud",
-    "liquidity $6,851 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://smoothie.exchange/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/smothexchange"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795859893032,
-   "buzz": null,
-   "themes": [
-    "creator"
-   ]
-  },
-  {
    "address": "9Pq7aLAbhDG2tTnS22cm6kuysZVcZpLFE368HWuypump",
    "symbol": "JOB",
    "name": "DogWifJob",
    "url": "https://dexscreener.com/solana/hauvbmnthcfmg9srxmvz1gaxnpu955hkpdsasc2cx4c8",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.003078,
-   "mcap": 2998426,
-   "liq": 188496,
-   "age_h": 759.7,
-   "chg_m5": -5.81,
-   "chg_h1": 1.57,
-   "chg_h24": 70.75,
-   "vol_h1": 59473,
-   "buys_h1": 430,
-   "sells_h1": 312,
-   "buys_m5": 16,
-   "sells_m5": 14,
+   "price": 0.003117,
+   "mcap": 3037206,
+   "liq": 189829,
+   "age_h": 760,
+   "chg_m5": 0.09,
+   "chg_h1": 1.71,
+   "chg_h24": 73.37,
+   "vol_h1": 47929,
+   "buys_h1": 412,
+   "sells_h1": 303,
+   "buys_m5": 30,
+   "sells_m5": 21,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2305,72 +2193,24 @@
    ]
   },
   {
-   "address": "57uooyjwYX2kpSGN3QnBLWAwk4KMZYbkp5e8f7i7pump",
-   "symbol": "EDITOR",
-   "name": "Editor",
-   "url": "https://dexscreener.com/solana/26ypjvttef1v449vqvq6pbrp3hk5w9cqnvx5mg2xa1on",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000009285,
-   "mcap": 9286,
-   "liq": null,
-   "age_h": 1.1,
-   "chg_m5": 19.88,
-   "chg_h1": -33.17,
-   "chg_h24": 57.75,
-   "vol_h1": 43642,
-   "buys_h1": 843,
-   "sells_h1": 731,
-   "buys_m5": 26,
-   "sells_m5": 12,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $9,286 is below $15,000: too early to tell a launch from a dud"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://tryeditor.fun/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/tryEditordotfun/status/2126614038088221125?a=1QoWLFOinyBmkPPnJg8&s=20"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795862470041,
-   "buzz": null,
-   "themes": [
-    "while"
-   ]
-  },
-  {
    "address": "9TKbd3VFaMSXsEAicD9JVQWpWwAoLi4fSgWmZL2cpump",
    "symbol": "Snowball",
    "name": "Snowball",
    "url": "https://dexscreener.com/solana/aircdeu4yl6hjuina65mtwakzmex7stkzsinmyzhzkt2",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0002209,
-   "mcap": 220977,
-   "liq": 38242,
-   "age_h": 64.6,
-   "chg_m5": 3.02,
-   "chg_h1": -13.2,
-   "chg_h24": -74.05,
-   "vol_h1": 36632,
-   "buys_h1": 490,
-   "sells_h1": 518,
-   "buys_m5": 30,
-   "sells_m5": 27,
+   "price": 0.000232,
+   "mcap": 232099,
+   "liq": 39248,
+   "age_h": 64.8,
+   "chg_m5": 0.01,
+   "chg_h1": -1.67,
+   "chg_h24": -70.8,
+   "vol_h1": 35300,
+   "buys_h1": 487,
+   "sells_h1": 476,
+   "buys_m5": 21,
+   "sells_m5": 23,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2378,7 +2218,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "already dumped: down 74% in 24h"
+    "already dumped: down 71% in 24h"
    ],
    "links": [
     {
@@ -2399,24 +2239,24 @@
    "themes": []
   },
   {
-   "address": "4cZsB6UgdUBTi13JMusBap9r2qGW1MPrdaSVAYkSpump",
-   "symbol": "HPD",
-   "name": "The Pumpfun Bull",
-   "url": "https://dexscreener.com/solana/5hq3k2shhyejdjestnd2q8jgfo5trqg1k56bwpbqxsq1",
-   "dex": "pumpswap",
+   "address": "5zhdK5tA8Fz4L74YgYeSAVjjZ2NGTfSmWNYAiWN2pump",
+   "symbol": "cheng",
+   "name": "厨神",
+   "url": "https://dexscreener.com/solana/75ldooptxrd9cg7sn189svkoqsn37dryfdpyymsacvi",
+   "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00000481,
-   "mcap": 4810,
-   "liq": 3660,
-   "age_h": 1.4,
-   "chg_m5": -15.93,
-   "chg_h1": -81.28,
-   "chg_h24": -83.5,
-   "vol_h1": 30325,
-   "buys_h1": 680,
-   "sells_h1": 516,
-   "buys_m5": 12,
-   "sells_m5": 10,
+   "price": 0.00001377,
+   "mcap": 13771,
+   "liq": null,
+   "age_h": 1.3,
+   "chg_m5": 4.2,
+   "chg_h1": 27.88,
+   "chg_h24": 471,
+   "vol_h1": 31195,
+   "buys_h1": 579,
+   "sells_h1": 410,
+   "buys_m5": 25,
+   "sells_m5": 7,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2424,75 +2264,74 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $4,810 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 84% in 24h",
-    "liquidity $3,660 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/gunsnsoni/status/2126603027364581707"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795857316868,
-   "buzz": null,
-   "themes": [
-    "pumpfun"
-   ]
-  },
-  {
-   "address": "9G9Ssh55SZEoniFjMrMefug9fBy67bUvHzWAxb5Ypump",
-   "symbol": "Memeball",
-   "name": "Memeball",
-   "url": "https://dexscreener.com/solana/br6x4ccmyij3sfi5p66arx5p1eupqrg9wgt7rknjlq83",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.001062,
-   "mcap": 1062125,
-   "liq": 74091,
-   "age_h": 10.5,
-   "chg_m5": -0.33,
-   "chg_h1": 4.49,
-   "chg_h24": 3141,
-   "vol_h1": 30306,
-   "buys_h1": 707,
-   "sells_h1": 653,
-   "buys_m5": 34,
-   "sells_m5": 56,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "RugCheck report unavailable: unverified"
+    "market cap $13,771 is below $15,000: too early to tell a launch from a dud"
    ],
    "links": [
     {
      "type": "Website",
-     "url": "https://www.memeball.fun/"
+     "url": "https://www.chengchef.xyz/"
     },
     {
      "type": "twitter",
-     "url": "https://x.com/Memeballfun"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/memeballfun"
+     "url": "https://x.com/chengpenguin"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795826237839,
+   "first_seen": 1795862470041,
    "buzz": null,
    "themes": []
+  },
+  {
+   "address": "2n5tTb5UXKABFXYRxDEjtDpWFh5ZFk7oRcNLDML5pump",
+   "symbol": "SMOOTH",
+   "name": "Smoothie",
+   "url": "https://dexscreener.com/solana/uu9w42ydrvmpsaqonmnha8opdoaj8x3vpjglhjzarkc",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00001168,
+   "mcap": 11675,
+   "liq": 6411,
+   "age_h": 1.2,
+   "chg_m5": -7.17,
+   "chg_h1": -32.38,
+   "chg_h24": -59.24,
+   "vol_h1": 28756,
+   "buys_h1": 712,
+   "sells_h1": 630,
+   "buys_m5": 14,
+   "sells_m5": 22,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $11,675 is below $15,000: too early to tell a launch from a dud",
+    "liquidity $6,411 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://smoothie.exchange/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/smothexchange"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795859893032,
+   "buzz": null,
+   "themes": [
+    "creator"
+   ]
   },
   {
    "address": "8i2ssMZBaS3HShu5hoDEV4tVLf5RGXeNJnK3LNTHTH9e",
@@ -2501,18 +2340,18 @@
    "url": "https://dexscreener.com/solana/d68dez4zyi5agvsitfgex6jsbpkmvsctsp63uluixj5y",
    "dex": "raydium",
    "quote": "SOL",
-   "price": 0.00003608,
-   "mcap": 36082,
-   "liq": 13880,
-   "age_h": 2.4,
-   "chg_m5": -14.12,
-   "chg_h1": 32.11,
-   "chg_h24": 23.48,
-   "vol_h1": 29050,
-   "buys_h1": 444,
-   "sells_h1": 322,
-   "buys_m5": 41,
-   "sells_m5": 17,
+   "price": 0.00003018,
+   "mcap": 30190,
+   "liq": 12723,
+   "age_h": 2.7,
+   "chg_m5": -0.37,
+   "chg_h1": -16.44,
+   "chg_h24": 3.31,
+   "vol_h1": 28104,
+   "buys_h1": 450,
+   "sells_h1": 302,
+   "buys_m5": 43,
+   "sells_m5": 29,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2547,18 +2386,18 @@
    "url": "https://dexscreener.com/solana/8yy1cwhtwyqsmncj1v6hthafsbpzpuzwb9fwhrpl5x1f",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0001502,
-   "mcap": 150037,
-   "liq": 27381,
-   "age_h": 4.9,
-   "chg_m5": 7.75,
-   "chg_h1": 30.5,
-   "chg_h24": 427,
-   "vol_h1": 28060,
+   "price": 0.0001514,
+   "mcap": 151230,
+   "liq": 27504,
+   "age_h": 5.2,
+   "chg_m5": -6.16,
+   "chg_h1": 33.97,
+   "chg_h24": 431,
+   "vol_h1": 27253,
    "buys_h1": 435,
-   "sells_h1": 350,
-   "buys_m5": 28,
-   "sells_m5": 19,
+   "sells_h1": 368,
+   "buys_m5": 24,
+   "sells_m5": 24,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2585,24 +2424,24 @@
    ]
   },
   {
-   "address": "PgFtGGquvnv2zEkjG2N2QPvBTBrafuExGYEqahRpump",
-   "symbol": "BRUH",
-   "name": "The Bruhvengers",
-   "url": "https://dexscreener.com/solana/ehpzesdxtymvwz1iy5nt3lrnjy1xbc1kgqspl1kqnyiv",
-   "dex": "pumpswap",
+   "address": "57uooyjwYX2kpSGN3QnBLWAwk4KMZYbkp5e8f7i7pump",
+   "symbol": "EDITOR",
+   "name": "Editor",
+   "url": "https://dexscreener.com/solana/26ypjvttef1v449vqvq6pbrp3hk5w9cqnvx5mg2xa1on",
+   "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.005478,
-   "mcap": 5424003,
-   "liq": 183615,
-   "age_h": 510.4,
-   "chg_m5": -1.14,
-   "chg_h1": 5.53,
-   "chg_h24": -4.07,
-   "vol_h1": 21410,
-   "buys_h1": 100,
-   "sells_h1": 110,
-   "buys_m5": 8,
-   "sells_m5": 7,
+   "price": 0.00001125,
+   "mcap": 11251,
+   "liq": null,
+   "age_h": 1.4,
+   "chg_m5": -9.58,
+   "chg_h1": 72.03,
+   "chg_h24": 91.14,
+   "vol_h1": 23834,
+   "buys_h1": 417,
+   "sells_h1": 297,
+   "buys_m5": 26,
+   "sells_m5": 24,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2610,9 +2449,101 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $5,424,003: no longer early",
+    "market cap $11,251 is below $15,000: too early to tell a launch from a dud"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://tryeditor.fun/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/tryEditordotfun/status/2126614038088221125?a=1QoWLFOinyBmkPPnJg8&s=20"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795862470041,
+   "buzz": null,
+   "themes": [
+    "while"
+   ]
+  },
+  {
+   "address": "4cZsB6UgdUBTi13JMusBap9r2qGW1MPrdaSVAYkSpump",
+   "symbol": "HPD",
+   "name": "The Pumpfun Bull",
+   "url": "https://dexscreener.com/solana/5hq3k2shhyejdjestnd2q8jgfo5trqg1k56bwpbqxsq1",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000003606,
+   "mcap": 3606,
+   "liq": 3004,
+   "age_h": 1.7,
+   "chg_m5": -10.55,
+   "chg_h1": -84.6,
+   "chg_h24": -87.63,
+   "vol_h1": 19232,
+   "buys_h1": 437,
+   "sells_h1": 373,
+   "buys_m5": 3,
+   "sells_m5": 6,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $3,606 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 88% in 24h",
+    "liquidity $3,004 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/gunsnsoni/status/2126603027364581707"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795857316868,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "PgFtGGquvnv2zEkjG2N2QPvBTBrafuExGYEqahRpump",
+   "symbol": "BRUH",
+   "name": "The Bruhvengers",
+   "url": "https://dexscreener.com/solana/ehpzesdxtymvwz1iy5nt3lrnjy1xbc1kgqspl1kqnyiv",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.005711,
+   "mcap": 5655175,
+   "liq": 187617,
+   "age_h": 510.7,
+   "chg_m5": 2.24,
+   "chg_h1": 2.39,
+   "chg_h24": -1.88,
+   "vol_h1": 18040,
+   "buys_h1": 100,
+   "sells_h1": 107,
+   "buys_m5": 9,
+   "sells_m5": 6,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $5,655,175: no longer early",
     "21 days old: not early",
-    "liquidity is only 3.4% of market cap: price is easy to crash"
+    "liquidity is only 3.3% of market cap: price is easy to crash"
    ],
    "links": [
     {
@@ -2633,158 +2564,24 @@
    "themes": []
   },
   {
-   "address": "FVi5fXEPruYmkGu5jsY5wAsPGCr3sy1p6jZkZ3z9pump",
-   "symbol": "MEMEPAY",
-   "name": "Memepay",
-   "url": "https://dexscreener.com/solana/43et6rnybbfug8bczzqcegkjfgxn3627qpjry2zjt4td",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000002357,
-   "mcap": 2357,
-   "liq": null,
-   "age_h": 1.3,
-   "chg_m5": -0.37,
-   "chg_h1": -65.77,
-   "chg_h24": 1.74,
-   "vol_h1": 9603,
-   "buys_h1": 136,
-   "sells_h1": 170,
-   "buys_m5": 0,
-   "sells_m5": 2,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $2,357 is below $15,000: too early to tell a launch from a dud"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://memepay.online"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/memepayapp"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795859893032,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "9PY2x8zdYDhbVtBEdT35duYY6EzwFXhyov9R5Uazpump",
-   "symbol": "chairman",
-   "name": "chairman",
-   "url": "https://dexscreener.com/solana/bfz7k9atjz5t3dzklu1haqhmxvcjymte6pgr99qpnruj",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000007442,
-   "mcap": 7442,
-   "liq": null,
-   "age_h": 11.9,
-   "chg_m5": -10.37,
-   "chg_h1": -28.67,
-   "chg_h24": 209,
-   "vol_h1": 9537,
-   "buys_h1": 124,
-   "sells_h1": 93,
-   "buys_m5": 7,
-   "sells_m5": 2,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $7,442 is below $15,000: too early to tell a launch from a dud"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/chairman_meme"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795827960782,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "7XSYaJygcuNe6Q3kPvwsJpg4ZrFL1AEUFb8kCuzppump",
-   "symbol": "Kibo",
-   "name": "キボウ",
-   "url": "https://dexscreener.com/solana/hj4afisw1oo8hvmyxl2qjjnav4y25nthse2lcpcreqtu",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00003261,
-   "mcap": 32614,
-   "liq": 13022,
-   "age_h": 29.4,
-   "chg_m5": -2.97,
-   "chg_h1": 3.36,
-   "chg_h24": -82.7,
-   "vol_h1": 8953,
-   "buys_h1": 182,
-   "sells_h1": 152,
-   "buys_m5": 6,
-   "sells_m5": 5,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "already dumped: down 83% in 24h"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://x.com/aws_official/status/2126135650982433123?a=yOBe1J4HLldYgXst4dU&s=20"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/early404/status/2126184901430980810"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795845258131,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "155ENqUMyzFwCnPYLpPqydUtddq9cocPkiah8WeF2dp",
    "symbol": "2DEEP",
    "name": "2deep",
    "url": "https://dexscreener.com/solana/c1cpwimlyvrphwycbpd27pjkoj4uzwsufhrcccsjbqn9",
    "dex": "meteoradbc",
    "quote": "SOL",
-   "price": 0.000007543,
-   "mcap": 7543,
+   "price": 0.000009496,
+   "mcap": 9497,
    "liq": null,
-   "age_h": 1,
-   "chg_m5": 34.63,
-   "chg_h1": 58.79,
-   "chg_h24": 90.6,
-   "vol_h1": 8596,
-   "buys_h1": 141,
-   "sells_h1": 84,
-   "buys_m5": 26,
-   "sells_m5": 4,
+   "age_h": 1.3,
+   "chg_m5": -3.11,
+   "chg_h1": 71.04,
+   "chg_h24": 140,
+   "vol_h1": 12300,
+   "buys_h1": 217,
+   "sells_h1": 119,
+   "buys_m5": 11,
+   "sells_m5": 14,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2792,7 +2589,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $7,543 is below $15,000: too early to tell a launch from a dud"
+    "market cap $9,497 is below $15,000: too early to tell a launch from a dud"
    ],
    "links": [
     {
@@ -2817,24 +2614,24 @@
    "themes": []
   },
   {
-   "address": "7F5Xamqc5eGTfJZE9EyMiPA5QSNziWua6zL1M1kTpump",
-   "symbol": "Crema",
-   "name": "crema.click",
-   "url": "https://dexscreener.com/solana/4qb2k1hzuwvtkwdqwclbrjgwmcdvhxq1quq1zpoahqij",
-   "dex": "pumpswap",
+   "address": "9PY2x8zdYDhbVtBEdT35duYY6EzwFXhyov9R5Uazpump",
+   "symbol": "chairman",
+   "name": "chairman",
+   "url": "https://dexscreener.com/solana/bfz7k9atjz5t3dzklu1haqhmxvcjymte6pgr99qpnruj",
+   "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000005636,
-   "mcap": 5636,
-   "liq": 4254,
-   "age_h": 9.6,
-   "chg_m5": 1.12,
-   "chg_h1": 1.88,
-   "chg_h24": -81.43,
-   "vol_h1": 5559,
-   "buys_h1": 139,
-   "sells_h1": 105,
+   "price": 0.000006931,
+   "mcap": 6931,
+   "liq": null,
+   "age_h": 12.1,
+   "chg_m5": -0.99,
+   "chg_h1": -32.77,
+   "chg_h24": 188,
+   "vol_h1": 8063,
+   "buys_h1": 91,
+   "sells_h1": 80,
    "buys_m5": 2,
-   "sells_m5": 0,
+   "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -2842,9 +2639,97 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $5,636 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 81% in 24h",
-    "liquidity $4,254 is too thin to exit"
+    "market cap $6,931 is below $15,000: too early to tell a launch from a dud"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/chairman_meme"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795827960782,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "7XSYaJygcuNe6Q3kPvwsJpg4ZrFL1AEUFb8kCuzppump",
+   "symbol": "Kibo",
+   "name": "キボウ",
+   "url": "https://dexscreener.com/solana/hj4afisw1oo8hvmyxl2qjjnav4y25nthse2lcpcreqtu",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.0000365,
+   "mcap": 36507,
+   "liq": 13860,
+   "age_h": 29.7,
+   "chg_m5": 5.83,
+   "chg_h1": -2.32,
+   "chg_h24": -79.8,
+   "vol_h1": 6883,
+   "buys_h1": 138,
+   "sells_h1": 105,
+   "buys_m5": 7,
+   "sells_m5": 3,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "already dumped: down 80% in 24h"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://x.com/aws_official/status/2126135650982433123?a=yOBe1J4HLldYgXst4dU&s=20"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/early404/status/2126184901430980810"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795845258131,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "7F5Xamqc5eGTfJZE9EyMiPA5QSNziWua6zL1M1kTpump",
+   "symbol": "Crema",
+   "name": "crema.click",
+   "url": "https://dexscreener.com/solana/4qb2k1hzuwvtkwdqwclbrjgwmcdvhxq1quq1zpoahqij",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00000554,
+   "mcap": 5541,
+   "liq": 4204,
+   "age_h": 9.9,
+   "chg_m5": -9.42,
+   "chg_h1": -8.57,
+   "chg_h24": -81.74,
+   "vol_h1": 5911,
+   "buys_h1": 141,
+   "sells_h1": 110,
+   "buys_m5": 10,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $5,541 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 82% in 24h",
+    "liquidity $4,204 is too thin to exit"
    ],
    "links": [
     {
@@ -2865,171 +2750,24 @@
    "themes": []
   },
   {
-   "address": "B29od4bd54VAVAqJFToRKkKJadUGK5v8pkAVb5uvpump",
-   "symbol": "USD1",
-   "name": "Useless Shitty Dollar 1",
-   "url": "https://dexscreener.com/solana/8nkg3gpacjfvtexj3zr737dorgjecb4fgesci2pdo4ca",
-   "dex": "pumpswap",
-   "quote": "USDC",
-   "price": 0.00002199,
-   "mcap": 21995,
-   "liq": 12590,
-   "age_h": 3.8,
-   "chg_m5": -0.72,
-   "chg_h1": -12.76,
-   "chg_h24": -62.42,
-   "vol_h1": 5026,
-   "buys_h1": 112,
-   "sells_h1": 84,
-   "buys_m5": 12,
-   "sells_m5": 4,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "already dumped: down 62% in 24h"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/WatcherGuru/status/2126577684033556904?a=GiosYKjTH7mkiS-TzGY&s=20"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795851302079,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "EwUVBpdM5vw1CJHRMSLywzVjyQSJZpy6qboxEPBKpump",
-   "symbol": "PumpMas",
-   "name": "PumpMas",
-   "url": "https://dexscreener.com/solana/b1mjhdyip3t6uqyhoipj1hza1g3yxjbvfysnjucb5cgd",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.0002354,
-   "mcap": 220773,
-   "liq": 35346,
-   "age_h": 325.9,
-   "chg_m5": -3.39,
-   "chg_h1": 6.87,
-   "chg_h24": 104,
-   "vol_h1": 4829,
-   "buys_h1": 34,
-   "sells_h1": 42,
-   "buys_m5": 1,
-   "sells_m5": 4,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "14 days old: not early"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://pumpmas.lol/"
-    },
-    {
-     "type": "website",
-     "url": "https://www.coingecko.com/en/coins/pumpmas"
-    },
-    {
-     "type": "website",
-     "url": "https://dex.coinmarketcap.com/token/solana/EwUVBpdM5vw1CJHRMSLywzVjyQSJZpy6qboxEPBKpump/"
-    },
-    {
-     "type": "website",
-     "url": "https://claude.ai/artifact/2stuoUwJZ2pCHdXurGdXRv"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/pumpmassol/"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/pumpmassolana"
-    },
-    {
-     "type": "tiktok",
-     "url": "https://www.tiktok.com/@pumpmassolana"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795811616057,
-   "buzz": null,
-   "themes": [
-    "pumpfun"
-   ]
-  },
-  {
-   "address": "4tqzkSWA9tiWYhzYpSt81We3cVNkrEbkD1tzjFDZpump",
-   "symbol": "VAULT",
-   "name": "Vault",
-   "url": "https://dexscreener.com/solana/gkoxmesnhaitjcfwhessrgub2uq2ctppgunht6xcrvw",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00001147,
-   "mcap": 11441,
-   "liq": 6757,
-   "age_h": 23.6,
-   "chg_m5": 6.46,
-   "chg_h1": -30.41,
-   "chg_h24": -60.2,
-   "vol_h1": 3977,
-   "buys_h1": 72,
-   "sells_h1": 61,
-   "buys_m5": 6,
-   "sells_m5": 3,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $11,441 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 60% in 24h",
-    "liquidity $6,757 is too thin to exit"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795862470041,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "F5DxJtHaFNnxdjBXounqM3xXMSqSSLgJ5u8yt5m5pump",
-   "symbol": "ASCEND",
-   "name": "Ascend Cat",
-   "url": "https://dexscreener.com/solana/7bfn4uv5p4saba8flpzbzgq6egphh8avn8pvjwx7dj51",
+   "address": "FVi5fXEPruYmkGu5jsY5wAsPGCr3sy1p6jZkZ3z9pump",
+   "symbol": "MEMEPAY",
+   "name": "Memepay",
+   "url": "https://dexscreener.com/solana/43et6rnybbfug8bczzqcegkjfgxn3627qpjry2zjt4td",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.0000112,
-   "mcap": 11201,
+   "price": 0.000002356,
+   "mcap": 2356,
    "liq": null,
-   "age_h": 20.3,
-   "chg_m5": 17.52,
-   "chg_h1": -22.49,
-   "chg_h24": 277,
-   "vol_h1": 3765,
-   "buys_h1": 63,
-   "sells_h1": 64,
-   "buys_m5": 17,
-   "sells_m5": 8,
+   "age_h": 1.6,
+   "chg_m5": -0.04,
+   "chg_h1": -71.71,
+   "chg_h24": 1.7,
+   "vol_h1": 5307,
+   "buys_h1": 46,
+   "sells_h1": 128,
+   "buys_m5": 0,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3037,23 +2775,23 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $11,201 is below $15,000: too early to tell a launch from a dud"
+    "market cap $2,356 is below $15,000: too early to tell a launch from a dud"
    ],
    "links": [
     {
-     "type": "twitter",
-     "url": "https://x.com/Wrizzy_/status/2126325096004636837?a=QsIbk6h4-aTYrgRSGLo&s=20"
+     "type": "Website",
+     "url": "https://memepay.online"
     },
     {
-     "type": "instagram",
-     "url": "https://www.instagram.com/reel/DgMEThDsS2z/?evlk=MWltbWF6YWxhMHM3Ng=="
+     "type": "twitter",
+     "url": "https://x.com/memepayapp"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795795213686,
+   "first_seen": 1795859893032,
    "buzz": null,
    "themes": []
   },
@@ -3064,17 +2802,17 @@
    "url": "https://dexscreener.com/solana/f8ykd7drw4ytfnpg9l5r7xrrhwoysnxffr469u3lvjgp",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000276,
-   "mcap": 264917,
-   "liq": 40675,
-   "age_h": 199,
-   "chg_m5": 1.84,
-   "chg_h1": -5.57,
-   "chg_h24": 89.48,
-   "vol_h1": 3737,
-   "buys_h1": 62,
-   "sells_h1": 39,
-   "buys_m5": 2,
+   "price": 0.0002646,
+   "mcap": 253902,
+   "liq": 39797,
+   "age_h": 199.3,
+   "chg_m5": -2.49,
+   "chg_h1": -10.47,
+   "chg_h24": 84.27,
+   "vol_h1": 5051,
+   "buys_h1": 90,
+   "sells_h1": 41,
+   "buys_m5": 4,
    "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
@@ -3104,24 +2842,24 @@
    "themes": []
   },
   {
-   "address": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
-   "symbol": "CBUCKS",
-   "name": "Cartoon Money",
-   "url": "https://dexscreener.com/solana/b4cp45pgifvm5faxfh6aev8qz3eunqnqgbw7kuc7mhnb",
+   "address": "B29od4bd54VAVAqJFToRKkKJadUGK5v8pkAVb5uvpump",
+   "symbol": "USD1",
+   "name": "Useless Shitty Dollar 1",
+   "url": "https://dexscreener.com/solana/8nkg3gpacjfvtexj3zr737dorgjecb4fgesci2pdo4ca",
    "dex": "pumpswap",
    "quote": "USDC",
-   "price": 0.006623,
-   "mcap": 6242038,
-   "liq": 291103,
-   "age_h": 1264.4,
-   "chg_m5": 1.49,
-   "chg_h1": -0.16,
-   "chg_h24": -13.45,
-   "vol_h1": 2985,
-   "buys_h1": 18,
-   "sells_h1": 14,
+   "price": 0.00001795,
+   "mcap": 17952,
+   "liq": 11131,
+   "age_h": 4.1,
+   "chg_m5": -17.4,
+   "chg_h1": -23.34,
+   "chg_h24": -69.32,
+   "vol_h1": 4390,
+   "buys_h1": 94,
+   "sells_h1": 75,
    "buys_m5": 2,
-   "sells_m5": 0,
+   "sells_m5": 11,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3129,8 +2867,86 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $6,242,038: no longer early",
-    "only 32 trades in the last hour: no real activity",
+    "already dumped: down 69% in 24h"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/WatcherGuru/status/2126577684033556904?a=GiosYKjTH7mkiS-TzGY&s=20"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795851302079,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "4tqzkSWA9tiWYhzYpSt81We3cVNkrEbkD1tzjFDZpump",
+   "symbol": "VAULT",
+   "name": "Vault",
+   "url": "https://dexscreener.com/solana/gkoxmesnhaitjcfwhessrgub2uq2ctppgunht6xcrvw",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00001277,
+   "mcap": 12737,
+   "liq": 7200,
+   "age_h": 23.9,
+   "chg_m5": 10.86,
+   "chg_h1": -26.26,
+   "chg_h24": -55.69,
+   "vol_h1": 4066,
+   "buys_h1": 73,
+   "sells_h1": 67,
+   "buys_m5": 2,
+   "sells_m5": 7,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $12,737 is below $15,000: too early to tell a launch from a dud",
+    "liquidity $7,200 is too thin to exit"
+   ],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795862470041,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "DtcicPCKTKeAh7TDEzTym3hXeoHAoMiBdYJhMYxZpump",
+   "symbol": "CBUCKS",
+   "name": "Cartoon Money",
+   "url": "https://dexscreener.com/solana/b4cp45pgifvm5faxfh6aev8qz3eunqnqgbw7kuc7mhnb",
+   "dex": "pumpswap",
+   "quote": "USDC",
+   "price": 0.006574,
+   "mcap": 6195648,
+   "liq": 290012,
+   "age_h": 1264.7,
+   "chg_m5": -1.45,
+   "chg_h1": -2.31,
+   "chg_h24": -11.3,
+   "vol_h1": 3557,
+   "buys_h1": 22,
+   "sells_h1": 14,
+   "buys_m5": 1,
+   "sells_m5": 2,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $6,195,648: no longer early",
+    "only 36 trades in the last hour: no real activity",
     "53 days old: not early"
    ],
    "links": [
@@ -3152,24 +2968,24 @@
    "themes": []
   },
   {
-   "address": "A6BBHdxCNFmpLqCzEzdoZ2wVPLVcr6jcxFn7oEeMpump",
-   "symbol": "LEND",
-   "name": "LEND Utility",
-   "url": "https://dexscreener.com/solana/9aqwgtxohyvc5yjpturt7r4drmodz83tivh8qxaxyqy6",
+   "address": "F5DxJtHaFNnxdjBXounqM3xXMSqSSLgJ5u8yt5m5pump",
+   "symbol": "ASCEND",
+   "name": "Ascend Cat",
+   "url": "https://dexscreener.com/solana/7bfn4uv5p4saba8flpzbzgq6egphh8avn8pvjwx7dj51",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00000538,
-   "mcap": 5381,
+   "price": 0.0000119,
+   "mcap": 11905,
    "liq": null,
-   "age_h": 4.2,
-   "chg_m5": -0.24,
-   "chg_h1": -2.37,
-   "chg_h24": 163,
-   "vol_h1": 2767,
-   "buys_h1": 65,
-   "sells_h1": 44,
-   "buys_m5": 6,
-   "sells_m5": 1,
+   "age_h": 20.5,
+   "chg_m5": 2.31,
+   "chg_h1": -19.3,
+   "chg_h24": 300,
+   "vol_h1": 3257,
+   "buys_h1": 49,
+   "sells_h1": 43,
+   "buys_m5": 2,
+   "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3177,7 +2993,53 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $5,381 is below $15,000: too early to tell a launch from a dud"
+    "market cap $11,905 is below $15,000: too early to tell a launch from a dud"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/Wrizzy_/status/2126325096004636837?a=QsIbk6h4-aTYrgRSGLo&s=20"
+    },
+    {
+     "type": "instagram",
+     "url": "https://www.instagram.com/reel/DgMEThDsS2z/?evlk=MWltbWF6YWxhMHM3Ng=="
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795795213686,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "A6BBHdxCNFmpLqCzEzdoZ2wVPLVcr6jcxFn7oEeMpump",
+   "symbol": "LEND",
+   "name": "LEND Utility",
+   "url": "https://dexscreener.com/solana/9aqwgtxohyvc5yjpturt7r4drmodz83tivh8qxaxyqy6",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000005065,
+   "mcap": 5066,
+   "liq": null,
+   "age_h": 4.5,
+   "chg_m5": 0,
+   "chg_h1": 14.56,
+   "chg_h24": 148,
+   "vol_h1": 2502,
+   "buys_h1": 65,
+   "sells_h1": 40,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $5,066 is below $15,000: too early to tell a launch from a dud"
    ],
    "links": [
     {
@@ -3203,23 +3065,23 @@
    "themes": []
   },
   {
-   "address": "GggaHk9atb7LYq16S2X6FwjQdZT8D8YQ6vydeosgFGtg",
-   "symbol": "CI",
-   "name": "Crime Inu",
-   "url": "https://dexscreener.com/solana/cyv5vfuqzbzf2xnabpsnaampepczhftxqndprkdbp1ih",
-   "dex": "pumpswap",
+   "address": "GhgALX7p6wNbxBsyrWiyN4UEw4mddux85fSzLdpJpump",
+   "symbol": "RECRUIT",
+   "name": "RECRUIT",
+   "url": "https://dexscreener.com/solana/9wmnb1rjper6eufm6adl2mhn8knuuzklisgj7pdbfnj",
+   "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000004017,
-   "mcap": 4012,
-   "liq": 3249,
-   "age_h": 2.5,
-   "chg_m5": -13.36,
-   "chg_h1": 8.84,
-   "chg_h24": -85.79,
-   "vol_h1": 2691,
-   "buys_h1": 54,
-   "sells_h1": 38,
-   "buys_m5": 1,
+   "price": 0.00001067,
+   "mcap": 10676,
+   "liq": null,
+   "age_h": 3.9,
+   "chg_m5": 11.69,
+   "chg_h1": 10.21,
+   "chg_h24": 351,
+   "vol_h1": 2214,
+   "buys_h1": 73,
+   "sells_h1": 44,
+   "buys_m5": 11,
    "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
@@ -3228,9 +3090,88 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $4,012 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 86% in 24h",
-    "liquidity $3,249 is too thin to exit"
+    "market cap $10,676 is below $15,000: too early to tell a launch from a dud"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/recruitonpumpf/status/2126577023925821861?a=EeE1ilr_GjSJqUWLshs&s=46"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795862470041,
+   "buzz": null,
+   "themes": [
+    "creator"
+   ]
+  },
+  {
+   "address": "AGazYig7A8Co6ZapAPterBRLitdiP6AAaWiPH8jWLend",
+   "symbol": "LENDR",
+   "name": "Lendr",
+   "url": "https://dexscreener.com/solana/gkn3nwwf8prnkes7rqknqsmozhdfcadkvxgn2a63jrwc",
+   "dex": "raydium",
+   "quote": "SOL",
+   "price": 0.0004012,
+   "mcap": 401283,
+   "liq": 48332,
+   "age_h": 65.7,
+   "chg_m5": -0.07,
+   "chg_h1": 1.32,
+   "chg_h24": -38.46,
+   "vol_h1": 2101,
+   "buys_h1": 24,
+   "sells_h1": 19,
+   "buys_m5": 1,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 43 trades in the last hour: no real activity"
+   ],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795802109374,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "GggaHk9atb7LYq16S2X6FwjQdZT8D8YQ6vydeosgFGtg",
+   "symbol": "CI",
+   "name": "Crime Inu",
+   "url": "https://dexscreener.com/solana/cyv5vfuqzbzf2xnabpsnaampepczhftxqndprkdbp1ih",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000004485,
+   "mcap": 4480,
+   "liq": 3500,
+   "age_h": 2.7,
+   "chg_m5": 1.23,
+   "chg_h1": -12.25,
+   "chg_h24": -84.13,
+   "vol_h1": 1963,
+   "buys_h1": 46,
+   "sells_h1": 35,
+   "buys_m5": 4,
+   "sells_m5": 5,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $4,480 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 84% in 24h",
+    "liquidity $3,500 is too thin to exit"
    ],
    "links": [
     {
@@ -3247,69 +3188,24 @@
    "themes": []
   },
   {
-   "address": "GhgALX7p6wNbxBsyrWiyN4UEw4mddux85fSzLdpJpump",
-   "symbol": "RECRUIT",
-   "name": "RECRUIT",
-   "url": "https://dexscreener.com/solana/9wmnb1rjper6eufm6adl2mhn8knuuzklisgj7pdbfnj",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.00001016,
-   "mcap": 10162,
-   "liq": null,
-   "age_h": 3.6,
-   "chg_m5": -4.15,
-   "chg_h1": 21.72,
-   "chg_h24": 330,
-   "vol_h1": 2604,
-   "buys_h1": 64,
-   "sells_h1": 43,
-   "buys_m5": 6,
-   "sells_m5": 4,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $10,162 is below $15,000: too early to tell a launch from a dud"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/recruitonpumpf/status/2126577023925821861?a=EeE1ilr_GjSJqUWLshs&s=46"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795862470041,
-   "buzz": null,
-   "themes": [
-    "creator",
-    "pumpfun"
-   ]
-  },
-  {
    "address": "BW98q4cYxCeJM3uoB43Yy2e1EcjF4fPpeAuRkrhWpump",
    "symbol": "Småkager",
    "name": "The Pygmy Hippo",
    "url": "https://dexscreener.com/solana/hmnscm39h8sejhqv5pucctaqlmkxmoy4ojph8rvqzrbv",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000005658,
-   "mcap": 5658,
+   "price": 0.000004509,
+   "mcap": 4510,
    "liq": null,
-   "age_h": 3.4,
-   "chg_m5": -4.36,
-   "chg_h1": -24.49,
-   "chg_h24": 110,
-   "vol_h1": 2097,
-   "buys_h1": 34,
-   "sells_h1": 43,
-   "buys_m5": 4,
-   "sells_m5": 3,
+   "age_h": 3.6,
+   "chg_m5": -5.87,
+   "chg_h1": -37.89,
+   "chg_h24": 67.42,
+   "vol_h1": 1807,
+   "buys_h1": 29,
+   "sells_h1": 38,
+   "buys_m5": 0,
+   "sells_m5": 5,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3317,7 +3213,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $5,658 is below $15,000: too early to tell a launch from a dud"
+    "market cap $4,510 is below $15,000: too early to tell a launch from a dud"
    ],
    "links": [
     {
@@ -3338,23 +3234,23 @@
    "themes": []
   },
   {
-   "address": "DXLE6M12GsJW23aTU2VpZeJcgQ8rwTwQbzmDKvMSpump",
-   "symbol": "USD2",
-   "name": "USD2",
-   "url": "https://dexscreener.com/solana/iectpuj6bmb5zbldvdvbpsux23ujkzetcru9zkywfjv",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000008083,
-   "mcap": 8083,
-   "liq": null,
-   "age_h": 3.9,
-   "chg_m5": 3.05,
-   "chg_h1": 0.53,
-   "chg_h24": 235,
-   "vol_h1": 1917,
-   "buys_h1": 45,
-   "sells_h1": 25,
-   "buys_m5": 3,
+   "address": "A6tuVRQaWWkXoPzE7SQry3YK995tJVt4NdgduQuBpump",
+   "symbol": "SANTA",
+   "name": "Santa Claus",
+   "url": "https://dexscreener.com/solana/3cjfqxctydumu4tekay7rkdoftiyta2sgfdu9tkze8ma",
+   "dex": "pumpswap",
+   "quote": "KOx",
+   "price": 0.00005391,
+   "mcap": 51644,
+   "liq": 18549,
+   "age_h": 205.2,
+   "chg_m5": -0.29,
+   "chg_h1": 36.06,
+   "chg_h24": 48.16,
+   "vol_h1": 1458,
+   "buys_h1": 22,
+   "sells_h1": 6,
+   "buys_m5": 0,
    "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
@@ -3363,98 +3259,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $8,083 is below $15,000: too early to tell a launch from a dud"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/lebombjam/status/2126571412387225853"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795853880582,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "28GQ3Mg66RGTA47jVvukvdfhKXgrYJ7rRF4zoNhipump",
-   "symbol": "fsjal",
-   "name": "fsjal",
-   "url": "https://dexscreener.com/solana/asnkphxzdvbiadkffqccftu8h7ztvrno93anlnpa3jy",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000008177,
-   "mcap": 8177,
-   "liq": 5148,
-   "age_h": 9,
-   "chg_m5": 0,
-   "chg_h1": 6.97,
-   "chg_h24": -72.01,
-   "vol_h1": 1466,
-   "buys_h1": 23,
-   "sells_h1": 15,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $8,177 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 72% in 24h",
-    "only 38 trades in the last hour: no real activity",
-    "liquidity $5,148 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://fsjal.net/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/fsjaldotnet/status/2126488512291631609"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795830538456,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "A6tuVRQaWWkXoPzE7SQry3YK995tJVt4NdgduQuBpump",
-   "symbol": "SANTA",
-   "name": "Santa Claus",
-   "url": "https://dexscreener.com/solana/3cjfqxctydumu4tekay7rkdoftiyta2sgfdu9tkze8ma",
-   "dex": "pumpswap",
-   "quote": "KOx",
-   "price": 0.0000536,
-   "mcap": 51345,
-   "liq": 18512,
-   "age_h": 204.9,
-   "chg_m5": 1.87,
-   "chg_h1": 35.28,
-   "chg_h24": 44.11,
-   "vol_h1": 1311,
-   "buys_h1": 18,
-   "sells_h1": 4,
-   "buys_m5": 1,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 22 trades in the last hour: no real activity",
+    "only 28 trades in the last hour: no real activity",
     "9 days old: not early"
    ],
    "links": [
@@ -3482,18 +3287,18 @@
    "url": "https://dexscreener.com/solana/6mbvqnyjf3unm3wsl2ncjna9ijre7tfrct6yhdmd7qvr",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00002312,
-   "mcap": 23125,
-   "liq": 9508,
-   "age_h": 27,
-   "chg_m5": 3.31,
-   "chg_h1": -15.99,
-   "chg_h24": 17.58,
-   "vol_h1": 1221,
-   "buys_h1": 26,
-   "sells_h1": 12,
-   "buys_m5": 5,
-   "sells_m5": 0,
+   "price": 0.00002389,
+   "mcap": 23896,
+   "liq": 9691,
+   "age_h": 27.2,
+   "chg_m5": 0.78,
+   "chg_h1": -11.61,
+   "chg_h24": 25.24,
+   "vol_h1": 1351,
+   "buys_h1": 36,
+   "sells_h1": 10,
+   "buys_m5": 9,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3501,7 +3306,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 38 trades in the last hour: no real activity"
+    "only 46 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -3526,6 +3331,100 @@
    "themes": []
   },
   {
+   "address": "85cQsFgbi8mBZxiPppbpPXuV7j1hA8tBwhjF4gKW6mHg",
+   "symbol": "Rizzmas",
+   "name": "Rizzmas",
+   "url": "https://dexscreener.com/solana/hgrvezf83hm2x5hovx9ec2cbiajtmwfhk6vcuplh4ydy",
+   "dex": "raydium",
+   "quote": "SOL",
+   "price": 0.00000132,
+   "mcap": 655780,
+   "liq": 221859,
+   "age_h": 25673.1,
+   "chg_m5": -0.05,
+   "chg_h1": 0.36,
+   "chg_h24": 5.27,
+   "vol_h1": 1115,
+   "buys_h1": 32,
+   "sells_h1": 9,
+   "buys_m5": 3,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 41 trades in the last hour: no real activity",
+    "1070 days old: not early"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://rizzmas.org"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/OGRIZZMAS"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/OGRizzmas"
+    }
+   ],
+   "boost": 100,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795799523048,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "DXLE6M12GsJW23aTU2VpZeJcgQ8rwTwQbzmDKvMSpump",
+   "symbol": "USD2",
+   "name": "USD2",
+   "url": "https://dexscreener.com/solana/iectpuj6bmb5zbldvdvbpsux23ujkzetcru9zkywfjv",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000008123,
+   "mcap": 8123,
+   "liq": null,
+   "age_h": 4.2,
+   "chg_m5": -3.75,
+   "chg_h1": -8.26,
+   "chg_h24": 237,
+   "vol_h1": 1108,
+   "buys_h1": 34,
+   "sells_h1": 24,
+   "buys_m5": 0,
+   "sells_m5": 2,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $8,123 is below $15,000: too early to tell a launch from a dud",
+    "only 58 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/lebombjam/status/2126571412387225853"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795853880582,
+   "buzz": null,
+   "themes": []
+  },
+  {
    "address": "gReut5zWWqXMYz5vSExcuDT56U1u1MTXsC7u3oqpump",
    "symbol": "AYO",
    "name": "Ayo",
@@ -3535,15 +3434,15 @@
    "price": 0.000003108,
    "mcap": 3109,
    "liq": null,
-   "age_h": 21.8,
-   "chg_m5": -8.59,
-   "chg_h1": -20.86,
+   "age_h": 22.1,
+   "chg_m5": 0,
+   "chg_h1": -20.94,
    "chg_h24": 42.68,
-   "vol_h1": 1073,
-   "buys_h1": 10,
-   "sells_h1": 16,
+   "vol_h1": 1044,
+   "buys_h1": 8,
+   "sells_h1": 14,
    "buys_m5": 0,
-   "sells_m5": 3,
+   "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3552,7 +3451,7 @@
    "concerns": [],
    "red_flags": [
     "market cap $3,109 is below $15,000: too early to tell a launch from a dud",
-    "only 26 trades in the last hour: no real activity"
+    "only 22 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -3577,76 +3476,22 @@
    "themes": []
   },
   {
-   "address": "6W3H5nEzuLUpTbcMrhRfMiDPCZ4QuBmZPBkeAMzypump",
-   "symbol": "wizardcat",
-   "name": "Wizard Cat",
-   "url": "https://dexscreener.com/solana/3nndu4sniu59zopc1jebz2spdxcxzea5ffg5nwkzdach",
-   "dex": "pumpswap",
+   "address": "Fyhpv64QLTYaFeQ9yy6YxxGY53edRPHCq4RRkTBapump",
+   "symbol": "MINT",
+   "name": "MintMyGame",
+   "url": "https://dexscreener.com/solana/cycxby9j74jmi9wqwnjhbmlc4xbrecqxil8oye7dlywg",
+   "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00005465,
-   "mcap": 51828,
-   "liq": 16093,
-   "age_h": 87.1,
-   "chg_m5": -2.58,
-   "chg_h1": -7.15,
-   "chg_h24": -7.9,
-   "vol_h1": 886,
-   "buys_h1": 28,
-   "sells_h1": 30,
-   "buys_m5": 4,
-   "sells_m5": 5,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 58 trades in the last hour: no real activity"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://wizardcatsol.netlify.app/"
-    },
-    {
-     "type": "website",
-     "url": "https://x.com/i/communities/2036152507894763942"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/wizardcatsolcto?s=11"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/WizardcatSolCto"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795847838762,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "26qFFJBo4F7EjtzCuCbJEdW4v233mY1aMRaw8Y2kpump",
-   "symbol": "ChokeCat",
-   "name": "Choking Cat",
-   "url": "https://dexscreener.com/solana/8kurxegedqdmzc1qqkznzg7akfs1oh5ppcvq1aknexx7",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000004855,
-   "mcap": 4856,
-   "liq": 3678,
-   "age_h": 21.8,
-   "chg_m5": -2.03,
-   "chg_h1": -33.2,
-   "chg_h24": -83.42,
-   "vol_h1": 857,
-   "buys_h1": 12,
-   "sells_h1": 20,
+   "price": 0.000007152,
+   "mcap": 7153,
+   "liq": null,
+   "age_h": 22.6,
+   "chg_m5": -5.75,
+   "chg_h1": -19.02,
+   "chg_h24": 228,
+   "vol_h1": 941,
+   "buys_h1": 29,
+   "sells_h1": 14,
    "buys_m5": 0,
    "sells_m5": 1,
    "holders": null,
@@ -3656,26 +3501,119 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $4,856 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 83% in 24h",
-    "only 32 trades in the last hour: no real activity",
-    "liquidity $3,678 is too thin to exit"
+    "market cap $7,153 is below $15,000: too early to tell a launch from a dud",
+    "only 43 trades in the last hour: no real activity"
    ],
    "links": [
     {
      "type": "Website",
-     "url": "https://x.com/freya_0_0_/status/2125960732244430865?a=4enHMMzW__ry83hthdA&s=46"
+     "url": "https://mintmygame.com/"
     },
     {
      "type": "twitter",
-     "url": "https://x.com/sweettunadev/status/2126283065030783139?a=9uCmsgpe8Wm8ra48DM0&s=46"
+     "url": "https://x.com/MintMyGame"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795780562182,
+   "first_seen": 1795784002929,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "28GQ3Mg66RGTA47jVvukvdfhKXgrYJ7rRF4zoNhipump",
+   "symbol": "fsjal",
+   "name": "fsjal",
+   "url": "https://dexscreener.com/solana/asnkphxzdvbiadkffqccftu8h7ztvrno93anlnpa3jy",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000008048,
+   "mcap": 8048,
+   "liq": 5094,
+   "age_h": 9.3,
+   "chg_m5": 0,
+   "chg_h1": -7.51,
+   "chg_h24": -72.46,
+   "vol_h1": 914,
+   "buys_h1": 14,
+   "sells_h1": 9,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $8,048 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 72% in 24h",
+    "only 23 trades in the last hour: no real activity",
+    "liquidity $5,094 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://fsjal.net/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/fsjaldotnet/status/2126488512291631609"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795830538456,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "FK7bc3fR8UL8uogN2u8J9yEpEbQJKR7yKsp3G8rvpump",
+   "symbol": "hacked",
+   "name": "hacked",
+   "url": "https://dexscreener.com/solana/bznokmzvg8n6ra3ja22zbhytau6sjavc6tbvqkhq4gs8",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00004707,
+   "mcap": 46564,
+   "liq": 15067,
+   "age_h": 69.1,
+   "chg_m5": -1.72,
+   "chg_h1": -3.13,
+   "chg_h24": 66.57,
+   "vol_h1": 838,
+   "buys_h1": 29,
+   "sells_h1": 25,
+   "buys_m5": 1,
+   "sells_m5": 4,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 54 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://hackedsol.com/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/urgettinghacked"
+    }
+   ],
+   "boost": 20,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795787440525,
    "buzz": null,
    "themes": []
   },
@@ -3686,18 +3624,18 @@
    "url": "https://dexscreener.com/solana/qkiyfkcm2qgfpnbepuxva5wixq4f6zduwnzk2y19cym",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00001222,
-   "mcap": 12201,
-   "liq": 8011,
-   "age_h": 45.5,
-   "chg_m5": 0.28,
-   "chg_h1": -1.73,
-   "chg_h24": -63.24,
-   "vol_h1": 831,
-   "buys_h1": 18,
+   "price": 0.00001175,
+   "mcap": 11739,
+   "liq": 7837,
+   "age_h": 45.8,
+   "chg_m5": -1.9,
+   "chg_h1": -0.45,
+   "chg_h24": -67.05,
+   "vol_h1": 821,
+   "buys_h1": 26,
    "sells_h1": 21,
-   "buys_m5": 4,
-   "sells_m5": 3,
+   "buys_m5": 1,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3705,9 +3643,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $12,201 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 63% in 24h",
-    "only 39 trades in the last hour: no real activity"
+    "market cap $11,739 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 67% in 24h",
+    "only 47 trades in the last hour: no real activity",
+    "liquidity $7,837 is too thin to exit"
    ],
    "links": [],
    "boost": 0,
@@ -3723,18 +3662,18 @@
    "url": "https://dexscreener.com/solana/fxpqqrimkm9uvdzspungpfb8mprbg8apfus662svvqhl",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00001109,
-   "mcap": 11096,
+   "price": 0.00001108,
+   "mcap": 11087,
    "liq": null,
-   "age_h": 8.5,
-   "chg_m5": -2.92,
-   "chg_h1": -11.06,
+   "age_h": 8.7,
+   "chg_m5": -0.2,
+   "chg_h1": -10.52,
    "chg_h24": 232,
-   "vol_h1": 786,
-   "buys_h1": 6,
-   "sells_h1": 15,
+   "vol_h1": 763,
+   "buys_h1": 7,
+   "sells_h1": 16,
    "buys_m5": 0,
-   "sells_m5": 4,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3742,8 +3681,8 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $11,096 is below $15,000: too early to tell a launch from a dud",
-    "only 21 trades in the last hour: no real activity"
+    "market cap $11,087 is below $15,000: too early to tell a launch from a dud",
+    "only 23 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -3776,22 +3715,71 @@
    "themes": []
   },
   {
-   "address": "Bwwc9n2mPn1k5rGv6UjAudiPPYmQpSzYevddjdmHpump",
-   "symbol": "MEOWI",
-   "name": "MEOWI",
-   "url": "https://dexscreener.com/solana/g7nr24elfiw1wktwhbycywfnwvyjkffmmonrrgczwstg",
+   "address": "26qFFJBo4F7EjtzCuCbJEdW4v233mY1aMRaw8Y2kpump",
+   "symbol": "ChokeCat",
+   "name": "Choking Cat",
+   "url": "https://dexscreener.com/solana/8kurxegedqdmzc1qqkznzg7akfs1oh5ppcvq1aknexx7",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00006811,
-   "mcap": 68008,
-   "liq": 17320,
-   "age_h": 37.8,
-   "chg_m5": 2.18,
-   "chg_h1": -9.04,
-   "chg_h24": -18.03,
-   "vol_h1": 765,
-   "buys_h1": 8,
-   "sells_h1": 14,
+   "price": 0.000005208,
+   "mcap": 5208,
+   "liq": 3853,
+   "age_h": 22,
+   "chg_m5": 1.08,
+   "chg_h1": -17.88,
+   "chg_h24": -82.21,
+   "vol_h1": 748,
+   "buys_h1": 12,
+   "sells_h1": 19,
+   "buys_m5": 1,
+   "sells_m5": 3,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $5,208 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 82% in 24h",
+    "only 31 trades in the last hour: no real activity",
+    "liquidity $3,853 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://x.com/freya_0_0_/status/2125960732244430865?a=4enHMMzW__ry83hthdA&s=46"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/sweettunadev/status/2126283065030783139?a=9uCmsgpe8Wm8ra48DM0&s=46"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795780562182,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "4an4F8Wdi1tXUCFarrhcQvZY4MCVvixcRhT4pANusbha",
+   "symbol": "boing",
+   "name": "boingcat",
+   "url": "https://dexscreener.com/solana/hv6welhw5yw4uxcbmqn11n29itwhjpmspggjhuafwftg",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00002341,
+   "mcap": 23382,
+   "liq": 9615,
+   "age_h": 17,
+   "chg_m5": 2.8,
+   "chg_h1": 6.91,
+   "chg_h24": -28.95,
+   "vol_h1": 703,
+   "buys_h1": 19,
+   "sells_h1": 26,
    "buys_m5": 2,
    "sells_m5": 0,
    "holders": null,
@@ -3801,70 +3789,19 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 22 trades in the last hour: no real activity"
+    "only 45 trades in the last hour: no real activity"
    ],
    "links": [
     {
-     "type": "Website",
-     "url": "https://meowi.org/"
-    },
-    {
      "type": "twitter",
-     "url": "https://x.com/meowi_org"
+     "url": "https://x.com/Gambla100x/status/2126372012121805090?a=uAJmKPJWfk0GNbLCvAo&s=20"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795793492217,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "Fyhpv64QLTYaFeQ9yy6YxxGY53edRPHCq4RRkTBapump",
-   "symbol": "MINT",
-   "name": "MintMyGame",
-   "url": "https://dexscreener.com/solana/cycxby9j74jmi9wqwnjhbmlc4xbrecqxil8oye7dlywg",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000007233,
-   "mcap": 7233,
-   "liq": null,
-   "age_h": 22.3,
-   "chg_m5": -0.26,
-   "chg_h1": -16.98,
-   "chg_h24": 232,
-   "vol_h1": 758,
-   "buys_h1": 30,
-   "sells_h1": 13,
-   "buys_m5": 1,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $7,233 is below $15,000: too early to tell a launch from a dud",
-    "only 43 trades in the last hour: no real activity"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://mintmygame.com/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/MintMyGame"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795784002929,
+   "first_seen": 1795802109374,
    "buzz": null,
    "themes": []
   },
@@ -3875,17 +3812,17 @@
    "url": "https://dexscreener.com/solana/fjqpf6k75gewfhzfe2ivnb3ygxn97haxecanxn9wemwb",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.00001367,
-   "mcap": 13674,
+   "price": 0.00001491,
+   "mcap": 14920,
    "liq": null,
-   "age_h": 12,
-   "chg_m5": 0.33,
-   "chg_h1": 2.11,
-   "chg_h24": 545,
-   "vol_h1": 656,
-   "buys_h1": 22,
-   "sells_h1": 12,
-   "buys_m5": 2,
+   "age_h": 12.2,
+   "chg_m5": 0.6,
+   "chg_h1": 16.22,
+   "chg_h24": 604,
+   "vol_h1": 692,
+   "buys_h1": 27,
+   "sells_h1": 8,
+   "buys_m5": 4,
    "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
@@ -3894,8 +3831,8 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $13,674 is below $15,000: too early to tell a launch from a dud",
-    "only 34 trades in the last hour: no real activity"
+    "market cap $14,920 is below $15,000: too early to tell a launch from a dud",
+    "only 35 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -3922,18 +3859,18 @@
    "url": "https://dexscreener.com/solana/aso1pdfe7jqwlt2vdt4ry1qwubitduqhwrwtsd2vv2ps",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00000725,
-   "mcap": 7237,
-   "liq": 5536,
-   "age_h": 21.7,
-   "chg_m5": -0.4,
-   "chg_h1": -12.75,
-   "chg_h24": -76.02,
-   "vol_h1": 611,
+   "price": 0.000007329,
+   "mcap": 7315,
+   "liq": 5576,
+   "age_h": 21.9,
+   "chg_m5": 0,
+   "chg_h1": -12.98,
+   "chg_h24": -75.76,
+   "vol_h1": 633,
    "buys_h1": 13,
-   "sells_h1": 22,
+   "sells_h1": 23,
    "buys_m5": 0,
-   "sells_m5": 2,
+   "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -3941,10 +3878,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $7,237 is below $15,000: too early to tell a launch from a dud",
+    "market cap $7,315 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 76% in 24h",
-    "only 35 trades in the last hour: no real activity",
-    "liquidity $5,536 is too thin to exit"
+    "only 36 trades in the last hour: no real activity",
+    "liquidity $5,576 is too thin to exit"
    ],
    "links": [
     {
@@ -3965,74 +3902,23 @@
    "themes": []
   },
   {
-   "address": "85cQsFgbi8mBZxiPppbpPXuV7j1hA8tBwhjF4gKW6mHg",
-   "symbol": "Rizzmas",
-   "name": "Rizzmas",
-   "url": "https://dexscreener.com/solana/hgrvezf83hm2x5hovx9ec2cbiajtmwfhk6vcuplh4ydy",
-   "dex": "raydium",
-   "quote": "SOL",
-   "price": 0.000001305,
-   "mcap": 648397,
-   "liq": 220496,
-   "age_h": 25672.8,
-   "chg_m5": 0.03,
-   "chg_h1": -0.39,
-   "chg_h24": 2.77,
-   "vol_h1": 607,
-   "buys_h1": 20,
-   "sells_h1": 10,
-   "buys_m5": 5,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 30 trades in the last hour: no real activity",
-    "1070 days old: not early"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://rizzmas.org"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/OGRIZZMAS"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/OGRizzmas"
-    }
-   ],
-   "boost": 100,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795799523048,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "FVBzzG4ZcAgxSLW1rWjNC9EH9CgEgz1A4puNYexMpump",
    "symbol": "bolphante",
    "name": "bolume elephante",
    "url": "https://dexscreener.com/solana/f84femc2ftwyaf9j1al2r6vsacyf2dttcg3wxxm7yfnb",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000007501,
-   "mcap": 7488,
-   "liq": 5093,
-   "age_h": 41.7,
-   "chg_m5": -0.54,
-   "chg_h1": -18.31,
-   "chg_h24": -71.66,
-   "vol_h1": 580,
-   "buys_h1": 24,
-   "sells_h1": 16,
-   "buys_m5": 1,
+   "price": 0.000007649,
+   "mcap": 7636,
+   "liq": 5157,
+   "age_h": 41.9,
+   "chg_m5": 0,
+   "chg_h1": -16.7,
+   "chg_h24": -69.86,
+   "vol_h1": 632,
+   "buys_h1": 27,
+   "sells_h1": 17,
+   "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
@@ -4041,56 +3927,14 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $7,488 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 72% in 24h",
-    "only 40 trades in the last hour: no real activity",
-    "liquidity $5,093 is too thin to exit"
+    "market cap $7,636 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 70% in 24h",
+    "only 44 trades in the last hour: no real activity",
+    "liquidity $5,157 is too thin to exit"
    ],
    "links": [],
    "boost": 0,
    "sources": [],
-   "first_seen": 1795802109374,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "4an4F8Wdi1tXUCFarrhcQvZY4MCVvixcRhT4pANusbha",
-   "symbol": "boing",
-   "name": "boingcat",
-   "url": "https://dexscreener.com/solana/hv6welhw5yw4uxcbmqn11n29itwhjpmspggjhuafwftg",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00002093,
-   "mcap": 20902,
-   "liq": 9019,
-   "age_h": 16.8,
-   "chg_m5": 1.64,
-   "chg_h1": -4.09,
-   "chg_h24": -36.48,
-   "vol_h1": 565,
-   "buys_h1": 17,
-   "sells_h1": 23,
-   "buys_m5": 1,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 40 trades in the last hour: no real activity"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/Gambla100x/status/2126372012121805090?a=uAJmKPJWfk0GNbLCvAo&s=20"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
    "first_seen": 1795802109374,
    "buzz": null,
    "themes": []
@@ -4102,18 +3946,18 @@
    "url": "https://dexscreener.com/solana/43qs3swqke6n16xypgiin4lio8duuoxex3ngbgtmbmuc",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00000414,
-   "mcap": 4137,
-   "liq": 3303,
-   "age_h": 6.7,
-   "chg_m5": 0,
-   "chg_h1": -19.54,
-   "chg_h24": -85.8,
-   "vol_h1": 456,
-   "buys_h1": 10,
-   "sells_h1": 19,
-   "buys_m5": 0,
-   "sells_m5": 0,
+   "price": 0.000004125,
+   "mcap": 4122,
+   "liq": 3294,
+   "age_h": 7,
+   "chg_m5": -4.78,
+   "chg_h1": -6.23,
+   "chg_h24": -85.85,
+   "vol_h1": 413,
+   "buys_h1": 13,
+   "sells_h1": 20,
+   "buys_m5": 1,
+   "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4121,10 +3965,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $4,137 is below $15,000: too early to tell a launch from a dud",
+    "market cap $4,122 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 86% in 24h",
-    "only 29 trades in the last hour: no real activity",
-    "liquidity $3,303 is too thin to exit"
+    "only 33 trades in the last hour: no real activity",
+    "liquidity $3,294 is too thin to exit"
    ],
    "links": [
     {
@@ -4154,7 +3998,7 @@
    "price": 0.00001156,
    "mcap": 11564,
    "liq": null,
-   "age_h": 41,
+   "age_h": 41.2,
    "chg_m5": 0,
    "chg_h1": -3.6,
    "chg_h24": 167,
@@ -4201,12 +4045,12 @@
    "price": 0.000008241,
    "mcap": 8197,
    "liq": 5483,
-   "age_h": 19.1,
+   "age_h": 19.4,
    "chg_m5": 0,
-   "chg_h1": -22.28,
+   "chg_h1": -22.5,
    "chg_h24": -79.83,
-   "vol_h1": 366,
-   "buys_h1": 2,
+   "vol_h1": 365,
+   "buys_h1": 1,
    "sells_h1": 11,
    "buys_m5": 0,
    "sells_m5": 0,
@@ -4219,7 +4063,7 @@
    "red_flags": [
     "market cap $8,197 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 80% in 24h",
-    "only 13 trades in the last hour: no real activity",
+    "only 12 trades in the last hour: no real activity",
     "liquidity $5,483 is too thin to exit"
    ],
    "links": [
@@ -4259,16 +4103,16 @@
    "url": "https://dexscreener.com/solana/6weshnj3pe5uzjydfh9fohqz2ywur5vcm4pjvywtjd58",
    "dex": "pumpswap",
    "quote": "NVDAx",
-   "price": 0.000007168,
-   "mcap": 7169,
-   "liq": 6088,
-   "age_h": 18.4,
+   "price": 0.000006889,
+   "mcap": 6890,
+   "liq": 5926,
+   "age_h": 18.7,
    "chg_m5": 0,
-   "chg_h1": 1.58,
-   "chg_h24": -83.1,
-   "vol_h1": 317,
+   "chg_h1": -3.34,
+   "chg_h24": -83.75,
+   "vol_h1": 336,
    "buys_h1": 6,
-   "sells_h1": 10,
+   "sells_h1": 12,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -4278,10 +4122,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $7,169 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 83% in 24h",
-    "only 16 trades in the last hour: no real activity",
-    "liquidity $6,088 is too thin to exit"
+    "market cap $6,890 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 84% in 24h",
+    "only 18 trades in the last hour: no real activity",
+    "liquidity $5,926 is too thin to exit"
    ],
    "links": [
     {
@@ -4308,18 +4152,18 @@
    "url": "https://dexscreener.com/solana/7knydybhbgmdqczmksxqnzg4p4pgc6vperzmfpbptgso",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00001647,
-   "mcap": 16073,
-   "liq": 9928,
-   "age_h": 71.6,
-   "chg_m5": 0.17,
-   "chg_h1": -1.3,
-   "chg_h24": -49.81,
-   "vol_h1": 297,
-   "buys_h1": 6,
-   "sells_h1": 10,
+   "price": 0.00001583,
+   "mcap": 15455,
+   "liq": 9716,
+   "age_h": 71.9,
+   "chg_m5": -3.1,
+   "chg_h1": -5.08,
+   "chg_h24": -51.86,
+   "vol_h1": 328,
+   "buys_h1": 7,
+   "sells_h1": 11,
    "buys_m5": 1,
-   "sells_m5": 0,
+   "sells_m5": 2,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4327,7 +4171,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 16 trades in the last hour: no real activity"
+    "only 18 trades in the last hour: no real activity"
    ],
    "links": [],
    "boost": 0,
@@ -4343,18 +4187,18 @@
    "url": "https://dexscreener.com/solana/faw4krf9c8mvjzp87ftkbo7j8m8wl1hsd71ditrwejri",
    "dex": "pumpswap",
    "quote": "USDC",
-   "price": 0.000006496,
-   "mcap": 6496,
-   "liq": 6205,
-   "age_h": 12.9,
-   "chg_m5": 0,
-   "chg_h1": 0.03,
-   "chg_h24": -90.61,
-   "vol_h1": 297,
-   "buys_h1": 10,
-   "sells_h1": 15,
-   "buys_m5": 0,
-   "sells_m5": 0,
+   "price": 0.000006312,
+   "mcap": 6312,
+   "liq": 6081,
+   "age_h": 13.1,
+   "chg_m5": 0.47,
+   "chg_h1": -0.14,
+   "chg_h24": -90.87,
+   "vol_h1": 259,
+   "buys_h1": 11,
+   "sells_h1": 17,
+   "buys_m5": 2,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4362,10 +4206,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $6,496 is below $15,000: too early to tell a launch from a dud",
+    "market cap $6,312 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 91% in 24h",
-    "only 25 trades in the last hour: no real activity",
-    "liquidity $6,205 is too thin to exit"
+    "only 28 trades in the last hour: no real activity",
+    "liquidity $6,081 is too thin to exit"
    ],
    "links": [
     {
@@ -4391,7 +4235,7 @@
    "price": 0.00001296,
    "mcap": 12964,
    "liq": 7282,
-   "age_h": 21.2,
+   "age_h": 21.5,
    "chg_m5": 0,
    "chg_h1": -2.45,
    "chg_h24": 219,
@@ -4434,23 +4278,23 @@
    "themes": []
   },
   {
-   "address": "2g3NFpebwCV6Abz7AhmVC4xmsaczQXbqxHV4Khy4pump",
-   "symbol": "SHELF",
-   "name": "Bot Shelf",
-   "url": "https://dexscreener.com/solana/fxcaysdsyjtmzcjn1adqstjbaqwetci6vvhhg5ctbifk",
+   "address": "7mSf4uWLkgdkqBfSoxniv5aZ1sDCXCiquJNcisjXpump",
+   "symbol": "Fug",
+   "name": "Fug It",
+   "url": "https://dexscreener.com/solana/2d13zkujs5qruul2amysfvgkplaaqwuygtlrrjynef4k",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00001712,
-   "mcap": 16307,
-   "liq": 8254,
-   "age_h": 178.8,
-   "chg_m5": 0,
-   "chg_h1": -1.25,
-   "chg_h24": -5.48,
-   "vol_h1": 171,
-   "buys_h1": 1,
-   "sells_h1": 4,
-   "buys_m5": 0,
+   "price": 0.000005017,
+   "mcap": 5018,
+   "liq": 3767,
+   "age_h": 16.1,
+   "chg_m5": 4.59,
+   "chg_h1": 13.82,
+   "chg_h24": -83.1,
+   "vol_h1": 186,
+   "buys_h1": 15,
+   "sells_h1": 2,
+   "buys_m5": 3,
    "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
@@ -4459,28 +4303,104 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 5 trades in the last hour: no real activity",
-    "7 days old: not early"
+    "market cap $5,018 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 83% in 24h",
+    "only 17 trades in the last hour: no real activity",
+    "liquidity $3,767 is too thin to exit"
    ],
    "links": [
     {
-     "type": "website",
-     "url": "https://botshelf.dev"
-    },
+     "type": "twitter",
+     "url": "https://x.com/fugitonpf?s=11"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795801246999,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "Bwwc9n2mPn1k5rGv6UjAudiPPYmQpSzYevddjdmHpump",
+   "symbol": "MEOWI",
+   "name": "MEOWI",
+   "url": "https://dexscreener.com/solana/g7nr24elfiw1wktwhbycywfnwvyjkffmmonrrgczwstg",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00006631,
+   "mcap": 66207,
+   "liq": 17080,
+   "age_h": 38,
+   "chg_m5": -0.48,
+   "chg_h1": -4.66,
+   "chg_h24": -20.33,
+   "vol_h1": 179,
+   "buys_h1": 2,
+   "sells_h1": 8,
+   "buys_m5": 0,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 10 trades in the last hour: no real activity"
+   ],
+   "links": [
     {
-     "type": "website",
-     "url": "https://x.com/cradrrat/status/2123881962607948025?a=CuMoGeM5RY2ryevAgKo&s=20"
+     "type": "Website",
+     "url": "https://meowi.org/"
     },
     {
      "type": "twitter",
-     "url": "https://x.com/cradrrat"
+     "url": "https://x.com/meowi_org"
     }
    ],
-   "boost": 10,
+   "boost": 0,
    "sources": [
-    "paid boost"
+    "new profile"
    ],
-   "first_seen": 1795827960782,
+   "first_seen": 1795793492217,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "9fj8BVkUP8xrt68trV44TnpJfS7iUaQ3CmugE9bSpump",
+   "symbol": "FCAT",
+   "name": "The Fantasy Cat",
+   "url": "https://dexscreener.com/solana/ch8r31mhab45tbgitb4cg67zyo7nff78juvqe4qnwbwt",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000004827,
+   "mcap": 4828,
+   "liq": null,
+   "age_h": 49,
+   "chg_m5": -0.55,
+   "chg_h1": 7.95,
+   "chg_h24": 110,
+   "vol_h1": 177,
+   "buys_h1": 5,
+   "sells_h1": 3,
+   "buys_m5": 0,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $4,828 is below $15,000: too early to tell a launch from a dud",
+    "only 8 trades in the last hour: no real activity"
+   ],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795777980898,
    "buzz": null,
    "themes": []
   },
@@ -4491,16 +4411,16 @@
    "url": "https://dexscreener.com/solana/a17d9vrouawb9xi6kt4mrq5zaptegcnqznjzlfivhivq",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.0000941,
-   "mcap": 89712,
-   "liq": 20817,
-   "age_h": 210.1,
+   "price": 0.00009272,
+   "mcap": 88405,
+   "liq": 20646,
+   "age_h": 210.3,
    "chg_m5": 0,
-   "chg_h1": -0.02,
-   "chg_h24": 11.43,
+   "chg_h1": -1.47,
+   "chg_h24": 9.81,
    "vol_h1": 153,
    "buys_h1": 1,
-   "sells_h1": 1,
+   "sells_h1": 2,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -4510,7 +4430,7 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "only 2 trades in the last hour: no real activity",
+    "only 3 trades in the last hour: no real activity",
     "9 days old: not early"
    ],
    "links": [
@@ -4536,6 +4456,57 @@
    "themes": []
   },
   {
+   "address": "2g3NFpebwCV6Abz7AhmVC4xmsaczQXbqxHV4Khy4pump",
+   "symbol": "SHELF",
+   "name": "Bot Shelf",
+   "url": "https://dexscreener.com/solana/fxcaysdsyjtmzcjn1adqstjbaqwetci6vvhhg5ctbifk",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.00001712,
+   "mcap": 16307,
+   "liq": 8254,
+   "age_h": 179.1,
+   "chg_m5": 0,
+   "chg_h1": 0.12,
+   "chg_h24": -5.48,
+   "vol_h1": 151,
+   "buys_h1": 1,
+   "sells_h1": 3,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 4 trades in the last hour: no real activity",
+    "7 days old: not early"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://botshelf.dev"
+    },
+    {
+     "type": "website",
+     "url": "https://x.com/cradrrat/status/2123881962607948025?a=CuMoGeM5RY2ryevAgKo&s=20"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/cradrrat"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795827960782,
+   "buzz": null,
+   "themes": []
+  },
+  {
    "address": "FokVFH6mDsazoKbtnUaA2FRMsRbDSwZhNfn17Fdvpump",
    "symbol": "Maru",
    "name": "Marucoin",
@@ -4545,13 +4516,13 @@
    "price": 0.000002382,
    "mcap": 2383,
    "liq": 2311,
-   "age_h": 47.7,
+   "age_h": 47.9,
    "chg_m5": 0,
-   "chg_h1": -7.66,
+   "chg_h1": -5.97,
    "chg_h24": -14.28,
-   "vol_h1": 148,
-   "buys_h1": 4,
-   "sells_h1": 4,
+   "vol_h1": 143,
+   "buys_h1": 3,
+   "sells_h1": 2,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -4562,7 +4533,7 @@
    "concerns": [],
    "red_flags": [
     "market cap $2,383 is below $15,000: too early to tell a launch from a dud",
-    "only 8 trades in the last hour: no real activity",
+    "only 5 trades in the last hour: no real activity",
     "liquidity $2,311 is too thin to exit"
    ],
    "links": [],
@@ -4573,22 +4544,59 @@
    "themes": []
   },
   {
-   "address": "7yizwJWbcayGTzF9xpibm3j1T2dvHj1vAtk9tqLfpump",
-   "symbol": "FLIP",
-   "name": "Flip",
-   "url": "https://dexscreener.com/solana/7etfgjoudac34hfd44insqila9yuzjxpnzanen45rn7b",
+   "address": "B41wDynVRaPDrQjTMCospcAdd4mUkx9i7Btgacppump",
+   "symbol": "CREDITS",
+   "name": "Galactic Gaming Network",
+   "url": "https://dexscreener.com/solana/3n4zfpyn9iwthruehmscqsxdqxdvetnp14ctnu8wsbon",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000002993,
+   "mcap": 2994,
+   "liq": null,
+   "age_h": 45.6,
+   "chg_m5": -0.04,
+   "chg_h1": -5.59,
+   "chg_h24": -87.36,
+   "vol_h1": 140,
+   "buys_h1": 1,
+   "sells_h1": 5,
+   "buys_m5": 0,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $2,994 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 87% in 24h",
+    "only 6 trades in the last hour: no real activity"
+   ],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795787440525,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "HkPSDYRcw4uqgRzZMDd5sRnMpE4ungR1K8MRNXnBVtQ2",
+   "symbol": "Legatum",
+   "name": "Legatum",
+   "url": "https://dexscreener.com/solana/v4tmdhkumg8mmumxrac6u8rqaya5rgfac7z65ns8erc",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.00000219,
-   "mcap": 2189,
-   "liq": 2063,
-   "age_h": 6.3,
+   "price": 0.000004889,
+   "mcap": 4889,
+   "liq": 3738,
+   "age_h": 45.4,
    "chg_m5": 0,
-   "chg_h1": -13.7,
-   "chg_h24": -93.11,
-   "vol_h1": 139,
+   "chg_h1": -10.02,
+   "chg_h24": -61.83,
+   "vol_h1": 130,
    "buys_h1": 1,
-   "sells_h1": 10,
+   "sells_h1": 3,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -4598,10 +4606,98 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,189 is below $15,000: too early to tell a launch from a dud",
+    "market cap $4,889 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 62% in 24h",
+    "only 4 trades in the last hour: no real activity",
+    "liquidity $3,738 is too thin to exit"
+   ],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795788299795,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "JsZzPnKpc9JnAy7YrGPm4RurqyzMcGG9aZpt7UKoSmo",
+   "symbol": "STDVI",
+   "name": "STD6",
+   "url": "https://dexscreener.com/solana/egewjzeo4kt4qc53t6ceufizxk15jkaxpqsxajnyvkwj",
+   "dex": "raydium",
+   "quote": "SOL",
+   "price": 0.0000256,
+   "mcap": 25600,
+   "liq": 11325,
+   "age_h": 15.8,
+   "chg_m5": 0,
+   "chg_h1": -3.82,
+   "chg_h24": -13.65,
+   "vol_h1": 107,
+   "buys_h1": 0,
+   "sells_h1": 1,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 1 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://gtastd6.xyz/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/gtastd6"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/stdvlgta"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795808139187,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "7yizwJWbcayGTzF9xpibm3j1T2dvHj1vAtk9tqLfpump",
+   "symbol": "FLIP",
+   "name": "Flip",
+   "url": "https://dexscreener.com/solana/7etfgjoudac34hfd44insqila9yuzjxpnzanen45rn7b",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000002165,
+   "mcap": 2164,
+   "liq": 2042,
+   "age_h": 6.6,
+   "chg_m5": 0,
+   "chg_h1": -11.71,
+   "chg_h24": -93.19,
+   "vol_h1": 107,
+   "buys_h1": 1,
+   "sells_h1": 8,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $2,164 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 93% in 24h",
-    "only 11 trades in the last hour: no real activity",
-    "liquidity $2,063 is too thin to exit"
+    "only 9 trades in the last hour: no real activity",
+    "liquidity $2,042 is too thin to exit"
    ],
    "links": [
     {
@@ -4622,252 +4718,6 @@
    "themes": []
   },
   {
-   "address": "B41wDynVRaPDrQjTMCospcAdd4mUkx9i7Btgacppump",
-   "symbol": "CREDITS",
-   "name": "Galactic Gaming Network",
-   "url": "https://dexscreener.com/solana/3n4zfpyn9iwthruehmscqsxdqxdvetnp14ctnu8wsbon",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000003005,
-   "mcap": 3006,
-   "liq": null,
-   "age_h": 45.4,
-   "chg_m5": 2.4,
-   "chg_h1": -5.22,
-   "chg_h24": -85.73,
-   "vol_h1": 134,
-   "buys_h1": 1,
-   "sells_h1": 3,
-   "buys_m5": 1,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $3,006 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 86% in 24h",
-    "only 4 trades in the last hour: no real activity"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795787440525,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "9fj8BVkUP8xrt68trV44TnpJfS7iUaQ3CmugE9bSpump",
-   "symbol": "FCAT",
-   "name": "The Fantasy Cat",
-   "url": "https://dexscreener.com/solana/ch8r31mhab45tbgitb4cg67zyo7nff78juvqe4qnwbwt",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000004657,
-   "mcap": 4658,
-   "liq": null,
-   "age_h": 48.7,
-   "chg_m5": 0,
-   "chg_h1": 1.94,
-   "chg_h24": 102,
-   "vol_h1": 133,
-   "buys_h1": 3,
-   "sells_h1": 5,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $4,658 is below $15,000: too early to tell a launch from a dud",
-    "only 8 trades in the last hour: no real activity"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795777980898,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "HkPSDYRcw4uqgRzZMDd5sRnMpE4ungR1K8MRNXnBVtQ2",
-   "symbol": "Legatum",
-   "name": "Legatum",
-   "url": "https://dexscreener.com/solana/v4tmdhkumg8mmumxrac6u8rqaya5rgfac7z65ns8erc",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.00000513,
-   "mcap": 5131,
-   "liq": 3859,
-   "age_h": 45.1,
-   "chg_m5": -7.21,
-   "chg_h1": -5.57,
-   "chg_h24": -60.7,
-   "vol_h1": 129,
-   "buys_h1": 1,
-   "sells_h1": 2,
-   "buys_m5": 0,
-   "sells_m5": 2,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $5,131 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 61% in 24h",
-    "only 3 trades in the last hour: no real activity",
-    "liquidity $3,859 is too thin to exit"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795788299795,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "F5LxbqJxAMrvfxLbqPckErmqNyiPzDJMUXnX8vrhpump",
-   "symbol": "KITT",
-   "name": "Kitt",
-   "url": "https://dexscreener.com/solana/cn4he1ujaoj3sxtwy1wx9rgjj1qqzgh5w34sfho2cedv",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000001705,
-   "mcap": 1706,
-   "liq": 1796,
-   "age_h": 21.1,
-   "chg_m5": 0,
-   "chg_h1": -8.75,
-   "chg_h24": -94.45,
-   "vol_h1": 123,
-   "buys_h1": 1,
-   "sells_h1": 3,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $1,706 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 94% in 24h",
-    "only 4 trades in the last hour: no real activity",
-    "liquidity $1,796 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/heyquantyou/status/2126298048720752895"
-    },
-    {
-     "type": "instagram",
-     "url": "https://www.instagram.com/p/Df2SsnjP-3v/"
-    }
-   ],
-   "boost": 10,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795787440525,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "WZVWLfThgm14NN8HRDoyiEeXVvdUDMzGMHUS3VLpump",
-   "symbol": "FINGART",
-   "name": "FINGART",
-   "url": "https://dexscreener.com/solana/d7yg57fpbwjyzmijqye4kmizuoz8sesvtbqmmcsxu9pu",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000002034,
-   "mcap": 2032,
-   "liq": 2113,
-   "age_h": 4.8,
-   "chg_m5": 0,
-   "chg_h1": 3.79,
-   "chg_h24": -93.1,
-   "vol_h1": 120,
-   "buys_h1": 8,
-   "sells_h1": 35,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $2,032 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 93% in 24h",
-    "only 43 trades in the last hour: no real activity",
-    "liquidity $2,113 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://fingart.xyz/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/fingarts"
-    }
-   ],
-   "boost": 100,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795847838762,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "8LbBWesEQ5myfamxhxHtZ295RbvDigqSj2iCYex5pump",
-   "symbol": "Kuro",
-   "name": "Kuro",
-   "url": "https://dexscreener.com/solana/8qjopbvxgxf3otqokpyoabuw7eo94ahlqdknmeb5rr5m",
-   "dex": "pumpswap",
-   "quote": "SPCX",
-   "price": 0.000005533,
-   "mcap": 5525,
-   "liq": 5048,
-   "age_h": 42.2,
-   "chg_m5": -2.05,
-   "chg_h1": -5.69,
-   "chg_h24": 1.98,
-   "vol_h1": 90,
-   "buys_h1": 0,
-   "sells_h1": 3,
-   "buys_m5": 0,
-   "sells_m5": 1,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $5,525 is below $15,000: too early to tell a launch from a dud",
-    "only 3 trades in the last hour: no real activity",
-    "liquidity $5,048 is too thin to exit"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795800384617,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "2va3NUJtEcPemDYg2N1RgA79rPKGTGGJKo3gTY5zpump",
    "symbol": "WOOPY",
    "name": "Woopy Dog",
@@ -4877,15 +4727,15 @@
    "price": 0.000003582,
    "mcap": 3579,
    "liq": 4520,
-   "age_h": 13418.8,
-   "chg_m5": -3.75,
+   "age_h": 13419,
+   "chg_m5": 0,
    "chg_h1": -10.87,
-   "chg_h24": -99.33,
+   "chg_h24": -99.29,
    "vol_h1": 78,
    "buys_h1": 3,
    "sells_h1": 4,
    "buys_m5": 0,
-   "sells_m5": 2,
+   "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4924,18 +4774,18 @@
    "url": "https://dexscreener.com/solana/hnhvvfdcywypzhjnrkhssd7bi5nphidglmy71elvrfqj",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000002072,
-   "mcap": 2069,
-   "liq": 1992,
-   "age_h": 18.6,
-   "chg_m5": -0.27,
-   "chg_h1": -6.43,
-   "chg_h24": -93.15,
-   "vol_h1": 76,
-   "buys_h1": 3,
-   "sells_h1": 10,
+   "price": 0.000002086,
+   "mcap": 2083,
+   "liq": 2003,
+   "age_h": 18.8,
+   "chg_m5": 0,
+   "chg_h1": -5.04,
+   "chg_h24": -93.1,
+   "vol_h1": 75,
+   "buys_h1": 4,
+   "sells_h1": 7,
    "buys_m5": 0,
-   "sells_m5": 1,
+   "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -4943,10 +4793,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,069 is below $15,000: too early to tell a launch from a dud",
+    "market cap $2,083 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 93% in 24h",
-    "only 13 trades in the last hour: no real activity",
-    "liquidity $1,992 is too thin to exit"
+    "only 11 trades in the last hour: no real activity",
+    "liquidity $2,003 is too thin to exit"
    ],
    "links": [
     {
@@ -4967,22 +4817,22 @@
    "themes": []
   },
   {
-   "address": "ASQAXq3M6N7WKJHdKNFUJMPfRcBCfpjR6qXFRnNjHPAY",
-   "symbol": "HPAY",
-   "name": "HOSTPAY",
-   "url": "https://dexscreener.com/solana/j1ofxa8d3nuzdkptzvx71ztfwcgdkuglbr1fbkstmsmn",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.0000129,
-   "mcap": 12901,
-   "liq": null,
-   "age_h": 46.7,
+   "address": "8LbBWesEQ5myfamxhxHtZ295RbvDigqSj2iCYex5pump",
+   "symbol": "Kuro",
+   "name": "Kuro",
+   "url": "https://dexscreener.com/solana/8qjopbvxgxf3otqokpyoabuw7eo94ahlqdknmeb5rr5m",
+   "dex": "pumpswap",
+   "quote": "SPCX",
+   "price": 0.000005533,
+   "mcap": 5525,
+   "liq": 5048,
+   "age_h": 42.5,
    "chg_m5": 0,
-   "chg_h1": 1,
-   "chg_h24": 63.27,
+   "chg_h1": -4.31,
+   "chg_h24": 1.25,
    "vol_h1": 73,
-   "buys_h1": 4,
-   "sells_h1": 3,
+   "buys_h1": 0,
+   "sells_h1": 2,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -4992,28 +4842,108 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $12,901 is below $15,000: too early to tell a launch from a dud",
-    "only 7 trades in the last hour: no real activity"
+    "market cap $5,525 is below $15,000: too early to tell a launch from a dud",
+    "only 2 trades in the last hour: no real activity",
+    "liquidity $5,048 is too thin to exit"
+   ],
+   "links": [],
+   "boost": 0,
+   "sources": [],
+   "first_seen": 1795800384617,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "39nuVgw8RCVC8PgGuuuaa8WoAERA61cTw85oUvBLT2va",
+   "symbol": "COMPUTE",
+   "name": "ComputeCoin",
+   "url": "https://dexscreener.com/solana/6rsk4radbmwzuvpq6omvt7djbsjxbbgusppdgpbrdv4z",
+   "dex": "pumpswap",
+   "quote": "NVDAx",
+   "price": 0.000003118,
+   "mcap": 3119,
+   "liq": 3183,
+   "age_h": 20.6,
+   "chg_m5": 0,
+   "chg_h1": -3.12,
+   "chg_h24": -93.19,
+   "vol_h1": 71,
+   "buys_h1": 1,
+   "sells_h1": 4,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $3,119 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 93% in 24h",
+    "only 5 trades in the last hour: no real activity",
+    "liquidity $3,183 is too thin to exit"
    ],
    "links": [
     {
-     "type": "website",
-     "url": "https://www.hostpayapp.com/gm"
-    },
+     "type": "twitter",
+     "url": "https://x.com/ComputeCoinSol"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795799523048,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "F5LxbqJxAMrvfxLbqPckErmqNyiPzDJMUXnX8vrhpump",
+   "symbol": "KITT",
+   "name": "Kitt",
+   "url": "https://dexscreener.com/solana/cn4he1ujaoj3sxtwy1wx9rgjj1qqzgh5w34sfho2cedv",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000001705,
+   "mcap": 1706,
+   "liq": 1796,
+   "age_h": 21.3,
+   "chg_m5": 0,
+   "chg_h1": -2.28,
+   "chg_h24": -94.45,
+   "vol_h1": 69,
+   "buys_h1": 1,
+   "sells_h1": 1,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $1,706 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 94% in 24h",
+    "only 2 trades in the last hour: no real activity",
+    "liquidity $1,796 is too thin to exit"
+   ],
+   "links": [
     {
      "type": "twitter",
-     "url": "https://x.com/HOSTPAY_SOL"
+     "url": "https://x.com/heyquantyou/status/2126298048720752895"
     },
     {
-     "type": "telegram",
-     "url": "https://t.me/HOSTPAYOfficial"
+     "type": "instagram",
+     "url": "https://www.instagram.com/p/Df2SsnjP-3v/"
     }
    ],
    "boost": 10,
    "sources": [
     "paid boost"
    ],
-   "first_seen": 1795850413635,
+   "first_seen": 1795787440525,
    "buzz": null,
    "themes": []
   },
@@ -5027,7 +4957,7 @@
    "price": 0.000002023,
    "mcap": 2023,
    "liq": 2003,
-   "age_h": 15.8,
+   "age_h": 16.1,
    "chg_m5": 0,
    "chg_h1": -5.9,
    "chg_h24": -92.57,
@@ -5076,10 +5006,10 @@
    "price": 0.000007994,
    "mcap": 7994,
    "liq": null,
-   "age_h": 41.9,
+   "age_h": 42.2,
    "chg_m5": 0,
    "chg_h1": -2.97,
-   "chg_h24": -52.08,
+   "chg_h24": -49.99,
    "vol_h1": 67,
    "buys_h1": 0,
    "sells_h1": 1,
@@ -5124,18 +5054,18 @@
    "url": "https://dexscreener.com/solana/e9pbfeppc7yk7oijlpoze3fcwjmu2a32ma86pelfcs4m",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000002617,
-   "mcap": 2618,
+   "price": 0.000002557,
+   "mcap": 2558,
    "liq": null,
-   "age_h": 23.4,
-   "chg_m5": 0,
-   "chg_h1": -4.21,
-   "chg_h24": 23.82,
-   "vol_h1": 53,
+   "age_h": 23.6,
+   "chg_m5": -0.25,
+   "chg_h1": -5.22,
+   "chg_h24": 20.99,
+   "vol_h1": 63,
    "buys_h1": 2,
-   "sells_h1": 11,
+   "sells_h1": 8,
    "buys_m5": 0,
-   "sells_m5": 0,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -5143,8 +5073,8 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,618 is below $15,000: too early to tell a launch from a dud",
-    "only 13 trades in the last hour: no real activity"
+    "market cap $2,558 is below $15,000: too early to tell a launch from a dud",
+    "only 10 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -5165,20 +5095,169 @@
    "themes": []
   },
   {
-   "address": "CtnAczyFyL4BSnQxyYiZmbTxDKQgsfXgd227XNwVpump",
-   "symbol": "FLOW",
-   "name": "stole my whole flow",
-   "url": "https://dexscreener.com/solana/9voqrnawfy7bare2mmphco1elhxtxvcbfaakhgcqgnpg",
+   "address": "HpN63T13XBcp2xmM6yRkGPB5HMwxtXTghCQjooS8pump",
+   "symbol": "MEMES",
+   "name": "Memes Corporation",
+   "url": "https://dexscreener.com/solana/ccym9vlk4gzrf2qvdhrbqacpuvmq4cekj4pdapoyrdbk",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000002825,
+   "mcap": 2822,
+   "liq": 2521,
+   "age_h": 6.4,
+   "chg_m5": 0,
+   "chg_h1": -5.36,
+   "chg_h24": -90.58,
+   "vol_h1": 60,
+   "buys_h1": 0,
+   "sells_h1": 2,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $2,822 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 91% in 24h",
+    "only 2 trades in the last hour: no real activity",
+    "liquidity $2,521 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://memescorp.org/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/TheMemesCorp"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795841820288,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "WZVWLfThgm14NN8HRDoyiEeXVvdUDMzGMHUS3VLpump",
+   "symbol": "FINGART",
+   "name": "FINGART",
+   "url": "https://dexscreener.com/solana/d7yg57fpbwjyzmijqye4kmizuoz8sesvtbqmmcsxu9pu",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000002056,
+   "mcap": 2055,
+   "liq": 2131,
+   "age_h": 5,
+   "chg_m5": 1.23,
+   "chg_h1": 4.79,
+   "chg_h24": -93.03,
+   "vol_h1": 52,
+   "buys_h1": 4,
+   "sells_h1": 16,
+   "buys_m5": 1,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $2,055 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 93% in 24h",
+    "only 20 trades in the last hour: no real activity",
+    "liquidity $2,131 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://fingart.xyz/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/fingarts"
+    }
+   ],
+   "boost": 100,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795847838762,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "ASQAXq3M6N7WKJHdKNFUJMPfRcBCfpjR6qXFRnNjHPAY",
+   "symbol": "HPAY",
+   "name": "HOSTPAY",
+   "url": "https://dexscreener.com/solana/j1ofxa8d3nuzdkptzvx71ztfwcgdkuglbr1fbkstmsmn",
    "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000004685,
-   "mcap": 4685,
+   "price": 0.00001308,
+   "mcap": 13083,
    "liq": null,
-   "age_h": 0,
+   "age_h": 47,
    "chg_m5": 0,
-   "chg_h1": -2.85,
-   "chg_h24": 109,
-   "vol_h1": 51,
+   "chg_h1": 0.83,
+   "chg_h24": 65.57,
+   "vol_h1": 48,
+   "buys_h1": 4,
+   "sells_h1": 2,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $13,083 is below $15,000: too early to tell a launch from a dud",
+    "only 6 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "website",
+     "url": "https://www.hostpayapp.com/gm"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/HOSTPAY_SOL"
+    },
+    {
+     "type": "telegram",
+     "url": "https://t.me/HOSTPAYOfficial"
+    }
+   ],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795850413635,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "5qYyTjP1Y2xfSUUayyEfXP5mxxBg1CEKcdPvmYEApump",
+   "symbol": "Criminul",
+   "name": "Criminul",
+   "url": "https://dexscreener.com/solana/fzs9kfjnyfdth2mapfqedbyr62h4lvms9kypefgfitaa",
+   "dex": "pumpswap",
+   "quote": "XMR",
+   "price": 0.000003199,
+   "mcap": 3193,
+   "liq": 3248,
+   "age_h": 40.7,
+   "chg_m5": 0,
+   "chg_h1": -3.73,
+   "chg_h24": -3.5,
+   "vol_h1": 44,
    "buys_h1": 0,
    "sells_h1": 1,
    "buys_m5": 0,
@@ -5190,65 +5269,14 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $4,685 is below $15,000: too early to tell a launch from a dud",
-    "only 1 trades in the last hour: no real activity"
+    "market cap $3,193 is below $15,000: too early to tell a launch from a dud",
+    "only 1 trades in the last hour: no real activity",
+    "liquidity $3,248 is too thin to exit"
    ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/Jmean__/status/2126353770942484903"
-    }
-   ],
+   "links": [],
    "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795798661978,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "7mSf4uWLkgdkqBfSoxniv5aZ1sDCXCiquJNcisjXpump",
-   "symbol": "Fug",
-   "name": "Fug It",
-   "url": "https://dexscreener.com/solana/2d13zkujs5qruul2amysfvgkplaaqwuygtlrrjynef4k",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000004445,
-   "mcap": 4446,
-   "liq": 3475,
-   "age_h": 15.9,
-   "chg_m5": 0,
-   "chg_h1": -0.85,
-   "chg_h24": -85.03,
-   "vol_h1": 51,
-   "buys_h1": 6,
-   "sells_h1": 3,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $4,446 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 85% in 24h",
-    "only 9 trades in the last hour: no real activity",
-    "liquidity $3,475 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/fugitonpf?s=11"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795801246999,
+   "sources": [],
+   "first_seen": 1795805555000,
    "buzz": null,
    "themes": []
   },
@@ -5259,18 +5287,18 @@
    "url": "https://dexscreener.com/solana/gnqknzrctkpujvhsdcmkvgt2aerzj28bjv4pymzx85jn",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000002492,
-   "mcap": 2492,
-   "liq": 2348,
-   "age_h": 4.4,
-   "chg_m5": 0,
-   "chg_h1": -4.24,
-   "chg_h24": -91.4,
-   "vol_h1": 38,
+   "price": 0.000002482,
+   "mcap": 2483,
+   "liq": 2340,
+   "age_h": 4.6,
+   "chg_m5": -0.08,
+   "chg_h1": -4.76,
+   "chg_h24": -91.43,
+   "vol_h1": 40,
    "buys_h1": 0,
-   "sells_h1": 7,
+   "sells_h1": 9,
    "buys_m5": 0,
-   "sells_m5": 0,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -5278,10 +5306,10 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,492 is below $15,000: too early to tell a launch from a dud",
+    "market cap $2,483 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 91% in 24h",
-    "only 7 trades in the last hour: no real activity",
-    "liquidity $2,348 is too thin to exit"
+    "only 9 trades in the last hour: no real activity",
+    "liquidity $2,340 is too thin to exit"
    ],
    "links": [
     {
@@ -5298,24 +5326,24 @@
    "themes": []
   },
   {
-   "address": "As3XtYSstuVdrVyb6sJZZ77Tu8JvjTBg6S6hgPv4pump",
-   "symbol": "BIAO",
-   "name": "Biaoqing",
-   "url": "https://dexscreener.com/solana/bnr3kt93puxnyccdnngdtnk56u1v1lho3mv9c7sucqpt",
+   "address": "7au7hZMSaKbdzqV3tTLMe9tLbED1GCpxdDrR9cbpump",
+   "symbol": "VolumeBall",
+   "name": "VolumeBall",
+   "url": "https://dexscreener.com/solana/absfxvsa8biewax4ae1gaewbt19inhcwnemvsajxctjq",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000003233,
-   "mcap": 3217,
-   "liq": 3052,
-   "age_h": 67.8,
-   "chg_m5": 0,
-   "chg_h1": 1.24,
-   "chg_h24": -95.75,
-   "vol_h1": 37,
-   "buys_h1": 5,
-   "sells_h1": 2,
+   "price": 0.000002182,
+   "mcap": 2169,
+   "liq": 2057,
+   "age_h": 15.9,
+   "chg_m5": -2.19,
+   "chg_h1": -5.16,
+   "chg_h24": -92.49,
+   "vol_h1": 38,
+   "buys_h1": 0,
+   "sells_h1": 5,
    "buys_m5": 0,
-   "sells_m5": 0,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -5323,64 +5351,26 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $3,217 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 96% in 24h",
-    "only 7 trades in the last hour: no real activity",
-    "liquidity $3,052 is too thin to exit"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795793492217,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "5TkyHpVZCnuW6w21q6mvFQ2Fgyvq3KySHJqfuki9pump",
-   "symbol": "Hyperball",
-   "name": "Hyperball",
-   "url": "https://dexscreener.com/solana/jbk1ddp65eroa9zdv5ggjfx5bug6kd7y8g2gncfsokwo",
-   "dex": "pumpswap",
-   "quote": "HYPE",
-   "price": 0.000003058,
-   "mcap": 3053,
-   "liq": 3107,
-   "age_h": 12,
-   "chg_m5": 0,
-   "chg_h1": -3.64,
-   "chg_h24": -94.05,
-   "vol_h1": 33,
-   "buys_h1": 1,
-   "sells_h1": 9,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $3,053 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 94% in 24h",
-    "only 10 trades in the last hour: no real activity",
-    "liquidity $3,107 is too thin to exit"
+    "market cap $2,169 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 92% in 24h",
+    "only 5 trades in the last hour: no real activity",
+    "liquidity $2,057 is too thin to exit"
    ],
    "links": [
     {
      "type": "Website",
-     "url": "https://hyperballsol.fun/"
+     "url": "https://volumeball.dev/"
     },
     {
      "type": "twitter",
-     "url": "https://x.com/usehyperball"
+     "url": "https://x.com/tryVolumeball"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795821078142,
+   "first_seen": 1795807276868,
    "buzz": null,
    "themes": []
   },
@@ -5394,13 +5384,13 @@
    "price": 0.000001523,
    "mcap": 1524,
    "liq": 2760,
-   "age_h": 18.7,
+   "age_h": 18.9,
    "chg_m5": 0,
-   "chg_h1": -4.6,
+   "chg_h1": -4.74,
    "chg_h24": -94.86,
    "vol_h1": 33,
    "buys_h1": 0,
-   "sells_h1": 2,
+   "sells_h1": 1,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -5412,7 +5402,7 @@
    "red_flags": [
     "market cap $1,524 is below $15,000: too early to tell a launch from a dud",
     "already dumped: down 95% in 24h",
-    "only 2 trades in the last hour: no real activity",
+    "only 1 trades in the last hour: no real activity",
     "liquidity $2,760 is too thin to exit"
    ],
    "links": [
@@ -5443,15 +5433,15 @@
    "price": 0.000006615,
    "mcap": 6616,
    "liq": null,
-   "age_h": 10.1,
-   "chg_m5": -0.46,
+   "age_h": 10.3,
+   "chg_m5": 0,
    "chg_h1": 1.33,
    "chg_h24": 175,
    "vol_h1": 33,
    "buys_h1": 2,
    "sells_h1": 1,
    "buys_m5": 0,
-   "sells_m5": 1,
+   "sells_m5": 0,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -5505,94 +5495,6 @@
    "themes": []
   },
   {
-   "address": "6is11V1KgpybgPdMkYGBacbiT62kqunsvnLDNzDfpump",
-   "symbol": "MONA",
-   "name": "Monacoin",
-   "url": "https://dexscreener.com/solana/eevgnajhdfqcf855ecjttbypfbpvvycshen4b8ox7mht",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000002267,
-   "mcap": 2268,
-   "liq": 2124,
-   "age_h": 41.4,
-   "chg_m5": 0,
-   "chg_h1": -1.73,
-   "chg_h24": -89.13,
-   "vol_h1": 28,
-   "buys_h1": 1,
-   "sells_h1": 3,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $2,268 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 89% in 24h",
-    "only 4 trades in the last hour: no real activity",
-    "liquidity $2,124 is too thin to exit"
-   ],
-   "links": [],
-   "boost": 0,
-   "sources": [],
-   "first_seen": 1795794353033,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "D1PrXpSRW3zXLW1uaak9BuZ4ZpiXKwTYkZHG681xMB5i",
-   "symbol": "GRINCH",
-   "name": "MODERN GRINCH",
-   "url": "https://dexscreener.com/solana/5tuy94szzvsxzjugo593s87psyjpfvvp3zogmaz2ehdw",
-   "dex": "raydium",
-   "quote": "GLDx",
-   "price": 0.00002543,
-   "mcap": 25434,
-   "liq": 11398,
-   "age_h": 89.3,
-   "chg_m5": 0,
-   "chg_h1": 1.62,
-   "chg_h24": 9.73,
-   "vol_h1": 25,
-   "buys_h1": 0,
-   "sells_h1": 1,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 1 trades in the last hour: no real activity"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://moderngrinch.com/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/moderngrinchxxx?s=11"
-    },
-    {
-     "type": "telegram",
-     "url": "https://t.me/ModernGrinch"
-    }
-   ],
-   "boost": 30,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795798661978,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "8sAxwsNzhRj6LF5npy1HtPir94TzSgP1QaczUmGcpump",
    "symbol": "MEMECARD",
    "name": "Meme Card",
@@ -5602,7 +5504,7 @@
    "price": 0.000001875,
    "mcap": 1876,
    "liq": 2129,
-   "age_h": 17.6,
+   "age_h": 17.8,
    "chg_m5": 0,
    "chg_h1": 2.18,
    "chg_h24": -98.3,
@@ -5638,24 +5540,24 @@
    "themes": []
   },
   {
-   "address": "8yYpzQRLQ1T9t8sXj2FaKtoL2QSh2NCahnZdmxbNpump",
-   "symbol": "YARL",
-   "name": "Yarl",
-   "url": "https://dexscreener.com/solana/9ingpxaafdunl7fxyxtte9evdg9aa4awwezlxrskgv5z",
-   "dex": "pumpswap",
+   "address": "3F1HinAgeQRo3KRMM5fMjd4uDVWEpHARKgAuuX1QFw4g",
+   "symbol": "TripleH",
+   "name": "HIlbert Hilbert Hilbert Sahur",
+   "url": "https://dexscreener.com/solana/4tapctikqhx2m1hkre25ckmhzg2ewyulpajgmpkpzl81",
+   "dex": "pumpfun",
    "quote": "SOL",
-   "price": 0.000001578,
-   "mcap": 1576,
-   "liq": 1572,
-   "age_h": 44.4,
-   "chg_m5": 0,
-   "chg_h1": 3.23,
-   "chg_h24": -1.18,
+   "price": 0.000002168,
+   "mcap": 2169,
+   "liq": null,
+   "age_h": 14,
+   "chg_m5": -2.44,
+   "chg_h1": -2.44,
+   "chg_h24": -51.68,
    "vol_h1": 22,
-   "buys_h1": 1,
-   "sells_h1": 0,
+   "buys_h1": 0,
+   "sells_h1": 1,
    "buys_m5": 0,
-   "sells_m5": 0,
+   "sells_m5": 1,
    "holders": null,
    "top10_pct": null,
    "score": 0,
@@ -5663,14 +5565,20 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $1,576 is below $15,000: too early to tell a launch from a dud",
-    "only 1 trades in the last hour: no real activity",
-    "liquidity $1,572 is too thin to exit"
+    "market cap $2,169 is below $15,000: too early to tell a launch from a dud",
+    "only 1 trades in the last hour: no real activity"
    ],
-   "links": [],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/mastern0de3/status/2126431018466922828"
+    }
+   ],
    "boost": 0,
-   "sources": [],
-   "first_seen": 1795789159064,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795815917078,
    "buzz": null,
    "themes": []
   },
@@ -5684,7 +5592,7 @@
    "price": 0.000003094,
    "mcap": 3094,
    "liq": null,
-   "age_h": 18.9,
+   "age_h": 19.2,
    "chg_m5": 0,
    "chg_h1": -1.99,
    "chg_h24": 34.21,
@@ -5718,22 +5626,22 @@
    "themes": []
   },
   {
-   "address": "7au7hZMSaKbdzqV3tTLMe9tLbED1GCpxdDrR9cbpump",
-   "symbol": "VolumeBall",
-   "name": "VolumeBall",
-   "url": "https://dexscreener.com/solana/absfxvsa8biewax4ae1gaewbt19inhcwnemvsajxctjq",
+   "address": "6is11V1KgpybgPdMkYGBacbiT62kqunsvnLDNzDfpump",
+   "symbol": "MONA",
+   "name": "Monacoin",
+   "url": "https://dexscreener.com/solana/eevgnajhdfqcf855ecjttbypfbpvvycshen4b8ox7mht",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000002283,
-   "mcap": 2268,
-   "liq": 2133,
-   "age_h": 15.6,
+   "price": 0.000002318,
+   "mcap": 2319,
+   "liq": 2162,
+   "age_h": 41.7,
    "chg_m5": 0,
-   "chg_h1": -2.3,
-   "chg_h24": -92.14,
-   "vol_h1": 18,
-   "buys_h1": 0,
-   "sells_h1": 6,
+   "chg_h1": 2.89,
+   "chg_h24": -89.2,
+   "vol_h1": 21,
+   "buys_h1": 3,
+   "sells_h1": 3,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -5743,46 +5651,35 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,268 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 92% in 24h",
+    "market cap $2,319 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 89% in 24h",
     "only 6 trades in the last hour: no real activity",
-    "liquidity $2,133 is too thin to exit"
+    "liquidity $2,162 is too thin to exit"
    ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://volumeball.dev/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/tryVolumeball"
-    }
-   ],
+   "links": [],
    "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795807276868,
+   "sources": [],
+   "first_seen": 1795794353033,
    "buzz": null,
    "themes": []
   },
   {
-   "address": "A7xhY12G388pXGsBuweS6NkyZyv53ogH1dNfEkCMpump",
-   "symbol": "ascend",
-   "name": "ascend",
-   "url": "https://dexscreener.com/solana/6tsimz6out9rr5zrbk1rhyhgsy3bchzy6gcyazemxi4r",
-   "dex": "pumpfun",
+   "address": "H2PjSbA2365uxBUJ3EBePSm67AYPuRMgcyswBnrVpump",
+   "symbol": "MAYA",
+   "name": "Maya The Samoyed",
+   "url": "https://dexscreener.com/solana/cdwpvwthmm9bxmwjrv3bh17trbt1tuloytcx86xny1wb",
+   "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000002885,
-   "mcap": 2885,
-   "liq": null,
-   "age_h": 2.5,
+   "price": 0.00000146,
+   "mcap": 1460,
+   "liq": 1617,
+   "age_h": 14.1,
    "chg_m5": 0,
-   "chg_h1": -1.62,
-   "chg_h24": 10.29,
-   "vol_h1": 18,
-   "buys_h1": 0,
-   "sells_h1": 7,
+   "chg_h1": 0.91,
+   "chg_h24": -96.31,
+   "vol_h1": 19,
+   "buys_h1": 1,
+   "sells_h1": 0,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -5792,24 +5689,122 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,885 is below $15,000: too early to tell a launch from a dud",
-    "only 7 trades in the last hour: no real activity"
+    "market cap $1,460 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 96% in 24h",
+    "only 1 trades in the last hour: no real activity",
+    "liquidity $1,617 is too thin to exit"
    ],
    "links": [
     {
-     "type": "twitter",
-     "url": "https://x.com/ascendcatpf/status/2126592996984471650"
+     "type": "Website",
+     "url": "https://mayasite.lol/"
     },
     {
-     "type": "instagram",
-     "url": "https://www.instagram.com/reels/DgMEThDsS2z/"
+     "type": "twitter",
+     "url": "https://x.com/mayasol_x"
     }
    ],
    "boost": 0,
    "sources": [
     "new profile"
    ],
-   "first_seen": 1795854739086,
+   "first_seen": 1795815058087,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "5TkyHpVZCnuW6w21q6mvFQ2Fgyvq3KySHJqfuki9pump",
+   "symbol": "Hyperball",
+   "name": "Hyperball",
+   "url": "https://dexscreener.com/solana/jbk1ddp65eroa9zdv5ggjfx5bug6kd7y8g2gncfsokwo",
+   "dex": "pumpswap",
+   "quote": "HYPE",
+   "price": 0.000003045,
+   "mcap": 3041,
+   "liq": 3099,
+   "age_h": 12.3,
+   "chg_m5": -0.43,
+   "chg_h1": -4.57,
+   "chg_h24": -94.08,
+   "vol_h1": 18,
+   "buys_h1": 0,
+   "sells_h1": 10,
+   "buys_m5": 0,
+   "sells_m5": 1,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $3,041 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 94% in 24h",
+    "only 10 trades in the last hour: no real activity",
+    "liquidity $3,099 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://hyperballsol.fun/"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/usehyperball"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795821078142,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "CGEYuiXo5BHZRr9QNmdGz4DqXJ7UvWCP5jRCuFNgpump",
+   "symbol": "Winston",
+   "name": "Winston",
+   "url": "https://dexscreener.com/solana/cddncatkheum8mgkrqazxa5uaxdk7qgvykgde1kjtgmv",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000002077,
+   "mcap": 2078,
+   "liq": null,
+   "age_h": 65.8,
+   "chg_m5": 0,
+   "chg_h1": -3.05,
+   "chg_h24": -10.73,
+   "vol_h1": 16,
+   "buys_h1": 0,
+   "sells_h1": 2,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $2,078 is below $15,000: too early to tell a launch from a dud",
+    "only 2 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/BelieverFomo/status/2126318231308636545"
+    },
+    {
+     "type": "reddit",
+     "url": "https://www.reddit.com/r/cats/comments/1y4qga1/i_just_want_the_world_to_know_he_existed/"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795789159064,
    "buzz": null,
    "themes": []
   },
@@ -5823,13 +5818,13 @@
    "price": 0.000002253,
    "mcap": 2253,
    "liq": null,
-   "age_h": 16.7,
+   "age_h": 16.9,
    "chg_m5": 0,
-   "chg_h1": -1.19,
+   "chg_h1": -1.3,
    "chg_h24": -1.26,
    "vol_h1": 15,
    "buys_h1": 1,
-   "sells_h1": 4,
+   "sells_h1": 3,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -5840,7 +5835,7 @@
    "concerns": [],
    "red_flags": [
     "market cap $2,253 is below $15,000: too early to tell a launch from a dud",
-    "only 5 trades in the last hour: no real activity"
+    "only 4 trades in the last hour: no real activity"
    ],
    "links": [
     {
@@ -5870,7 +5865,7 @@
    "price": 0.000003209,
    "mcap": 3209,
    "liq": null,
-   "age_h": 4.2,
+   "age_h": 4.4,
    "chg_m5": 0,
    "chg_h1": -1.39,
    "chg_h24": 39.51,
@@ -5917,10 +5912,10 @@
    "price": 0.00002983,
    "mcap": 29832,
    "liq": 7376,
-   "age_h": 331.5,
+   "age_h": 331.8,
    "chg_m5": 0,
    "chg_h1": -3.11,
-   "chg_h24": -2.06,
+   "chg_h24": -12.77,
    "vol_h1": 14,
    "buys_h1": 1,
    "sells_h1": 6,
@@ -5969,7 +5964,7 @@
    "price": 0.000002236,
    "mcap": 2236,
    "liq": null,
-   "age_h": 14.8,
+   "age_h": 15.1,
    "chg_m5": 0,
    "chg_h1": -1.07,
    "chg_h24": -8.66,
@@ -6007,53 +6002,6 @@
    "themes": []
   },
   {
-   "address": "4ABXJEK62bfKqPiCbSsUtmb4nfkCNPDGtvLhwQcAWNjc",
-   "symbol": "reee",
-   "name": "reeeeeeeeeeeeeeeeeeeee",
-   "url": "https://dexscreener.com/solana/gd8s8tb2ftuehghj4sbktteqjbr9nruz6hyncupky9tf",
-   "dex": "raydium",
-   "quote": "SOL",
-   "price": 0.00002353,
-   "mcap": 23518,
-   "liq": 16905,
-   "age_h": 23726.9,
-   "chg_m5": -1.24,
-   "chg_h1": -1.05,
-   "chg_h24": 96.02,
-   "vol_h1": 11,
-   "buys_h1": 1,
-   "sells_h1": 2,
-   "buys_m5": 0,
-   "sells_m5": 1,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "only 3 trades in the last hour: no real activity",
-    "989 days old: not early"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://bit.ly/3Vf7kNO"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/AnimalLoverDev/status/2126361166678982855"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795805555000,
-   "buzz": null,
-   "themes": []
-  },
-  {
    "address": "EqaMtkdjUAHubn2Xn3vMrCCtjz8XQZ5xVDHPn4phpump",
    "symbol": "REP",
    "name": "Replicants",
@@ -6063,10 +6011,10 @@
    "price": 0.00006861,
    "mcap": 68613,
    "liq": 17329,
-   "age_h": 47.6,
+   "age_h": 47.9,
    "chg_m5": 0,
    "chg_h1": -0.22,
-   "chg_h24": 10.76,
+   "chg_h24": 8.38,
    "vol_h1": 10,
    "buys_h1": 0,
    "sells_h1": 1,
@@ -6104,6 +6052,100 @@
    "themes": []
   },
   {
+   "address": "4ABXJEK62bfKqPiCbSsUtmb4nfkCNPDGtvLhwQcAWNjc",
+   "symbol": "reee",
+   "name": "reeeeeeeeeeeeeeeeeeeee",
+   "url": "https://dexscreener.com/solana/gd8s8tb2ftuehghj4sbktteqjbr9nruz6hyncupky9tf",
+   "dex": "raydium",
+   "quote": "SOL",
+   "price": 0.00002353,
+   "mcap": 23518,
+   "liq": 16905,
+   "age_h": 23727.1,
+   "chg_m5": 0,
+   "chg_h1": -1.24,
+   "chg_h24": 96.02,
+   "vol_h1": 9,
+   "buys_h1": 0,
+   "sells_h1": 1,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "only 1 trades in the last hour: no real activity",
+    "989 days old: not early"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://bit.ly/3Vf7kNO"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/AnimalLoverDev/status/2126361166678982855"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795805555000,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "A7xhY12G388pXGsBuweS6NkyZyv53ogH1dNfEkCMpump",
+   "symbol": "ascend",
+   "name": "ascend",
+   "url": "https://dexscreener.com/solana/6tsimz6out9rr5zrbk1rhyhgsy3bchzy6gcyazemxi4r",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000002885,
+   "mcap": 2885,
+   "liq": null,
+   "age_h": 2.8,
+   "chg_m5": 0,
+   "chg_h1": -1.01,
+   "chg_h24": 10.29,
+   "vol_h1": 8,
+   "buys_h1": 0,
+   "sells_h1": 5,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $2,885 is below $15,000: too early to tell a launch from a dud",
+    "only 5 trades in the last hour: no real activity"
+   ],
+   "links": [
+    {
+     "type": "twitter",
+     "url": "https://x.com/ascendcatpf/status/2126592996984471650"
+    },
+    {
+     "type": "instagram",
+     "url": "https://www.instagram.com/reels/DgMEThDsS2z/"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795854739086,
+   "buzz": null,
+   "themes": []
+  },
+  {
    "address": "EWCfhnj8YjPEbvQXEtwkxMT54WhBpZBLQDFncRoypump",
    "symbol": "Pair",
    "name": "Pair",
@@ -6113,10 +6155,10 @@
    "price": 0.000001684,
    "mcap": 1681,
    "liq": 1718,
-   "age_h": 46.2,
+   "age_h": 46.4,
    "chg_m5": 0,
    "chg_h1": -0.99,
-   "chg_h24": -15.41,
+   "chg_h24": -14.41,
    "vol_h1": 6,
    "buys_h1": 0,
    "sells_h1": 1,
@@ -6141,172 +6183,21 @@
    "themes": []
   },
   {
-   "address": "8N6WF11pLUUeUu8b1HbnDJHTzyL4bbr8YRdPS6Znpump",
-   "symbol": "PRISMEICE",
-   "name": "PRISMEICE",
-   "url": "https://dexscreener.com/solana/6zxqjn9jczxb7hnwyxijds72jenspseubo7bkl2k4jeb",
+   "address": "As3XtYSstuVdrVyb6sJZZ77Tu8JvjTBg6S6hgPv4pump",
+   "symbol": "BIAO",
+   "name": "Biaoqing",
+   "url": "https://dexscreener.com/solana/bnr3kt93puxnyccdnngdtnk56u1v1lho3mv9c7sucqpt",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000001797,
-   "mcap": 1798,
-   "liq": 1882,
-   "age_h": 7.6,
-   "chg_m5": -2.52,
-   "chg_h1": -1.41,
-   "chg_h24": -93.97,
-   "vol_h1": 4,
-   "buys_h1": 1,
-   "sells_h1": 3,
-   "buys_m5": 0,
-   "sells_m5": 1,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $1,798 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 94% in 24h",
-    "only 4 trades in the last hour: no real activity",
-    "liquidity $1,882 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "website",
-     "url": "https://prismeice.xyz/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/prismeice"
-    }
-   ],
-   "boost": 100,
-   "sources": [
-    "paid boost"
-   ],
-   "first_seen": 1795838302811,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "B7gcRhyzBcyUsLoUinjh6rsmjtfYWHD5b7bz4EHxpump",
-   "symbol": "CELL",
-   "name": "Cell",
-   "url": "https://dexscreener.com/solana/5r6gwllpsjbk2d2pweyaykkp2a6rymmz8pxipe3una1g",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000001576,
-   "mcap": 1529,
-   "liq": 1577,
-   "age_h": 16.6,
+   "price": 0.000003233,
+   "mcap": 3217,
+   "liq": 3052,
+   "age_h": 68,
    "chg_m5": 0,
-   "chg_h1": 0.15,
-   "chg_h24": -94.57,
-   "vol_h1": 4,
-   "buys_h1": 1,
-   "sells_h1": 1,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $1,529 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 95% in 24h",
-    "only 2 trades in the last hour: no real activity",
-    "liquidity $1,577 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://cellpad.fun/"
-    },
-    {
-     "type": "Docs",
-     "url": "https://cellpad.fun/docs"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/cellpadfun"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795802971843,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "3AYshf6BKsM9HVxbPk6vZ3QyWC5H4zTetAANynLrDmmZ",
-   "symbol": "DIH",
-   "name": "DIH",
-   "url": "https://dexscreener.com/solana/brdr72t3cickt4k6tta7hfrkaq7dskm2wm5tgvn53gkh",
-   "dex": "pumpswap",
-   "quote": "SOL",
-   "price": 0.000001872,
-   "mcap": 1872,
-   "liq": 1850,
-   "age_h": 21.9,
-   "chg_m5": 0,
-   "chg_h1": 0.29,
-   "chg_h24": -93.7,
-   "vol_h1": 4,
-   "buys_h1": 1,
-   "sells_h1": 1,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $1,872 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 94% in 24h",
-    "only 2 trades in the last hour: no real activity",
-    "liquidity $1,850 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "Website",
-     "url": "https://holdthisdih.xyz/"
-    },
-    {
-     "type": "twitter",
-     "url": "https://x.com/holdthisdih"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795779701720,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "BgWhPWeHbHEhWyh8mbvKGJcK4pxubJo7PM9cQ5ZBkLzg",
-   "symbol": "Whallet",
-   "name": "Whallet",
-   "url": "https://dexscreener.com/solana/cyuclvcwnwnjmsfdnrv3np6xbgasd8sbwycxdpdqchw8",
-   "dex": "pumpfun",
-   "quote": "SOL",
-   "price": 0.000002029,
-   "mcap": 2030,
-   "liq": null,
-   "age_h": 18.1,
-   "chg_m5": 0,
-   "chg_h1": -1.07,
-   "chg_h24": -16.84,
+   "chg_h1": -0.15,
+   "chg_h24": -95.21,
    "vol_h1": 3,
-   "buys_h1": 0,
+   "buys_h1": 2,
    "sells_h1": 1,
    "buys_m5": 0,
    "sells_m5": 0,
@@ -6317,65 +6208,15 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,030 is below $15,000: too early to tell a launch from a dud",
-    "only 1 trades in the last hour: no real activity"
+    "market cap $3,217 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 95% in 24h",
+    "only 3 trades in the last hour: no real activity",
+    "liquidity $3,052 is too thin to exit"
    ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/OnchainWhallet/status/2126357893721026890?a=nGo89sERxP7C9GB99yw&s=20"
-    }
-   ],
+   "links": [],
    "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795798661978,
-   "buzz": null,
-   "themes": []
-  },
-  {
-   "address": "39nuVgw8RCVC8PgGuuuaa8WoAERA61cTw85oUvBLT2va",
-   "symbol": "COMPUTE",
-   "name": "ComputeCoin",
-   "url": "https://dexscreener.com/solana/6rsk4radbmwzuvpq6omvt7djbsjxbbgusppdgpbrdv4z",
-   "dex": "pumpswap",
-   "quote": "NVDAx",
-   "price": 0.000003212,
-   "mcap": 3212,
-   "liq": 3259,
-   "age_h": 20.4,
-   "chg_m5": 0,
-   "chg_h1": -1.06,
-   "chg_h24": -92.99,
-   "vol_h1": 2,
-   "buys_h1": 1,
-   "sells_h1": 3,
-   "buys_m5": 0,
-   "sells_m5": 0,
-   "holders": null,
-   "top10_pct": null,
-   "score": 0,
-   "verdict": "SKIP",
-   "reasons": [],
-   "concerns": [],
-   "red_flags": [
-    "market cap $3,212 is below $15,000: too early to tell a launch from a dud",
-    "already dumped: down 93% in 24h",
-    "only 4 trades in the last hour: no real activity",
-    "liquidity $3,259 is too thin to exit"
-   ],
-   "links": [
-    {
-     "type": "twitter",
-     "url": "https://x.com/ComputeCoinSol"
-    }
-   ],
-   "boost": 0,
-   "sources": [
-    "new profile"
-   ],
-   "first_seen": 1795799523048,
+   "sources": [],
+   "first_seen": 1795793492217,
    "buzz": null,
    "themes": []
   },
@@ -6389,7 +6230,7 @@
    "price": 0.000001395,
    "mcap": 1394,
    "liq": 1392,
-   "age_h": 4.5,
+   "age_h": 4.7,
    "chg_m5": 0,
    "chg_h1": -0.62,
    "chg_h24": -95.28,
@@ -6438,7 +6279,7 @@
    "price": 0.000003661,
    "mcap": 3661,
    "liq": null,
-   "age_h": 17.9,
+   "age_h": 18.2,
    "chg_m5": 0,
    "chg_h1": -0.01,
    "chg_h24": 81.1,
@@ -6485,7 +6326,7 @@
    "price": 0.000001702,
    "mcap": 1699,
    "liq": 1713,
-   "age_h": 14.9,
+   "age_h": 15.2,
    "chg_m5": 0,
    "chg_h1": 1.97,
    "chg_h24": -94.23,
@@ -6527,16 +6368,16 @@
    "url": "https://dexscreener.com/solana/e8hxkawm6hmkkzlicfykl686qtfb5ctbjoq3knhtj6ee",
    "dex": "pumpswap",
    "quote": "SOL",
-   "price": 0.000002091,
-   "mcap": 2091,
-   "liq": 2225,
-   "age_h": 44.1,
+   "price": 0.000002081,
+   "mcap": 2081,
+   "liq": 2215,
+   "age_h": 44.3,
    "chg_m5": 0,
-   "chg_h1": -2.07,
-   "chg_h24": -6.4,
+   "chg_h1": -2.55,
+   "chg_h24": -6.73,
    "vol_h1": 1,
    "buys_h1": 0,
-   "sells_h1": 1,
+   "sells_h1": 2,
    "buys_m5": 0,
    "sells_m5": 0,
    "holders": null,
@@ -6546,9 +6387,9 @@
    "reasons": [],
    "concerns": [],
    "red_flags": [
-    "market cap $2,091 is below $15,000: too early to tell a launch from a dud",
-    "only 1 trades in the last hour: no real activity",
-    "liquidity $2,225 is too thin to exit"
+    "market cap $2,081 is below $15,000: too early to tell a launch from a dud",
+    "only 2 trades in the last hour: no real activity",
+    "liquidity $2,215 is too thin to exit"
    ],
    "links": [],
    "boost": 0,
@@ -6567,7 +6408,7 @@
    "price": 0.000002221,
    "mcap": 2221,
    "liq": null,
-   "age_h": 16.2,
+   "age_h": 16.5,
    "chg_m5": 0,
    "chg_h1": -0.17,
    "chg_h24": 7.78,
@@ -6599,6 +6440,93 @@
    "first_seen": 1795806416651,
    "buzz": null,
    "themes": []
+  },
+  {
+   "address": "AEDu1VnpNa6xPcWg6ZEqomA45nWzUBdo7VDqTpCPpump",
+   "symbol": "boco",
+   "name": "bocoman",
+   "url": "https://dexscreener.com/solana/4uunbndzuxgg16cjkm4ugwjekkkbwbx5hh1cxlmmz28m",
+   "dex": "pumpfun",
+   "quote": "SOL",
+   "price": 0.000003562,
+   "mcap": 3563,
+   "liq": null,
+   "age_h": 17.5,
+   "chg_m5": 0,
+   "chg_h1": -1.31,
+   "chg_h24": 24.47,
+   "vol_h1": 1,
+   "buys_h1": 1,
+   "sells_h1": 0,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $3,563 is below $15,000: too early to tell a launch from a dud",
+    "only 1 trades in the last hour: no real activity"
+   ],
+   "links": [],
+   "boost": 10,
+   "sources": [
+    "paid boost"
+   ],
+   "first_seen": 1795802971843,
+   "buzz": null,
+   "themes": []
+  },
+  {
+   "address": "AYGuBsxYTKUSPKf9vwGqCuGDGVpjj4n2EAgDresBpump",
+   "symbol": "TOGI",
+   "name": "Togi Coin",
+   "url": "https://dexscreener.com/solana/ehb96g5obwok4l4wdd5kftni6zbhijditmnpdlytspd5",
+   "dex": "pumpswap",
+   "quote": "SOL",
+   "price": 0.000001352,
+   "mcap": 1353,
+   "liq": 1366,
+   "age_h": 10.3,
+   "chg_m5": 0,
+   "chg_h1": -0.41,
+   "chg_h24": -95.45,
+   "vol_h1": 1,
+   "buys_h1": 0,
+   "sells_h1": 1,
+   "buys_m5": 0,
+   "sells_m5": 0,
+   "holders": null,
+   "top10_pct": null,
+   "score": 0,
+   "verdict": "SKIP",
+   "reasons": [],
+   "concerns": [],
+   "red_flags": [
+    "market cap $1,353 is below $15,000: too early to tell a launch from a dud",
+    "already dumped: down 95% in 24h",
+    "only 1 trades in the last hour: no real activity",
+    "liquidity $1,366 is too thin to exit"
+   ],
+   "links": [
+    {
+     "type": "Website",
+     "url": "https://x.com/ShaneStoffer/status/2126479414179266749"
+    },
+    {
+     "type": "twitter",
+     "url": "https://x.com/tciaik1/status/2126480728171176369"
+    }
+   ],
+   "boost": 0,
+   "sources": [
+    "new profile"
+   ],
+   "first_seen": 1795827960782,
+   "buzz": null,
+   "themes": []
   }
  ],
  "closed_this_run": [],
@@ -6613,10 +6541,6 @@
   },
   {
    "word": "while",
-   "coins": 3
-  },
-  {
-   "word": "pumpfun",
    "coins": 3
   }
  ],
